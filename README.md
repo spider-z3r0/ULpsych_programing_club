@@ -25,4 +25,6 @@ You should make a folder on your computer called 'UL Programming club' and you s
  2. Praparation
  3. Data
 
-and each week you will download the jupyter notebook (.ipynb file) into the 'src' so that you can run them from there. 
+and each week you will download the jupyter notebook (.ipynb file) into the 'src' folder on your computer so that you can run them from there. 
+
+Before that, if you have not installed anaconda yet, you can go into the preparation folder and read through the 'Download and install anaconda' word document to help you get it installed. 
