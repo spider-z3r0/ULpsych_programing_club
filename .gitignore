@@ -63,6 +63,7 @@ instance/
 
 # Scrapy stuff:
 .scrapy
+scratch.py
 
 # Sphinx documentation
 docs/_build/
@@ -112,3 +113,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# files to ignore
+src/scratch.py
