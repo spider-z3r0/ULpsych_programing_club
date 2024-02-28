@@ -95,6 +95,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+pss
+
 
 # Spyder project settings
 .spyderproject
@@ -117,3 +119,4 @@ dmypy.json
 # files to ignore
 src/scratch.py
 src/scratch.ipynb
+.Rproj.user

@@ -1,0 +1,23 @@
+---
+title: "test_presentation"
+format: "revealjs"
+editor: "visual"
+engine: jupyter
+---
+
+# Hello World
+
+```{python}
+#| label: hello world
+#| echo: true
+#| eval: true
+
+string = "Hello, World!"
+
+print(string)
+
+
+
+```
+
+My value is `{python} string`
