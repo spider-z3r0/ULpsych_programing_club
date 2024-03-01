@@ -6,6 +6,7 @@ format:
       reference-doc: images/celestial.pptx
 editor: "visual"
 engine: jupyter
+bibliography: references.bib
 ---
 
 # Welcome! {background-color="blue"}
@@ -41,9 +42,9 @@ Let's address the elephant in the room.
 
 ## 
 
-### or maybe... 
+### or maybe...
 
-![](images/Kev aged 17.jpg){width="254"}
+![](images/Kev%20aged%2017.jpg){width="254"}
 
 ## But in reality...
 
@@ -54,14 +55,13 @@ These tools were developed by, and are used by, people from all walks of life
 ![](images/Grace_Hopper_Team.jpg)
 
 ## 
-:::: {.columns}
 
+::: columns
 ::: {.column width="30%"}
 So let's try to keep in mind that ...
 :::
 
 ::: {.column width="30%"}
-We are that which we most frequently do, excelence then, is not an act but a habit. - Will Durant (paraphrasing Aristotle)[@durant1933story]
+We are that which we most frequently do, excellence then, is not an act but a habit. - [@durant1933story paraphrasing Aristotle ]
 :::
-
-::::
+:::
