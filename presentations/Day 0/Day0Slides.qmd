@@ -1,0 +1,54 @@
+---
+title: "Session 0 - A Whole New World"
+format: 
+   pptx:
+      incremental: true
+      reference-doc: images/celestial.pptx
+editor: "visual"
+engine: jupyter
+---
+
+# Welcome! {background-color="blue"}
+
+Welcome to the first session of this summer school!
+
+My name is Kev O Malley, and I'm the nerd who'll be going through this material with you
+
+![](images/rain_hill.jpg){width="373"}
+
+## In this session, we're going to:
+
+1.  Give you an overview of the course:
+    -   What we're going to be doing (learning together).
+    -   Why we're doing it (to empower each other).
+    -   What you can expect to get out of it (a sense of agency and efficacy).
+2.  Introduce you to the tools we're going to be using (and mention some of the alternatives).
+    -   Quarto (as a tool for writing documents, reports, and papers).
+    -   Python (as a tool for doing data analysis and visualisation).
+    -   R (as an alternative to Python for doing data analysis and visualisation).
+    -   Git (as a tool for collaboration, managing your documents and code)
+3.  Accompany you through the process of producing your first documents using these tools.
+
+# But first...
+
+Let's address the elephant in the room.
+
+## 
+
+### When you think of people who work with computers you might think of people who look like..
+
+![](images/Dexter.jpg){width="263"}
+
+## 
+
+### or maybe... 
+
+![](images/Kev aged 17.jpg){width="254"}
+
+## But in reality...
+
+These tools were developed by, and are used by, people from all walks of life
+
+## AND ALWAYS HAVE BEEN
+
+![](images/Grace_Hopper_Team.jpg)
