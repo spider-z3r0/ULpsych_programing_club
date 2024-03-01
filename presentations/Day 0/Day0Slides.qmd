@@ -52,3 +52,16 @@ These tools were developed by, and are used by, people from all walks of life
 ## AND ALWAYS HAVE BEEN
 
 ![](images/Grace_Hopper_Team.jpg)
+
+## 
+:::: {.columns}
+
+::: {.column width="30%"}
+So let's try to keep in mind that ...
+:::
+
+::: {.column width="30%"}
+We are that which we most frequently do, excelence then, is not an act but a habit. - Will Durant (paraphrasing Aristotle)[@durant1933story]
+:::
+
+::::
