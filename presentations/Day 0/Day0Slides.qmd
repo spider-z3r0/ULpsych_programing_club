@@ -5,7 +5,7 @@ format:
       incremental: true
       reference-doc: images/celestial.pptx
 editor: "visual"
-engine: jupyter
+jupyter: pss
 bibliography: references.bib
 ---
 
@@ -15,7 +15,9 @@ Welcome to the first session of this summer school!
 
 My name is Kev O Malley, and I'm the nerd who'll be going through this material with you
 
-![](images/rain_hill.jpg){width="373"}
+![](images/rain_hill.jpg)
+
+------------------------------------------------------------------------
 
 ## In this session, we're going to:
 
@@ -30,21 +32,19 @@ My name is Kev O Malley, and I'm the nerd who'll be going through this material 
     -   Git (as a tool for collaboration, managing your documents and code)
 3.  Accompany you through the process of producing your first documents using these tools.
 
+------------------------------------------------------------------------
+
 # But first...
 
 Let's address the elephant in the room.
 
-## 
+When you think of people who work with computer programming, you may think of people that look like this...
 
-### When you think of people who work with computers you might think of people who look like..
+![](images/Dexter.jpg){width="219"}
 
-![](images/Dexter.jpg){width="263"}
+Or maybe like this
 
-## 
-
-### or maybe...
-
-![](images/Kev%20aged%2017.jpg){width="254"}
+![](images/Kev aged 17.jpg)
 
 ## But in reality...
 
@@ -54,14 +54,18 @@ These tools were developed by, and are used by, people from all walks of life
 
 ![](images/Grace_Hopper_Team.jpg)
 
-## 
+## So here's a couple of quotes that inspired these materials
 
-::: columns
-::: {.column width="30%"}
-So let's try to keep in mind that ...
-:::
+'The Great Being saith: Regard [humanity] as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'
+[@bahai_maqsud]
 
-::: {.column width="30%"}
-We are that which we most frequently do, excellence then, is not an act but a habit. - [@durant1933story paraphrasing Aristotle ]
-:::
+"We are what we *repeatedly do*. Excellence, therefore, is not an act, but a _**habit**_.”
+[@durant1933story, paraphrasing Aristotle]
+
+# Structure of the course
+Lorem ispsum
+
+# References
+
+::: {#refs}
 :::
