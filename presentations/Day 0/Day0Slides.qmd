@@ -1,23 +1,34 @@
 ---
-title: "Session 0 - A Whole New World"
+title: "Session 0 - Introductions all round"
 format: 
-   pptx:
+   revealjs:
       incremental: true
-      reference-doc: images/celestial.pptx
 editor: "visual"
 jupyter: pss
 bibliography: references.bib
 ---
 
-# Welcome! {background-color="blue"}
 
-Welcome to the first session of this summer school!
+# Welcome!
 
-My name is Kev O Malley, and I'm the nerd who'll be going through this material with you
+My name is Kev O Malley, and I'm the nerd who'll be accompanying you through this material.
 
-![](images/rain_hill.jpg)
+<div align="center">
+  <img src="images/rain_hill.jpg" alt="description of image" height="500px"/>
+</div>
 
-------------------------------------------------------------------------
+
+## Acknowledgements
+This content is building on some other really amazing work by some really amazing people, and I'll be sure to give them credit as we go along, but just to note that this material is heavily inspired by: 
+
+- [The python crash course](https://nostarch.com/python-crash-course-3rd-edition) [@MatthesPython2022]
+- [Pandas for everyone](https://www.apress.com/gp/book/9781484259618) [@chen2017pandas]
+    - There's a second edition of this, I haven't read it, but I'm sure it's great!
+- [Harvard's CS50](https://cs50.harvard.edu/x/2022/) [@CS50Scratch2020]
+    - This is free online and it's genuinely excellent, they also have intros to python and r which will go deeper than this course.
+- A deep and abiding hatred of SPSS and MS Word (excel is great though, don't @ me)
+
+
 
 ## In this session, we're going to:
 
@@ -25,14 +36,18 @@ My name is Kev O Malley, and I'm the nerd who'll be going through this material 
     -   What we're going to be doing (learning together).
     -   Why we're doing it (to empower each other).
     -   What you can expect to get out of it (a sense of agency and efficacy).
+
+## In this session, we're going to:
 2.  Introduce you to the tools we're going to be using (and mention some of the alternatives).
     -   Quarto (as a tool for writing documents, reports, and papers).
     -   Python (as a tool for doing data analysis and visualisation).
     -   R (as an alternative to Python for doing data analysis and visualisation).
     -   Git (as a tool for collaboration, managing your documents and code)
+
+## In this session, we're going to:
 3.  Accompany you through the process of producing your first documents using these tools.
 
-------------------------------------------------------------------------
+
 
 # But first...
 
@@ -40,11 +55,19 @@ Let's address the elephant in the room.
 
 When you think of people who work with computer programming, you may think of people that look like this...
 
-![](images/Dexter.jpg){width="219"}
+<div align="center">
+  <img src="images/Dexter.jpg" alt="description of image" height="500px"/>
+</div>
+
+
+---
 
 Or maybe like this
 
-![](images/Kev aged 17.jpg)
+<div align="center">
+  <img src="images/Kev aged 17.jpg" alt="description of image" height="500px"/>
+</div>
+
 
 ## But in reality...
 
@@ -54,18 +77,83 @@ These tools were developed by, and are used by, people from all walks of life
 
 ![](images/Grace_Hopper_Team.jpg)
 
-## So here's a couple of quotes that inspired these materials
+##  Inspirations
 
-'The Great Being saith: Regard [humanity] as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'
+- 'The Great Being saith: Regard [humanity] as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'
 [@bahai_maqsud]
 
-"We are what we *repeatedly do*. Excellence, therefore, is not an act, but a _**habit**_.”
+ - "We are what we *repeatedly do*. Excellence, therefore, is not an act, but a _**habit**_.”
 [@durant1933story, paraphrasing Aristotle]
 
-# Structure of the course
-Lorem ispsum
+ - ### So let's get started!
+
+
+# A new way of working - Let the computer do the boring stuff
+
+## A brief history of documents
+
+-   In the beginning, there was the cave. 
+    -   And the cave was good, but it was also cold and dark, and really heavy to carry around.
+<div>
+    <img src="images/cave.jpg" alt="description of image" height="500px"/>
+</div>
+
+## A brief history of documents
+-  Then there was the scroll, of papyrus or linen or hide. 
+    -   And the scroll was good, but it was also really fragile and hard to write on (and really heavy to carry around).
+<div>
+    <img src="images/scroll.jpg" alt="description of image" height="500px"/>
+</div>
+
+## A brief history of documents
+-  Then there was the codex, of parchment or paper. 
+    -   And the codex was good, illumined with beautiful art by monks and nuns (and really heavy to carry around). 
+<div>
+    <img src="images\manuscript.jpeg" alt="description of image" height="500px"/>
+</div>
+
+## A brief history of documents
+-  Then there was the printing press, and the typesetter. 
+    -   And the documents were good, but the machinery was hard to use requiring significant expertise (and really heavy to carry around).
+<div>
+    <img src="images/press.jpg" alt="description of image" height="500px"/>
+</div>
+
+## A brief history of documents
+-  Then there was the computer, and the word processor. 
+    -   And the documents were good, but the software was hard to use and required significant expertise (and really heavy to carry around).
+<div>
+    <img src="images/word.jpg" alt="description of image" height="500px"/>
+</div>
+
+## A brief history of documents
+-  Then there was the internet, and the web browser. 
+    -   And the documents were good, but the text was difficult to parse and required significant expertise (but the documents were really easy to carry around... maybe too easy).
+<div>
+    <img src="images/browser.jpg" alt="description of image" height="500px"/>
+</div>
+
+## A brief history of documents
+With each of these advances, the process of creating and sharing documents has become easier and more accessible, but the tools have also become more complex and required more expertise to use effectively, meaning that people who work with documents had to have more and more training and experience to be able to use them effectively.
+
+But there was another way...
+
+## A brief history of documents
+While writers and researchers were using the tools of the printer and the graphic designer, computer programmers were developing tools to help them write and share their work more effectively. 
+    - 
+<div>
+    <img src="images\programmer.jpg" alt="description of image" height="500px"/>
+</div>
+
+
+
+
+
+
+# Links
+ - [Quarto](https://quarto.org)
+ - [VS code quarto overview](https://quarto.org/docs/tools/vscode.html)
 
 # References
-
 ::: {#refs}
 :::
