@@ -51,7 +51,7 @@ This content is building on some other really amazing work by some really amazin
 
 # But first...
 
-Let's address the elephant in the room.
+Let's address the elephant(s) in the room.
 
 When you think of people who work with computer programming, you may think of people that look like this...
 
@@ -85,8 +85,15 @@ These tools were developed by, and are used by, people from all walks of life
  - "We are what we *repeatedly do*. Excellence, therefore, is not an act, but a _**habit**_.”
 [@durant1933story, paraphrasing Aristotle]
 
- - ### So let's get started!
+---
 
+# You're very smart, but...
+
+ - ## You're here to **learn**. 
+ - ## Not to be an expert. 
+ - ## So relax and enjoy the process of learning. 
+
+---
 
 # A new way of working - Let the computer do the boring stuff
 
@@ -140,10 +147,81 @@ But there was another way...
 
 ## A brief history of documents
 While writers and researchers were using the tools of the printer and the graphic designer, computer programmers were developing tools to help them write and share their work more effectively. 
-    - 
-<div>
-    <img src="images\programmer.jpg" alt="description of image" height="500px"/>
-</div>
+
+- Tools like the IDE (integrated development environment) for writing text. 
+- Tools like Markdown, quarto, and restructured text to allow you to just write and not worry about the formatting.
+- Tools like the version control system for sharing and collaborating on documents (without having to email them back and forth).
+
+
+## You're here to learn these tools
+
+![](images/brent.jpg){fig-align="center" height=300}
+
+
+# But why?
+
+
+## Running Code with a Mouse
+- Every click and action with a mouse on a computer triggers underlying code.
+- Simple actions like opening a file or copying text are coded instructions being executed.
+
+
+## Repetition and Efficiency
+- Manually repeating an action with a mouse means running the same set of code multiple times.
+- This approach can be inefficient and time-consuming for repetitive tasks.
+
+
+## Writing Code for Automation
+- By **writing** code instead, you can specify the instructions once, including how many times an action should be repeated.
+- This allows for automation of repetitive tasks, saving time and reducing errors.
+
+
+## Leveraging Existing Code
+- You don’t always have to write code from scratch; you can use code that others have written.
+- Libraries and scripts **created by others** can be applied to your specific needs, making complex operations simpler and more efficient.
+
+
+
+## Empowerment through Coding
+- Learning to write or modify code gives you control over your computer tasks.
+- It transforms repetitive manual actions into efficient automated processes, empowering you to work smarter, not harder.
+
+
+
+## So, what are we going to be doing?
+ - Day 0: Introductions all round - getting you comfortable with writing in quarto using vscode (there's no code today, just writing).
+ - Day 1: Introduction to Python - getting you comfortable with the basics of python (where you'll learn why yesterday was 'Day 0').
+ - Day 2: Python functions and libraries - getting you comfortable with using python to do data analysis and visualisation.
+ - Day 3: Environment and version control - getting you comfortable with using git and github to manage your projects (code and documents).
+ - Day 4: et cetera - intro to R, some example projects with Python and R, and a look at some other tools and resources.
+
+
+# OK Kev... Get on with it!
+
+OK OK! Let's get you started by introducing you to vscode.
+
+## Visual Studio Code
+
+-   An IDE (integrated development environment) is a program that allows you to write, run, and debug code all in one place.
+    - It 'integrates' all the tools you need to write code into one program.
+-   But code is just a form of text, and so an IDE is also a text editor.
+    -   It allows you to write and edit text, and then, where appropriate, run that text as code, or run code on that text (I made this very presentation in VScode!).
+
+## Visual Studio Code
+
+-   Visual Studio Code (VS Code) is a free, open-source code editor developed by Microsoft.
+-   It is available for Windows, macOS, and Linux.
+-   It is highly customisable and has a large number of extensions available to add functionality.
+    - For example, it has extensions that allow you to view excel style data sets *in the same program* as the document you're writing text in
+    - So no more switching between excel and word (unless... you want to... you do you).
+
+## Visual Studio Code
+
+Open up VS Code and let's take a look around.
+
+![](images/VSCODEoverview.png){fig-align="center" height=700}
+
+
 
 
 
