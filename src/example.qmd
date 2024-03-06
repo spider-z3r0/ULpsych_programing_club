@@ -1,0 +1,8 @@
+---
+title: "example quarto document"
+author: "Some nerd"
+---
+
+# Welcome to quarto.
+
+This is a place where you can write 'plain text' and just let the computer handle formatting that text as it's needed!!
