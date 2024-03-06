@@ -8,7 +8,7 @@
 <link href="Day0Slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="Day0Slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Day0Slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.4.551">
 
   <title>Session 0 - Introductions all round</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -741,7 +741,7 @@
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/VSCODEwelcome.jpg" class="quarto-figure quarto-figure-center" height="500"></p>
+<p><img data-src="images/VSCODEwelcome.jpg" height="500"></p>
 <figcaption>VScode welcome screen</figcaption>
 </figure>
 </div>
@@ -802,6 +802,11 @@
 <h2>Visual Studio Code</h2>
 <p>You should now see the ‘explorer’ view in the activity bar on the left of the window, and a list of files and folders in the ‘Programming summer school’ folder. Right now there’s only one file, called <code>example.qmd</code>.</p>
 <p>Lets open that file and introduce you to your new best friend, the quarto markdown document!</p>
+<div id="49e598b3" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  </code></pre>
+</div>
+</div>
 </section></section>
 <section id="links" class="title-slide slide level1 center">
 <h1>Links</h1>
@@ -1125,6 +1130,24 @@ Matthes, Eric. 2022. <em>Python Crash Course</em>. 3rd ed. No Starch Press.
         // clear code selection
         e.clearSelection();
       });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1161,7 +1184,11 @@ Matthes, Eric. 2022. <em>Python Crash Course</em>. 3rd ed. No Starch Press.
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

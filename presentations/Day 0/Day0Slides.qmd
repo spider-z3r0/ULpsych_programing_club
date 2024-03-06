@@ -349,6 +349,16 @@ Lets open that file and introduce you to your new best friend, the quarto markdo
 
 
 
+```{python}
+#| eval = true
+#| 
+for i in range(1, 50 +1):
+    print(i, end='\t')
+
+
+```
+
+
 
 
 
