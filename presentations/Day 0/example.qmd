@@ -1,0 +1,86 @@
+---
+title: "Example Quarto Document"
+author: "UL Psychtech Team"
+---
+
+#
+Quarto docuuments are essentially `plain text` with some extra `syntax` added in to tell the computer how to format the document.
+
+ - `Plain Text` is just that, plain. It's like the text you type in a text message, or an email without any formatting.
+ - `Syntax` is the set of rules that govern how the computer will interpret various symbles that you put into the `plain text` to tell *the computer how to format it*.
+
+. . . 
+
+There are [lots of resources to help you learn the quarto syntax](https://quarto.org/docs/get-started/hello/vscode.html), and indeed there are lots of resources to help you learn the syntax of other similar tools, but we're going to focus on the basics for now.
+
+
+
+## The Basics
+ - Quarto documents are written in `markdown` (a type of `plain text`).
+ - They have a `.qmd` file extension (but other kinds of files like `.ipynb` and `.rmd` can be used too).
+ - They have a `yaml` header at the top of the file (which is where you tell the computer how to format the document).
+ - They use really simple symbles to indicate things like headings, lists, italics, bold, images, and links. 
+
+
+
+## Headings. 
+
+-   Headings are indicated by a `#` symbol at the start of a line. (There is a space after the last `#` before the actual words).
+
+# This is a level 1 heading
+It's at the top of the document and is the largest heading.
+
+## This is a level 2 heading
+It's a little smaller and is used to indicate a new section.
+
+### This is a level 3 heading
+It's a little smaller again and is used to indicate a new subsection. 
+
+
+
+## Text Formatting
+
+Markdown uses `*` (the star symbol, shift+8) and `_` (the underline symbol, shift+-) to indicate bold and italics.
+###  Italics
+*This is in italics*
+_This is also in italics_
+
+### Bold
+**This is in bold**
+__This is also in bold__
+
+### Bold and Italics
+***This is in bold and italics***
+
+
+## Lists
+
+Markdown supports both numbered (ordered) and unnumbered (unordered) lists. It's straightforward to create them using numbers for ordered lists and dashes or asterisks for unordered lists.
+
+### Numbered Lists
+1. First item
+2. Second item
+    - Sub item
+3. Third item
+
+### Unnumbered Lists
+- First item
+- Second item
+    1. Sub item
+    2. Sub item 2
+- Third item
+
+
+## Links
+Creating hyperlinks in Markdown is simple. You enclose the link text in square brackets and the URL in parentheses immediately after the text.
+### Example Links
+[Quarto](https://quarto.org)
+
+## refereces section
+You can also create a references section at the bottom of the document to list all the links you've used in the document. This is done by adding a `# References` heading and then listing the links in the same way you would in the main body of the document, like this:
+
+# References
+::: {#refs}
+:::
+
+

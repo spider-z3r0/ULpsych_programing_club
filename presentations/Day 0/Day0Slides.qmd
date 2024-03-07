@@ -1,11 +1,13 @@
 ---
-title: "Session 0 - Introductions all round"
+title: "Session 0.0"
+subtitle: Introductions all round
 format: 
    revealjs:
       incremental: true
 editor: "visual"
 jupyter: pss
 bibliography: references.bib
+csl: apa.csl
 ---
 
 
@@ -31,22 +33,10 @@ This content is building on some other really amazing work by some really amazin
 
 
 ## In this session, we're going to:
-
-1.  Give you an overview of the course:
-    -   What we're going to be doing (learning together).
-    -   Why we're doing it (to empower each other).
-    -   What you can expect to get out of it (a sense of agency and efficacy).
-
-## In this session, we're going to:
-2.  Introduce you to the tools we're going to be using (and mention some of the alternatives).
-    -   Quarto (as a tool for writing documents, reports, and papers).
-    -   Python (as a tool for doing data analysis and visualisation).
-    -   R (as an alternative to Python for doing data analysis and visualisation).
-    -   Git (as a tool for collaboration, managing your documents and code)
-
-## In this session, we're going to:
-3.  Accompany you through the process of producing your first documents using these tools.
-
+ -  Introduce you to the foundational tools you will use for writing in this summer school:
+    -  VScode (for writing your documents and handling files/folders)
+    -  Quarto (to handle formatting of your documents, headings, references)
+    -  Not Write Code! (That's tomorrow, once you're more comfortable)
 
 
 # But first...
@@ -79,9 +69,7 @@ Or maybe like this
 
 These tools were developed by, and are used by, people from all walks of life
 
-## AND ALWAYS HAVE BEEN
-
-![](images/Grace_Hopper_Team.jpg)
+![](images/Grace_Hopper_Team.jpg){fig-align="center", width="500"}
 
 
 # Elephant 2: Pressure
@@ -95,7 +83,7 @@ These tools were developed by, and are used by, people from all walks of life
 
 ##  Inspirations {.smaller}
 
-- 'The Great Being saith: Regard [humanity] as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'
+- '...Regard [humanity] as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'
 [@bahai_maqsud]
 
  - The diversity in the human family should be the cause of love and harmony, as it is in music where many different notes blend together in the making of a perfect chord.
@@ -133,7 +121,7 @@ These tools were developed by, and are used by, people from all walks of life
 
 ## A brief history of documents
 -  Then there was the printing press, and the typesetter. 
-    -   And the documents were good, but the machinery was hard to use requiring significant expertise (and really heavy to carry around).
+    -   And the books were *good* , but the machinery was hard to use requiring significant expertise (and really heavy to carry around).
 <div>
     <img src="images/press.jpg" alt="description of image" height="500px"/>
 </div>
@@ -153,7 +141,7 @@ These tools were developed by, and are used by, people from all walks of life
 </div>
 
 ## A brief history of documents {.smaller}
-With each of these advances, the process of creating and sharing documents has become easier and more accessible, but this means that each person has to have a wider range of expertise to work well with documents effectively. Not just writing, but typesetting, graphic design etc.
+With each of these advances, the process of creating and sharing documents has become somewhat more accessible, but this means that each person has to have a wider range of expertise to produce the kinds of documents that are excpected these days. Not just writing, but typesetting, graphic design etc.
 
 ## A brief history of documents
 While writers and researchers were using the tools of the printer and the graphic designer, computer programmers were developing tools to help them write and share their work more effectively. 
@@ -282,10 +270,11 @@ Don't forget the 'welcome' screen, and some of the choices they'll make. Give so
 
 
 ## Visual Studio Code
-To open VScode you can either: 
--   Click on the icon on your desktop or in your start menu.
--   Press the windows key and type 'vscode' or 'code' and press enter.
--   Right-click on a folder (or file) and select 'open with code' from the menu (if it's installed on your device).
+To open VScode you can either:
+
+ -   Click on the icon on your desktop or in your start menu.
+ -   Press the windows key and type 'vscode' or 'code' and press enter.
+ -   Right-click on a folder (or file) and select 'open with code' from the menu (if it's installed on your device).
 
 ::: {.notes}
 Mention that we've installed vscode for them, and the other stuff we've installed (quarto, python, git, and r).
@@ -295,8 +284,10 @@ Mention that we've installed vscode for them, and the other stuff we've installe
 When you open VScode for the first time, you'll see a welcome screen, this gives you some options for how you want VScode to look and feel, and some options for what you want to do with it.
 
 . . .
-
+ 
 ![VScode welcome screen](images/VSCODEwelcome.jpg){fig-align="center" height=500}
+
+## Visual Studio Code
 
 -   You can choose a theme (light or dark).
 -   You can choose a colour scheme.
@@ -323,10 +314,10 @@ Point out the two options but focus on the 'file' button and the 'open folder' o
 :::
 
 ## Visual Studio Code{.smaller}
-
+![](images/VSCODEfolder%20select.jpg){fig-align="center" height=500}
 Select that folder.
 
-![](images/VSCODEfolder%20select.jpg){fig-align="center" height=500}
+
 
 ## Visual Studio Code{.smaller}
 
@@ -346,20 +337,315 @@ Right now there's only one file, called `example.qmd`.
 Lets open that file and introduce you to your new best friend, the quarto markdown document!
 
 
+# Quarto
+
+## What is quarto? {.smaller}
+ - Quarto is a piece of software that works "under the hood" in your IDE (VScode in our case) to allow you to:
+    - Write documents in a simple, plain text format.
+    - Format those documents using a simple syntax.
+    - Include code (for data analysis for example) and the output of that code in your documents.
+    - Include references and citations in your documents.
+    - Include tables and images in your documents.
+    - And much more!
 
 
 
-```{python}
-#| eval = true
-#| 
-for i in range(1, 50 +1):
-    print(i, end='\t')
+:::{.notes}
+You can mention pandoc, rmarkdown etc here, but this isn't a history lesson. 
+:::
+
+
+
+## Why am Quarto? 
+ - Quarto was developed (essentially) by the scientific community to allow reserachers to take advantage of modern work flow:
+    - To allow remove the tedium of working formatting documents by hand.
+    - To not have to care about what the document will look like while you're writing.
+    - To allow you to focus on the writing and the thinking, and let the computer do the boring stuff.
+
+. . . 
+
+In the links for this presentation you'll find wider info about quarto, but for now, let's just get you started.
+
+
+
+## Quarto Documents{.smaller}
+Quarto doc uments are essentially `plain text` with some extra `syntax` added in to tell the computer how to format the document.
+
+ - `Plain Text` is just that, plain. It's like the text you type in a text message, or an email without any formatting.
+ - `Syntax` is the set of rules that govern how the computer will interpret various symbols that you put into the `plain text` to tell *the computer how to format it*.
+
+. . . 
+  
+There are [lots of resources to help you learn the quarto syntax](https://quarto.org/docs/get-started/hello/vscode.html), and indeed there are lots of resources to help you learn the syntax of other similar tools, but we're going to focus on the basics for now.
+
+
+## Quarto Documents{.smaller}
+### The Basics  
+ - Quarto documents are written in `markdown` (a type of `plain text`).
+ - They have a `.qmd` file extension (but other kinds of files like `.ipynb` and `.rmd` can be used too).
+ - They have a `yaml` header at the top of the file (which is where you tell the computer how to format the document).
+ - They use really simple symbols to indicate things like headings, lists, italics, bold, images, and links. 
+
+
+## Quarto Documents{.smaller}
+### markdown basics : Headings. 
+
+-   Headings are indicated by a `#` symbol at the start of a line.
+
+
+```{markdown} 
+
+# This is a level 1 heading
+It's at the top of the document and is the largest heading.
+
+## This is a level 2 heading
+It's a little smaller and is used to indicate a new section.
+ 
+### This is a level 3 heading
+It's a little smaller again and is used to indicate a new subsection.
+~~~
+```
+
+
+
+# This is a level 1 heading
+It's at the top of the document and is the largest heading.
+
+## This is a level 2 heading
+It's a little smaller and is used to indicate a new section.
+
+### This is a level 3 heading
+It's a little smaller again and is used to indicate a new subsection. 
+
+
+## Quarto Documents{.smaller}
+### markdown basics : Headings. 
+
+
+```{markdown} 
+# This is a level 1 heading
+It's at the top of the document and is the largest heading.
+
+## This is a level 2 heading
+It's a little smaller and is used to indicate a new section.
+ 
+### This is a level 3 heading
+It's a little smaller again and is used to indicate a new subsection.
+```
+
+
+::: {.notes}
+Say that we're ignoring lines 1-4, call out line 6, and then walk through the rest of the example.
+:::
+
+
+## Quarto Documents{.smaller}
+### markdown basics : Bold and Italics.
+Markdown uses `*` (the star symbol, shift+8) and `_` (the underline symbol, shift+-) to indicate bold and italics.
+
+```{markdown}
+
+### Italics
+*This is in italics*
+_This is also in italics_
+
+### Bold
+**This is in bold**
+__This is also in bold__
+
+### Bold and Italics
+***This is in bold and italics***
 
 
 ```
 
 
+## Quarto Documents{.smaller}
+### markdown basics : Bold and Italics.
 
+###  Italics
+*This is in italics*
+_This is also in italics_
+
+### Bold
+**This is in bold**
+__This is also in bold__
+
+### Bold and Italics
+***This is in bold and italics***
+
+## Quarto Documents{.smaller}
+### markdown basics : Lists
+
+Markdown supports both numbered (ordered) and unnumbered (unordered) lists. It's straightforward to create them using numbers for ordered lists and dashes or asterisks for unordered lists.
+
+```{markdown}
+### Numbered Lists
+1. First item
+2. Second item
+    - Sub item
+3. Third item
+
+### Unnumbered Lists
+- First item
+- Second item
+    1. Sub item
+    2. Sub item 2
+- Third item
+```
+
+::: {.notes}
+Don't forget to highlight that you can mix and match the two types of lists
+:::
+
+## Quarto Documents{.smaller}
+### markdown basics : Lists
+
+
+### Numbered Lists
+1. First item
+2. Second item
+    - Sub item
+3. Third item
+
+### Unnumbered Lists
+- First item
+- Second item
+    1. Sub item
+    2. Sub item 2
+*  Third item
+
+::: {.notes}
+For the numbered lists, each item starts with a number followed by a dot. Markdown automatically numbers the items correctly, even if you use `1.` for all items. For unnumbered lists, you can use either `-` or `*` to start each item. The choice between dashes and asterisks is purely stylistic.
+:::
+
+## Quarto Documents{.smaller}
+### markdown basics : Links
+
+Creating hyperlinks in Markdown is simple. You enclose the link text in square brackets and the URL in parentheses immediately after the text.
+
+```{markdown}
+
+[Quarto](https://quarto.org)
+```
+
+## Quarto Documents{.smaller}
+### markdown basics : Links
+
+### Example Links
+[Quarto](https://quarto.org)
+
+::: {.notes}
+When creating links, ensure there is no space between the closing square bracket and the opening parenthesis. This syntax will render the text in the square brackets as a clickable hyperlink pointing to the URL in the parentheses.
+:::
+
+
+## Quarto Documents{.smaller}
+### markdown basics : Recap
+
+```{markdown}
+
+## This is a level 2 heading
+
+*This text is in italics*
+**This text is in bold**
+***This text is in bold and italics***
+
+### Numbered Lists
+1. First item
+2. Second item
+    - Sub item
+
+### Unnumbered Lists
+- First item
+- Second item
+    1. Sub item
+    2. Sub item 2
+
+[Link to the Quarto website](https://quarto.org)
+
+```
+
+## Quarto Practice{.smaller}
+
+OK that's the basics of markdown, and the basics of quarto, but it's a lot. Let's take a few minutes to practice.
+
+Rather than editing the `example.qmd` file, let's create a new file to practice in.
+
+ - If you hover over the 'explorer' area on the left of the window, you'll see a little icon that looks like a piece of paper with a plus sign on it. Click on that to create a new file.
+ - Type `intentions.qmd` into the box that pops up and press enter. (Yay!! You now know how to create a new file in VScode!)
+ - In this new document using the markdown syntax we've just learned, write a few paragraphs about your intentions for the summer school.
+    1. What do you hope to learn?
+    2. Is there a particular project you might use this knowledge for?
+    3. What are you most excited about?
+    4. What are you most nervous about?
+    5. Look around for a website that you think might be useful to you, and include a link to it in your document.
+
+. . . 
+
+Unless you share it no one else will be able to see that file, so don't worry about what you write. 
+
+When you want to save what you've written, just press `ctrl+s` (or `cmd+s` on a mac). 
+
+
+# Rendering and Previewing
+Now that you've written your document, (and I've spent ages convincing you that all you have to do is write) you probably want to see what it looks like, right? 
+
+## Rendering and Previewing{.smaller}
+ - The computer uses the `syntax` to format the `plain text` into a `pretty document`.
+ - This process is called `rendering` (you've heard me say that already).
+ - You can `render` your document at any time to see what it looks like.
+ - You can also `preview` your document in a separate window to see what it looks like. 
+
+## Rendering and Previewing{.smaller}
+This is the first time we'll use the `terminal` in VScode, and it's really simple. 
+ - Click on the `terminal` icon in the bar along the top of the VScode window.
+ - Click 'new terminal' from the menu that pops up.
+
+. . . 
+ 
+You should see a new panel open at the bottom of the window. This is the terminal.
+
+![](images/VSCODEterminal_isolated.png){fig-align="center"}
+
+## Rendering and Previewing{.smaller}
+And now we just need to use the `terminal` to tell Quarto to `render` our document. 
+
+Now these commands can be really *really* complex, so you're really going to have to pay attention here. 
+
+## Rendering and Previewing{.smaller}
+Seriously, it's really complex.
+
+## Rendering and Previewing{.smaller}
+Acctually... maybe you're not ready for this yet.
+
+
+## Rendering and Previewing{.smaller}
+
+Oh OK. 
+
+It's `quarto render` followed by the (full)name of the file you want to render (in this case `intentions.qmd`).
+
+```{bash}
+> quarto render intentions.qmd
+```
+
+
+Phew! I hope everyone is OK after that.
+
+## Rendering and Previewing{.smaller}
+
+You can also `preview` your document in a separate window to see what it looks like. 
+
+```{bash}
+> quarto preview intentions.qmd
+```
+
+Every time you save the document, the preview will update to show you what the document looks like.
+
+Do that now, and take a look at your document.
+
+Try to make a change to your document, save it (ctrl+s), and then see how the preview updates to show you the change.
 
 
 
@@ -378,6 +664,7 @@ for i in range(1, 50 +1):
 
 # Links
  - [Quarto](https://quarto.org)
+ - [Getting Started with Quarto](https://quarto.org/docs/get-started/)
  - [VS code quarto overview](https://quarto.org/docs/tools/vscode.html)
 
 # References
