@@ -36,7 +36,7 @@ This content is building on some other really amazing work by some really amazin
  -  Introduce you to the foundational tools you will use for writing in this summer school:
     -  VScode (for writing your documents and handling files/folders)
     -  Quarto (to handle formatting of your documents, headings, references)
-    -  Not Write Code! (That's tomorrow, once you're more comfortable)
+  -  Not Write Code! (That's tomorrow, once you're more comfortable)
 
 
 # But first...
@@ -65,14 +65,17 @@ Or maybe like this
 </div>
 
 
-## But in reality...
+## But in reality...{.smaller}
 
 These tools were developed by, and are used by, people from all walks of life
 
-![](images/Grace_Hopper_Team.jpg){fig-align="center", width="500"}
+![](images/Grace_Hopper_Team.jpg){fig-align="center" width="500"}
+
+ - The diversity in the human family should be the cause of love and harmony, as it is in music where many different notes blend together in the making of a perfect chord.
+[@abdulbaha1938advent]
 
 
-# Elephant 2: Pressure
+# Elephant 2: Expectations
 
 ## You're very smart, but...
 
@@ -80,22 +83,27 @@ These tools were developed by, and are used by, people from all walks of life
  - Not to be an expert. 
  - So relax and enjoy the process of learning. 
 
-
-##  Inspirations {.smaller}
-
 - '...Regard [humanity] as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.'
 [@bahai_maqsud]
 
- - The diversity in the human family should be the cause of love and harmony, as it is in music where many different notes blend together in the making of a perfect chord.
-[@abdulbaha1938advent]
 
- - "We are what we *repeatedly do*. Excellence, therefore, is not an act, but a _**habit**_.”
+# Elephant 3: But I'm faster with SPSS!{.smaller}
+
+ - You have, at this stage *years* of experience with SPSS and word. 
+ - You've (through blood sweat and tears) become very good with it. 
+ - So right now, what takes you 5 minutes in SPSS will take you 20 minutes in code.
+    - because you're *learning*
+ - But the thing in, once you spend the 20 minutes writing code, you'll be able to do the same thing in *0.5 seconds* next time.
+
+. . . 
+
+ "We are what we *repeatedly do*. Excellence, therefore, is not an act, but a _**habit**_.”
 [@durant1933story, paraphrasing Aristotle]
 
 
 
 
-# A new way of working - Let the computer do the boring stuff
+# A new way of working 
 
 ## A brief history of documents
 
@@ -171,6 +179,7 @@ While writers and researchers were using the tools of the printer and the graphi
 ## Writing Code for Automation
 - By **writing** code instead, you can specify the instructions once, including how many times an action should be repeated.
 - This allows for automation of repetitive tasks, saving time and reducing errors.
+- You can solve a problem once, and then apply that solution to many similar problems. 
 
 
 ## Leveraging Existing Code
@@ -185,10 +194,6 @@ While writers and researchers were using the tools of the printer and the graphi
 - It transforms repetitive manual actions into efficient automated processes, empowering you to work smarter, not harder.
 - You have a limited number of heartbeats, don't waste them on the boring stuff.
 
-
-
-
-
 # OK Kev... Get on with it!
 
 ## So, what are we going to be doing? {.smaller}
@@ -197,6 +202,8 @@ While writers and researchers were using the tools of the printer and the graphi
  - Day 2: Python functions and libraries - getting you comfortable with using python to do data analysis and visualisation.
  - Day 3: Environment and version control - getting you comfortable with using git and github to manage your projects (code and documents).
  - Day 4: et cetera - intro to R, some example projects with Python and R, and a look at some other tools and resources.
+
+. . .
 
 Let's get you started by introducing you to vscode.
 
@@ -260,7 +267,8 @@ Open up VS Code and let's take a look around (Don't panic!).
 ## Visual Studio Code
 
 OK so that's the basic layout of VScode, but there's a lot more to it than that, and we'll be exploring it as we go along.
-For the next little while we're just giong to focus on the editor, with a little bit about the explorer (cause that's where you'll be spending most of your time).
+For the next little while we're just going to focus on the editor (cause that's where you'll be spending most of your time), with just a little bit about the explorer and the terminal.
+
 Open up VS Code and lets jump in. 
 
 ::: {.notes}
@@ -269,11 +277,12 @@ Don't forget the 'welcome' screen, and some of the choices they'll make. Give so
 :::
 
 
-## Visual Studio Code
+## Visual Studio Code {.smaller }
 To open VScode you can either:
 
  -   Click on the icon on your desktop or in your start menu.
  -   Press the windows key and type 'vscode' or 'code' and press enter.
+     - On a mac, you can press `cmd+space` and type 'vscode' and press enter.
  -   Right-click on a folder (or file) and select 'open with code' from the menu (if it's installed on your device).
 
 ::: {.notes}
@@ -281,13 +290,14 @@ Mention that we've installed vscode for them, and the other stuff we've installe
 :::
 
 ## Visual Studio Code
+![](images/VSCODEwelcome.jpg){fig-align="center" height=500}
+
 When you open VScode for the first time, you'll see a welcome screen, this gives you some options for how you want VScode to look and feel, and some options for what you want to do with it.
 
-. . .
- 
-![VScode welcome screen](images/VSCODEwelcome.jpg){fig-align="center" height=500}
 
 ## Visual Studio Code
+
+![](images/VSCODEwelcome.jpg){fig-align="center" height=500} 
 
 -   You can choose a theme (light or dark).
 -   You can choose a colour scheme.
@@ -295,29 +305,39 @@ When you open VScode for the first time, you'll see a welcome screen, this gives
 
 ## Visual Studio Code
 
-Do these choices matter? Not really so don't stress. They are aesthetic choices, and you can change them at any time, but thier there because you'll be spending a lot of time in VScode and you should be there. 
+Do these choices matter? Not really so don't stress. They are aesthetic choices, and you can change them at any time, but they're there because you'll be spending a lot of time in VScode and you should be comforatble there. 
 
-Take some time and look around the screen, I'll be walking around to make sure that you see everything. 
+ - Take some time and look around the screen, I'll be walking around to make sure that you see everything.
+ - Try out the different themes, and see what you like. 
+ - When you're ready click on the little blue 'welcome' button in the top left of the window to move on. 
 
 ## Visual Studio Code{.smaller}
-OK, when you've selected a theme, click on the 'file' button in the top left of the window, and then click on 'open folder'.
+OK, when you've selected a theme, and clicked on the 'welcom button you'll see a different welcome screen.
+Click on the 'file' button in the top left of the window, and then click on 'open folder'.
 
-On the computer you're using there is a folder called 'Programming summer school' at the address: 
-
-### "C:\\Users\\Public\\Documents\\Programming\ summer\ school"
- 
-![](images/VSCODEopenfolder.jpg){fig-align="left" height=500}
-![VScode welcome screen](images/VSCODEwelcome_after_theme.jpg){fig-align="right" height=500}
+![](images/VSCODEopenfolder.jpg){fig-align="right" height=500}
+![](images/VSCODEwelcome_after_theme.jpg){fig-align="left" height=500}
 
 ::: {.notes}
 Point out the two options but focus on the 'file' button and the 'open folder' option because it'll be more common. 
 :::
 
 ## Visual Studio Code{.smaller}
+
+On the computer you're using there is a folder called 'Programming summer school' at the address: 
+
+### "C:\\Users\\Public\\Documents\\Programming\ summer\ school"
+
+## Visual Studio Code{.smaller}
 ![](images/VSCODEfolder%20select.jpg){fig-align="center" height=500}
-Select that folder.
 
 
+Select that folder and click 'open'.
+
+
+:::{.notes}
+in the quarto document there's a lot of \\ in the address, that's the old fildpath problem again!
+:::
 
 ## Visual Studio Code{.smaller}
 
@@ -384,16 +404,19 @@ There are [lots of resources to help you learn the quarto syntax](https://quarto
  - Quarto documents are written in `markdown` (a type of `plain text`).
  - They have a `.qmd` file extension (but other kinds of files like `.ipynb` and `.rmd` can be used too).
  - They have a `yaml` header at the top of the file (which is where you tell the computer how to format the document).
+     - We'll talk more about `yaml` later, but for now just think of it as a set of instructions for the computer.
  - They use really simple symbols to indicate things like headings, lists, italics, bold, images, and links. 
 
 
 ## Quarto Documents{.smaller}
 ### markdown basics : Headings. 
 
--   Headings are indicated by a `#` symbol at the start of a line.
-
-
+#### Headings are indicated by a `#` symbol at the start of a line.
 ```{markdown} 
+---
+title: "example.qmd"
+author: "pfft, some nerd"
+---
 
 # This is a level 1 heading
 It's at the top of the document and is the largest heading.
@@ -403,7 +426,6 @@ It's a little smaller and is used to indicate a new section.
  
 ### This is a level 3 heading
 It's a little smaller again and is used to indicate a new subsection.
-~~~
 ```
 
 
@@ -423,6 +445,11 @@ It's a little smaller again and is used to indicate a new subsection.
 
 
 ```{markdown} 
+---
+title: "example.qmd"
+author: "pfft, some nerd"
+---
+
 # This is a level 1 heading
 It's at the top of the document and is the largest heading.
 
@@ -441,7 +468,7 @@ Say that we're ignoring lines 1-4, call out line 6, and then walk through the re
 
 ## Quarto Documents{.smaller}
 ### markdown basics : Bold and Italics.
-Markdown uses `*` (the star symbol, shift+8) and `_` (the underline symbol, shift+-) to indicate bold and italics.
+#### Markdown uses `*` (the star symbol, shift+8) and `_` (the underline symbol, shift+-) to indicate bold and italics.
 
 ```{markdown}
 
@@ -461,7 +488,7 @@ __This is also in bold__
 
 
 ## Quarto Documents{.smaller}
-### markdown basics : Bold and Italics.
+
 
 ###  Italics
 *This is in italics*
@@ -477,7 +504,8 @@ __This is also in bold__
 ## Quarto Documents{.smaller}
 ### markdown basics : Lists
 
-Markdown supports both numbered (ordered) and unnumbered (unordered) lists. It's straightforward to create them using numbers for ordered lists and dashes or asterisks for unordered lists.
+ - #### Markdown supports both numbered (ordered) and unnumbered (unordered) lists. 
+ - #### It's straightforward to create them using numbers for ordered lists and dashes or asterisks for unordered lists.
 
 ```{markdown}
 ### Numbered Lists
@@ -522,10 +550,10 @@ For the numbered lists, each item starts with a number followed by a dot. Markdo
 ## Quarto Documents{.smaller}
 ### markdown basics : Links
 
-Creating hyperlinks in Markdown is simple. You enclose the link text in square brackets and the URL in parentheses immediately after the text.
+ - #### Creating hyperlinks in Markdown is simple. 
+ - #### You enclose the link text in square brackets and the URL in parentheses immediately after the text.
 
 ```{markdown}
-
 [Quarto](https://quarto.org)
 ```
 
@@ -544,6 +572,11 @@ When creating links, ensure there is no space between the closing square bracket
 ### markdown basics : Recap
 
 ```{markdown}
+---
+title: "example.qmd"
+author: "pfft, some nerd"
+---
+<<I've skipped the level 1 heading>>
 
 ## This is a level 2 heading
 
@@ -588,16 +621,14 @@ Unless you share it no one else will be able to see that file, so don't worry ab
 When you want to save what you've written, just press `ctrl+s` (or `cmd+s` on a mac). 
 
 
-# Rendering and Previewing
-Now that you've written your document, (and I've spent ages convincing you that all you have to do is write) you probably want to see what it looks like, right? 
+## Quarto: Rendering and Previewing{.smaller}
 
-## Rendering and Previewing{.smaller}
  - The computer uses the `syntax` to format the `plain text` into a `pretty document`.
  - This process is called `rendering` (you've heard me say that already).
  - You can `render` your document at any time to see what it looks like.
  - You can also `preview` your document in a separate window to see what it looks like. 
 
-## Rendering and Previewing{.smaller}
+## Quarto: Rendering and Previewing{.smaller}
 This is the first time we'll use the `terminal` in VScode, and it's really simple. 
  - Click on the `terminal` icon in the bar along the top of the VScode window.
  - Click 'new terminal' from the menu that pops up.
@@ -622,18 +653,24 @@ Acctually... maybe you're not ready for this yet.
 
 ## Rendering and Previewing{.smaller}
 
+. . . 
+
 Oh OK. 
 
-It's `quarto render` followed by the (full)name of the file you want to render (in this case `intentions.qmd`).
+ - It's `quarto render` followed by the (full)name of the file you want to render 
+     - (in this case `intentions.qmd`).
 
 ```{bash}
 > quarto render intentions.qmd
 ```
 
+. . . 
 
-Phew! I hope everyone is OK after that.
+You OK? 
 
 ## Rendering and Previewing{.smaller}
+
+. . . 
 
 You can also `preview` your document in a separate window to see what it looks like. 
 
@@ -641,25 +678,37 @@ You can also `preview` your document in a separate window to see what it looks l
 > quarto preview intentions.qmd
 ```
 
-Every time you save the document, the preview will update to show you what the document looks like.
+. . .
 
-Do that now, and take a look at your document.
+ - Every time you save the document, the preview will update to show you what the document looks like.
+ - Do that now, try to make a change to your document, save it (ctrl+s), and then see how the preview updates to show you the change.
 
-Try to make a change to your document, save it (ctrl+s), and then see how the preview updates to show you the change.
+# Well Done!
 
+## Summary{.smaller}
+ - We've introduced you to the tools you'll be using to write your documents and handle your files and folders.
+ - We've introduced you to the basics of VScode.
+ - We've introduced you to the basics of markdown and quarto.
+ - We've introduced you to the basics of rendering and previewing your documents.
 
+## And you nailed it!{.smaller}
+ - You've created a new file in VScode.
+ - You've written a document in markdown.
+ - You've rendered and previewed your document.
 
+## Next bits{.smaller}
+ - Before you take a well deserved break, make another new file in VScode. 
+ - Call this file `exemplar.qmd`.
+ - This is where you'll be working in the next session after the break. 
+ - All you need to do in this file is:
+     1. Write a level 1 heading with the name of someone you really admire (preferably someone you can research online, so not a family member).
+     2. Write a list of 5 things you admire about them.
+     3. Include a link to a website about them.
 
+## And that's it!{.smaller}
+Thanks for your attention, and I'll see you in the next session.
 
-
-
-
-
-
-
-
-
-
+![](images/Kev%20aged%2017.jpg){fig-align="center" height=300}
 
 
 # Links
