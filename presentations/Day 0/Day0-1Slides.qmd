@@ -166,16 +166,3 @@ This can be tricky to get your head around at first, but it's really useful once
 
 We can use the terminal in VScode to help us understand this. 
 
-If the terminal is not open, you can open it by pressing `Ctrl` + \` (the '\`' is the key to the left of the `1` on most keyboards).
-
-## The File System{.smaller}
-
-Once the terminal is open you'll see that it has a `prompt` that looks something like this
-
-```
-PS C:\Users\UserName\Documents\my_project_folder>
-```
-
-This is the `absolute path` to the `directory` that the terminal is currently 'in'.
-
-
