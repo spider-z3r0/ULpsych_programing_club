@@ -120,4 +120,4 @@ dmypy.json
 src/scratch.py
 src/scratch.ipynb
 .Rproj.user
-*images/*
+presentations\Day 0\images
