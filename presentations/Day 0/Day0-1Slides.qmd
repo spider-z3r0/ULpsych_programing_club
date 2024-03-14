@@ -13,9 +13,169 @@ csl: apa.csl
 ## Welcome back!
 
 In the last session we introduced you to
+
  - VScode - the new home for your writing
  - Markdown - the sugar your sprinkle over your writing (to make the medicine go down)
  - Quarto - the engine that handle the formatting for you
 
 . . .
+
 But we didn't show you any of the *magic* yet. 
+
+## The Magic{.smaller}
+
+The magic is in how quarto can take multiple files and use them to create a single document.
+
+ - if we provide it with a `.bib` file it can handle your references
+ - if we provide it with a `.csl` file it can handle your citation style
+ - if we provide it with `css` (style) files it can handle your formatting
+ - if we provide it with `yaml` (configuration) files it can handle your metadata (like author, title, etc)
+   - and this is actually the file that we've been using to tell quarto where the other files are
+
+## The Magic{.smaller}
+
+Which (probably) leaves you with a couple of questions
+
+1. What is a `.bib` file?
+2. What is a `.csl` file?
+3. What is a `css` file?
+4. What is a `yaml` file?
+5. Where do I get them? 
+6. How do I use them?
+7. Why are you like this, Kev?
+8. What time is lunch? 
+
+
+
+
+## The Magic{.smaller}
+
+We will answer all of these questions in the next few slides. 
+
+But first, we need to talk about the file system. 
+
+## The File System{.smaller}
+
+The file system is the way that your computer organises `files` and `directories` (also called '`folders`'). 
+
+- A `file` is a collection of data that is stored on your computer.
+- A `directory` is a collection of `files` and `sub-directories` (it's turtles all the way down)
+- A `sub-directory` is a `directory` that is inside another `directory`
+   - This is a *relative* term. A `sub-directory` is only a `sub-directory` in relation to the `directory` that contains it.
+
+## The File System{.smaller}
+
+Imagine that your computer is a city, and each file is a person that lives in that city (I'm about to *torture* this metaphor, so buckle up).
+
+![](images/Cityview.webp){fig-align="center"}
+
+## The File System{.smaller}
+
+ - Each person (`file`) lives in a building (`directory`). 
+ - This building can just be a single house or it can be an appartment block contains lots of smaller homes (`sub-directories`).
+ - In order to get to a building (`directory`) you need to know the address (where is it located on the computer).
+ - And once you know the `address` you can walk the `path` to get the `file` you want.
+
+. . .
+
+There's also `drives` (like `C:` or `D:`) but we're not going to talk about them today, we might think of them as different neighbourhoods in the city.
+
+## The File System{.smaller}
+
+So for example, you might have a file called `my_file.qmd`. 
+
+To get to this file you would need to have a sense of where it is stored on the computer, the address. We call this the `path` and they look something like this
+
+### C:\\Users\\UserName\\Documents\\my_project_folder\\my_file.qmd
+
+
+Let's break this down a little bit
+
+## The File System{.smaller}
+
+ - `C:` is the `drive` that the file is stored on (this is often the `main` drive on your computer)
+ - `Users` is the `directory` that contains all of the `users` on the computer
+ - `UserName` is the `directory` that contains all of the `files` for a specific `user`
+ - `Documents` is the `directory` that contains all of the `documents` for a specific `user`
+ - `my_project_folder` is the `directory` that contains all of the `files` for a specific `project`
+ - `my_file.qmd` is the `file` that we are looking for
+
+ . . . 
+
+As we go down the list above we are moving from the `root` of the `drive` to the `file` that we are looking for. The file is in a `sub-directory` of a `sub-directory` of a `sub-directory` of a `sub-directory` of a `sub-directory` of the `root` of the `drive`. 
+
+If we move 'up' the list we are moving from the `file` to the `root` of the `drive` with each `sub-directory` being *within* a `parent directory` until we get to the `root` of the `drive`.
+
+## The File System{.smaller}
+
+We can also have other files in `my_project_folder` like `my_other_file.bib` and the `path` to this file would look like this
+
+### C:\\Users\\UserName\\Documents\\my_project_folder\\my_other_file.bib
+
+. . .
+
+We could also have a `sub-directory` called `my_data_sub_folder` and the `path` would follow the same convetion as the others. 
+
+
+## The File System{.smaller}
+
+In a sense each element is a `child` of it's `parent directory` until we get to the file, with the `drive` acting as the `root` of the `tree` and the `files` as the `leaves`. 
+
+![](images/filetree.webp){fig-align="center"}
+
+
+ -  *(I told you I was going to torture some metaphors.)*
+
+## The File System{.smaller}
+
+So, to sum up
+
+ - A `file` is a collection of data that is stored on your computer.
+ - A `directory` is a collection of `files` and `sub-directories` (it's turtles all the way down)
+ - A `sub-directory` is a `directory` that is inside another `directory`
+ - The `path` is the `address` of the `file` on the `drive`
+ - The `path` is made up of the `drive`, `directories`, and `sub-directories` that the `file` is in
+ - The `path` is used to find the `file` on the `drive` (and to point to the `file` from other `files`)
+   - The `path` is a `relative` term. A `sub-directory` is only a `sub-directory` in relation to the `directory` that contains it.
+
+. . . 
+
+Speaking of `relative`...
+
+## The File System{.smaller}
+
+The last thing you need to know for now is the difference between `absolute` and `relative` paths. 
+
+ - An `absolute` path is the `full` path to the `file` from the `root` of the `drive`
+   - This is the `path` that we've been using so far
+   - C:\\Users\\UserName\\Documents\\my_project_folder\\my_other_file.bib
+ - A `relative` path is the `path` to the `file` relative to some other `file` or `directory`
+   - These are shorter and easier to use
+   
+## The File System{.smaller}
+
+For example, if we have a `file` called `my_file.qmd` and a `file` called `my_other_file.bib` in the same `directory` then the `relative` path from `my_file.qmd` to `my_other_file.bib` would be
+
+### my_other_file.bib
+
+but if we have a `sub-directory` called `my_data_sub_folder` and a `file` called `my_data.csv` in that `sub-directory` then the `relative` path from `my_file.qmd` to `my_data.csv` would be
+
+### my_data_sub_folder\\my_data.csv
+
+This can be tricky to get your head around at first, but it's really useful once you get the hang of it, and it's actually not that difficult. 
+
+We can use the terminal in VScode to help us understand this. 
+
+If the terminal is not open, you can open it by pressing `Ctrl` + \` (the '\`' is the key to the left of the `1` on most keyboards).
+
+## The File System{.smaller}
+
+Once the terminal is open you'll see that it has a `prompt` that looks something like this
+
+```
+PS C:\Users\UserName\Documents\my_project_folder>
+```
+
+This is the `absolute path` to the `directory` that the terminal is currently 'in'.
+
+
