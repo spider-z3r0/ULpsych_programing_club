@@ -76,6 +76,19 @@ Creating hyperlinks in Markdown is simple. You enclose the link text in square b
 ### Example Links
 [Quarto](https://quarto.org)
 
+## Images
+Images are similar to links, but with an exclamation mark at the start.
+### Example Image
+
+#### Online Image
+![Quarto Logo](https://quarto.org/img/logo.png)
+
+#### Local Image
+![Local Image](./images/ul-logo.png)
+
+(Note the `/` instead of `\` in the file path. This is because the `/` is used in URLs and file paths in Unix-based systems like MacOS and Linux, while the `\` is used in Windows.
+quarto will automatically convert the `/` to `\` when the document is rendered on a Windows machine but it needs to be written that way for quarto.)
+
 ## refereces section
 You can also create a references section at the bottom of the document to list all the links you've used in the document. This is done by adding a `# References` heading and then listing the links in the same way you would in the main body of the document, like this:
 

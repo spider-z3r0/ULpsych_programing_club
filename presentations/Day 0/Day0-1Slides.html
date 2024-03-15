@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="Day0-1Slides_files/libs/revealjs/dist/theme/quarto.css">
   <link href="Day0-1Slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -481,15 +546,145 @@
 <h3 id="my_other_file.bib">my_other_file.bib</h3>
 <p>but if we have a <code>sub-directory</code> called <code>my_data_sub_folder</code> and a <code>file</code> called <code>my_data.csv</code> in that <code>sub-directory</code> then the <code>relative</code> path from <code>my_file.qmd</code> to <code>my_data.csv</code> would be</p>
 <h3 id="my_data_sub_foldermy_data.csv">my_data_sub_folder\my_data.csv</h3>
-<p>This can be tricky to get your head around at first, but it’s really useful once you get the hang of it, and it’s actually not that difficult.</p>
-<p>We can use the terminal in VScode to help us understand this.</p>
-<p>If the terminal is not open, you can open it by pressing <code>Ctrl</code> + ` (the ‘`’ is the key to the left of the <code>1</code> on most keyboards).</p>
 </section>
 <section id="the-file-system-10" class="slide level2 smaller">
 <h2>The File System</h2>
-<p>Once the terminal is open you’ll see that it has a <code>prompt</code> that looks something like this</p>
-<pre><code>PS C:\Users\UserName\Documents\my_project_folder&gt;</code></pre>
-<p>This is the <code>absolute path</code> to the <code>directory</code> that the terminal is currently ‘in’.</p>
+<p>This can be tricky to get your head around at first, but it’s really useful once you get the hang of it, and it’s actually not that difficult.</p>
+<p>Maybe the best way to get the hang of it is to practice,</p>
+<ul>
+<li class="fragment">create a new <code>sub-directory</code> in the summerschool folder called <code>images</code>
+<ul>
+<li class="fragment">hover over the <code>summerschool</code> folder and click the <code>new folder</code> button (it looks like a folder with a <code>+</code> on it)</li>
+<li class="fragment">name the new folder <code>images</code> (just type the name and hit <code>enter</code>, no caps, no spaces, no special characters)</li>
+</ul></li>
+<li class="fragment">then go online to find an image that relates to your exemplar and save it in that <code>sub-directory</code>.
+<ul>
+<li class="fragment">you can use the <code>save image as</code> option from the right-click menu to save the image to the <code>images</code> folder</li>
+<li class="fragment">be a little attentive of the name of the file in the window that pops up, you might need to change it to something that makes sense to you</li>
+<li class="fragment">you also might need to manually cut or copy the file from the main <code>Downloads</code> folder on your to the <code>images</code> <code>sub-directory</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="putting-images-in-your-document" class="slide level2 smaller">
+<h2>putting images in your document</h2>
+<p>OK, now that you’ve saved an image to the <code>images</code> <code>sub-directory</code> you can use it in your document.</p>
+<p>To do this you need to use the <code>relative</code> path to the image from the <code>file</code> that you want to put it in.</p>
+<p>For example, if you have a file called <code>my_image.jpg</code> in the <code>images</code> <code>sub-directory</code> and you want to put it in your <code>exemplar.qmd</code> document then you would use the following <code>markdown</code> code</p>
+<h3 id="imagesmy_image.jpg">![](images/my_image.jpg)</h3>
+<aside class="notes">
+<p>This is the <code>markdown</code> code for an image. Not the difference in the ‘' and the’/’ in the <code>path</code>. This is because the ‘' is used to escape the next character in <code>markdown</code> and the’/’ is used to separate <code>directories</code> and <code>files</code> in the <code>path</code>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>This will put the image in your document.</p>
+<p>Check that it works by going into the terminal and typing <code>quarto preview exemplar.qmd</code> which will open the document in your browser.</p>
+</section>
+<section id="putting-citations-into-your-document" class="slide level2 smaller">
+<h2>putting citations into your document</h2>
+<p>OK, images are all well and good, but what about something that’s useful for your <em>accaedmic</em> writing?</p>
+<p>(You know, the thing that you’re here to learn about?)</p>
+<p>Well, in a simiar way to the images we can tell quarto where to find your references file and then you can really easily put them in your document.</p>
+<p>On the brightspace project site for this summerschool you’ll find a file called <code>example_references.bib</code>. This is a sample <code>bibliography</code> file that contains the references used in making todays sessions.</p>
+<p>Make a <code>sub-directory</code> in the summerschool folder called <code>resources</code> and save the <code>example_references.bib</code> file in that <code>sub-directory</code>.</p>
+</section>
+<section id="putting-citations-into-your-document-1" class="slide level2 smaller">
+<h2>putting citations into your document</h2>
+<p>If you want to you can open the <code>example_references.bib</code> file in VScode and have a look at the structure of the file.</p>
+<p>It’s a <code>plain text</code> file that contains a list of references in a specific format.</p>
+<p>This format is (using <code>{}</code> to indicate a <code>field</code>) is very common in the world of programming and we’ll definitely spend time on it later but for now just note that it’s a list of references with a <code>key</code> that you can use to refer to the reference in your document. The <code>key</code> is the first thing in the <code>bibliography</code> entry (after the first <code>{</code>).</p>
+<p>But first we need to tell quart where to find the <code>bibliography</code> file.</p>
+</section>
+<section id="putting-citations-into-your-document-2" class="slide level2 smaller">
+<h2>putting citations into your document</h2>
+<h3 id="the-yaml-header">The <code>yaml</code> header</h3>
+<p>To do this we need to add a <code>yaml</code> header to the top of the <code>exemplar.qmd</code> file.</p>
+<p>If you take a quick look at the <code>example.qmd</code> file you’ll see that it has a block of text at the top that looks like this</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {yaml} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>---</span>
+<span id="cb1-2"><a href=""></a>title: "Example Quarto Document"</span>
+<span id="cb1-3"><a href=""></a>author: "UL Psychtech Team"</span>
+<span id="cb1-4"><a href=""></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-yaml-header-1" class="slide level2 smaller">
+<h2>The <code>yaml</code> header</h2>
+<p>This is a <code>yaml</code> header. It’s a way of providing general info and instructions to <code>quarto</code>.</p>
+<p>The <code>title</code> and <code>author</code> fields are used to provide <code>metadata</code> to <code>quarto</code>, you can also add an <code>abstract</code> field if you want to provide an abstract for your document, and you can include many other fields as well, which we’ll show you later but the main one for now is the <code>bibliography</code> field.</p>
+<p>Note that the format is <code>field: value</code> with the <code>field</code> and <code>value</code> separated by a <code>:</code>. Sometimes the value is in <code>"</code> and sometimes it’s not, this is just a quirk of <code>yaml</code> and you’ll get used to it.</p>
+<p>so to add a <code>bibliography</code> field to the <code>yaml</code> header you would add the following line</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {yaml} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>---</span>
+<span id="cb2-2"><a href=""></a>bibliography: "resources/example_references.bib"</span>
+<span id="cb2-3"><a href=""></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Take a minute and add a <code>yaml</code> header to your <code>exemplar.qmd</code> file with the <code>bibliography</code> field pointing to the <code>example_references.bib</code> file in the <code>resources</code> <code>sub-directory</code> of the <code>summerschool</code> folder.</p>
+</section>
+<section id="putting-citations-into-your-document-3" class="slide level2 smaller">
+<h2>putting citations into your document</h2>
+<p>Once you’ve added the <code>yaml</code> header to your <code>exemplar.qmd</code> and saved the file you can add a citation to your document.</p>
+<p>all you have to do is use the following syntax</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {markdown} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>[@key]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where <code>key</code> is the <code>key</code> of the reference that you want to cite.</p>
+</section>
+<section id="putting-citations-into-your-document-4" class="slide level2 smaller">
+<h2>putting citations into your document</h2>
+<p>You’ll notice that if you type <code>[@</code> in VScode it will give you a list of the <code>keys</code> in the <code>bibliography</code> file that you’ve pointed to in the <code>yaml</code> header. This is because the quarto extension for VScode is really good at helping you with your writing!</p>
+<p>If you know the first few letters of the <code>key</code> that you want to use you can just type them and then hit <code>tab</code> and it will fill in the rest of the <code>key</code> for you.</p>
+<p>You can edit the <code>keys</code> in the <code>bibliography</code> file to make them easier to remember, but you should be careful to make sure that they are unique.</p>
+<p>try adding a reference into the text of your exemplar document and then previewing it in the browser to see what it looks like.</p>
+<p>Take your time and play around with it, it’s a really useful tool to have in your writing toolbox.</p>
+</section>
+<section id="but-what-about-the-formatting" class="slide level2 smaller">
+<h2>but what about the formatting?</h2>
+<p>OK, so we’ve covered the <code>bibliography</code> and the <code>yaml</code> and you’ve put a reference into your document, but it’s not in APA style!</p>
+<ul>
+<li class="fragment">And what’s the point of having a <code>bibliography</code> if it’s not in APA style?</li>
+</ul>
+<p>Well, we can use what’s called a <code>csl</code> (Citation Style Language) file to tell quarto how to format our reference.</p>
+<p>You can get the <code>csl</code> file that we’re using from the brightspace project site for this summerschool. It’s called <code>apa.csl</code> and you should save it in the <code>resources</code> <code>sub-directory</code> of the <code>summerschool</code> folder <code>csl</code> files from <a href="https://www.zotero.org/styles?q=apa">the internet</a> (the link is in the supplimentary material for today) and you can use any of them that you like. However, we’ve put the <code>apa.csl</code> file on the brightspace project site for this summerschool so that you can use it easily.</p>
+<ul>
+<li class="fragment">Download the <code>apa.csl</code> file from the brightspace project site for this summerschool and save it in the <code>resources</code> <code>sub-directory</code> of the <code>summerschool</code> folder.</li>
+</ul>
+</section>
+<section id="but-what-about-the-formatting-1" class="slide level2 smaller">
+<h2>but what about the formatting?</h2>
+<p>Now that you’ve done that you can add another line to your <code>yaml</code> header to tell quarto where to find the <code>csl</code> file.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {yaml} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>---</span>
+<span id="cb4-2"><a href=""></a>bibliography: "resources/example_references.bib"</span>
+<span id="cb4-3"><a href=""></a>csl: "resources/apa.csl"</span>
+<span id="cb4-4"><a href=""></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>once you’ve done this, save the document again and see how the reference changes in the preview in the browser.</p>
+</section>
+<section id="quick-recap" class="slide level2 smaller">
+<h2>quick recap</h2>
+<p>There’s lots of other bits and pieces that you can do when it comes to formatting, but we’ve just covered a lot so let’s just take some time to recap.</p>
+<ul>
+<li class="fragment">We’ve covered the <code>file system</code> and how to use <code>relative</code> paths to point to <code>files</code> and <code>directories</code> on your computer
+<ul>
+<li class="fragment">You’ve created <code>sub-directories</code> in the <code>summerschool</code> folder and saved an files to them</li>
+</ul></li>
+<li class="fragment">We’ve covered how to add a <code>yaml</code> header to your <code>quarto</code> document to provide <code>metadata</code> to <code>quarto</code></li>
+<li class="fragment">We’ve covered how to add an image to your <code>quarto</code> document and how to use <code>relative</code> paths to point to the <code>image</code> on your computer</li>
+<li class="fragment">We’ve covered how to add a <code>bibliography</code> to your <code>quarto</code> document and how to add a <code>csl</code> file to tell <code>quarto</code> how to format your references</li>
+</ul>
+</section>
+<section id="your-first-solo-mission" class="slide level2 smaller">
+<h2>your first solo mission</h2>
+<p>OK, now that you’ve done this I’m setting you a task of your own. Find a reference or two that are related to your exemplar and add them to your <code>bibliography</code> file.</p>
+<ul>
+<li class="fragment">They need to be in the <code>bibliography</code> format (so you need to save the reference in the <code>bibtex</code> format)</li>
+</ul>
+<p>Once you’ve added them to your <code>bibliography</code> file add a reference to your <code>exemplar</code> document and preview it in the browser to see what it looks like, take some time to make it make sense, write a little bit about the examplar that uses that reference, then save the file and see how it looks in the <code>previewed</code> document.</p>
+</section>
+<section id="your-first-solo-mission-1" class="slide level2 smaller">
+<h2>your first solo mission</h2>
+<p>If you’re stuck, ask for help!</p>
+<p>If you’re not stuck, help someone else!</p>
+<p>(remember that google scholar and every journal website has a <code>cite</code> button that will give you the <code>bibtex</code> format for the reference that you’re looking at)</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

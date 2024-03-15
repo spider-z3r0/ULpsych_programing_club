@@ -7,7 +7,7 @@ format:
 editor: "visual"
 jupyter: pss
 bibliography: references.bib
-csl: apa.csl
+csl: resources/apa.csl
 ---
 
 ## Welcome back!
@@ -162,7 +162,170 @@ but if we have a `sub-directory` called `my_data_sub_folder` and a `file` called
 
 ### my_data_sub_folder\\my_data.csv
 
+## The File System{.smaller}
+
 This can be tricky to get your head around at first, but it's really useful once you get the hang of it, and it's actually not that difficult. 
 
-We can use the terminal in VScode to help us understand this. 
+Maybe the best way to get the hang of it is to practice, 
+
+ - create a new `sub-directory` in the summerschool folder called `images` 
+   - hover over the `summerschool` folder and click the `new folder` button (it looks like a folder with a `+` on it)
+   - name the new folder `images` (just type the name and hit `enter`, no caps, no spaces, no special characters)
+ - then go online to find an image that relates to your exemplar and save it in that `sub-directory`.
+   - you can use the `save image as` option from the right-click menu to save the image to the `images` folder
+   - be a little attentive of the name of the file in the window that pops up, you might need to change it to something that makes sense to you
+   - you also might need to manually cut or copy the file from the main `Downloads` folder on your to the `images` `sub-directory`
+
+## putting images in your document{.smaller}
+OK, now that you've saved an image to the `images` `sub-directory` you can use it in your document.
+
+To do this you need to use the `relative` path to the image from the `file` that you want to put it in.
+
+For example, if you have a file called `my_image.jpg` in the `images` `sub-directory` and you want to put it in your `exemplar.qmd` document then you would use the following `markdown` code
+
+
+### \!\[\]\(images/my_image.jpg\)
+
+:::{.notes}
+This is the `markdown` code for an image. Not the difference in 
+the '\' and the '/' in the `path`. This is because the '\' is used to escape the next character in `markdown` and the '/' is used to separate `directories` and `files` in the `path`.
+:::
+
+This will put the image in your document.
+
+Check that it works by going into the terminal and typing `quarto preview exemplar.qmd` which will open the document in your browser.
+
+## putting citations into your document{.smaller}
+
+OK, images are all well and good, but what about something that's useful for your *accaedmic* writing?
+
+(You know, the thing that you're here to learn about?)
+
+Well, in a simiar way to the images we can tell quarto where to find your references file and then you can really easily put them in your document. 
+
+On the brightspace project site for this summerschool you'll find a file called `example_references.bib`. This is a sample `bibliography` file that contains the references used in making todays sessions. 
+
+Make a `sub-directory` in the summerschool folder called `resources` and save the `example_references.bib` file in that `sub-directory`. 
+
+## putting citations into your document{.smaller}
+
+If you want to you can open the `example_references.bib` file in VScode and have a look at the structure of the file.
+
+It's a `plain text` file that contains a list of references in a specific format.
+
+This format is (using `{}` to indicate a `field`) is very common in the world of programming and we'll definitely spend time on it later but for now just note that it's a list of references with a `key` that you can use to refer to the reference in your document. The `key` is the first thing in the `bibliography` entry (after the first `{`). 
+
+But first we need to tell quart where to find the `bibliography` file.
+
+## putting citations into your document{.smaller}
+### The `yaml` header
+
+To do this we need to add a `yaml` header to the top of the `exemplar.qmd` file.
+
+If you take a quick look at the `example.qmd` file you'll see that it has a block of text at the top that looks like this
+
+```{yaml}
+---
+title: "Example Quarto Document"
+author: "UL Psychtech Team"
+---
+```
+
+
+## The `yaml` header{.smaller}
+
+This is a `yaml` header. It's a way of providing general info and instructions to `quarto`.
+
+The `title` and `author` fields are used to provide `metadata` to `quarto`, you can also add an `abstract` field if you want to provide an abstract for your document, and you can include many other fields as well, which we'll show you later but the main one for now is the `bibliography` field.
+
+Note that the format is `field: value` with the `field` and `value` separated by a `:`.
+Sometimes the value is in `"` and sometimes it's not, this is just a quirk of `yaml` and you'll get used to it.
+
+so to add a `bibliography` field to the `yaml` header you would add the following line
+
+
+```{yaml}
+---
+bibliography: "resources/example_references.bib"
+---
+```
+
+Take a minute and add a `yaml` header to your `exemplar.qmd` file with the `bibliography` field pointing to the `example_references.bib` file in the `resources` `sub-directory` of the `summerschool` folder.
+
+## putting citations into your document{.smaller}
+
+Once you've added the `yaml` header to your `exemplar.qmd` and saved the file you can add a citation to your document.
+
+all you have to do is use the following syntax
+   
+   ```{markdown}
+   [@key]
+   ```
+   
+   where `key` is the `key` of the reference that you want to cite.
+
+## putting citations into your document{.smaller}
+
+You'll notice that if you type `[@` in VScode it will give you a list of the `keys` in the `bibliography` file that you've pointed to in the `yaml` header. This is because the quarto extension for VScode is really good at helping you with your writing! 
+
+If you know the first few letters of the `key` that you want to use you can just type them and then hit `tab` and it will fill in the rest of the `key` for you.
+
+You can edit the `keys` in the `bibliography` file to make them easier to remember, but you should be careful to make sure that they are unique.
+
+try adding a reference into the text of your exemplar document and then previewing it in the browser to see what it looks like.
+
+Take your time and play around with it, it's a really useful tool to have in your writing toolbox.
+
+## but what about the formatting?{.smaller}
+
+OK, so we've covered the `bibliography` and the `yaml` and you've put a reference into your document, but it's not in APA style! 
+
+ - And what's the point of having a `bibliography` if it's not in APA style?
+
+Well, we can use what's called a `csl` (Citation Style Language) file to tell quarto how to format our reference.
+
+You can get the `csl` file that we're using from the brightspace project site for this summerschool. It's called `apa.csl` and you should save it in the `resources` `sub-directory` of the `summerschool` folder `csl` files from [the internet](https://www.zotero.org/styles?q=apa) (the link is in the supplimentary material for today) and you can use any of them that you like. However, we've put the `apa.csl` file on the brightspace project site for this summerschool so that you can use it easily.
+
+ - Download the `apa.csl` file from the brightspace project site for this summerschool and save it in the `resources` `sub-directory` of the `summerschool` folder.
+
+## but what about the formatting?{.smaller}
+
+Now that you've done that you can add another line to your `yaml` header to tell quarto where to find the `csl` file.
+
+```{yaml}
+---
+bibliography: "resources/example_references.bib"
+csl: "resources/apa.csl"
+---
+```
+
+once you've done this, save the document again and see how the reference changes in the preview in the browser.
+
+## quick recap{.smaller}
+There's lots of other bits and pieces that you can do when it comes to formatting, but we've just covered a lot so let's just take some time to recap. 
+
+- We've covered the `file system` and how to use `relative` paths to point to `files` and `directories` on your computer
+   - You've created `sub-directories` in the `summerschool` folder and saved an files to them
+- We've covered how to add a `yaml` header to your `quarto` document to provide `metadata` to `quarto`
+- We've covered how to add an image to your `quarto` document and how to use `relative` paths to point to the `image` on your computer
+- We've covered how to add a `bibliography` to your `quarto` document and how to add a `csl` file to tell `quarto` how to format your references
+
+## your first solo mission{.smaller}
+OK, now that you've done this I'm setting you a task of your own. 
+Find a reference or two that are related to your exemplar and add them to your `bibliography` file. 
+
+ - They need to be in the `bibliography` format (so you need to save the reference in the `bibtex` format)
+
+Once you've added them to your `bibliography` file add a reference to your `exemplar` document and preview it in the browser to see what it looks like, take some time to make it make sense, write a little bit about the examplar that uses that reference, then save the file and see how it looks in the `previewed` document.
+
+
+## your first solo mission{.smaller}
+
+If you're stuck, ask for help! 
+
+If you're not stuck, help someone else!
+
+(remember that google scholar and every journal website has a `cite` button that will give you the `bibtex` format for the reference that you're looking at)
+
+
 
