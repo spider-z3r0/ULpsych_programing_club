@@ -4,6 +4,7 @@ subtitle: Introductions all round
 format: 
    revealjs:
       incremental: true
+      theme: solarized
 editor: "visual"
 jupyter: pss
 bibliography: references.bib
@@ -20,7 +21,8 @@ My name is Kev O Malley, and I'm the nerd who'll be accompanying you through thi
 </div>
 
 
-## Acknowledgements
+## Acknowledgements{.smaller}
+ -
 This content is building on some other really amazing work by some really amazing people, and I'll be sure to give them credit as we go along, but just to note that this material is heavily inspired by: 
 
 - [The python crash course](https://nostarch.com/python-crash-course-3rd-edition) [@MatthesPython2022]
@@ -75,9 +77,9 @@ These tools were developed by, and are used by, people from all walks of life
 [@abdulbaha1938advent]
 
 
-# Elephant 2: Expectations
+# Elephant 2: Expectations{.smaller}
 
-## You're very smart, but...
+You're very smart, but...
 
  - You're here to **learn**. 
  - Not to be an expert. 
@@ -110,48 +112,48 @@ These tools were developed by, and are used by, people from all walks of life
 -   In the beginning, there was the cave. 
     -   And the cave was good, but it was also cold and dark, and really heavy to carry around.
 <div>
-    <img src="images/cave.jpg" alt="description of image" height="500px"/>
+    <img src="images/cave.jpg" alt="description of image" height="300px"/>
 </div>
 
 ## A brief history of documents
 -  Then there was the scroll, of papyrus or linen or hide. 
     -   And the scroll was good, but it was also really fragile and hard to write on (and really heavy to carry around).
 <div>
-    <img src="images/scroll.jpg" alt="description of image" height="500px"/>
+    <img src="images/scroll.jpg" alt="description of image" height="300px"/>
 </div>
 
 ## A brief history of documents
 -  Then there was the codex, of parchment or paper. 
     -   And the codex was good, illumined with beautiful art by monks and nuns (and really heavy to carry around). 
 <div>
-    <img src="images\manuscript.jpeg" alt="description of image" height="500px"/>
+    <img src="images\manuscript.jpeg" alt="description of image" height="300px"/>
 </div>
 
 ## A brief history of documents
 -  Then there was the printing press, and the typesetter. 
     -   And the books were *good* , but the machinery was hard to use requiring significant expertise (and really heavy to carry around).
 <div>
-    <img src="images/press.jpg" alt="description of image" height="500px"/>
+    <img src="images/press.jpg" alt="description of image" height="300px"/>
 </div>
 
 ## A brief history of documents
 -  Then there was the computer, and the word processor. 
     -   And the documents were good, but the software was hard to use and required significant expertise (and really heavy to carry around).
 <div>
-    <img src="images/word.jpg" alt="description of image" height="500px"/>
+    <img src="images/word.jpg" alt="description of image" height="300px"/>
 </div>
 
 ## A brief history of documents
 -  Then there was the internet, and the web browser. 
     -   And the documents were good, but the text was difficult to parse and required significant expertise (but the documents were really easy to carry around... maybe too easy).
 <div>
-    <img src="images/browser.jpg" alt="description of image" height="500px"/>
+    <img src="images/browser.jpg" alt="description of image" height="300px"/>
 </div>
 
 ## A brief history of documents {.smaller}
-With each of these advances, the process of creating and sharing documents has become somewhat more accessible, but this means that each person has to have a wider range of expertise to produce the kinds of documents that are excpected these days. Not just writing, but typesetting, graphic design etc.
+With each of these advances, the process of creating and sharing documents has become somewhat more accessible, but this means that each person has to have a wider range of expertise to produce the kinds of documents that are expected these days. Not just writing, but typesetting, graphic design etc.
 
-## A brief history of documents
+## A brief history of documents {.smaller}
 While writers and researchers were using the tools of the printer and the graphic designer, computer programmers were developing tools to help them write and share their work more effectively. 
 
 - Tools like the IDE (integrated development environment) for writing text. 
@@ -203,6 +205,13 @@ While writers and researchers were using the tools of the printer and the graphi
  - Day 3: Environment and version control - getting you comfortable with using git and github to manage your projects (code and documents).
  - Day 4: et cetera - intro to R, some example projects with Python and R, and a look at some other tools and resources.
 
+## How are we going to do it? {.smaller}
+ - Working together in teams.
+    - Supporting each other and learning from each other. 
+ - Learning by doing.
+ - Taking low-stakes quizzes.
+    - practicing recall and application of concepts.
+
 . . .
 
 Let's get you started by introducing you to vscode.
@@ -226,13 +235,13 @@ Let's get you started by introducing you to vscode.
 
 Open up VS Code and let's take a look around (Don't panic!).
 
-![](images/VSCODEoverview.png){fig-align="center" height=700}
+![](images/VSCODEoverview.png){fig-align="center" height=500}
 
 ## Visual Studio Code{.smaller}
 
 ![](images/VSCODEexplorer%20highlighted.jpg){fig-align="center" height=500}
 
- . . . 
+## Visual Studio Code{.smaller}
 
 -   The left-hand side of the window is the **activity bar**.
     -   It contains icons for the different views and panels in VS Code.
@@ -240,11 +249,13 @@ Open up VS Code and let's take a look around (Don't panic!).
     -  The main one you'll use is the 'explorer' icon, top of the activity bar, which will show you the files and folders in your project.
 
 
+
 ## Visual Studio Code{.smaller}
 
 ![](images/VSCODEexplorer_terminal_highlighted.jpg){fig-align="center" height=500}
 
-. . . 
+
+## Visual Studio Code{.smaller}
 
  -  The bottom panel is the **terminal**.
     -   This is where you can run commands and see the output of those commands.
@@ -257,7 +268,8 @@ Open up VS Code and let's take a look around (Don't panic!).
 
 ![](images/VSCODEhighlighted.jpg){fig-align="center" height=500}
 
-. . . 
+
+## Visual Studio Code{.smaller}
 
  -  The largest panel is the **editor**.
     -   This is where you write your code and text.
@@ -289,21 +301,21 @@ To open VScode you can either:
 Mention that we've installed vscode for them, and the other stuff we've installed (quarto, python, git, and r).
 :::
 
-## Visual Studio Code
-![](images/VSCODEwelcome.jpg){fig-align="center" height=500}
+## Visual Studio Code{.smaller}
+![](images/VSCODEwelcome.jpg){fig-align="center" height=450}
 
 When you open VScode for the first time, you'll see a welcome screen, this gives you some options for how you want VScode to look and feel, and some options for what you want to do with it.
 
 
-## Visual Studio Code
+## Visual Studio Code{.smaller}
 
-![](images/VSCODEwelcome.jpg){fig-align="center" height=500} 
+![](images/VSCODEwelcome.jpg){fig-align="center" height=450} 
 
 -   You can choose a theme (light or dark).
 -   You can choose a colour scheme.
 -   You can choose a font.
 
-## Visual Studio Code
+## Visual Studio Code{.smaller}
 
 Do these choices matter? Not really so don't stress. They are aesthetic choices, and you can change them at any time, but they're there because you'll be spending a lot of time in VScode and you should be comforatble there. 
 
@@ -312,7 +324,7 @@ Do these choices matter? Not really so don't stress. They are aesthetic choices,
  - When you're ready click on the little blue 'welcome' button in the top left of the window to move on. 
 
 ## Visual Studio Code{.smaller}
-OK, when you've selected a theme, and clicked on the 'welcom button you'll see a different welcome screen.
+OK, when you've selected a theme, and clicked on the 'welcome' button you'll see a different welcome screen.
 Click on the 'file' button in the top left of the window, and then click on 'open folder'.
 
 ![](images/VSCODEopenfolder.jpg){fig-align="right" height=500}
@@ -345,7 +357,7 @@ If it's the first time you've selected or opened this folder (or a subfolder of 
 
 ![](images/VSCODEauthor_trust.jpg){fig-align="center" height=500}
 
-. . . 
+. . .
 
 Click 'Yes, I trust the authors' (because you do, right?).
 
@@ -376,11 +388,11 @@ You can mention pandoc, rmarkdown etc here, but this isn't a history lesson.
 
 
 
-## Why am Quarto? 
- - Quarto was developed (essentially) by the scientific community to allow reserachers to take advantage of modern work flow:
+## Why am Quarto?{.smaller}
+ - Quarto was developed (essentially) by the scientific community to allow researchers to take advantage of modern work flow:
     - To allow remove the tedium of working formatting documents by hand.
     - To not have to care about what the document will look like while you're writing.
-    - To allow you to focus on the writing and the thinking, and let the computer do the boring stuff.
+    - To allow you to analyse your data and write about it in the same place.
 
 . . . 
 
@@ -389,7 +401,7 @@ In the links for this presentation you'll find wider info about quarto, but for 
 
 
 ## Quarto Documents{.smaller}
-Quarto doc uments are essentially `plain text` with some extra `syntax` added in to tell the computer how to format the document.
+Quarto documents are essentially `plain text` with some extra `syntax` added in to tell the computer how to format the document.
 
  - `Plain Text` is just that, plain. It's like the text you type in a text message, or an email without any formatting.
  - `Syntax` is the set of rules that govern how the computer will interpret various symbols that you put into the `plain text` to tell *the computer how to format it*.
@@ -474,10 +486,12 @@ Say that we're ignoring lines 1-4, call out line 6, and then walk through the re
 
 ### Italics
 *This is in italics*
+
 _This is also in italics_
 
 ### Bold
 **This is in bold**
+
 __This is also in bold__
 
 ### Bold and Italics
@@ -492,10 +506,12 @@ __This is also in bold__
 
 ###  Italics
 *This is in italics*
+
 _This is also in italics_
 
 ### Bold
 **This is in bold**
+
 __This is also in bold__
 
 ### Bold and Italics
@@ -607,6 +623,9 @@ Rather than editing the `example.qmd` file, let's create a new file to practice 
 
  - If you hover over the 'explorer' area on the left of the window, you'll see a little icon that looks like a piece of paper with a plus sign on it. Click on that to create a new file.
  - Type `intentions.qmd` into the box that pops up and press enter. (Yay!! You now know how to create a new file in VScode!)
+
+## Quarto Practice{.smaller}
+
  - In this new document using the markdown syntax we've just learned, write a few paragraphs about your intentions for the summer school.
     1. What do you hope to learn?
     2. Is there a particular project you might use this knowledge for?
@@ -695,6 +714,15 @@ You can also `preview` your document in a separate window to see what it looks l
  - You've created a new file in VScode.
  - You've written a document in markdown.
  - You've rendered and previewed your document.
+
+## Quiz time!{.smaller}
+ If you go to the brightspace site (we've added you all to the course), you'll find a quiz there that will help you to remember what we've covered in this session. 
+
+ The quiz is called 'Session 0.0' and it's just a few questions to help you remember what we've covered today.
+
+**YOU ARE NOT BEING GRADED ON THIS QUIZ!** 
+
+It's just another form of practice to help you remember what we've covered today.
 
 ## Next bits{.smaller}
  - Before you take a well deserved break, make another new file in VScode. 

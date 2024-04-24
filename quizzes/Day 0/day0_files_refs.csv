@@ -1,0 +1,283 @@
+## Day 0 Session 1 Quiz
+
+NewQuestion,MC,,,
+ID,Q-101,,,
+Title, What is a file?,,,,
+QuestionText,Choose the best definition of a file.,,,
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,100,A collection of data stored on your computer,,,
+Option,0,A small, furry animal that lives in your computer,,, 
+Option,0,A mysterious force that deletes important documents,,,
+Option,0,The feeling of dread when your computer crashes,,,
+Hint,Think about what you store on your computer.,,, 
+Feedback,That's right! Files are the basic building blocks of digital information.
+
+
+NewQuestion,MC,,,
+ID,Q-102,,,
+Title,What is a directory?,,,,  
+QuestionText,Choose the best definition of a directory.,,, 
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,0,A list of phone numbers,,,
+Option,100,A collection of files and sub-directories on your computer,,,
+Option,0,A tool for finding lost files,,,
+Option,0,A guide on how to swear at your computer effectively,,,
+Hint,Think of a directory like a container.,,,
+Feedback,Correct! Directories help organize your files.
+
+
+NewQuestion,MC,,,
+ID,Q-103,,,
+Title,What is the difference between a file and a directory?,,,,
+QuestionText,How are files and directories different?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,Files are edible, directories are not,,,
+Option,100,Files hold data, directories hold files and other directories,,, 
+Option,0,Files can be opened, directories can only be stared at in confusion,,,
+Option,0,There's no difference, they're the same thing,,,
+Hint,Think about what goes *inside* each one.,,,
+Feedback,Exactly! Files store the content, directories keep things tidy. 
+
+
+NewQuestion,MC,,,
+ID,Q-104,,,
+Title,Which of these is an example of an absolute path?,,,,
+QuestionText,Identify the absolute file path.,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,../images/my_photo.jpg,,,
+Option,100,C:\\Users\\Kev\\Documents\\SummerSchool\\my_document.qmd,,,
+Option,0,my_document.qmd,,,
+Option,0,The answer is lost somewhere in my computer,,,
+Hint,An absolute path starts from the very beginning (the root).,,, 
+Feedback,You got it! Absolute paths give the full address.
+
+
+NewQuestion,MC,,,
+ID,Q-105,,,
+Title, What is a relative path?,,,,
+QuestionText,Choose the best definition of a relative path.,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,, 
+Option,0,A path to a file you haven't found yet,,, 
+Option,0,A path that changes depending on the time of day,,,
+Option,100,A path from one file to another, based on their location,,,
+Option,0,A path that includes directions from your nearest coffee shop,,,
+Hint,Think about the starting point of the path.,,,
+Feedback,That's correct! Relative paths are like shortcuts within your file system. 
+
+
+NewQuestion,MC,,,
+ID,Q-106,,,
+Title,Why are relative paths useful?,,,,
+QuestionText,What's the advantage of using relative paths?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,They make your computer run faster,,,
+Option,0,They help you find lost files,,,
+Option,100,They make it easier to move files around without breaking links,,,
+Option,0,They confuse hackers,,,
+Hint,Think about what happens if you change the location of your project folder.,,,
+Feedback,Absolutely! Relative paths maintain the connections within your project.
+
+
+NewQuestion,MC,,,
+ID,Q-107,,,
+Title,What does the file extension ".qmd" indicate?,,,,
+QuestionText,What kind of file has a ".qmd" extension?,,,
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,100,A Quarto document,,,
+Option,0,A very important spreadsheet,,,
+Option,0,An image file,,, 
+Option,0,A mysterious file that should not be opened,,,
+Hint,Quarto is the tool we use to create different output formats.,,,
+Feedback,That's it! ".qmd" stands for Quarto Markdown.
+
+
+NewQuestion,MC,,,
+ID,Q-108,,,
+Title,How do you add an image to a Quarto document?,,,, 
+QuestionText,What's the correct syntax for inserting an image?,,,
+Points,1,,,
+Difficulty,3,,,
+Image,,,
+Option,0,Type the image filename and hope it appears,,,
+Option,100,![] (path/to/image.jpg),,,
+Option,0,Draw the image directly in the document using your mouse,,,
+Option,0,Yell at your computer until it complies,,, 
+Hint,There's a special Markdown syntax for images.,,,
+Feedback,Correct! Remember the exclamation mark and those parentheses.
+
+
+NewQuestion,MC,,,
+ID,Q-109,,,
+Title, Where do you specify the bibliography file for your Quarto document?,,,,
+QuestionText,How does Quarto know where to find your references?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,On a sticky note attached to your monitor,,,
+Option,100,In the YAML header of your document,,,
+Option,0,You have to recite the references aloud before rendering,,,
+Option,0,In a strongly worded email to the developers of Quarto,,,  
+Hint,There's a special section at the top of Quarto documents.,,,
+Feedback,That's the way! The YAML header sets up your document. 
+ 
+NewQuestion,MC,,,
+ID,Q-110,,,
+Title,What is the purpose of a .bib file?,,,,
+QuestionText,Why do we use .bib files?,,,
+Points,1,,,
+Difficulty,2,,, 
+Image,,,
+Option,100,To store a list of references in a structured format,,,
+Option,0,To confuse our colleagues,,,
+Option,0,To store important passwords (definitely don't do this),,,
+Option,0,They are ancient scrolls containing programming secrets,,,
+Hint,Think about how a bibliography is created.,,,
+Feedback,Exactly! .bib files keep your references organized for easy use.
+
+
+NewQuestion,MC,,,
+ID,Q-111,,,
+Title,What does a citation key do?,,,,
+QuestionText,What's the purpose of the key in a .bib entry?,,,
+Points,1,,,
+Difficulty,3,,, 
+Image,,,
+Option,0,Unlocks hidden features in Quarto,,,
+Option,0,It's the password to a secret club of citation experts,,,  
+Option,0,Lets you summon a reference into existence,,,
+Option,100,Provides a unique way to reference that entry in your document,,,
+Hint,Think about how you insert a specific citation in your text.,,, 
+Feedback,You're right! Keys are like reference shortcuts. 
+
+
+NewQuestion,MC,,,
+ID,Q-112,,,
+Title, What is a .csl file?,,,,
+QuestionText,Choose the best definition of a .csl file.,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,A collection of recipes for delicious salads  (the 'c' stands for cucumber),,,
+Option,100,A file that determines the formatting style of your references,,,
+Option,0,An encrypted file containing coding secrets,,,
+Option,0,A list of complaints sent to software support,,,
+Hint,Think about APA style, in-text citations, etc.,,,
+Feedback,That's correct! CSL stands for Citation Style Language. 
+
+
+NewQuestion,MC,,,
+ID,Q-113,,,
+Title, What is YAML?,,,, 
+QuestionText,What role does YAML play in Quarto documents?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,A delicious Middle Eastern dip,,,
+Option,0,A programming language specifically for llamas,,,
+Option,100,A way to provide metadata and instructions to Quarto,,,
+Option,0,The sound a programmer makes when their code finally works,,,
+Hint,Think about the top section of your .qmd files.,,,
+Feedback,You got it! YAML is like a configuration section for
+
+NewQuestion,MC,,,
+ID,Q-114,,, 
+Title, How do you create a level 1 heading in Quarto Markdown?,,,,
+QuestionText,Choose the correct syntax to make a main heading.,,, 
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,100,# Heading Text,,,
+Option,0,## Heading Text,,,  
+Option,0,Make the text really big and bold,,,
+Option,0,*Heading Text*,,, 
+Hint,Think about symbols used for emphasis.,,, 
+Feedback,Correct! A single '#' denotes a level 1 heading.
+
+
+NewQuestion,MC,,,
+ID,Q-115,,,  
+Title,How do you create italic text in Quarto Markdown?,,,, 
+QuestionText, What's the syntax for italicizing text?,,,
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,0,Surround the text with ~~squiggles~~,,,
+Option,0,Write the text at a slanted angle,,,
+Option,100,Surround the text with single asterisks (*Italic Text*),,,
+Option,0,Yell the word "italic" while typing,,,
+Hint,Markdown uses symbols to add formatting.,,,
+Feedback,Perfect! Single asterisks do the trick.
+
+
+NewQuestion,MC,,,
+ID,Q-116,,,
+Title,How do you create a link in Quarto Markdown?,,,,
+QuestionText,What's the correct format for adding a hyperlink?,,, 
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,Just paste the full web address directly into the text,,, 
+Option,100,[Link Text] (https://www.example.com),,, 
+Option,0,Draw an arrow on the screen pointing to the website,,,
+Option,0,Perform an interpretive dance representing the website,,, 
+Hint,There's a specific way to show the clickable text and the actual link.,,, 
+Feedback,You've got it! This format keeps your text tidy. 
+
+
+NewQuestion,MC,,,
+ID,Q-117,,,
+Title,What does the following Quarto syntax do? `{python} 2 + 2 `,,,, 
+QuestionText,What does this text do?,,,
+Points,1,,,
+Difficulty,3,,,
+Image,,,
+Option,0,Embeds a secret message in your document,,,
+Option,0,Creates an adorable robot illustration,,,
+Option,100,Executes R code and includes the output in your document,,,
+Option,0,Starts an argument with Python programmers,,,
+Hint,The 'python' is a clue!,,, 
+Feedback,That's right! Quarto lets you weave code into your writing. 
+
+
+NewQuestion,MC,,,
+ID,Q-118,,,
+Title,How would you change the output format of a Quarto document to PDF?,,,, 
+QuestionText,What do you need to modify to create a PDF instead of HTML?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,Sacrifice a goat to the PDF gods,,,
+Option,100,Change the YAML header,,,
+Option,0,Re-write the entire document in Adobe Acrobat,,,
+Option,0,Yell "PDF!" at your computer screen,,,
+Hint,Remember where you set up your document specifications.,,,  
+Feedback,Excellent! The YAML header controls your output options.
+
+
+NewQuestion,MC,,,
+ID,Q-119,,,
+Title,How do you insert a code chunk that displays the code,,,,
+QuestionText,What's the syntax for showing code in quarto?,,, 
+Points,1,,,
+Difficulty,3,,,
+Image,,,
+Option,0,Put the code to sleep with a lullaby,,,
+Option,100,Use three '`' backticks to open the chunk and another the '`' to close it. ,,,
+Option,0,Write the code in invisible ink,,, 
+Option,0,Change the code's language to something Quarto doesn't understand,,,
+Hint,Backticks,,,  
+Feedback,Spot on! This is handy for explaining code examples. 

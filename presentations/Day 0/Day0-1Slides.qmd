@@ -4,6 +4,7 @@ subtitle: Where the file things are
 format: 
    revealjs:
       incremental: true
+      theme: solarized
 editor: "visual"
 jupyter: pss
 bibliography: references.bib
@@ -28,9 +29,7 @@ The magic is in how quarto can take multiple files and use them to create a sing
 
  - if we provide it with a `.bib` file it can handle your references
  - if we provide it with a `.csl` file it can handle your citation style
- - if we provide it with `css` (style) files it can handle your formatting
- - if we provide it with `yaml` (configuration) files it can handle your metadata (like author, title, etc)
-   - and this is actually the file that we've been using to tell quarto where the other files are
+ - if we provide it with `yaml` (configuration) files/sections it can handle your metadata (like author, title, etc)
 
 ## The Magic{.smaller}
 
@@ -38,12 +37,11 @@ Which (probably) leaves you with a couple of questions
 
 1. What is a `.bib` file?
 2. What is a `.csl` file?
-3. What is a `css` file?
-4. What is a `yaml` file?
-5. Where do I get them? 
-6. How do I use them?
-7. Why are you like this, Kev?
-8. What time is lunch? 
+3. What is a `yaml` file/section?
+4. Where do I get them? 
+5. How do I use them?
+6. Why are you like this, Kev?
+7. What time is lunch? 
 
 
 
@@ -78,7 +76,7 @@ Imagine that your computer is a city, and each file is a person that lives in th
 
 . . .
 
-There's also `drives` (like `C:` or `D:`) but we're not going to talk about them today, we might think of them as different neighbourhoods in the city.
+There's also `drives` (like `C:` or `D:`).We're not going to talk about them today, but we might think of them as different neighbourhoods in the city. For the most part you're just going to be worried about the `C:` drive, but you might have other drives on your computer that you can use to store files.
 
 ## The File System{.smaller}
 
@@ -114,17 +112,30 @@ We can also have other files in `my_project_folder` like `my_other_file.bib` and
 
 . . .
 
-We could also have a `sub-directory` called `my_data_sub_folder` and the `path` would follow the same convetion as the others. 
+We could also have a `sub-directory` called `my_data_sub_folder` and the `path` would follow the same convention as the others. 
 
 
 ## The File System{.smaller}
 
-In a sense each element is a `child` of it's `parent directory` until we get to the file, with the `drive` acting as the `root` of the `tree` and the `files` as the `leaves`. 
+In a sense each element is a `child` of it's `parent directory` (working from right to left) until we get to the file, with the `drive` acting as the `root` of the `tree` and the `files` as the `leaves`. 
 
 ![](images/filetree.webp){fig-align="center"}
 
 
- -  *(I told you I was going to torture some metaphors.)*
+*(I told you I was going to torture some metaphors.)*
+
+## The File System{.smaller}
+This next bit is just really annoying so pay attention. 
+
+Depending on the operating system your using and the kind of work your doing the `path` will be written differently. 
+
+ - On `Windows` the `path` is written with `\` separating the `directories` and `files`
+ - On `Mac` and `Linux` the `path` is written with `/` separating the `directories` and `files`
+ 
+. . . 
+
+ But depending on whether you're working with `markdown` or `python` or `R` or in the terminal you might need to use the `Windows` style or the `Mac` style.
+ We'll try to highlight it when it matters, but it's something to keep in mind.
 
 ## The File System{.smaller}
 
@@ -135,6 +146,7 @@ So, to sum up
  - A `sub-directory` is a `directory` that is inside another `directory`
  - The `path` is the `address` of the `file` on the `drive`
  - The `path` is made up of the `drive`, `directories`, and `sub-directories` that the `file` is in
+ - Depending on the work you're doing you might need to use the `\` or the `/` to separate the `directories` and `files` in the `path`
  - The `path` is used to find the `file` on the `drive` (and to point to the `file` from other `files`)
    - The `path` is a `relative` term. A `sub-directory` is only a `sub-directory` in relation to the `directory` that contains it.
 
@@ -160,7 +172,10 @@ For example, if we have a `file` called `my_file.qmd` and a `file` called `my_ot
 
 but if we have a `sub-directory` called `my_data_sub_folder` and a `file` called `my_data.csv` in that `sub-directory` then the `relative` path from `my_file.qmd` to `my_data.csv` would be
 
-### my_data_sub_folder\\my_data.csv
+### .\\my_data_sub_folder\\my_data.csv
+
+(*ignore the '.' for a minute, we'll come back to it*)
+
 
 ## The File System{.smaller}
 
@@ -184,16 +199,49 @@ To do this you need to use the `relative` path to the image from the `file` that
 For example, if you have a file called `my_image.jpg` in the `images` `sub-directory` and you want to put it in your `exemplar.qmd` document then you would use the following `markdown` code
 
 
-### \!\[\]\(images/my_image.jpg\)
+### \!\[\]\(./images/my_image.jpg\)
+
+(*note the './' in the `path`*)
 
 :::{.notes}
-This is the `markdown` code for an image. Not the difference in 
+This is the `quarto markdown` syntax for an image. Not the difference in 
 the '\' and the '/' in the `path`. This is because the '\' is used to escape the next character in `markdown` and the '/' is used to separate `directories` and `files` in the `path`.
 :::
 
 This will put the image in your document.
 
 Check that it works by going into the terminal and typing `quarto preview exemplar.qmd` which will open the document in your browser.
+
+:::{.notes}
+This is going to take a few minutes. 
+:::
+
+## let's talk about the '.'{.smaller}
+
+`Relative` paths, are *relative* from another `file` or `directory` to another. 
+
+So when you're writing a `relative` path in a quarto document you're writing it from the `file` that you're writing in. 
+
+When you're writing a `relative` path in the terminal you're writing it from the `directory` that you're in *in the terminal*.
+
+## let's talk about the '.'{.smaller}
+The '.' is a special character in a `file path`. It's used to refer to the `current directory` that you're in. It always appears at the start of a `relative` path and it's used to tell the computer that the `path` is `relative` to the `current directory` that your file is in.
+
+There is also a '..' character that is used to refer to the `parent directory` of the `current directory` that you're in. This is used to move `up` the `directory tree` to the `parent directory` of the `current directory`.
+
+## let's talk about the '.'{.smaller}
+
+So if the image was in the same `directory` as the `exemplar.qmd` file then the `path` would be
+
+### \!\[\]\(./my_image.jpg\)
+
+If the image was in a `sub-directory` of the `directory` that the `exemplar.qmd` file was in called images then the `path` would be
+
+### \!\[\]\(./images/my_image.jpg\)
+
+
+
+
 
 ## putting citations into your document{.smaller}
 

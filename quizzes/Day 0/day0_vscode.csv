@@ -1,0 +1,261 @@
+// VS Code Explorer Quiz (with a touch of humor)
+NewQuestion,MC,,,
+ID,VS-101,,,
+Title,How do you create a new file in VS Code?,,,,
+QuestionText,Choose the correct method for creating a new file,,,
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,33,Ctrl+N (or Cmd+N on a Mac),,, 
+Option,33,File > New,,,
+Option,33,Right-click in the Explorer and select "New File",,,
+Option,0,Perform an interpretive dance,,,
+Option,100, All of the above except the dancing (but you are totally allowed to dance as well),,,
+
+Hint,There are multiple serious ways to create a new file... and one less serious way.,
+Feedback,Excellent choice! (Unless you were really tempted by the dance option).
+
+
+NewQuestion,MC,,, 
+ID,VS-102,,,
+Title,What is the Explorer panel used for?,,,,
+QuestionText,What's the Explorer's primary function in VS Code?,,,
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,100,Viewing and managing files and folders,,,
+Option,0,Writing and editing code,,,
+Option,0,Ordering takeout,,, 
+Option,0,Debugging your existential woes,,,
+Hint,The Explorer helps you stay organized, not well-fed.,
+Feedback,Correct! The Explorer is your project's file cabinet.
+
+
+NewQuestion,MC,,,
+ID,VS-103,,,
+Title,Where is the Terminal located?,,,,
+QuestionText,Describe where you'd find the Terminal panel in VS Code.,,, 
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,100,Bottom of the VS Code window,,, 
+Option,0,To the left of the VS Code window ,,,
+Option,0,Disguised as a sandwich in your lunch box,,,
+Option,0,It's the largest panel in the top left VS Code window,,,
+Hint,The Terminal is often used alongside the Explorer.,
+Feedback,That's right! You'll be using the Terminal for various tasks.
+
+
+NewQuestion,MC,,,
+ID,VS-104,,,
+Title,How do I save a file I'm working on?,,,,
+QuestionText,What's the quickest way to save your work in VS Code?,,,
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,100,Ctrl+S (or Cmd+S on a Mac),, 
+Option,0,Click File > Save,,,
+Option,0,Smash your keyboard in frustration,,,
+Option,0,Hope it autosaves,,,
+Hint,Saving frequently is a good habit!,
+Feedback,You got it! Ctrl+S will become your best friend.
+
+
+NewQuestion,MC,,,
+ID,VS-105,,,
+Title,What does VS Code stand for?,,,,  
+QuestionText,Choose the correct meaning of the acronym VS Code.,,, 
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,100,Visual Studio Code,,,
+Option,0,Very Special Coding,,,
+Option,0,Versatile Scripting Commands,,,
+Option,0,Virtual Sandwiches Coming Eventually,,, 
+Hint,It's named after a Microsoft product.,
+Feedback,Correct! Sadly, no virtual sandwiches involved.
+
+
+NewQuestion,MC,,, 
+ID,VS-106,,,
+Title,How do you open a folder in VS Code?,,,,
+QuestionText,What's the easiest way to start working on a project folder?,,, 
+Points,1,,,
+Difficulty,1,,,
+Image,,,
+Option,100,File > Open Folder,,,
+Option,0,Drag the folder onto the VS Code window,,,
+Option,0,Double-click the folder in your file browser,,,
+Option,0,Offer the folder a tasty snack,,,
+Hint,There are multiple ways to do this!,
+Feedback,Great choice! You can use several methods to open your project.
+
+
+NewQuestion,MC,,,
+ID,VS-107,,, 
+Title,What's the shortcut to close a file I have open?,,,,  
+QuestionText,How do you quickly close a file in the editor?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,, 
+Option,100,Ctrl+W (or Cmd+W on a Mac),,
+Option,0,Ctrl+C (or Cmd+C on a Mac),,
+Option,0,Ctrl+Alt+Delete,,,
+Option,0,Scream in frustration and reboot your computer,,,
+Hint,This shortcut is related to saving a file.,
+Feedback,Correct! Ctrl+W is your file-closing companion.
+
+
+NewQuestion,MC,,,
+ID,VS-108,,,
+Title,Where do I adjust the font size in VS Code?,,,,
+QuestionText,How can I make the text easier or harder to read?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,Settings (Preferences on a Mac),,
+Option,100,Ctrl+Plus and Ctrl+Minus (Cmd+Plus and Cmd+Minus),,
+Option,0,Use a magnifying glass,,, 
+Option,0,Squint really hard,,,
+Hint,There's a quick keyboard shortcut for this.,
+Feedback,That's right! Adjust the font size for comfortable coding.
+
+
+NewQuestion,MC,,, 
+ID,VS-109,,,
+Title,How do I run code that I've written?,,,,   
+QuestionText,What do I do to execute a script or program?,,,
+Points,1,,,
+Difficulty,3,,,
+Image,,,
+Option,0,The answer depends on the programming language,,,
+Option,0,Open the Terminal and type the appropriate command,,,
+Option,0,Click a "Run" button (if your extension provides one),, 
+Option,0,All of the above,,,
+Hint,This may work differently depending on what you're coding.,
+Feedback,Exactly! How you run code can vary.
+
+
+NewQuestion,MC,,, 
+ID,VS-110,,,
+Title,What's the purpose of extensions in VS Code?,,,,
+QuestionText,Why would you install an extension?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,100,To add extra features and functionality,,,
+Option,0,To make VS Code heavier (like those old documents!),,
+Option,0,To confuse your colleagues,,, 
+Option,0,To decorate your coding screen,,,
+Hint,Extensions make VS Code even more powerful!
+Feedback,You're right! Think of them as add-ons for your code editor. 
+
+
+NewQuestion,MC,,,
+ID,VS-112,,,
+Title,Where would I go to change the color scheme/theme of VS Code?,,,, 
+QuestionText,How do I adjust the visual appearance of VS Code?,,, 
+Points,1,,,
+Difficulty,2,,,
+Image,,, 
+Option,100,File > Preferences > Theme > Color Theme.,,
+Option,0,The nearest art supply shop for new paintbrushes,,, 
+Option,0,File > Decorate,,,
+Option,0,Shout your desired color scheme really REALLY loudly,,,
+Hint,Customize VS Code to your liking!.,
+Feedback,Spot on! You can also use the keyboard shortcut Ctrl+K Ctrl+T to display the picker.
+
+
+NewQuestion,MC,,,
+ID,VS-113,,,
+Title,What's one advantage of using VS Code over a plain text editor?,,,, 
+QuestionText,Choose one benefit of using VS Code.,,,
+Points,1,,,
+Difficulty,2,,, 
+Image,,,
+Option,0,It has a funny name,,,
+Option,0,It can be used to write documents,,,
+Option,100,Features like syntax highlighting and code completion,,, 
+Option,0,It can automatically order pizza,,,
+Hint,VS Code makes coding life easier!, 
+Feedback,Absolutely! VS Code is designed to streamline your coding process.
+
+
+NewQuestion,MC,,, 
+ID,VS-114,,,
+Title, How would I find out if there's a keyboard shortcut for a specific task?,,,,
+QuestionText,Where can you discover keyboard shortcuts?,,, 
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,100,Search the VS Code documentation,,,
+Option,0,Perform a seance to contact the coding gods,,,
+Option,0,Look in the Settings (or Preferences on a Mac),, 
+Option,0,Yell at your computer until it tells you,,,
+Hint,VS Code has helpful resources built in.,
+Feedback,Great!  The settings and documentation are good places to start.
+
+
+
+NewQuestion,MC,,,
+ID,VS-117,,,
+Title,Name one way to search for specific text within a file?,,,,   
+QuestionText,How do I find specific text inside a file in VS Code?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,100,Ctrl+F (or Cmd+F on a Mac),, 
+Option,0,Hire a tiny detective to search your code,,,
+Option,0,Close your eyes and hope the right word jumps out,,,
+Option,0,Yell the word until VS Code highlights it,,,
+Hint,Its the same as it would be when search a word document...,
+Feedback,Correct! There are a few ways to achieve this.
+
+
+
+NewQuestion,MC,,,
+ID,VS-118,,,
+Title,What's a benefit of using the Terminal within VS Code?,,,,  
+QuestionText,Why is the integrated Terminal panel useful?,,,
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,100,Less switching between programs,,,
+Option,0,It can translate your code into ancient runes,,, 
+Option,0,Makes you look like a super cool hacker,,,
+Option,0,You can use it to order pizza,,,
+Hint,The Terminal gives you command-line power within VS Code.,
+Feedback,Excellent! The integrated Terminal saves you time and effort. 
+
+
+
+NewQuestion,MC,,, 
+ID,VS-119,,, 
+Title,I accidentally closed a file. How do I reopen it quickly?,,,,
+QuestionText,What's a fast way to reopen a recently closed file?,,, 
+Points,1,,,
+Difficulty,3,,,
+Image,,,
+Option,0,Browse using the Explorer panel,,,
+Option,0,Cry and start over,,,
+Option,100,Ctrl+Shift+T (or Cmd+Shift+T on a Mac),,
+Option,0,Sacrifice a goat to the coding gods,,,
+Hint,There's a handy shortcut, similar to browser tabs.,
+Feedback,That's it! Reopening closed files is a lifesaver.
+
+
+NewQuestion,MC,,,
+ID,VS-121,,, 
+Title,What resources did we use in making this course?,,,,
+QuestionText,Let's give a shoutout to the awesome tools and courses that made this possible!, 
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,100,All of the above,,,
+Option,0,The Encyclopedia of Ancient Cheese-Making Techniques,,,
+Option,0,My pet hamster's guide to binary code,,,  
+Option,0,"Interpretive Dance for Programmers" online course,,,
+Hint,These resources cover coding, data analysis, and document creation.,
+Feedback,You're right! I couldn't have done it without these fantastic resources.
+
+

@@ -415,11 +415,7 @@
 <ul>
 <li class="fragment">if we provide it with a <code>.bib</code> file it can handle your references</li>
 <li class="fragment">if we provide it with a <code>.csl</code> file it can handle your citation style</li>
-<li class="fragment">if we provide it with <code>css</code> (style) files it can handle your formatting</li>
-<li class="fragment">if we provide it with <code>yaml</code> (configuration) files it can handle your metadata (like author, title, etc)
-<ul>
-<li class="fragment">and this is actually the file that we’ve been using to tell quarto where the other files are</li>
-</ul></li>
+<li class="fragment">if we provide it with <code>yaml</code> (configuration) files/sections it can handle your metadata (like author, title, etc)</li>
 </ul>
 </section>
 <section id="the-magic-1" class="slide level2 smaller">
@@ -428,8 +424,7 @@
 <ol type="1">
 <li class="fragment">What is a <code>.bib</code> file?</li>
 <li class="fragment">What is a <code>.csl</code> file?</li>
-<li class="fragment">What is a <code>css</code> file?</li>
-<li class="fragment">What is a <code>yaml</code> file?</li>
+<li class="fragment">What is a <code>yaml</code> file/section?</li>
 <li class="fragment">Where do I get them?</li>
 <li class="fragment">How do I use them?</li>
 <li class="fragment">Why are you like this, Kev?</li>
@@ -467,7 +462,7 @@
 <li class="fragment">And once you know the <code>address</code> you can walk the <code>path</code> to get the <code>file</code> you want.</li>
 </ul>
 <div class="fragment">
-<p>There’s also <code>drives</code> (like <code>C:</code> or <code>D:</code>) but we’re not going to talk about them today, we might think of them as different neighbourhoods in the city.</p>
+<p>There’s also <code>drives</code> (like <code>C:</code> or <code>D:</code>).We’re not going to talk about them today, but we might think of them as different neighbourhoods in the city. For the most part you’re just going to be worried about the <code>C:</code> drive, but you might have other drives on your computer that you can use to store files.</p>
 </div>
 </section>
 <section id="the-file-system-3" class="slide level2 smaller">
@@ -497,17 +492,27 @@
 <p>We can also have other files in <code>my_project_folder</code> like <code>my_other_file.bib</code> and the <code>path</code> to this file would look like this</p>
 <h3 id="cusersusernamedocumentsmy_project_foldermy_other_file.bib">C:\Users\UserName\Documents\my_project_folder\my_other_file.bib</h3>
 <p>. . .</p>
-<p>We could also have a <code>sub-directory</code> called <code>my_data_sub_folder</code> and the <code>path</code> would follow the same convetion as the others.</p>
+<p>We could also have a <code>sub-directory</code> called <code>my_data_sub_folder</code> and the <code>path</code> would follow the same convention as the others.</p>
 </section>
 <section id="the-file-system-6" class="slide level2 smaller">
 <h2>The File System</h2>
-<p>In a sense each element is a <code>child</code> of it’s <code>parent directory</code> until we get to the file, with the <code>drive</code> acting as the <code>root</code> of the <code>tree</code> and the <code>files</code> as the <code>leaves</code>.</p>
+<p>In a sense each element is a <code>child</code> of it’s <code>parent directory</code> (working from right to left) until we get to the file, with the <code>drive</code> acting as the <code>root</code> of the <code>tree</code> and the <code>files</code> as the <code>leaves</code>.</p>
 
-<img data-src="images/filetree.webp" class="quarto-figure quarto-figure-center r-stretch"><ul>
-<li class="fragment"><em>(I told you I was going to torture some metaphors.)</em></li>
-</ul>
+<img data-src="images/filetree.webp" class="quarto-figure quarto-figure-center r-stretch"><p><em>(I told you I was going to torture some metaphors.)</em></p>
 </section>
 <section id="the-file-system-7" class="slide level2 smaller">
+<h2>The File System</h2>
+<p>This next bit is just really annoying so pay attention.</p>
+<p>Depending on the operating system your using and the kind of work your doing the <code>path</code> will be written differently.</p>
+<ul>
+<li class="fragment">On <code>Windows</code> the <code>path</code> is written with <code>\</code> separating the <code>directories</code> and <code>files</code></li>
+<li class="fragment">On <code>Mac</code> and <code>Linux</code> the <code>path</code> is written with <code>/</code> separating the <code>directories</code> and <code>files</code></li>
+</ul>
+<div class="fragment">
+<p>But depending on whether you’re working with <code>markdown</code> or <code>python</code> or <code>R</code> or in the terminal you might need to use the <code>Windows</code> style or the <code>Mac</code> style. We’ll try to highlight it when it matters, but it’s something to keep in mind.</p>
+</div>
+</section>
+<section id="the-file-system-8" class="slide level2 smaller">
 <h2>The File System</h2>
 <p>So, to sum up</p>
 <ul>
@@ -516,6 +521,7 @@
 <li class="fragment">A <code>sub-directory</code> is a <code>directory</code> that is inside another <code>directory</code></li>
 <li class="fragment">The <code>path</code> is the <code>address</code> of the <code>file</code> on the <code>drive</code></li>
 <li class="fragment">The <code>path</code> is made up of the <code>drive</code>, <code>directories</code>, and <code>sub-directories</code> that the <code>file</code> is in</li>
+<li class="fragment">Depending on the work you’re doing you might need to use the <code>\</code> or the <code>/</code> to separate the <code>directories</code> and <code>files</code> in the <code>path</code></li>
 <li class="fragment">The <code>path</code> is used to find the <code>file</code> on the <code>drive</code> (and to point to the <code>file</code> from other <code>files</code>)
 <ul>
 <li class="fragment">The <code>path</code> is a <code>relative</code> term. A <code>sub-directory</code> is only a <code>sub-directory</code> in relation to the <code>directory</code> that contains it.</li>
@@ -525,7 +531,7 @@
 <p>Speaking of <code>relative</code>…</p>
 </div>
 </section>
-<section id="the-file-system-8" class="slide level2 smaller">
+<section id="the-file-system-9" class="slide level2 smaller">
 <h2>The File System</h2>
 <p>The last thing you need to know for now is the difference between <code>absolute</code> and <code>relative</code> paths.</p>
 <ul>
@@ -540,14 +546,15 @@
 </ul></li>
 </ul>
 </section>
-<section id="the-file-system-9" class="slide level2 smaller">
+<section id="the-file-system-10" class="slide level2 smaller">
 <h2>The File System</h2>
 <p>For example, if we have a <code>file</code> called <code>my_file.qmd</code> and a <code>file</code> called <code>my_other_file.bib</code> in the same <code>directory</code> then the <code>relative</code> path from <code>my_file.qmd</code> to <code>my_other_file.bib</code> would be</p>
 <h3 id="my_other_file.bib">my_other_file.bib</h3>
 <p>but if we have a <code>sub-directory</code> called <code>my_data_sub_folder</code> and a <code>file</code> called <code>my_data.csv</code> in that <code>sub-directory</code> then the <code>relative</code> path from <code>my_file.qmd</code> to <code>my_data.csv</code> would be</p>
-<h3 id="my_data_sub_foldermy_data.csv">my_data_sub_folder\my_data.csv</h3>
+<h3 id="my_data_sub_foldermy_data.csv">.\my_data_sub_folder\my_data.csv</h3>
+<p>(<em>ignore the ‘.’ for a minute, we’ll come back to it</em>)</p>
 </section>
-<section id="the-file-system-10" class="slide level2 smaller">
+<section id="the-file-system-11" class="slide level2 smaller">
 <h2>The File System</h2>
 <p>This can be tricky to get your head around at first, but it’s really useful once you get the hang of it, and it’s actually not that difficult.</p>
 <p>Maybe the best way to get the hang of it is to practice,</p>
@@ -570,9 +577,10 @@
 <p>OK, now that you’ve saved an image to the <code>images</code> <code>sub-directory</code> you can use it in your document.</p>
 <p>To do this you need to use the <code>relative</code> path to the image from the <code>file</code> that you want to put it in.</p>
 <p>For example, if you have a file called <code>my_image.jpg</code> in the <code>images</code> <code>sub-directory</code> and you want to put it in your <code>exemplar.qmd</code> document then you would use the following <code>markdown</code> code</p>
-<h3 id="imagesmy_image.jpg">![](images/my_image.jpg)</h3>
+<h3 id="imagesmy_image.jpg">![](./images/my_image.jpg)</h3>
+<p>(<em>note the ‘./’ in the <code>path</code></em>)</p>
 <aside class="notes">
-<p>This is the <code>markdown</code> code for an image. Not the difference in the ‘' and the’/’ in the <code>path</code>. This is because the ‘' is used to escape the next character in <code>markdown</code> and the’/’ is used to separate <code>directories</code> and <code>files</code> in the <code>path</code>.</p>
+<p>This is the <code>quarto markdown</code> syntax for an image. Not the difference in the ‘' and the’/’ in the <code>path</code>. This is because the ‘' is used to escape the next character in <code>markdown</code> and the’/’ is used to separate <code>directories</code> and <code>files</code> in the <code>path</code>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -586,6 +594,37 @@
       }</style></aside>
 <p>This will put the image in your document.</p>
 <p>Check that it works by going into the terminal and typing <code>quarto preview exemplar.qmd</code> which will open the document in your browser.</p>
+<aside class="notes">
+<p>This is going to take a few minutes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="lets-talk-about-the-." class="slide level2 smaller">
+<h2>let’s talk about the ‘.’</h2>
+<p><code>Relative</code> paths, are <em>relative</em> from another <code>file</code> or <code>directory</code> to another.</p>
+<p>So when you’re writing a <code>relative</code> path in a quarto document you’re writing it from the <code>file</code> that you’re writing in.</p>
+<p>When you’re writing a <code>relative</code> path in the terminal you’re writing it from the <code>directory</code> that you’re in <em>in the terminal</em>.</p>
+</section>
+<section id="lets-talk-about-the-.-1" class="slide level2 smaller">
+<h2>let’s talk about the ‘.’</h2>
+<p>The ‘.’ is a special character in a <code>file path</code>. It’s used to refer to the <code>current directory</code> that you’re in. It always appears at the start of a <code>relative</code> path and it’s used to tell the computer that the <code>path</code> is <code>relative</code> to the <code>current directory</code> that your file is in.</p>
+<p>There is also a ‘..’ character that is used to refer to the <code>parent directory</code> of the <code>current directory</code> that you’re in. This is used to move <code>up</code> the <code>directory tree</code> to the <code>parent directory</code> of the <code>current directory</code>.</p>
+</section>
+<section id="lets-talk-about-the-.-2" class="slide level2 smaller">
+<h2>let’s talk about the ‘.’</h2>
+<p>So if the image was in the same <code>directory</code> as the <code>exemplar.qmd</code> file then the <code>path</code> would be</p>
+<h3 id="my_image.jpg">![](./my_image.jpg)</h3>
+<p>If the image was in a <code>sub-directory</code> of the <code>directory</code> that the <code>exemplar.qmd</code> file was in called images then the <code>path</code> would be</p>
+<h3 id="imagesmy_image.jpg-1">![](./images/my_image.jpg)</h3>
 </section>
 <section id="putting-citations-into-your-document" class="slide level2 smaller">
 <h2>putting citations into your document</h2>

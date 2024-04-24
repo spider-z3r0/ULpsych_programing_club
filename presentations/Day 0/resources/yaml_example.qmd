@@ -1,0 +1,89 @@
+---
+title: "YAML EXAMPLE"
+author: "Psychtech"
+format: pdf
+---
+
+
+
+```{yaml}
+#| label: yaml_example_python
+#| echo: true
+#| eval: false
+# This YAML front matter block is used to specify metadata for the document.
+---
+title: "Programming for Psychologists: An Introduction" 
+author: "Psychtech" 
+abstract: "This summer school empowers psychology researchers to integrate code into their research workflow. We explore tools like Quarto, Python, and R for reproducible data analysis, reporting, and manuscript preparation. Participants will gain confidence in coding basics and leave with immediately applicable skills."
+bibliography: resources/summer_school_refs.bib  
+csl: resources/apa.csl                    
+format: 
+  pdf:
+    toc: true                                 
+    number-sections: true 
+  # Other possible output formats:
+  # docx:                                   # For Microsoft Word output  
+  # html:                                   # For web-based output
+  # APA style documents use the apaquarto extension with the following format options
+  #   format:
+  #   apaquarto-docx: default
+  #   apaquarto-html: default
+  #   apaquarto-pdf: default
+
+engine: jupyter                                # Specifies Python with the Jupyter engine                             
+# Other options:
+# jupyter:                                  # To use the Jupyter engine
+#   kernelspec:                             # Specifies the kernel to use
+#     display_name: Python 3                # Specifies the kernel display name
+#     language: python                      # Specifies the kernel language, could be python, R or, julia
+#     name: python3                         # Specifies the kernel name, this is different to the display name
+---
+
+```
+
+
+```{yaml}
+#| label: yaml_example_r
+#| echo: true
+#| eval: false
+# This YAML front matter block is used to specify metadata for the document.
+---
+title: "Programming for Psychologists: An Introduction" 
+author: "Psychtech" 
+abstract: "This summer school empowers psychology researchers to integrate code into their research workflow. We explore tools like Quarto, Python, and R for reproducible data analysis, reporting, and manuscript preparation. Participants will gain confidence in coding basics and leave with immediately applicable skills."
+bibliography: resources/summer_school_refs.bib  
+csl: resources/apa.csl                    
+format: 
+  pdf:
+    toc: true                                 
+    number-sections: true 
+  # Other possible output formats:
+  # docx:                                   # For Microsoft Word output  
+  # html:                                   # For web-based output
+  # APA style documents use the apaquarto extension with the following format options
+  #   format:
+  #   apaquarto-docx: default
+  #   apaquarto-html: default
+  #   apaquarto-pdf: default
+
+engine: knitr                                 # Specifies R with the knitr engine
+# Other options:
+# engine: rmarkdown                          # To use the traditional R Markdown engine
+# engine: jupyter                            # To use the Jupyter engine for R instead of the traditional R Markdown engine
+---
+```
+
+# Notes
+Check out the [apaquarto extension](https://wjschne.github.io/apaquarto/) for APA style documents. This is written in a pretty accesible style but it's a bit more technical than the other resources. I will give you a good sense of what's possible with Quarto. 
+
+If you use the `apaquarto` extension, you don't need to specify the `csl` field in the YAML front matter block. The extension will automatically use the APA style as thats part of what it does you. Lot's of other formats (including for specific journals or publishers) are available online. 
+
+Remember that you can (and should) play around with yaml in *test* documents to see what works and what doesn't, or what happens. Render to docx and pdf to see what the output looks like, try making a slide show with the format options:
+```{yaml}
+format:
+  revealjs: # this is just one of the slidewhow options, pptx is another
+    self_contained: true
+    incremental: true
+
+
+```
