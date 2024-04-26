@@ -7,7 +7,7 @@ author: "UL Psychtech Team"
 Quarto docuuments are essentially `plain text` with some extra `syntax` added in to tell the computer how to format the document.
 
  - `Plain Text` is just that, plain. It's like the text you type in a text message, or an email without any formatting.
- - `Syntax` is the set of rules that govern how the computer will interpret various symbles that you put into the `plain text` to tell *the computer how to format it*.
+ - `Syntax` is the set of rules that govern how the computer will interpret various symbols that you put into the `plain text` to tell *the computer how to format it*.
 
 . . . 
 
