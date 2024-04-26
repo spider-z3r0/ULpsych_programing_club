@@ -281,3 +281,62 @@ Option,0,Write the code in invisible ink,,,
 Option,0,Change the code's language to something Quarto doesn't understand,,,
 Hint,Backticks,,,  
 Feedback,Spot on! This is handy for explaining code examples. 
+
+
+NewQuestion,MC,,,
+ID,Q-120,,,
+Title,Windows vs Mac paths,,,,
+QuestionText,What is the difference between windows and mac style paths,,, 
+Points,1,,,
+Difficulty,3,,,
+Image,,,
+Option,0,Mac paths are cleaner and made of machined aluminium,,,
+Option,100,Windows paths use `\` to separate sections but Macs use `/`. ,,,
+Option,0,Windows paths are less fancy but they get the job done.,,, 
+Option,0,There's no difference.,,,
+Hint,They take a different 'Slant' on things. ,,,  
+Feedback,Spot on! We won't bore you with why this is the case. Just know that it's true and it'll definitely annoy you in the future. 
+
+NewQuestion,MC,,,
+ID,Q-121,,,
+Title,Quarto Path Syntax,,,,
+QuestionText,Which of the following examples is the correct syntax to specify the location of a file in Quarto using Markdown or YAML?,,, 
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,`C:\Documents\references.bib` (windows style absolute path),,,
+Option,100,`./other files/references.bib`(mac style relative path),,,
+Option,0,`/Users/username/Documents/references.bib`(mac style absolute path),,,
+Option,0,`.\\other files\\references.bib`(windows style ,,,
+Hint,Quarto uses Mac-style (also called Unix-style) paths for specifying file locations.,,, 
+Feedback,Correct! Quarto utilizes Mac-style (also called Unix-style) paths.
+
+
+NewQuestion,MC,,,
+ID,Q-122,,,
+Title,Relative Path Clarification,,,,
+QuestionText,In Quarto what does the `./` syntax at the start of a relative path signify?,,, 
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,It indicates you should take a left turn at the next junction.,,,
+Option,100,It denotes the current directory; indicating that the file is located in the same folder as the document.,,,
+Option,0,It suggests you're starting your path from the root directory of the system.,,,
+Option,0,It's a reminder to double-check your spelling.,,,
+Hint,The `./` syntax is a shorthand for the current directory.,,, 
+Feedback,Exactly right! The `./` syntax signifies that the file is located in the same folder as the document. No need to wander off-course with this one!
+
+
+NewQuestion,MC,,,
+ID,Q-123,,,
+Title,Navigation with `../`,,, 
+QuestionText,In Quarto, what does the `../` syntax at the start of a relative path indicate?,,, 
+Points,1,,,
+Difficulty,2,,,
+Image,,,
+Option,0,It's a friendly nod to your next-door neighbor's folder.,,,
+Option,0,It signifies you're about to embark on a virtual hike up a mountain of files.,,,
+Option,100,It refers to the parent directory; indicating that the file is located one level above where you're working.,,,
+Option,0,It suggests you're heading towards the nearest exit of the file system.,,,
+Hint,The `../` syntax points to the parent directory.,,, 
+Feedback,Exactly right! The `../` syntax indicates that the file is located one level above the current directory; like taking a step back to the parent folder. Keep on navigating!

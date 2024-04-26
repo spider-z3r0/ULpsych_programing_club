@@ -249,7 +249,7 @@ OK, images are all well and good, but what about something that's useful for you
 
 (You know, the thing that you're here to learn about?)
 
-Well, in a simiar way to the images we can tell quarto where to find your references file and then you can really easily put them in your document. 
+Well, in a similar way to the images we can tell quarto where to find your references file and then you can really easily put them in your document. 
 
 On the brightspace project site for this summerschool you'll find a file called `example_references.bib`. This is a sample `bibliography` file that contains the references used in making todays sessions. 
 
