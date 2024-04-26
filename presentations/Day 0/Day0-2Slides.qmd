@@ -1,0 +1,116 @@
+---
+title: "Session 0.2"
+subtitle: Notebooks, and Templates, and Bears, Oh My!
+format: 
+   revealjs:
+      incremental: true
+      theme: solarized
+editor: "visual"
+jupyter: pss
+bibliography: references.bib
+csl: apa.csl
+---
+
+## Recap{.smaller}
+
+So far today we have introduced you to:
+
+ - VS Code
+    - A powerful text editor
+ - Quarto
+    - A powerful document generation tool
+ - Markdown
+    - A simple way to write text
+ - Yaml
+    - A simple way to write metadata (to tell the computer how to process your text)
+ - Paths
+    - A way to tell the computer where to find things so you can include them in your document
+
+## Recap{.smaller}
+
+And you've done some things with them:
+
+ - You've created some new .qmd files
+ - You've written some Markdown
+ - You've written some Yaml
+ - You've embedded links and images
+ - You've created a bibliography
+
+## This Session{.smaller}
+
+Firstly I just genuinely want to reassure you 
+ 
+   - There's no bears in this session
+   - You're doing really well
+   - It's meant to be enjoyable, but it's also meant to be challenging
+   - So don't forget that you're here to learn, not to already be an 'expert'
+
+## This Session{.smaller}
+This session we're going to 'wrap up' the basics of Quarto
+ 
+ - We're going to talk about another type of file call a Jupyter Notebook
+ - We're going to talk about how you can use premade templates to make your life easier 
+   - Templates for APA style
+   - Or for specific journals
+ - We're going to look at some other YAML options that will be useful to you
+   - Like a full 'author' field (with affiliation, email, etc)
+   - Or and 'abstract' field (for your abstract...)
+ - We're going to talk a little more about Quarto Terminal Commands (Like `quarto render... `)
+
+
+## Recap Quiz{.smaller}
+  
+### But first! There's a recap quiz!
+
+So lets take a few minutes so you guys can use the quiz to practice recalling what we've covered so far
+
+## Recap Quiz{.smaller}
+
+Don't forget: 
+
+ - The really annoying thing about windows ('\\') vs mac ('/') paths!
+ - The difference between a 'relative' and 'absolute' path
+ - What the './' and '../' at the start of a path means
+ - The use of '[]' brackets in multiple different contexts (like for links, images, and citations)
+ - The '@key' syntax for citations 
+ - The '\-\-\-' syntax for YAML
+
+## Including code{.smaller}
+
+So far we've talked about writing in Markdown, and we've talked about writing in YAML, but we haven't talked about writing in code yet. 
+
+Don't worry, we're not going to make you write code today (we promised you that). However, we *are* going to talk about how you can *include* code in your Quarto documents.
+
+There's two (main) ways to do this:
+
+ - You can include code in a 'code block'
+ - You can include *inline* code
+
+. . . 
+
+Let's talk about code blocks first
+
+## Including code{.smaller}
+
+In order to make a code block, you need to use three backticks (```) at the start and end of your code block. The backticks are usually located on the same key as the tilde (~) on your keyboard (which is often the top left key, beside the number 1 on the main keyboard). 
+
+
+### Annoying thing about backticks
+Depending on the operating system, and the language of the keyboard you need to type backticks differently; for example: 
+
+ - On a *irish* windows keyboard the first time you press the key nothing happens...
+  - If you press the key twice you get 2 backticks
+  - If you press another key after the first backtick you get a backtick  (unless its a space, in which case you get a backtick)
+  - If you want 3 backticks you need to press the key 3 times and then follow it with another key (we'll tell you the key in a sec)
+
+ - On a *US* windows keyboard or a *mac* keyboard you get a backtick the first time you press the key
+
+
+### Annoying thing about backticks
+This is because that's how computers handle languages that have diacritics (like Irish).
+
+So if you want to type a letter with a fada (like á) you press the key once, and then press the key you want to add the fada to.
+
+
+
+
