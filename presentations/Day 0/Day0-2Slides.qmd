@@ -5,11 +5,15 @@ format:
    revealjs:
       incremental: true
       theme: solarized
+
+
 editor: "visual"
 jupyter: pss
 bibliography: references.bib
 csl: apa.csl
 ---
+
+
 
 ## Recap{.smaller}
 
@@ -72,7 +76,7 @@ Don't forget:
  - The difference between a 'relative' and 'absolute' path
  - What the './' and '../' at the start of a path means
  - The use of '[]' brackets in multiple different contexts (like for links, images, and citations)
- - The '@key' syntax for citations 
+ - The '\@key' syntax for citations 
  - The '\-\-\-' syntax for YAML
 
 ## Including code{.smaller}
@@ -94,23 +98,81 @@ Let's talk about code blocks first
 
 In order to make a code block, you need to use three backticks (```) at the start and end of your code block. The backticks are usually located on the same key as the tilde (~) on your keyboard (which is often the top left key, beside the number 1 on the main keyboard). 
 
+There's some annoying things about typing backticks, that we need to talk about first though.
 
-### Annoying thing about backticks
+
+## Annoying thing about backticks
 Depending on the operating system, and the language of the keyboard you need to type backticks differently; for example: 
 
  - On a *irish* windows keyboard the first time you press the key nothing happens...
   - If you press the key twice you get 2 backticks
-  - If you press another key after the first backtick you get a backtick  (unless its a space, in which case you get a backtick)
+  - If you press another key after the first backtick you get: 
+   - a special character like a á or é
+   - or a backtick and the key you pressed like ``{`
   - If you want 3 backticks you need to press the key 3 times and then follow it with another key (we'll tell you the key in a sec)
 
- - On a *US* windows keyboard or a *mac* keyboard you get a backtick the first time you press the key
+  - On a *US* windows keyboard or a *mac* keyboard you get a backtick the first time you press the key
 
 
-### Annoying thing about backticks
-This is because that's how computers handle languages that have diacritics (like Irish).
+## Annoying thing about backticks
+This is because that's how windows computers handle languages that have diacritics (like Irish).
 
 So if you want to type a letter with a fada (like á) you press the key once, and then press the key you want to add the fada to.
 
+Which... is good to know, but it does make typing backticks a little annoying. 
+
+Now that we have that out of the way, let's look at some code blocks. 
 
 
+## Including code{.smaller}
 
+Here's an example of a code block: (ignore the backslashes for now, we'll talk about them in a second)
+
+````
+```{{python}}
+print("Hello World")
+```
+````
+
+## Including code{.smaller}
+
+Let's zoom in on that a little bit:
+
+![](images/code_syntax.png)
+
+The components of a code block are:
+
+ - The three backticks at the start and end of the code block
+ - The language of the code block (in this case 'python') enclosed incurly braces `{ }`
+ - The code itself
+ - The three backticks at the end of the code block (no need for the language again)
+
+## Including code{.smaller}
+
+You can use code blocks to include code in any language you like, and Quarto will do it's best to format it correctly.
+
+If it is one of the languages that Quarto knows about (like Python, R, or Julia) it will do a good job of formatting it for you, and it will even run the code for you (if you ask it to).
+
+It will also include the output of the code block in the final document, so you can see the results of your code. This is how we can write the whole paper, including the analysis and results, *in one document*.
+
+## Including code{.smaller}
+The other way to include code in your document is to use *inline* code.
+
+This is where you include code in the middle of a sentence, like this:
+
+````{Markdown}
+
+```{{python}}
+age = 30 #defining age in a code chunk for later use
+```
+```{python} 
+age = 30
+```
+## example of inline code
+The participant's age was `{{python}} age` years old.
+
+## example of 'rendered' inline code
+
+The participant's age was `{python} age` years old.
+
+````
