@@ -70,7 +70,7 @@ Imagine that your computer is a city, and each file is a person that lives in th
 ## The File System{.smaller}
 
  - Each person (`file`) lives in a building (`directory`). 
- - This building can just be a single house or it can be an appartment block contains lots of smaller homes (`sub-directories`).
+ - This building can just be a single house or it can be an apartment block that contains lots of smaller homes (`sub-directories`).
  - In order to get to a building (`directory`) you need to know the address (where is it located on the computer).
  - And once you know the `address` you can walk the `path` to get the `file` you want.
 
@@ -181,7 +181,7 @@ but if we have a `sub-directory` called `my_data_sub_folder` and a `file` called
 
 This can be tricky to get your head around at first, but it's really useful once you get the hang of it, and it's actually not that difficult. 
 
-Maybe the best way to get the hang of it is to practice, 
+Maybe the best way to get the hang of it is to practice 
 
  - create a new `sub-directory` in the summerschool folder called `images` 
    - hover over the `summerschool` folder and click the `new folder` button (it looks like a folder with a `+` on it)
@@ -204,7 +204,7 @@ For example, if you have a file called `my_image.jpg` in the `images` `sub-direc
 (*note the './' in the `path`*)
 
 :::{.notes}
-This is the `quarto markdown` syntax for an image. Not the difference in 
+This is the `quarto markdown` syntax for an image. Note the difference in 
 the '\' and the '/' in the `path`. This is because the '\' is used to escape the next character in `markdown` and the '/' is used to separate `directories` and `files` in the `path`.
 :::
 
@@ -243,9 +243,9 @@ If the image was in a `sub-directory` of the `directory` that the `exemplar.qmd`
 
 
 
-## putting citations into your document{.smaller}
+## Putting citations into your document{.smaller}
 
-OK, images are all well and good, but what about something that's useful for your *accaedmic* writing?
+OK, images are all well and good, but what about something that's useful for your *academic* writing?
 
 (You know, the thing that you're here to learn about?)
 
@@ -263,7 +263,7 @@ It's a `plain text` file that contains a list of references in a specific format
 
 This format is (using `{}` to indicate a `field`) is very common in the world of programming and we'll definitely spend time on it later but for now just note that it's a list of references with a `key` that you can use to refer to the reference in your document. The `key` is the first thing in the `bibliography` entry (after the first `{`). 
 
-But first we need to tell quart where to find the `bibliography` file.
+But first we need to tell quarto where to find the `bibliography` file.
 
 ## putting citations into your document{.smaller}
 ### The `yaml` header
