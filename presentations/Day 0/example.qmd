@@ -19,7 +19,7 @@ There are [lots of resources to help you learn the quarto syntax](https://quarto
  - Quarto documents are written in `markdown` (a type of `plain text`).
  - They have a `.qmd` file extension (but other kinds of files like `.ipynb` and `.rmd` can be used too).
  - They have a `yaml` header at the top of the file (which is where you tell the computer how to format the document).
- - They use really simple symbles to indicate things like headings, lists, italics, bold, images, and links. 
+ - They use really simple symbols to indicate things like headings, lists, italics, bold, images, and links. 
 
 
 
@@ -89,7 +89,7 @@ Images are similar to links, but with an exclamation mark at the start.
 (Note the `/` instead of `\` in the file path. This is because the `/` is used in URLs and file paths in Unix-based systems like MacOS and Linux, while the `\` is used in Windows.
 quarto will automatically convert the `/` to `\` when the document is rendered on a Windows machine but it needs to be written that way for quarto.)
 
-## refereces section
+## references section
 You can also create a references section at the bottom of the document to list all the links you've used in the document. This is done by adding a `# References` heading and then listing the links in the same way you would in the main body of the document, like this:
 
 # References

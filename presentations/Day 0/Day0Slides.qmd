@@ -348,7 +348,7 @@ Select that folder and click 'open'.
 
 
 :::{.notes}
-in the quarto document there's a lot of \\ in the address, that's the old fildpath problem again!
+in the quarto document there's a lot of \\ in the address, that's the old filepath problem again!
 :::
 
 ## Visual Studio Code{.smaller}
