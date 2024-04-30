@@ -8,7 +8,7 @@
 <link href="Day0-2Slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="Day0-2Slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Day0-2Slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.4.553">
 
   <title>Session 0.2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -93,7 +93,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="Day0-2Slides_files/libs/revealjs/dist/theme/quarto.css">
   <link href="Day0-2Slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Day0-2Slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -391,7 +411,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Session 0.2</h1>
-  <p class="subtitle">Notebooks, and Templates, and Bears, Oh My!</p>
+  <p class="subtitle">Notebooks, and Extensions, and Bears, Oh My!</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -494,20 +514,24 @@
 </section>
 <section id="including-code-1" class="slide level2 smaller">
 <h2>Including code</h2>
-<p>In order to make a code block, you need to use three backticks (```) at the start and end of your code block. The backticks are usually located on the same key as the tilde (~) on your keyboard (which is often the top left key, beside the number 1 on the main keyboard).</p>
+<p>In order to make a code block, you need to use three backticks</p>
+<h3 id="section">```</h3>
+<p>at the start and end of your code block. The backticks are usually located on the top left key of your main keyboard, to the left of the ‘1’ key and just below the ‘Esc’ key.</p>
 <p>There’s some annoying things about typing backticks, that we need to talk about first though.</p>
 </section>
-<section id="annoying-thing-about-backticks" class="slide level2">
+<section id="annoying-thing-about-backticks" class="slide level2 smaller">
 <h2>Annoying thing about backticks</h2>
 <p>Depending on the operating system, and the language of the keyboard you need to type backticks differently; for example:</p>
 <ul>
-<li class="fragment"><p>On a <em>irish</em> windows keyboard the first time you press the key nothing happens…</p></li>
-<li class="fragment"><p>If you press the key twice you get 2 backticks</p></li>
-<li class="fragment"><p>If you press another key after the first backtick you get:</p></li>
-<li class="fragment"><p>a special character like a á or é</p></li>
-<li class="fragment"><p>or a backtick and the key you pressed like `<code>{</code></p></li>
-<li class="fragment"><p>If you want 3 backticks you need to press the key 3 times and then follow it with another key (we’ll tell you the key in a sec)</p></li>
-<li class="fragment"><p>On a <em>US</em> windows keyboard or a <em>mac</em> keyboard you get a backtick the first time you press the key</p></li>
+<li class="fragment">On a <em>irish</em> windows keyboard the first time you press the key nothing happens…</li>
+<li class="fragment">If you press the key twice you get 2 backticks</li>
+<li class="fragment">If you press another key after the first backtick you get:
+<ul>
+<li class="fragment">a special character like ‘á’ or ‘é’</li>
+<li class="fragment">or a backtick and the key you pressed like `<code>{</code></li>
+</ul></li>
+<li class="fragment">If you <strong>just</strong> want 3 backticks you need to press the key 3 times and then follow it with a space</li>
+<li class="fragment">On a <em>US</em> windows keyboard or a <em>mac</em> keyboard you get a backtick the first time you press the key</li>
 </ul>
 </section>
 <section id="annoying-thing-about-backticks-1" class="slide level2">
@@ -519,9 +543,9 @@
 </section>
 <section id="including-code-2" class="slide level2 smaller">
 <h2>Including code</h2>
-<p>Here’s an example of a code block: (ignore the backslashes for now, we’ll talk about them in a second)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb1-2"><a href=""></a><span class="in">print("Hello World")</span></span>
+<p>Here’s an example of a code block:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="in">```{python} #note the curly braces and the name of the code language</span></span>
+<span id="cb1-2"><a href=""></a><span class="in">print("Hello World") #this is a line of python code</span></span>
 <span id="cb1-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="including-code-3" class="slide level2 smaller">
@@ -539,7 +563,7 @@
 <section id="including-code-4" class="slide level2 smaller">
 <h2>Including code</h2>
 <p>You can use code blocks to include code in any language you like, and Quarto will do it’s best to format it correctly.</p>
-<p>If it is one of the languages that Quarto knows about (like Python, R, or Julia) it will do a good job of formatting it for you, and it will even run the code for you (if you ask it to).</p>
+<p>If it is one of the languages that Quarto knows about (like Python, R, or Julia) it will not only do a good job of formatting it for you, it will even run (called evaluate) the code for you (if you ask it to).</p>
 <p>It will also include the output of the code block in the final document, so you can see the results of your code. This is how we can write the whole paper, including the analysis and results, <em>in one document</em>.</p>
 </section>
 <section id="including-code-5" class="slide level2 smaller">
@@ -559,6 +583,414 @@
 <span id="cb2-11"><a href=""></a><span class="fu">## example of 'rendered' inline code</span></span>
 <span id="cb2-12"><a href=""></a></span>
 <span id="cb2-13"><a href=""></a>The participant's age was 30 years old.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="including-code-6" class="slide level2 smaller">
+<h2>Including code</h2>
+<p>Let’s look at that a little more closely:</p>
+<h3 id="python-some_code">`{python} some_code`</h3>
+<ul>
+<li class="fragment">For <em><strong>inline</strong></em> code you use <em>1</em> backtick to ‘open’ the code snippet</li>
+<li class="fragment">Then you need to include the language of the code in curly braces <code>{python}</code></li>
+<li class="fragment">Then whatever expression you want to include inline</li>
+<li class="fragment">Then <em>1</em> final backtick to ‘close’ the code snippet</li>
+</ul>
+</section>
+<section id="including-code-7" class="slide level2 smaller">
+<h2>Including code</h2>
+<p>OK so now you know how to:</p>
+<ul>
+<li class="fragment">Include code in a code block</li>
+<li class="fragment">Include code inline</li>
+</ul>
+<div class="fragment">
+<p>You can use this to transition between writing human readable text, and writing code, in the same document. Imagine being able to just write code that details the demographic data of your participants, and then include that data in a table in your paper without having to copy and paste it from one document to another.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="in">```{Markdown}</span></span>
+<span id="cb3-2"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb3-3"><a href=""></a><span class="in">The final sample consisted of `{{python}} len(my_data)` participants, with a mean age of `{{python}} my_data['age'].mean()` years (*SD* = `{{python}} my_data['age'].std()`)...</span></span>
+<span id="cb3-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="including-code-8" class="slide level2 smaller">
+<h2>Including code</h2>
+<p>We’ll talk a lot more about writing code and the ‘options’ use within code blocks as we go on, but for now, let’s move on to talking about Jupyter Notebooks.</p>
+</section>
+<section id="jupyter-notebooks" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>A Jupyter Notebook is a type of file that allows you to write code, and text, and images, and tables, and all sorts of things in one document.</p>
+<p>It’s a really powerful tool for writing up your research, because it allows you to write the code that you used to analyse your data, and then include the results of that analysis in the same document.</p>
+<p>But wait… isn’t that what we just said about .qmd files?</p>
+<p>Well yes, but Jupyter Notebooks are a little different.</p>
+</section>
+<section id="jupyter-notebooks-1" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>A Jupyter Notebook is a file that allows you to run code ‘live’ in the document, so you don’t need to preview or render the document to see the results of your code.</p>
+<p>Rather than trying to ‘explain’ it’ll be easier to show you an example.</p>
+<p>If you go to the ‘Day 0’ tab on Brightspace, and open the ‘Session 0.2’ folder, you’ll see a file called ‘example_notebook.ipynb’.</p>
+<p><em>sidenote</em>: the word ‘Jupyter’ is a portmanteau of ‘Julia’, ‘Python’, and ‘R’, the three languages that Jupyter Notebooks were originally designed to work with. The history of Jupyter Notebooks is really interesting, but it’s a little outside the scope of this course.</p>
+</section>
+<section id="jupyter-notebooks-2" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>If you open the ‘example_notebook.ipynb’ file you’ll see a document like this (remember yours might be a different colour):</p>
+
+<img data-src="images/Jupyter%20wide%20in%20VScode.png" class="r-stretch"></section>
+<section id="jupyter-notebooks-3" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>Let’s zoom in on that a little bit:</p>
+<p>At the very top of the notebook you’ll see a toolbar with a number of buttons.</p>
+
+<img data-src="images/Jupyter%20top%20controls.png" class="r-stretch"><ul>
+<li class="fragment">The ‘+ Code’ button allows you to add a new code cell</li>
+<li class="fragment">The ‘+ Markdown’ button allows you to add a new markdown cell</li>
+<li class="fragment">The ‘Run All’ button allows you to run the code in the cells in order</li>
+</ul>
+<div class="fragment">
+<p>There are other buttons, but we’ll talk about them later.</p>
+</div>
+</section>
+<section id="jupyter-notebooks-4" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>Jupyter Notebooks are made up of cells, a cell is kind of like one of quartos ‘code blocks’ but a Jupyter cell can be a Raw Cell, a Markdown Cell, or a Code Cell.</p>
+<ul>
+<li class="fragment">A Raw Cell is just text, like a markdown cell, but it’s not formatted as markdown</li>
+<li class="fragment">A Markdown Cell is text that is formatted as markdown</li>
+<li class="fragment">A Code Cell is a cell that contains code that can be run ‘live’ (we’ll talk about what that means later)</li>
+</ul>
+<div class="fragment">
+<p>Let’s start by looking at a Raw cell</p>
+</div>
+</section>
+<section id="jupyter-notebooks-5" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>A Raw cell is just a cell that contains text which will be ‘read’ by the computer, but not formatted as markdown(or code).</p>
+<p>For our purposes, this is where we put the YAML in a Jupyter Notebook, Quarto can identify the Raw text as YAML if we use the <code>---</code> syntax and then follow the YAML rules.</p>
+<p><img data-src="images/Jupyter%20raw%20cell.png"></p>
+<p>You can see that the word ‘Raw’ is in the bottom left of the cell.</p>
+<p><img data-src="images/Jupyter%20raw%20cell%20selector.png"></p>
+</section>
+<section id="jupyter-notebooks-6" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>A Markdown cell is a cell that contains text that is formatted as markdown. You use exactly the same syntax as you would in a Quarto document, so you can include links, images, tables, and all the other things you’ve learned about today.</p>
+<p><img data-src="images/Jupyter%20MD%20not%20rendered.png"></p>
+<p>You can see that the word ‘Markdown’ is in the bottom left of the cell. When you hover over the cell you’ll see a little ‘tick’ icon appear in the top right of the cell. If you press that it’ll preview the cell <em>without</em> having to render/preview the whole document.</p>
+<p><img data-src="images/Jupyter%20MD%20rendered.png"></p>
+</section>
+<section id="jupyter-notebooks-7" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>And finally, a Code cell is a cell that contains code that can be run ‘live’.</p>
+<p><img data-src="images/Jupyter%20Code%20clear.png"></p>
+<p>You can see that the word ‘Code’ is in the bottom left, and if you hover over the cell, you can run it by pressing the little ‘Play’in the top right of the cell. Or you can press ’Ctrl+Enter’ on your keyboard to run the cell.</p>
+<p><img data-src="images/Jupyter%20Code%20play%20button.png"></p>
+<p>And you’ll see the output of the code immediately below the code cell.</p>
+<p><img data-src="images/Jupyter%20Code%20executed.png"></p>
+</section>
+<section id="jupyter-notebooks-8" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>So, in a Jupyter Notebook you can write text, and code, and images, and tables, and all sorts of things in one document.</p>
+<p>The document is ‘live’ in the sense that you can run the code in the document and see the results immediately, although some things, like inline code in markdown cells won’t show up until you use quarto to ‘render’ or ‘preview’ the document.</p>
+</section>
+<section id="jupyter-notebooks-9" class="slide level2 smaller">
+<h2>Jupyter Notebooks</h2>
+<p>A jupyter notebook has the file extension ‘.ipynb’ which stands for ‘Interactive Python Notebook’, this is a legacy of where the notebooks came from, so don’t worry about that for right now.</p>
+<p>So let’s practice making your own Jupyter Notebook.</p>
+<p>First, spend a few minutes playing around with the ‘example.ipynb’ that you downloaded from Brightspace, and then:</p>
+<ul>
+<li class="fragment">In vscode, go to the Day 0 Folder in the explorer pane (the one on the left)</li>
+<li class="fragment">Then right click on the ‘Day 0’ folder and select ‘New File’</li>
+<li class="fragment">Immediately type ‘my_notebook.ipynb’ and press enter</li>
+</ul>
+<div class="fragment">
+<p>And boom! You’ve created a new Jupyter Notebook, play around with making different cells, try adding some markdown (incluiding links and images), and play around with YAML in a Raw cell.</p>
+</div>
+</section>
+<section id="extensions" class="slide level2 smaller">
+<h2>Extensions</h2>
+<p>No you know about:</p>
+<ul>
+<li class="fragment">VS Code as a powerful Text Editor</li>
+<li class="fragment">Quarto as a powerful Document Generation Tool</li>
+<li class="fragment">Markdown as a simple way to write text which can be formatted effortlessly</li>
+<li class="fragment">YAML as a simple way to write metadata to tell the computer how to process your text</li>
+<li class="fragment">Paths as a way to tell the computer where to find things so you can include them in your document</li>
+<li class="fragment">Code blocks and inline code</li>
+<li class="fragment">Quarto Markdown (.qmd) and Jupyter Notebook (.ipynb) files</li>
+</ul>
+<div class="fragment">
+<p>But all of this has been somewhat manual, but what about all this ‘Automated’ stuff we promised you?</p>
+</div>
+</section>
+<section id="extensions-1" class="slide level2 smaller">
+<h2>Extensions</h2>
+<p>This is where Quarto Extensions come in.</p>
+<p>In essences these Extensions are ‘bundles’ files containing things like the ‘Citation Style Language’ (CSL) file, the pdf layout template, and/or the ‘Word’ template for a specific journal or publishing style.</p>
+<p>You can indeed write your own extensions, but there is an <a href="https://quarto.org/docs/extensions/listing-journals.html">official list</a> of existing extensions that you can use.</p>
+</section>
+<section id="extensions-2" class="slide level2 smaller">
+<h2>Extensions</h2>
+<p>For this session, because you’re all psychologists, we’re going to focus on the <a href="https://wjschne.github.io/apaquarto/">‘apaquarto’</a> extension.</p>
+<p>This extensions was written by <a href="https://github.com/wjschne/">W. Joel Schneider</a> and is a ‘template’ for writing in APA style <span class="citation" data-cites="apaquarto2023">(<a href="#/references" role="doc-biblioref" onclick="">Schneider, 2023</a>)</span>.</p>
+<p>Please go back to the ‘Day 0’ tab on Brightspace, and there you’ll find the link to the ‘apaquarto’ extension documentation, open that in a new tab so you can refer to it as we go through the next few slides.</p>
+<p>In fact, we <em>strongly recommend</em> that you bookmark and save this page because it is a really well written overview of both APA style, and Quarto Markdown (and YAML) in general.</p>
+</section>
+<section id="extensions-3" class="slide level2 smaller">
+<h2>Extensions</h2>
+<p>As we said, an extension is a ‘bundle’ of files that contain the information needed to format your document in a specific way.</p>
+<p>But… how do you ‘get’ that bundle and then how do you use it?</p>
+<p>Basically (and we’re being really basic here) there’s two steps:</p>
+<ul>
+<li class="fragment">You ‘install’ the extension
+<ul>
+<li class="fragment">Which means you download the extension files and put them in the right place</li>
+</ul></li>
+<li class="fragment">You ‘use’ the extension
+<ul>
+<li class="fragment">You update your YAML to tell Quarto to use the extension files in formatting your document</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p>Fortunately you already know how to do both of these things, you just haven’t seen them in this exact context yet.</p>
+</div>
+</section>
+<section id="extensions-4" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="installing-the-extension">Installing the Extension</h3>
+<p>There are two ways to install the extension depending on whether you’re starting a new project with that extension in mind, or if you’re adding it to an existing project. Fortunately, both of them use <code>Terminal</code> commands that are really similar to the ones we learned back in session 0.0</p>
+<p>Can anyone what the command to preview a Quarto document is?</p>
+<ul>
+<li class="fragment">That’s right! <code>quarto preview "my_document.qmd"</code> if you’re using a Quarto Markdown file</li>
+<li class="fragment">Or <code>quarto preview "my_document.ipynb"</code> if you’re using a Jupyter Notebook</li>
+</ul>
+</section>
+<section id="extensions-5" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="installing-the-extension-1">Installing the Extension</h3>
+<p>All quarto commands follow the same format:</p>
+<p>The word <code>quarto</code> followed by the specific command you want to run (followed by the filename if it’s a specific file you want to run the command on).</p>
+<p>Let’s look at the command to install the ‘apaquarto’ extension into an existing project first.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>quarto add wjschne/apaquarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="quarto-add-wjschneapaquarto">quarto add wjschne/apaquarto</h3>
+</section>
+<section id="extensions-6" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="installing-the-extension-2">Installing the Extension</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>quarto add wjschne/apaquarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So in the terminal (the bottom pane in vscode) you would type <code>quarto add wjschne/apaquarto</code> and press enter. However, you have to be in the same folder as the project you want to add the extension to.</p>
+<p>Try it now with your exemplar document that you made at the end of session 0.0:</p>
+<ul>
+<li class="fragment">Open the terminal in vscode (go up to the terminal menu and select ‘New Terminal’ )</li>
+<li class="fragment">Navigate to the folder where your exemplar document is (you’ll see the ‘path’ at the start of the line in the terminal, if you’re not in the right folder you can use the <code>cd</code> command to change directory, don’t forget you can right click on a folder in the explorer pane and select ‘copy path’ to get the path to the folder, don’t forget to enclose the path in quotes if it has spaces in it)</li>
+<li class="fragment">Type <code>quarto add wjschne/apaquarto</code> and press enter</li>
+</ul>
+</section>
+<section id="extensions-7" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="installing-the-extension-3">Installing the Extension</h3>
+<p>This will prompt you with some questions about whether you ‘Trust’</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{bash}</span></span>
+<span id="cb6-2"><a href=""></a><span class="in">Quarto extensions may execute code when documents are rendered. If you do not </span></span>
+<span id="cb6-3"><a href=""></a><span class="in">trust the authors of the extension, we recommend that you do not install or   </span></span>
+<span id="cb6-4"><a href=""></a><span class="in">use the extension.</span></span>
+<span id="cb6-5"><a href=""></a><span class="in"> ? Do you trust the authors of this extension (Y/n) » </span></span>
+<span id="cb6-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can press ‘Y’ and then enter to continue (but only if you do trust the authors of the extension, be careful about where you get your extensions from)</p>
+</section>
+<section id="extensions-8" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="installing-the-extension-4">Installing the Extension</h3>
+<p>After you press ‘Y’ and enter, you’ll see a message like this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="in">```{bash}</span></span>
+<span id="cb7-2"><a href=""></a><span class="in">[&gt;] Downloading</span></span>
+<span id="cb7-3"><a href=""></a><span class="in">[&gt;] Unzipping</span></span>
+<span id="cb7-4"><a href=""></a><span class="in">    Found 1 extension.</span></span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="in">The following changes will be made:</span></span>
+<span id="cb7-7"><a href=""></a><span class="in">My Document in APA Style, Seventh Edition   [Install]   3.5.3 (formats)</span></span>
+<span id="cb7-8"><a href=""></a><span class="in"> ? Would you like to continue (Y/n) » </span></span>
+<span id="cb7-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is just confirming that you want the changes quarto makes to your document to be made. You can press ‘Y’ and enter to continue.</p>
+</section>
+<section id="extensions-9" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="installing-the-extension-5">Installing the Extension</h3>
+<p>After you press ‘Y’ and enter, you’ll see a message like this:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{bash}</span></span>
+<span id="cb8-2"><a href=""></a><span class="in">[&gt;] Copying</span></span>
+<span id="cb8-3"><a href=""></a><span class="in">[&gt;] Extension installation complete</span></span>
+<span id="cb8-4"><a href=""></a></span>
+<span id="cb8-5"><a href=""></a><span class="in"> ? View documentation using default browser? (Y/n) » Yes</span></span>
+<span id="cb8-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is letting you know that the extension has been installed successfully. If you want to be taken to the documentation (a website with the whole instructions) for the extension you can press ‘Y’ and enter, if not you can press ‘N’ and enter.</p>
+</section>
+<section id="extensions-10" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="updating-the-yaml">Updating the YAML</h3>
+<p>Once you’ve installed the extension you can use it in your document by updating the YAML.</p>
+<p>Every extension will have it’s own idosyncratic YAML options, but the ‘apaquarto’ extension has a few that make your life easier (as long as your aware of them)</p>
+<p>Let’s look at the example YAML from the ‘apaquarto’ documentation:</p>
+</section>
+<section id="extensions-11" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="updating-the-yaml-1">Updating the YAML</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{YAML}</span></span>
+<span id="cb9-2"><a href=""></a><span class="in">---</span></span>
+<span id="cb9-3"><a href=""></a><span class="in">title: "My Paper's Title: A Full Analysis of Everything"</span></span>
+<span id="cb9-4"><a href=""></a><span class="in">shorttitle: "My Paper's Title"</span></span>
+<span id="cb9-5"><a href=""></a><span class="in">author: # note the full author field and subfields</span></span>
+<span id="cb9-6"><a href=""></a><span class="in">  - name: W. Joel Schneider</span></span>
+<span id="cb9-7"><a href=""></a><span class="in">    corresponding: true</span></span>
+<span id="cb9-8"><a href=""></a><span class="in">    orcid: 0000-0002-8393-5316</span></span>
+<span id="cb9-9"><a href=""></a><span class="in">    email: schneider@temple.edu</span></span>
+<span id="cb9-10"><a href=""></a><span class="in">    affiliations:</span></span>
+<span id="cb9-11"><a href=""></a><span class="in">      - name: Temple University</span></span>
+<span id="cb9-12"><a href=""></a><span class="in">        department: College of Education and Human Development</span></span>
+<span id="cb9-13"><a href=""></a><span class="in">        address: 1301 Cecil B. Moore Ave.</span></span>
+<span id="cb9-14"><a href=""></a><span class="in">        city: Philadelphia #This *Has* to be here</span></span>
+<span id="cb9-15"><a href=""></a><span class="in">        region: PA #This *Has* to be here</span></span>
+<span id="cb9-16"><a href=""></a><span class="in">        postal-code: 19122-6091</span></span>
+<span id="cb9-17"><a href=""></a><span class="in">abstract: "This is my abstract." #This can be a lot longer</span></span>
+<span id="cb9-18"><a href=""></a><span class="in">keywords: [keyword1, keyword2]</span></span>
+<span id="cb9-19"><a href=""></a><span class="in">author-note:</span></span>
+<span id="cb9-20"><a href=""></a><span class="in">  disclosures:</span></span>
+<span id="cb9-21"><a href=""></a><span class="in">    conflict of interest: The author has no conflict of interest to declare.</span></span>
+<span id="cb9-22"><a href=""></a><span class="in">bibliograpy: mybibfile.bib     </span></span>
+<span id="cb9-23"><a href=""></a><span class="in">format: # You can use all three of these, or just one depending on what you want</span></span>
+<span id="cb9-24"><a href=""></a><span class="in">  apaquarto-docx: default</span></span>
+<span id="cb9-25"><a href=""></a><span class="in">  apaquarto-html: default</span></span>
+<span id="cb9-26"><a href=""></a><span class="in">  apaquarto-pdf: default</span></span>
+<span id="cb9-27"><a href=""></a><span class="in">---</span></span>
+<span id="cb9-28"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="extensions-12" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="updating-the-yaml-2">Updating the YAML</h3>
+<p>That’s quite a big YAML block, but it’s not that complicated. Some tags you already know like the ‘title’, ‘author’, and ‘bibliography’ tags, but there are some new ones too.</p>
+<ul>
+<li class="fragment">The ‘author’ field is expanded to include their email, affiliation, and ORCID
+<ul>
+<li class="fragment">You have to include the ‘city’ and ‘region’ fields in the ‘affiliations’ field, this is a quirk of the ‘apaquarto’ extension</li>
+<li class="fragment">You can include multiple authors by just repeating everything under the ‘author’ field</li>
+</ul></li>
+<li class="fragment">The ‘abstract’ field is the abstract of your paper</li>
+<li class="fragment">The ‘keywords’ field is the keywords of your paper</li>
+<li class="fragment">The ‘author-note’ field is for any disclosures you need to make</li>
+<li class="fragment">The ‘format’ field is the format you want to render your document in (you can use all three, or just one)</li>
+</ul>
+</section>
+<section id="extensions-13" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="updating-the-yaml-3">Updating the YAML</h3>
+<p>OK so using the example on the website (the link is up on Brightspace) let’s update the YAML in your exemplar document to use the ‘apaquarto’ extension.</p>
+<ul>
+<li class="fragment">Open your exemplar document in vscode</li>
+<li class="fragment">Go to the YAML block at the top of the document</li>
+<li class="fragment">Update the YAML to include this version of the ‘author’ field, the ‘abstract’ field, the ‘keywords’ field, the ‘author-note’ field, and the ‘format’ field</li>
+<li class="fragment">Specify the format as ‘apaquarto-html’</li>
+<li class="fragment">Save the document</li>
+</ul>
+</section>
+<section id="extensions-14" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="creating-a-new-document">Creating a new document</h3>
+<p>So far we’ve talked about how you might update an existing document to use the ‘apaquarto’ extension, but what if you want to start a new document with the ‘apaquarto’ extension in mind?</p>
+<p>This is really easy to do, and you can do it in just a few steps:</p>
+<ul>
+<li class="fragment">Open the terminal in vscode</li>
+<li class="fragment">Navigate to the folder where you want to create the new document</li>
+<li class="fragment">Type <code>quarto use template wjschne/apaquarto</code> and press enter</li>
+</ul>
+</section>
+<section id="extensions-15" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="creating-a-new-document-1">Creating a new document</h3>
+<p>Similar to the ‘add’ command, the ‘use’ command will prompt you with some questions about whether you ‘Trust’ the extension</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{bash}</span></span>
+<span id="cb10-2"><a href=""></a><span class="in">Quarto templates may execute code when documents are rendered. If you do not </span></span>
+<span id="cb10-3"><a href=""></a><span class="in">trust the authors of the template, we recommend that you do not install or   </span></span>
+<span id="cb10-4"><a href=""></a><span class="in">use the template.</span></span>
+<span id="cb10-5"><a href=""></a><span class="in"> ? Do you trust the authors of this template (Y/n) » </span></span>
+<span id="cb10-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can press ‘Y’ and then enter to continue (but only if you do trust the authors of the extension, be careful about where you get your extensions from)</p>
+</section>
+<section id="extensions-16" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="creating-a-new-document-2">Creating a new document</h3>
+<p>Then the terminal will as you if you want to ‘Create a subdirectory for template? (Y/n)’</p>
+<p>If you choose ‘N’ the template will be added to the folder you’re in <em>and</em> the folder will contain both an ‘example.qmd’ file and a ‘bibliography.bib’ file as well as a file with the same name as the folder that contains all the ‘boilerplate’ text you may need.</p>
+<p>A Full yaml block that you can just modify to represent your paper, and all the level one headedings for an APA paper, a premade references section, and a premade appendix section.</p>
+</section>
+<section id="extensions-17" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="creating-a-new-document-3">Creating a new document</h3>
+<p>OK, so lets try that. Firstly go to the explorer pane (the left hand side of vscode) and right click on the ‘Day 0’ folder, then select ‘New Folder’ and name the folder ‘apaquarto_example’</p>
+<p>Then:</p>
+<ul>
+<li class="fragment">Open the terminal in vscode</li>
+<li class="fragment">Navigate to the folder where you want to create the new document</li>
+<li class="fragment">Type <code>quarto use template wjschne/apaquarto</code> and press enter</li>
+</ul>
+<p>. . .</p>
+<p>I suggest you press ‘n’ when it asks you if you want to create a subdirectory for the template, because you’ve already created a folder for the new document.</p>
+</section>
+<section id="extensions-18" class="slide level2 smaller">
+<h2>Extensions</h2>
+<h3 id="rendering-the-document">Rendering the Document</h3>
+<p>Now that you’ve done this you should be able to ‘render’ your document in APA style. If you’ve use all three of the ‘format’ options in the YAML block you’ll need to specify which one you want to render when you run the command in the terminal</p>
+<ul>
+<li class="fragment">Open the terminal in vscode</li>
+<li class="fragment">Navigate to the folder where your exemplar document is</li>
+<li class="fragment">Type <code>quarto render "my_document.qmd" --to apaquarto-html</code> and press enter (don’t forget to replace ‘my_document.qmd’ with the name of your document)</li>
+</ul>
+<p>. . .</p>
+<p>Note the <code>--to apaquarto-html</code> at the end of the command, this tells quarto to render the document in the ‘apaquarto-html’ format. You can use ‘apaquarto-docx’ or ‘apaquarto-pdf’ instead if you like. And don’t ignore the two ‘-’ before the ‘to’ in the command, they’re important.</p>
+</section>
+<section id="summary" class="slide level2 smaller">
+<h2>Summary</h2>
+<p>So in this session we’ve talked about:</p>
+<ul>
+<li class="fragment">Including code in your document</li>
+<li class="fragment">Using Jupyter Notebooks to write your document (as an alternative to Quarto Markdown)</li>
+<li class="fragment">Installing and using Quarto Extensions (specifically the ‘apaquarto’ extension)</li>
+<li class="fragment">Updating the YAML in your document to use an extension</li>
+<li class="fragment">Creating a new document with an extension in mind</li>
+<li class="fragment">Rendering your document in a specific format</li>
+</ul>
+<p>Well done! You’ve made it through the basics of Quarto, and you’re well on your way to being able to write your whole paper in one document.</p>
+</section>
+<section id="summary-1" class="slide level2 smaller">
+<h2>Summary</h2>
+<p>Tomorrow we’re going to start introducing you to the power of actual code. In particular we’re going to introduce you to python. We promise that this will be fun, and that we’ll accompany you every step of the way. We’ve also built this material with you in mind, so we’re going to focus on the things that are most useful to you. We’re here to empower you, not to turn you into a computer scientist.</p>
+<p>Rather than ending this session with a quiz we’re going to do something different!</p>
+</section>
+<section id="lets-get-ready-to-rumble" class="slide level2 smaller">
+<h2>Let’s Get Ready to Rumble!</h2>
+<p>You’ll be split into groups of 3 or 4, and each group will have to work together to produce an apastyle document using the ‘apaquarto’ extension - from scratch.</p>
+<p>This will happen as a relay race where each member of the team will have to complete a specific task before passing the document to the next member of the team.</p>
+<p>Each team will come to the front of the room to work on the laptops we have set up at the front, you’ll be going head-to-head with another team to see who can finish first.</p>
+</section>
+<section id="lets-get-ready-to-rumble-1" class="slide level2 smaller">
+<h2>Let’s Get Ready to Rumble!</h2>
+<p>Before we get started you’re group will have to come up with a team name, and then decide who’s going to do each of the following tasks.</p>
+</section>
+<section id="lets-get-ready-to-rumble-2" class="slide level2 smaller">
+<h2>Let’s Get Ready to Rumble!</h2>
+<ul>
+<li class="fragment">Task 1: Create a new folder on the desktop called ‘team_name’</li>
+<li class="fragment">Task 2: Use the apaquarto template to create a new document in the ‘team_name’ folder</li>
+<li class="fragment">Task 3: Update the YAML in the document to include all the authors (team members), the title, the abstract, the keywords, and the author-note - Don’t worry about the actual text of the abstract, you can make it up.</li>
+<li class="fragment">Task 4: Find a reference and include it in the document (update the bibliography file and then use the @)</li>
+<li class="fragment">Task 5: Include a link to a website in the document</li>
+<li class="fragment">Task 6: Include an image in the document</li>
+<li class="fragment">Task 7: Render the document in the ‘apaquarto-html’ format</li>
+</ul>
+<p>You have 5 minutes to consult with your team (and maybe practice?) before battle commences.</p>
+</section>
+<section id="references" class="title-slide slide level1 smaller scrollable">
+<h1>References</h1>
+<p>Well done guys! You’ve made it through the first day of the course.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-apaquarto2023" class="csl-entry" role="listitem">
+Schneider, W. J. (2023). <em><span>APA 7th Edition Format Quarto Extension</span></em>. <a href="https://wjschne.github.io/apaquarto/">https://wjschne.github.io/apaquarto/</a>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
