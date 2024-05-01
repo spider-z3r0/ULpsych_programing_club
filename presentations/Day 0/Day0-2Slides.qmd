@@ -456,9 +456,9 @@ This is letting you know that the extension has been installed successfully. If 
 
 ## Extensions{.smaller}
 ### Updating the YAML
-Once you've installed the extension you can use it in your document by updating the YAML.
+Once you've installed the extension you have to tell quarto how to use it by updating the YAML.
 
-Every extension will have it's own idosyncratic YAML options, but the 'apaquarto' extension has a few that make your life easier (as long as your aware of them)
+There is [specific YAML for Scholarly Articles](https://quarto.org/docs/authoring/front-matter.html), and every extension will have it's own idosyncratic YAML options, but the ['apaquarto' extension has a few](https://wjschne.github.io/apaquarto/options.html) that make your life easier (as long as your aware of them).
 
 Let's look at the example YAML from the 'apaquarto' documentation:
 
