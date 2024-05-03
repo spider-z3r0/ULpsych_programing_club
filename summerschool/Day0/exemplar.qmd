@@ -1,0 +1,18 @@
+---
+bibliography: "../resources/example_references.bib"
+csl: "../resources/apa.csl"
+---
+
+# Victoria Coren Mitchell
+
+-   Expert poker player
+-   Sense of humour
+-   Presents my favourite TV show
+-   Lovely sense of style
+-   Excellent writer
+
+[Victoria Coren Mitchell](http://www.victoriacoren.com/)
+
+![](../images/vcmpoker.jpg)
+
+Victoria Coren Mitchell is a British TV personality who presents "Only Connect", a gameshow which harbours nerds from disciplines such as Chemical Engineering [@sen2018slide]. Prior to this, she was primarily known as a poker player whose memoir offers an interesting glimpse into the experiences of women in the area [@rak2022pocket]. 
