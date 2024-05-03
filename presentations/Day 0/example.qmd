@@ -1,9 +1,27 @@
 ---
 title: "Example Quarto Document"
-author: "UL Psychtech Team"
+author:
+  - name: "UL Psychtech Team"
+    corresponding: true
+    orcid: 0000-0002-8393-5316
+    email: schneider@temple.edu
+    affiliations:
+      - name: Temple University
+        department: College of Education and Human Development
+        address: 1301 Cecil B. Moore Ave.
+        city: Philadelphia
+        region: PA
+        postal-code: 19122-6091
+abstract: "This is my abstract."
+keywords: [keyword1, keyword2]
+author-note:
+  disclosures:
+    conflict of interest: The author has no conflict of interest to declare. 
+
 ---
 
-#
+
+# Heading 1
 Quarto docuuments are essentially `plain text` with some extra `syntax` added in to tell the computer how to format the document.
 
  - `Plain Text` is just that, plain. It's like the text you type in a text message, or an email without any formatting.
