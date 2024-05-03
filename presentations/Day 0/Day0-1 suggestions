@@ -1,0 +1,8 @@
+Line 94: Recommend having path at the top of this slide
+Line 103: check how many times sub-directory is mentioned- one too many?
+Line 120: The drive is the trunk, not the root, also recommend including branches in the description and include mention of sub-directory being simile of child
+Line 175: Check that the weird stuff with \ vs / is all sorted
+Line 295ish: When you copy the relative file path for the .bib file, it might copy with \ in it, change this to / , also if it's not finding the .bib file, use .. to bring it back up a level to the parent folder
+The APA references don't have DOIs in them
+How do you change the references to not be in brackets
+Also, how do you modify the references if there are aspects not in APA style?
