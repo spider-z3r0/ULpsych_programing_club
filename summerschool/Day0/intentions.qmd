@@ -1,0 +1,22 @@
+---
+title: "Intentions"
+author: Sandra
+format: html
+---
+
+# Intentions
+
+## What do you hope to learn?
+How to manage the basics so that the more difficult stuff has a good foundation
+
+## Is there a particular project you might use this knowledge for?
+Revolutionising the teaching, **yeah**!
+
+## What are you most excited about?
+Having others around while learning this
+
+## What are you most nervous about?
+The sheer amount of work involved
+
+## Look around for a website that you think might be useful to you, and include a link to it in your document.
+I mean, intentions are good but look at the state of this [Coding for Busy Women](https://www.shecodes.io/free-class)
