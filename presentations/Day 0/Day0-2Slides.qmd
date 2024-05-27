@@ -323,9 +323,31 @@ First, spend a few minutes playing around with the 'example.ipynb' that you down
 
 And boom! You've created a new Jupyter Notebook, play around with making different cells, try adding some markdown (incluiding links and images), and play around with YAML in a Raw cell.
 
+## Jupyter Notebooks{.smaller}
+
+Before you run any code in a Jupyter Notebook, you need to make sure that you have the right 'kernel' running.
+
+### Selecting kernel
+
+The Jupyter Kernel is essentially just the version of the programming language that you are using. You can select the kernel that you want to use by clicking on the 'Select Kernel' dropdown menu at the top right of the notebook. You can also *change* the kernel by clicking in the same place. 
+
+![](images/VSCode_kernel_selector.jpg)
+
+## Jupyter Notebooks{.smaller}
+
+### Selecting kernel
+
+When you click 'Select Kernel', you will see a list of available kernels (pop up in the top center of the VScode screen). You can select the kernel that you want to use by clicking on it. There are a few kernels installed as part of the summer school but just select the one called 'pssday0' for now. We'll talk more about them later in the course.
+
+![](images/VSCode_kernel_list.jpg)
+
+
+
+
+
 ## Extensions{.smaller}
 
-No you know about:
+Now you know about:
 
  - VS Code as a powerful Text Editor
  - Quarto as a powerful Document Generation Tool
