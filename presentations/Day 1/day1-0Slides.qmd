@@ -1,0 +1,238 @@
+---
+title: "Session 1.0"
+subtitle: "Why the hell isn't this day 2? A gentle introdcution to programming in python"
+format: 
+   revealjs:
+      incremental: true
+      theme: solarized
+editor: "visual"
+jupyter: wsl_prec
+bibliography: references.bib
+csl: apa.csl
+---
+
+# Welcome Back!
+
+It's the second day of the summerschool!! And I promise that by the end of the day you'll know why this is session 1.0 and not 2.0, and why yesday was Day 0 and not Day 1.
+
+# Before we get back into things...
+
+You guessed it!! 
+
+Theres another quiz!
+
+ - In the Brightspace site, in the Day 1 lesson (on the left hand side of the 'Content' tab), there is a quiz called 'Day 1 wake up Quiz'.
+ - Remember, these quizzes are not graded, they're an opportunity for you to practice recalling the info and to check your understanding.
+ - Work together, look stuff up, and have fun!
+ - Just some reminders ...
+
+# Things to remember - Software{.smaller}
+
+ - Quarto is a publishing tool that lets us write documents in markdown and code and then 'render' or 'preview' them in various formats (APA, website, slides)
+    - Markdown is a simple way to use special symbols in otherwise `plain text` that quarto can use to make the text all fancy.
+    - We can use `quarto extensions` like the ['apaquarto'] (https://wjschne.github.io/apaquarto/installation.html)  
+ - VScode is just a fancy text editor, and we can use it to make our writing really efficient and easy.
+   - It can let us view our files and folders, grab paths, and run our analysis **as well as** write up our esteemed research.
+   - We can use `VScode extensions` to make it even more powerful, like the 'quarto' extension that gives us hints about quarto YAML, or the python extension that highlights code for us. 
+
+# Things to remember - Paths{.smaller}
+
+ - `Paths` are how we find (and point our computer) to files and folders.
+    - `Paths` use slashes to separate elements (folders and files) in the path.
+    - They annoyingly use different slashes on different operating systems and different contexts (eg, different in YAML or markdown vs in code cells)
+
+
+# Things to remember - Quarto Documents{.smaller}
+
+ - There's quarto markdown, which is the most common quarto file. 
+    - It has a `.qmd` extension
+    - It can have code cells and markdown cells
+    - It can be rendered into a variety of formats (we're even using it to make these slides!)
+    - It's really good for writing up research, and sharing code and results, most commonsly associate with R code.
+
+
+# Things to remember - Jupyter Documents{.smaller}
+ - There's also jupyter notebooks, which are a different kind of file, but can be rendered into quarto markdown.
+    - They have a `.ipynb` extension
+    - They can have code cells and markdown cells
+    - They can be rendered by quarto. 
+    - They are really good for working with python, and running 'live' code.
+
+# OK... GO DO THE QUIZ NOW!{.smaller}
+
+Why are you still looking at me? 
+
+
+# Today's Plan
+
+Today we're going to start learning about programming in python, but...
+
+ - I want to remind you that we're not going to be learning to be programmers, we're learning to be researchers who can use programming to help us do our research.
+ - We're going to focus on the stuff that you need to know, and stuff that is relevant to you.
+ - So let's relax and enjoy the process!
+
+ - ![](./images/calm_down.jpg){fig-align="right" height="500%"}
+
+# Today's Plan
+
+ - We're going to be workgin *with* python, and we're going to be working *in* jupyter notebooks.
+ - R is a really excellent language that is really good for data analysis and statistics. 
+ - Python is also used a lot in data analysis and statistics, but it's also used in a lot of other fields, like web development, machine learning, and automation.
+ - The languages are really similar, but they have some differences that make them better for different things.
+ - We're starting with python because it's just easier, not because it's better, and we'll cover R later in the week. 
+
+
+# So lets talk about code, shall we?.
+
+## What is code? 
+
+ - At the microscopic level computers are just a series of switches that can be turned on and off.
+ - Code is just a way of telling the computer which switches (transistors) to turn on and off, and when.
+ - The switches can only be 'on' or 'off', so we group then together to allow for more complex combinations of 'on' and 'off'.
+ - The more switches we have, the more complex the instructions we can give the computer.
+
+## What is code?{.smaller} 
+
+ - When you click your mouse or type on a keyboard, you're sending signals to the computer to turn on and off switches.
+ - That code is written in a language that humans can read (kinda), and then translated into a language that the computer can understand.
+
+```{machine}
+01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100 00100001
+```
+
+ - You can see it's just a series of 'on' and 'off' signals, but it's really hard to read and write, and humans are really bad at it.
+
+## What is code?{.smaller}
+
+```{C}
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+```
+
+ - The code above is written in C, a language that is *easier* (but not easy) for humans to read and write.
+ - The code is telling the computer to 'write' the words 'Hello World!' to the console (the screen).
+ - The computer can't understand C#, so we need to use a 'compiler' or 'interpreter' to translate the code into machine code.
+ - Over the years we've developed a lot of languages that are easier for humans to read and write, and we've developed a lot of compilers and interpreters to translate that code into machine code.
+
+## What is code?{.smaller}
+
+ - Python is one of those languages that is easier for humans to read and write.
+ - Python is 'interpreted', which means that the code is translated into machine code 'on the fly' as it's run.
+ - It's actually written in C, which is more complex than python, and C then converts the python code into machine code.
+
+````{python}
+#| echo: true
+#| eval: false
+print("Hello World!")
+
+````
+
+## What is code?{.smaller}
+
+ - As you can see, python is a lot easier to read and write than C, and it's a lot easier to learn.
+ - So when you write code, you write it in python, which is then 'interpreted' by C, which is then translated into machine code.
+ - That's what's happening 'under the hood' (in a very simplified way).
+ - But you don't need to worry about that, you just need to write the python code. (It's actually really interesting though so, y'know, if you get bored...)
+
+ - OK, lets start looking at some python!
+
+
+# Python Basics - comments{.smaller}
+
+As I said up above, python is just some instructions we can write that the computer can read (via the interpretation).
+
+The computer 'reads' the code (top -> bottom, left -> right) and does what it's told. Buuuut, one of the most important things you can do when coding (*particularly when learning*) is write `comments`. 
+
+ - Comments are just notes that you write in your code that the computer ignores.
+ - They're really important for you to remember what you were doing, and for other people to understand what you were doing.
+ - You can write comments in python by using the `#` symbol (note that this symbol is used to make headers in quarto).
+ - Anything after the `#` symbol (in a code block or code cell) is ignored by the computer.
+
+# Python Basics - comments{.smaller}
+
+```python
+#| echo: true
+#| eval: true
+ 
+# This is a comment, the computer will ignore it!
+# This is also a comment, the computer will ignore it too!
+# The next line starts with actual code, but then there's a comment
+print("Hello World!") # This line prints out 'Hello World!' to the console
+
+```
+
+![Quarto python chunk, this image is taken from this slideshow document!](./images/python_comment.jpg){.fullwidth}
+
+
+# Python Basics - comments{.smaller}
+
+ - We really can't stress enough how important `comments` are, especially when collaberating with others (and we all know the feeling of panic when coming back to a project after a few weeks and we've no idea what we were thinking!!). 
+
+ - As you go through this course, please feel free to add `comments` to the code chunks/cells to help you remember what you're doing. 
+
+ - PS: You can also use comments to 'comment out' code that you don't want to run, but you don't want to delete. You'll see why this might be useful later on.
+
+# Python Basics - data types{.smaller}
+
+ - As psychologists, you have already know about several types of data, particularly quantitative data (numbers) and qualitative data (written language). Generally, we tend to think of data in terms of as large tables of numbers (with value labels, ie 1 = 'never'), or blocks of text like interview transcripts. 
+
+ - In python, we can also work with these types of data (numbers or words) but we need to think about them a little differently, specifically we need to know what `data type` a particular piece of data is. There are lots of data types but today we're going to focus on the 5 most basic types: 
+   - `strings` (ie: words or text), 
+   - integers (`ints`), 
+   - floating-point numbers (ie: 1.5, `floats`),
+   - `lists`,
+   - and dictionaties (`dicts`).
+
+- We're going to start out looking at `strings` which is just the `data type` for alphanumeric characters (letters and numbers) or human language in python. 
+ 
+# Python Basics - `strings`
+
+   - `Strings` are just a sequence of characters (letters, numbers, symbols) that are enclosed in quotes.
+   - You can use single quotes (`'`) or double quotes (`"`) to enclose a string, but you have to use the same type of quote at the start and end of the string.
+   - You can also use triple quotes (`'''` or `"""`) to enclose a string that spans multiple lines.
+
+  - Lets look at some examples!
+
+# Python Basics - `strings single quotes`{.smaller}
+
+```python
+#| echo: true
+#| eval: true
+
+'Hello World!' # This is a string that uses single quotes
+```
+![Can anyone tell me what might be problematic about the code above?](./images/python_single_quotes_good.jpg){.fullwidth}
+
+
+# Python Basics - `strings single quotes`{.smaller}
+
+```python
+#| echo: true
+#| eval: true
+
+'It's a beautiful day!' # This is a string that uses single quotes
+```
+![Is it easier to spot now?](./images/python_single_quote_bad.jpg)
+
+# Python Basics - `strings single quotes`{.smaller}
+
+```python
+#| echo: true
+#| eval: true
+
+'It's a beautiful day!' # This is a string that uses single quotes
+```
+
+   - The code above is going to cause an error because the computer thinks that the string ends at the second single quote, and then it doesn't know what to do with the rest of the code.
+   - Like we said, computers are really dumb, they don't understand context, they just do what they're told.
+   - It's particularly annoying if your name has an apostrophe in it (ask me how I know), or if you don't talk like you're in a Jane Austen novel.
+   - This is where double quotes `"` come in handy.
+
+# Python Basics - `strings double quotes`{.smaller}
+
+
+
