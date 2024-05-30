@@ -154,7 +154,7 @@ The computer 'reads' the code (top -> bottom, left -> right) and does what it's 
 
 # Python Basics - comments{.smaller}
 
-```python
+```{python}
 #| echo: true
 #| eval: true
  
@@ -199,7 +199,7 @@ print("Hello World!") # This line prints out 'Hello World!' to the console
 
 # Python Basics - `strings single quotes`{.smaller}
 
-```python
+```{python}
 #| echo: true
 #| eval: true
 
@@ -208,9 +208,9 @@ print("Hello World!") # This line prints out 'Hello World!' to the console
 ![Can anyone tell me what might be problematic about the code above?](./images/python_single_quotes_good.jpg){.fullwidth}
 
 
-# Python Basics - `strings single quotes`{.smaller}
+# Python Basics - strings single quotes{.smaller}
 
-```python
+```{{python}}
 #| echo: true
 #| eval: true
 
@@ -218,21 +218,15 @@ print("Hello World!") # This line prints out 'Hello World!' to the console
 ```
 ![Is it easier to spot now?](./images/python_single_quote_bad.jpg)
 
-# Python Basics - `strings single quotes`{.smaller}
+# Python Basics - strings single quotes{.smaller}
 
-```python
+```{{python}}
 #| echo: true
-#| eval: true
+#| eval: false
 
 'It's a beautiful day!' # This is a string that uses single quotes
 ```
 
    - The code above is going to cause an error because the computer thinks that the string ends at the second single quote, and then it doesn't know what to do with the rest of the code.
    - Like we said, computers are really dumb, they don't understand context, they just do what they're told.
-   - It's particularly annoying if your name has an apostrophe in it (ask me how I know), or if you don't talk like you're in a Jane Austen novel.
-   - This is where double quotes `"` come in handy.
-
-# Python Basics - `strings double quotes`{.smaller}
-
-
-
+   - It's particularly annoying if your name has an apostrophe in it (ask me how I know), or if you don't talk like you're in a Jane Austin novel. 
