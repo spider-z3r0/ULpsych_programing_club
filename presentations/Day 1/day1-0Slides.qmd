@@ -181,17 +181,17 @@ print("Hello World!") # This line prints out 'Hello World!' to the console
  - As psychologists, you have already know about several types of data, particularly quantitative data (numbers) and qualitative data (written language). Generally, we tend to think of data in terms of as large tables of numbers (with value labels, ie 1 = 'never'), or blocks of text like interview transcripts. 
 
  - In python, we can also work with these types of data (numbers or words) but we need to think about them a little differently, specifically we need to know what `data type` a particular piece of data is. There are lots of data types but today we're going to focus on the 5 most basic types: 
-   - `strings` (ie: words or text), 
+   - strings (called `str`; ie: words or text), 
    - integers (`ints`), 
    - floating-point numbers (ie: 1.5, `floats`),
    - `lists`,
    - and dictionaties (`dicts`).
 
-- We're going to start out looking at `strings` which is just the `data type` for alphanumeric characters (letters and numbers) or human language in python. 
+- We're going to start out looking at `strs` which is just the `data type` for alphanumeric characters (letters and numbers) or human language in python. 
  
-# Python Basics - `strings`
+# Python Basics - `str`
 
-   - `Strings` are just a sequence of characters (letters, numbers, symbols) that are enclosed in quotes.
+   - Strings (`str`) are just a sequence of characters (letters, numbers, symbols) that are enclosed in quotes.
    - You can use single quotes (`'`) or double quotes (`"`) to enclose a string, but you have to use the same type of quote at the start and end of the string.
    - You can also use triple quotes (`'''` or `"""`) to enclose a string that spans multiple lines.
 
@@ -229,4 +229,50 @@ print("Hello World!") # This line prints out 'Hello World!' to the console
 
    - The code above is going to cause an error because the computer thinks that the string ends at the second single quote, and then it doesn't know what to do with the rest of the code.
    - Like we said, computers are really dumb, they don't understand context, they just do what they're told.
-   - It's particularly annoying if your name has an apostrophe in it (ask me how I know), or if you don't talk like you're in a Jane Austin novel. 
+   - It's particularly annoying if your name has an apostrophe in it (ask me how I know), or if you don't talk like you're in a Jane Austin novel.
+
+
+# Python Basics - strings double quotes{.smaller}
+
+```{python}
+#Hey Check me out commenting my code!!
+
+#The line below uses double quotes. 
+"Isn't this better?"
+#So does the next line
+"T'is"
+
+```
+![More pictures behind the slides!](./images/python_double_quotes_good.jpg)
+
+ - Now you know how to write the names of the authors of this material ("O'Brien", "O'Malley" & 'Donovan')
+ - But `single and double quotes` only work for quite short `strs` like single names or a short sentence. 
+
+# Python Basics - strings triple quotes{.smaller}
+
+```{{python}}
+#| echo: true
+#| eval: false
+
+# Below is an *attempt* at a multiline str
+"I wonderded lonely as a undergrad
+trying to find their way to the psych labs"
+
+```
+![This will throw an error](./images/python_trip_quotes_good.jpg)
+
+# Python Basics - strings triple quotes{.smaller}
+
+```{{python}}
+#| echo: true
+#| eval: false
+
+# Below is an actual at a multiline str, note the three apostrophes
+'''I wonderded lonely as a undergrad
+trying to find their way to the psych labs'''
+
+
+
+```
+
+
