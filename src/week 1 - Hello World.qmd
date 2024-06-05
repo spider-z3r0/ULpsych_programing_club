@@ -1,0 +1,411 @@
+---
+title: Hello world!
+jupyter: python3
+---
+
+
+Welcome to learning about programming for psychology. In these sessions we're going to learn about how to give the computer instructions (input) to get the computer to produce something (output). As students who've learned SPSS you can think about the instructions (input) as the buttons you press in SPSS and the results (output) as the output file you get after you press 'Run'. 
+
+You may ask, '*but I already know how to push the buttons Kev; why are you making me learn something new?*'. Thats a good question, and there are loads of answers but I'm going to give you 2
+
+ 1. Buttons are tedious:
+
+ The way you are taught SPSS does not scale. All your operations, every button you press, is restricted to the specific dataset you are working on. Even if you are doing the exact same analysis on the other datasets, you need to repeat the process.
+
+ Even more annoyingly, SPSS also restricts you to that specific dataset in its current state. This means that anytime you make a single change (no matter how small) to your dataset will mean that once again you must click every damn button again.
+ 
+ For example, let's think about making a descriptives table in SPSS. Every time you want to do it, you go to 'Analyse' -> 'Descriptives' -> 'Explore' -> move the variables you want into the correct box -> select the descriptives you want -> press 'Run' -> then wait for the output to load... all these button clicks have just given you raw numbers but you still have to take those numbers, copy them into excel and spend time editing and formating to turn them into APA format. Then you have to carry out an almost identical process to get some of the numbers that are missing from the 'Explore' output and copy *them* over to excel and add them to what you were working on. 
+ 
+ And as mentioned if anything goes wrong, or if you need to do it on a seperate dataset you have to repeat the whole process, clicking all the buttons again, in the same order. Repeating the same steps every time...
+ 
+ Programming languages can solve these issues. Learning a programming gives you ability to write the instructions that *makes the computer click the buttons* (Ha, what a sucker!) so that you don't have to. Instead can write a few lines of code that replaces all of those button clicks and let the computer do it *to as many datasets as you like* while you go make a cup of tea. And the computer doesn't need to move a mouse around to do it - it can just run the program for you much more quickly than you can. 
+
+ **AND** almost all of the clicks in our descriptives table example are replaced by the code `df.describe()` when working in python. There's a little more to it than that, but not a whole lot. 
+
+ 
+
+ 2. Buttons are limited:
+ 
+ Buttons are made by other people, and they can be great, but it means that those other people have decided what the buttons do, you have no control over that. 
+ 
+ Lets go back to the descriptives table example we used above. All those button clicks produce the same output everytime, even output you don't want, which you then have to weed out... 
+
+ But if you were writing the instructions, you could tell the computer to just make the numbers you want *and to put them into an APA table straight away* (or any other format you like). Instead of having to just accept the output from SPSS, you can tell the computer exactly *what you want* and it'll do it. 
+
+Using buttons isn't a bad thing, for some people and for some applications it is the best option. But it is just **one** option, you deserve more than that. 
+
+## a note about jupyter notebooks and python.
+
+Although there are lots of different code languages and lots ways to run code (SPSS has its 'syntax' for example), we are currently working in a jupyter notebook to learn python (specifically python3 which is the most powerful and stable version of python).
+
+### Why python. 
+We're learning python for a few reasons:
+
+ 1. Python is one of the easiest languages for beginers. Although python is just as powerful as more complex languages, it is easy to read and follow for new coders. 
+ 2. Python has a really big and helpful community. There are literally thousands of youtube tutorials, blogs, and online courses to help you as you learn. 
+ 3. Python is one of the main languages used in data science. While there are other languages, like R and Julia, that are really good for working with data, python is also an important langugae in this space. 
+ 4. Python is also used for lots of other applications. From robotics to machine learning, to website and game development, python is a really flexible language. 
+
+While you are coming to python from the perspective of psychology researchers, and we'll focus on tools and techniques that are useful in that space in these workshops, but the principles you will learn here will not only allow you to use python for lots of other projects, but will also set you up to learn any programing language you like in the future. 
+
+### Why jupyter
+
+These jupyter notebooks are like word documents that can run code inside them, they are made up of chunks called *cells*. There are 2 types of cells; **markdown** cells and ``code`` cells. Both types of cells are really powerful, but, for right now it's enough to know that if you want to wirte a block of standard text, use a **markdown** cell, and if you are writing code you should you should use a ``code`` cell (obvious I know...). You can check which type of cell you're typing in by looking in the bottom right hand corner of the cell. 
+
+Working in code cells allows you to write, run, and test code all in one space, working in managable chunks and all in the same document (all in one program).
+
+In these workshops we will provide you with jupyter notebooks that contain example python code and some text that explains the basics of that code, but you should feel free make new cells, write your own code and to rephrase explanations in your own words. 
+
+**They're your notes, so make them your own**
+
+The next cell is a ``code`` cell, so lets get started...
+
+
+```{python}
+# Welcome to python! 
+#Let's start with comments...
+
+
+# Sentences that have a 'hashtag' symbol at the start are comments. 
+# Humans can read comments, but the hashtag tells the computer to ignore anything that comes after it
+# Notice that I have a '#' symble at the start of each line
+# You should get used to writing comments, they help you keep track of your work, and to explain it to others. 
+
+
+print("Hello world!")# comments can also be added ofter code. The computer will run the code on this line, but ignore the comment
+
+# It is tradition that your first program should write "Hello World!"
+# Click the 'play' button (the little triangle) in the top left corner of this cell and you'll run your first piece of python code
+```
+
+**Congrats!** 
+
+Not only have you just run your first piece of code, and it is tradition the first piece of code is 'Hello world!', you've also learned how to write notes *within* your code. This is a really important habbit to get into as it helps you keep track of your own work, and also makes it easier for others to follow your thoughts, meaning that they can use your code and *you can use theirs*. 
+
+### Lesson Number One: Comment, Comment, Comment. 
+
+Comments are a powerful learning tool when learning a programming language. At some point in the future, you will experience a situation where you will staring at code that (a) completely works, but you haven't a clue as to why it works, or (b) doesn't work at all, and you also haven't a clue as to why it doesn't work. While (a) is a preferable state than (b) [and far less likely to make you want to pummel your laptop until it is reduced to dust], it is not helpful going forward if you want to implement that code elsewhere or need to change it in any way. 
+
+Comments can help you. During these workshops, we encourage to use comments to describe, to best of your knowledge, what lines of codes are doing. Doing this will help you articulate what you know and don't know. Articulating this will give you some direction about what material you need to run over again, or what questions you have. 
+
+### Lesson Number Two: Data Types 
+
+As psychology students, you have already learned about several types of data, particularly quantative data (numbers) and qualitative data (language). Generally, we tend to think of data in terms of as large tables of numbers (with value lables, ie 1 = 'never'), or blocks of text like interview transcripts. 
+
+In python, we can also work with these types of data (numbers or words) but we need to think about them a little differently, specifically we need to know what `data type` a particular piece of data is. There are lots of data types but today we're going to focus on the 5 most basic types: strings, integers (ints), floating-point numbers (floats), lists, and dictionaties (dicts).
+
+The next cell is a `code cell` with examples of strings, ints, and floats.  
+
+```{python}
+'This is a string'# note the apostrophies at either end
+
+"This is also a string, it's just formatted differently"# note the double quotes, this allows apostrophies to be used within the string
+
+5 # this is an integer, commonly called an int. Any whole number
+
+2.4 # this is a floating point number, commonly called a float. A number with decimal points
+```
+
+## strings
+A string, just like in SPSS, is the data type for standard written language. Strings can be a single letter, a word, or a short sentence. You can make them by simply placing apostrophies/single quotes (') at either end of your chosen characters, whether they are a single letter/word/sentence.
+
+`'is short'`
+
+However, if the string contains an apostrophe (like when type "isn't" instead of 'is not') you need to use inverted commas/double quotes (") at either end
+
+`"isn't short"`
+
+in the code cell below, make a couple of strings, a short one (like your first name) with ' at either end, and a longer one with " at either end. 
+
+```{python}
+# make your single quote string on the next line
+
+
+# now make your double line string below this
+```
+
+Well done! You've just made your own strings for the first time. It may seem small, but when you come to cleaning up datasets (renaming columns, making value labels, etc) you'll be really glad that you know what strings are. 
+
+In the cell below we've written a string incorrectly, see if you can identify whats wrong and fix it.
+You can check to see if you have fixed it properly by pressing the 'play' button in the top left of the cell. 
+
+```{python}
+'This string isn't right'
+```
+
+There's a lot you can do with strings, you can join them together, split them up, change the case, pull out bits, edit them, all with code, but we'll learn more about this later. 
+
+For now, lets move on to ints and floats.
+
+# ints and floats
+
+An int is just a whole number (like 5, 15, 500000, -1), while a float is any number that includes a decimal point (like 2.4, .05, 1.0000001, -4.30).
+
+python allows us to quickly and easily do simple arithmatic with these data types and can tell what type of number we are using imediately. In the next couple of cells we'll show you some examples of simple maths with ints, floats, and mixing both. Press the play button in the top left of each cell and pay attention to the output. 
+
+```{python}
+#simple addition
+6+4
+```
+
+```{python}
+#simple subtraction
+10-4
+```
+
+```{python}
+#simple multiplication
+6*4 #note the asterix symble for multiplication, press 'Shift' and 8 to get this symble
+```
+
+```{python}
+#simple division
+24/6 #note the forwardslash, this is the division symble
+```
+
+Notice that in each of the previous cells, we didn't need to type the equals sign ('=') to get python to run the calculations for us, we just typed in the numbers and the symble associated with each kind of calculation and python handled the rest in the background. We'll return to the equals sign at the end of this workbook.
+
+If you pay attention to the out put for each of the previous cells, you'll see that simple addition, subtraction, and multiplication produce ints (numbers without decimal places), but the simple division cell produced **4.0** (a float). This is because division in real life often isn't neat (even though our example is) and often leaves 'remainders'. 
+
+```{python}
+12/5 # this is division
+```
+
+However, if you want to force the division to produce an int, if you don't care about the remainder, you can use 2 forward slashes '//'
+
+```{python}
+12//5 # this is also division
+```
+
+If you mix ints and floats in the same operation, the output will be float
+
+```{python}
+6.5*2 #the first number is a float and the second is an int so the output will be float
+```
+
+There are a number of other basic maths operations we can do in python and we'll look at these when they become useful to you. However, if you want to delve into the range of python operators yourself (which we strongly encourage this) you can find a good list of them [here](https://www.w3schools.com/python/python_operators.asp). 
+
+For now though, lets move onto more complex datatypes: lists, dicts, and tuples. 
+
+## data structures
+
+So far we have looked at data types for individual pieces of data like (single numbers), but in the real world we work with groups of datapoints. There are a number of 'structures' in python that can contain multiple datapoints, eventually we'll work our way up to the `DataFrame` (think of the dataview in SPSS), but the simplest data structure is a `list`. 
+
+The cell below contains an example of a `list`. 
+
+```{python}
+#this list contains strings, ints and a float 
+["Mary", 110.4, 15, -1, 'b']# each item is seperated by ',' and surrounded by [] (square brackets)
+```
+
+a list is datastructure (which is a subset of datatype) that can contain multiple different datapoints. The simplest way to make a list is to open square brackets ('[') write in each individual data point, seperated by a comma, and then close the square brackets (']'). Python will recognise this as a list straight away. 
+
+In the cell below make your own list, try including at least 1 string, 1 int, and one float.
+
+```{python}
+# make your first list on the next line
+
+# press the play button to see if your list is made correctly
+```
+
+Boom you've made your first list. That wasn't that hard was it? Again, lists are simple, but you'll see in time that they can be very powerful when you know how to use them. 
+
+Now lets move on to dictionaries (dicts):
+
+A dict is a slightly more complex datastructure than a list. Where a list is just a collection of single items, a dictionary is composed of `keys` and `values`. While there's a lot of ways to demonstrate this idea, we'll start with a dictionary that contains information that might be more familiar to us as psychologists. 
+
+Take a look at the dict in the cell below and try to make sense of how it's structured and why this might be useful...
+
+```{python}
+{'name':'Sarah', 'age':26, 'course':'BA, Psychology and Sociology', 'year':3}# note the curly brackets, the colons, and the commas.
+```
+
+The first thing that should be clear is that dicts are enclosed in curly brackets ('{}') unlike lists which use square brackets ('[]'). 
+
+The next thing that is worth drawing your attention to is the format of a *key - value* pair. The dict above starts with the pair `'name':'Sarah'`, which is really just two strings linked by a colon (':'). The second pair is `'age':26` which is a int linked to a string. Each of these pairs is seperated by a comma (just like the individual items in a list).
+
+It may occur to you that the dict we have up above would be a good way to store important information about a student (or a participant, or an employee, or anything really), where we can decide what information is important. 
+
+In the cell below, first change the values in our first dictionary to store information about you, then try making a dict of your own. 
+
+```{python}
+# try editing the dict below with your own info
+{'name': , 'age':, 'course':, 'year':}
+```
+
+```{python}
+# now make a new dict of your own (just a few key value pairs)
+# don't forget the colon between each key and value, and the comma between each pair
+```
+
+So what have we looked at so far? 
+
+We've learned about datatypes for single datapoints like strings (the datatype for written language), both ints and floats (whole numbers and numbers containing a decimal point), and we've learned about two different datastructures: lists and dictionaries.
+
+ - A list is a collection of items seperated by commas and enclosed in square brackets
+
+ - A dict is a collection of key:value pairs, seperated by commas and enclosed in curly brackets. 
+
+In essence we've covered the basic data types that you'll interact with most often in python. Before we move away from them there's one last thing that we should point out...
+
+*are you ready?*
+
+You can store lists and dicts *inside lists and dicts* 
+
+Thats right, you can make a list of dicts...
+
+```{python}
+[{'name':'Paul', 'age':32}, {'name':'Ringo', 'age':27}] # a list of dicts
+```
+
+And a dict of lists...
+
+```{python}
+{'names':['Paul', 'Ringo'], 'ages':[32, 27]} # a dict of lists
+```
+
+or a list of lists
+
+```{python}
+[['Paul', 32], ['Ringo', 27]]# a list of lists
+```
+
+and a dict of dicts
+
+```{python}
+{'Paul':{'age':32, 'course': 'BA'}, 'Emma':{'age':22, 'course':'Msc'}} #a dict of dicts
+```
+
+The point is that you can mix and match these datatypes as needed, and between these five basic types you have a lot of power and flexibility. Next week we'll talk about ways that you can manipulate and work with these datatypes, and we'll look at '**functions**' but to finish off this week we should look at '**variables**'. 
+
+## Variables
+
+As psychology students you've heard the word '*variables*' since first year, most often in the context of measurement and manipulation (DVs and IVs). In python however, a '**variable**' refers to the way in which we label a piece of data so that we can refer to it easily later in our code. This can be a bit of a sticky point for researchers who are new to programming but just try to keep the two ideas seperate in your mind 
+
+ - In a study, a variable is something that we measure or manipulate (excluding confounding variables of course)
+ - In programing, a variable is basically a label that we give to a piece of information that we want to be able to access easily. 
+
+This is where the equals sign comes in...
+
+### Assigning a variable
+
+When we want to hold onto a piece of data to work with it we 'assign' it to a variable using the format 
+
+`variable_name = datapoint`
+
+So lets say we have a number that we want to use often in our code, we would assing that to a variable as shown in the cell below
+
+```{python}
+x = 7 #in this case x is the variable name and 7 is the datapoint
+
+# we can use this varible to perform operations like we did above
+x*2 # this is taking x and multiplying it by 2, so when we press play on the cell the number 14 will show up in the output
+```
+
+Notice how the name of the variable in the cell above has no quote marks around it, even though it's just the letter x. When we're using letters as a variable name we just type them without enclosing them in apostrophies or quotation marks. This is part of how the computer interprets python, we don't need to spend time on this, it's just something to keep in mind. 
+
+
+
+Now with just one number it might not be clear why this is useful, but we can assign any of our previous datapoints to a variable...
+
+```{python}
+# a list
+beatles = ['John', 'Paul', 'George', 'Ringo']
+
+# a string
+fifth_beatle = 'Dave, the Destroyer of worlds'
+```
+
+And so on. It should be clear that, at the most basic level, this is useful for working with large datastructures like long lists or dictionaries (we can assing a whole dataset to a variable if needed), or keeping track of a datapoint as it changes. 
+
+
+We can also update variables (they can vary) using things like the operators we covered earlier. 
+
+```{python}
+print(x)# printing x to see its original value
+x = x+1 #we're adding 1 to x and updating it
+print(x) # we're printing out x just to 
+```
+
+and we can use multiple variables
+
+```{python}
+y = 10 # assigning a new varible
+z = 2 # assigning a new variable
+
+a = y//z # mstoring the result of division in a new variable
+print(a) # printing out the value of the a variable, just to check it. 
+```
+
+In the cell below, try storing a string in a variable, a int in a variable, and a float in a variable. 
+
+```{python}
+# make a new string variable here
+
+
+# make a int varible here
+
+
+#make a float variable here
+
+
+
+# bonus no. 1, copy one of the lists or dicts from above and paste it in here as a new variable
+
+```
+
+You can also check what type of data type each variable is. To do this, you can use the type command. 
+
+```{python}
+a = "I wonder what this variable is?"
+
+type(a)
+
+```
+
+Use the type command to check the data type of the following variables
+
+```{python}
+pets = ["dog", "cat", "goldfish"]
+
+# Use type command here
+
+
+```
+
+```{python}
+exam_grade = 57.26
+
+# Use type command here
+
+```
+
+```{python}
+wordleScore = 4
+
+# Use type command here
+
+```
+
+```{python}
+
+#Bonus task no 2. Check whether the string, int, float variables you created earlier are the correct data type, use the type command:
+
+
+#Check your string variable here
+
+#Check int variable here
+
+#Check float variable here
+
+
+```
+
+So this week we've learned about 5 basic datatypes, and we've learned about variables in python. 
+
+We'll build on these next week to start manipulating data in simple ways to build towards working with more complex operations and datatypes. 
+
+Thanks for taking part this week. 
+
+Ryan and Kev
+

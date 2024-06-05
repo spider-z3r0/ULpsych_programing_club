@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="day1-1Slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="day1-1Slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="day1-1Slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="day1-1Slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="day1-1Slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="day1-1Slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="day1-1Slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="day1-1Slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.554">
+
+  <title>Session 1.1</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="day1-1Slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="day1-1Slides_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="day1-1Slides_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="day1-1Slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="day1-1Slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="day1-1Slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="day1-1Slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Session 1.1</h1>
+  <p class="subtitle">Let’s do <em>stuff</em></p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="welcome-back" class="title-slide slide level1 center">
+<h1>Welcome Back!</h1>
+<ul>
+<li class="fragment">I hope you had a good break.</li>
+<li class="fragment">Annnnnd I hope you’re looking forward to the recap quiz that you’re about to do.</li>
+<li class="fragment">It’s in the usual place, and as always it’s not for marks, but it’s a good way to check your understanding.</li>
+</ul>
+</section>
+
+<section id="just-remember" class="title-slide slide level1 center">
+<h1>Just remember</h1>
+<ul>
+<li class="fragment"><code>strs</code> are collections of alphanumeric characters enclosed in quotes (either single, double or triple)</li>
+<li class="fragment"><code>ints</code> are whole numbers</li>
+<li class="fragment"><code>floats</code> are decimal numbers</li>
+<li class="fragment"><code>lists</code> are collections of items enclosed in square brackets (they can contain any datatype, including other lists)</li>
+<li class="fragment"><code>dicts</code> are collections of <code>key : value</code> pairs enclosed in curly braces (they can contain any datatype, including lists and dicts)</li>
+</ul>
+</section>
+
+<section id="recap-quiz" class="title-slide slide level1 center">
+<h1>Recap Quiz</h1>
+<ul>
+<li class="fragment">Up on brightspace, on the content page for this week.</li>
+</ul>
+</section>
+
+<section id="todays-plan" class="title-slide slide level1 smaller center">
+<h1>Today’s Plan</h1>
+<p>Now we’ve talked about how python handles different types of data, we’re going to start by looking at the (basic) things we can do with that data.</p>
+<ul>
+<li class="fragment">We’ll start with <code>indexing</code> and <code>slicing</code> strings</li>
+<li class="fragment">Then we’ll look at <code>methods</code> and <code>functions</code> (again using strings as an example)</li>
+<li class="fragment">Then we’ll take a look at <code>indexing</code> and <code>slicing</code> lists</li>
+<li class="fragment">Then we’ll take a look at <code>loops</code></li>
+<li class="fragment">Then we’ll look at <code>conditionals</code> and introduce a new datatype, the <code>boolean</code></li>
+</ul>
+<div class="fragment">
+<p>And we’ll see how we might be able to put those things together to do some interesting stuff.</p>
+</div>
+</section>
+
+<section id="operations-with-strings" class="title-slide slide level1 smaller center">
+<h1>Operations with Strings</h1>
+<ul>
+<li class="fragment">When we are working with numbers, we are used to the idea that we can perform several type of operations on those numbers.</li>
+<li class="fragment">By operation, I mean some process where we take in information (input) to spit out new information (output).</li>
+<li class="fragment">For example, we can use addition to get the sum of two or more numbers: <code>5 + 2</code>; <code>3 + 4 + 5</code>.</li>
+<li class="fragment">Or we could use multiplication to get the product of these numbers: <code>5 * 2</code>; <code>3 * 4 * 5</code>.</li>
+</ul>
+</section>
+
+<section id="operations-with-strings-1" class="title-slide slide level1 smaller center">
+<h1>Operations with Strings</h1>
+<ul>
+<li class="fragment">When we work with text, however, we don’t often think in terms of operations or of mechanical processes.</li>
+<li class="fragment">For example, imagine you asked someone how to spell the word “Weird” and they said: “Okay so you start with a ‘W’, and then you <code>add</code> an ‘e’ to it to get ‘We’, and then you <code>add</code> ‘i’ to get ‘Wei’, and then you <code>add</code> ‘r’ to ‘Wei’ to get ‘Weir’, and then finally you add ‘d’ to ‘Weir’ to get Weird….. :)”</li>
+<li class="fragment">You’d think they were weird (if not an outright moral degenerate), and you’d be right.</li>
+<li class="fragment">Normally, when we use language, we use more intuitive processes (like sounding out how a word is spelt).</li>
+</ul>
+</section>
+
+<section id="operations-with-strings-2" class="title-slide slide level1 smaller center">
+<h1>Operations with Strings</h1>
+<ul>
+<li class="fragment">But, in the magical world of Python, we can and often will perform operations on text (AKA strings). Two examples of string operations are “String Addition” and “String Multiplication”</li>
+</ul>
+</section>
+
+<section id="string-addition-string-concantenation" class="title-slide slide level1 smaller center">
+<h1>String ‘Addition’ (String Concantenation)</h1>
+<ul>
+<li class="fragment">In python we can <code>add</code> two or more strings together:</li>
+</ul>
+<div id="c8003773" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="bu">print</span>(<span class="st">'hand'</span> <span class="op">+</span> <span class="st">'bag'</span>) <span class="co">#prints 'handbag'</span></span>
+<span id="cb1-2"><a href=""></a><span class="bu">print</span>(<span class="st">'bull'</span> <span class="op">+</span> <span class="st">'dog'</span>) <span class="co">#prints 'bulldog'</span></span>
+<span id="cb1-3"><a href=""></a><span class="bu">print</span>(<span class="st">'counter'</span> <span class="op">+</span> <span class="st">'clock'</span> <span class="op">+</span> <span class="st">'wise'</span>) <span class="co">#prints 'counterclockwise'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>handbag
+bulldog
+counterclockwise</code></pre>
+</div>
+</div>
+</section>
+
+<section id="string-addition-string-concantenation-1" class="title-slide slide level1 smaller center">
+<h1>String ‘Addition’ (String Concantenation)</h1>
+<ul>
+<li class="fragment">This operation, adding two or more strings together, is called <code>String Concantenation</code>.</li>
+<li class="fragment">Concantenation being the latin word for “gluing crap together” (no need to fact check this).</li>
+</ul>
+<div id="3d7e49bc" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="bu">print</span>(<span class="st">'hand'</span> <span class="op">+</span> <span class="st">'bag'</span>) <span class="co">#prints 'handbag'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>handbag</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Concantenation (or string addition) takes whatever is inside one string and sticks it directly on to the end of the previous string with no space in between.</li>
+<li class="fragment">This is in contrast to how addition works with numbers, where adding two or more numbers results in a separate number.</li>
+</ul>
+</section>
+
+<section id="string-addition-string-concantenation-2" class="title-slide slide level1 smaller center">
+<h1>String ‘Addition’ (String Concantenation)</h1>
+<ul>
+<li class="fragment">You can also perform string addition with string variables</li>
+<li class="fragment">And if you want to include a space between your two variables, there are two main approaches.</li>
+</ul>
+<div id="3e49272a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co">## Approach 1. We can use a space either at the end of the first variable, or a space at the beginning of second variable, and them `add` the two variables together:</span></span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a>space_first_name <span class="op">=</span> <span class="st">"Grampton "</span> <span class="co">## put a space between the end of the name and the quotation mark</span></span>
+<span id="cb5-4"><a href=""></a>no_space_last_name <span class="op">=</span> <span class="st">"St.Rumpterfraple"</span></span>
+<span id="cb5-5"><a href=""></a><span class="bu">print</span>(space_first_name <span class="op">+</span> no_space_last_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Grampton St.Rumpterfraple</code></pre>
+</div>
+</div>
+</section>
+
+<section id="string-addition-string-concantenation-3" class="title-slide slide level1 smaller center">
+<h1>String ‘Addition’ (String Concantenation)</h1>
+<ul>
+<li class="fragment">We just put a space at the end of the first variable, and then <code>add</code> the two variables together.</li>
+<li class="fragment">This approach is fine if what you are printing is a once off.</li>
+<li class="fragment">If using variables, however, spaces will remain a part of our variable until we specifically change it.</li>
+</ul>
+<div id="61d07918" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co">## Approach 2. A better approach is to `add` a string inbetween our two variables:</span></span>
+<span id="cb7-2"><a href=""></a>my_first_name <span class="op">=</span> <span class="st">"Jean Luc"</span></span>
+<span id="cb7-3"><a href=""></a>my_last_name <span class="op">=</span> <span class="st">"Picard"</span></span>
+<span id="cb7-4"><a href=""></a><span class="bu">print</span>(my_first_name <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> my_last_name)</span>
+<span id="cb7-5"><a href=""></a><span class="co"># The " " string adds a space between our two variables. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Jean Luc Picard</code></pre>
+</div>
+</div>
+</section>
+
+<section id="string-addition-string-concantenation-4" class="title-slide slide level1 smaller center">
+<h1>String ‘Addition’ (String Concantenation)</h1>
+<ul>
+<li class="fragment">An important thing to note about string addition, is that it works exclusively with strings. You cannot <code>add</code> a string to an int or a string to a float.</li>
+<li class="fragment">If you try to do this, Python will throw an error message.</li>
+<li class="fragment">But you can do something like this:</li>
+</ul>
+<div id="61c55d99" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="bu">print</span>(<span class="st">"I am "</span> <span class="op">+</span> <span class="bu">str</span>(<span class="dv">25</span>) <span class="op">+</span> <span class="st">" years old"</span>) <span class="co">#prints "I am 25 years old"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>I am 25 years old</code></pre>
+</div>
+</div>
+</section>
+
+<section>
+<section id="string-addition-string-concantenation-5" class="title-slide slide level1 smaller center">
+<h1>String ‘Addition’ (String Concantenation)</h1>
+<ul>
+<li class="fragment">Play around a little with string concatenation in your own jupyter notebook.</li>
+<li class="fragment">Also try making a couple of new examples of string variables and add them to int or floats with the <code>str()</code> function.</li>
+<li class="fragment">Then we’ll move onto string multiplication.</li>
+</ul>
+</section>
+<section id="string-multiplication-string-replication" class="slide level2 smaller">
+<h2>String Multiplication (String Replication)</h2>
+<ul>
+<li class="fragment">You can also perform “string multiplication”, an operation known as <code>string replication</code>.</li>
+</ul>
+<div id="5f380531" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="bu">print</span>(<span class="st">"a"</span> <span class="op">*</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>aaa</code></pre>
+</div>
+</div>
+<div id="a0734295" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="bu">print</span>(<span class="st">"do"</span><span class="op">*</span><span class="dv">2</span>) <span class="co">#like the bird</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dodo</code></pre>
+</div>
+</div>
+<div id="42f568d1" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="bu">print</span>(<span class="st">"Are we there yet? "</span> <span class="op">*</span> <span class="dv">5</span>) <span class="co">#Like your annoying little brother or sister.</span></span>
+<span id="cb15-2"><a href=""></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: I am using a space here at the end as I am just printing the string once off, I am not using a variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Are we there yet? Are we there yet? Are we there yet? Are we there yet? Are we there yet? </code></pre>
+</div>
+</div>
+</section>
+<section id="string-multiplication-string-replication-1" class="slide level2 smaller">
+<h2>String Multiplication (String Replication)</h2>
+<ul>
+<li class="fragment">You can see in each case, that when we ‘multiply’ a string, we replicate it, and then <code>add</code> the replication onto to the end of our original string.</li>
+<li class="fragment">You will also notice that, in contrast to string addition, you can combine strings and integers.</li>
+<li class="fragment">Integers are used to specify the number of times you want to replicate the string. However, string replication does not work with floats.</li>
+</ul>
+</section>
+<section id="string-multiplication-string-replication-2" class="slide level2 smaller">
+<h2>String Multiplication (String Replication)</h2>
+<ul>
+<li class="fragment">Copy the cell below into your own jupyter notebook and run it.</li>
+</ul>
+<div id="5768fdde" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>lyrics <span class="op">=</span> <span class="st">"Around the world, around the world</span><span class="ch">\n</span><span class="st">"</span> <span class="co">## Do not worry about the \n for now, this is just a special character that tells Python to create a new line after the string</span></span>
+<span id="cb17-2"><a href=""></a></span>
+<span id="cb17-3"><a href=""></a><span class="bu">print</span>(lyrics <span class="op">*</span> <span class="fl">8.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">Notice the “TypeError” message in the output.</li>
+<li class="fragment">Have a read through it, and once you are ready, change the float 8.0 into an interval, and re-run the code.</li>
+</ul>
+</section></section>
+<section id="string-multiplication-string-replication-3" class="title-slide slide level1 smaller center">
+<h1>String Multiplication (String Replication)</h1>
+<ul>
+<li class="fragment">There you have just printed out the first verse of Daft Punk’s 1997 hit single “Around the World”!</li>
+<li class="fragment">You can change the 8 to 80 to print out the radio version of the song,</li>
+<li class="fragment">or you change it to 144 to print out the entire album version of the song.</li>
+<li class="fragment">But now lets move on to the actual best way to work with strings in python: <code>f-strings</code>!</li>
+</ul>
+</section>
+
+<section id="string-ception-putting-strings-inside-other-strings" class="title-slide slide level1 smaller center">
+<h1>String-Ception: Putting Strings Inside Other Strings</h1>
+<ul>
+<li class="fragment">A common operation that you will use in Python is <code>formatting</code> strings.</li>
+<li class="fragment">Technically we could achieve this by using string concatenation</li>
+</ul>
+<div id="c7abe9e3" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>my_first_name <span class="op">=</span> <span class="st">"Harry"</span></span>
+<span id="cb18-2"><a href=""></a>my_last_name <span class="op">=</span> <span class="st">"Potter"</span></span>
+<span id="cb18-3"><a href=""></a>subject <span class="op">=</span> <span class="st">"Wizardry"</span></span>
+<span id="cb18-4"><a href=""></a>university <span class="op">=</span> <span class="st">"Hogwarts"</span></span>
+<span id="cb18-5"><a href=""></a></span>
+<span id="cb18-6"><a href=""></a><span class="bu">print</span>(<span class="st">"Hi there, my name is "</span> <span class="op">+</span> my_first_name <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> my_last_name <span class="op">+</span> <span class="st">". I studied "</span> <span class="op">+</span> subject <span class="op">+</span> <span class="st">" at the University of "</span> <span class="op">+</span>  university <span class="op">+</span> <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hi there, my name is Harry Potter. I studied Wizardry at the University of Hogwarts.</code></pre>
+</div>
+</div>
+</section>
+
+<section id="string-ception-putting-strings-inside-other-strings-1" class="title-slide slide level1 smaller center">
+<h1>String-Ception: Putting Strings Inside Other Strings</h1>
+<p>But in order to print out this sentence in a correct manner, we need to perform string concantenation (using the ‘+’ operator) multiple times in order to:</p>
+<ul>
+<li class="fragment">I. To <code>add</code> the string <code>"Hi there, my name is "</code> to the <code>my_first_name</code> variable</li>
+<li class="fragment"><ol start="2" type="I">
+<li class="fragment">To <code>add</code> the <code>my_first_name</code> variable to the string <code>" "</code></li>
+</ol></li>
+<li class="fragment"><ol start="3" type="I">
+<li class="fragment">To <code>add</code> the string <code>" "</code> to the <code>my_last_name</code> variable</li>
+</ol></li>
+<li class="fragment"><ol start="4" type="I">
+<li class="fragment">To <code>add</code> the <code>my_last_name</code> variable to the string <code>". I studied "</code></li>
+</ol></li>
+<li class="fragment">V. To <code>add</code> the string <code>". I studied "</code> to the <code>subject</code> variable</li>
+<li class="fragment"><ol start="6" type="I">
+<li class="fragment">To <code>add</code> the <code>subject</code> variable to the string <code>" at the University of "</code></li>
+</ol></li>
+<li class="fragment"><ol start="7" type="I">
+<li class="fragment">To <code>add</code> the string <code>" at the University of "</code> to the <code>university</code> variable</li>
+</ol></li>
+<li class="fragment"><ol start="8" type="I">
+<li class="fragment">Finally, to <code>add</code> the <code>university</code> variable to the string <code>"."</code> .</li>
+</ol></li>
+</ul>
+</section>
+
+<section id="string-ception-f-strings" class="title-slide slide level1 smaller center">
+<h1>String-Ception: `f-strings</h1>
+<ul>
+<li class="fragment">This is a <strong>collosal pain in the ass</strong>.</li>
+<li class="fragment">We are always likely to make small mistakes (maybe we forget to leave a space between variables, or forget to <code>add</code> a full-stop)</li>
+<li class="fragment">Instead of using the string concantenation, use an <code>f-string operator</code>.</li>
+<li class="fragment"><code>f-strings</code> are known as formatted strings (get it?), and they enable us to plug in our variables without the need to excessively worry about formatting.</li>
+</ul>
+<div id="c9b8a1e9" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Hi there, my name is </span><span class="sc">{</span>my_first_name<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>my_last_name<span class="sc">}</span><span class="ss">. </span><span class="ch">\n</span><span class="ss"> I studied </span><span class="sc">{</span>subject<span class="sc">}</span><span class="ss"> at the University of </span><span class="sc">{</span>university<span class="sc">}</span><span class="ss">."</span>)</span>
+<span id="cb20-2"><a href=""></a><span class="co"># We know Hogwarts isn't a university you massive nerd. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hi there, my name is Harry Potter. 
+ I studied Wizardry at the University of Hogwarts.</code></pre>
+</div>
+</div>
+</section>
+
+<section id="string-ception-f-strings-1" class="title-slide slide level1 smaller center">
+<h1>String-Ception: `f-strings</h1>
+<ul>
+<li class="fragment">We place a <strong>f</strong> at the start of our string,</li>
+<li class="fragment">we use a curly bracket <code>{}</code> to tell Python we are inserting a variable</li>
+<li class="fragment">and then we type the variable name inside the curly bracket.</li>
+<li class="fragment">So much easier!</li>
+</ul>
+</section>
+
+<section id="string-ception-f-strings-2" class="title-slide slide level1 smaller center">
+<h1>String-Ception: `f-strings</h1>
+<ul>
+<li class="fragment">In your own jupyter notebook, play around with <code>f-strings</code></li>
+<li class="fragment">You’ve made lots of variables so far, but you can always make more and play around!</li>
+</ul>
+<div class="fragment">
+<p>Next, we’re going to look at how we can start to pick apart strings and lists using <code>indexing</code> and <code>slicing</code>.</p>
+</div>
+</section>
+
+<section id="indexing-and-slicing-strings" class="title-slide slide level1 smaller center">
+<h1>Indexing and Slicing Strings</h1>
+<ul>
+<li class="fragment">When we work with strings, we can access chunks in the string using <code>indexing</code> and <code>slicing</code>.</li>
+<li class="fragment"><code>Indexing</code> is the process of selecting a single character from a string.</li>
+<li class="fragment"><code>Slicing</code> is the process of selecting multiple characters from a string.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">Let’s start with <code>indexing</code> (this is where you learn why yesterday was Day 0!!)</li>
+</ul>
+</div>
+</section>
+
+<section id="indexing-strings" class="title-slide slide level1 smaller center">
+<h1>Indexing Strings</h1>
+<ul>
+<li class="fragment">The <code>index</code> of a particular object is it’s position in a collection of objects.</li>
+<li class="fragment">That might seem like jargon (and in fairness it kind of is) but let’s use a string as an example to clear that up.</li>
+</ul>
+</section>
+
+<section id="indexing-strings-1" class="title-slide slide level1 smaller center">
+<h1>Indexing Strings</h1>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb22-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb22-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb22-4"><a href=""></a><span class="in">m = 'hello world'#assigning 'hello world' to the variable m</span></span>
+<span id="cb22-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li class="fragment">You already know that a string is an object made of alphanumeric characters enclosed in either single or double quotes</li>
+<li class="fragment">We often think of a string as an object unto itself, but, we can also think as a string as a collection of individual characters, each character (including spaces) can also be thought of as an object (essentially, python can treat a <code>string</code> as a <code>list</code> of alphanumeric objects enclosed in quotes instead of square brackets).</li>
+</ul>
+</section>
+
+<section>
+<section id="indexing-strings-2" class="title-slide slide level1 smaller center">
+<h1>Indexing Strings</h1>
+<ul>
+<li class="fragment">The variable <code>m</code> that we assigned just above is a string which is 11 characters long.</li>
+<li class="fragment">Each of those characters has a position within the string and this position is identified with a number.</li>
+<li class="fragment">You might think that in <code>m</code> the position of the first character (‘h’) would be 1, but python is what’s called a ‘0-indexed language’, this means that we start counting positions from 0 instead of 1, this is demonstrated in the table below.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">index</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: right;">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">char</td>
+<td style="text-align: left;">h</td>
+<td style="text-align: center;">e</td>
+<td style="text-align: center;">l</td>
+<td style="text-align: center;">l</td>
+<td style="text-align: center;">o</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">w</td>
+<td style="text-align: center;">o</td>
+<td style="text-align: center;">r</td>
+<td style="text-align: center;">l</td>
+<td style="text-align: right;">d</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="why-zero-based-indexing" class="slide level2 smaller">
+<h2>Why Zero-Based Indexing?</h2>
+<p>The concept of zero-based indexing has its roots in low-level programming and memory management:</p>
+<ul>
+<li class="fragment"><strong>Memory Addresses</strong>: Memory addresses start at 0. The first element of an array is stored at the starting memory address, which is address 0.</li>
+<li class="fragment"><strong>Efficiency</strong>: Zero-based indexing aligns with how memory is addressed in hardware, making the computation of the memory address of an element straightforward.</li>
+<li class="fragment"><strong>Historical Context</strong>: Early programming languages like C adopted this convention to stay close to the hardware, and this tradition carried over into modern languages like Python.</li>
+<li class="fragment">It is kind of annoying? Yes.</li>
+<li class="fragment">Will you make mistakes because of it? Yes.</li>
+<li class="fragment">Will you get used to it? Yes.</li>
+</ul>
+</section></section>
+<section id="indexing-strings-3" class="title-slide slide level1 smaller center">
+<h1>Indexing Strings</h1>
+<ul>
+<li class="fragment">Indexing is quite powerful because it allows us to do things like search <em>within</em> an object, or pick an object apart.</li>
+<li class="fragment">Let’s start with just picking out the first character (‘h’) in <code>m</code>, it’s really easy.</li>
+</ul>
+<div class="fragment">
+<div id="c834734f" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>m <span class="op">=</span> <span class="st">'hello world'</span> <span class="co">#assining 'hello world' to the variable m</span></span>
+<span id="cb23-2"><a href=""></a></span>
+<span id="cb23-3"><a href=""></a><span class="bu">print</span>(m[<span class="dv">0</span>])<span class="co"># Note the square brackets (like a list) and the int 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>h</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>The first line in the cell above you already know, we’ve just taken a <code>string</code> variable (‘hello world’) and given it the label (assigned it to the <code>variable</code>) - <code>m</code>.</p></li>
+<li class="fragment"><p>The second line is the magic.</p></li>
+</ul>
+</div>
+</section>
+
+<section id="indexing-strings-4" class="title-slide slide level1 smaller center">
+<h1>Indexing Strings</h1>
+<div id="2b4020e9" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a>m <span class="op">=</span> <span class="st">'hello world'</span> <span class="co">#assining 'hello world' to the variable m</span></span>
+<span id="cb25-2"><a href=""></a><span class="co">#The next line prints just the first character of the string m</span></span>
+<span id="cb25-3"><a href=""></a><span class="bu">print</span>(m[<span class="dv">0</span>])<span class="co"># Note the square brackets (like a list) and the int 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>h</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><code>m</code> represents our string so python knows that we are working on that particular object.</li>
+<li class="fragment">Immediately after <code>m</code> we open square brackets <code>[</code> (like we used when we were making a list)</li>
+<li class="fragment">then we put in the <code>index position</code> (remember the table above) and then we closed the square brackets <code>]</code>.</li>
+<li class="fragment">This is the basic <code>syntax</code> for finding an object in a collection of objects.</li>
+</ul>
+</section>
+
+<section id="new-word---syntax" class="title-slide slide level1 center">
+<h1>New word - <code class="smaller">syntax</code></h1>
+<ul>
+<li class="fragment">You’ll hear me use the word <code>syntax</code> a lot when we are talking about code.</li>
+<li class="fragment"><code>syntax</code> basically refers to a pattern of language used to do a thing</li>
+<li class="fragment">so when we use <code>syntax</code> in the context of code we just mean the pattern of code that you use to do particular thing.</li>
+<li class="fragment">Basically, learning to code is just learning the patterns of a particular language.</li>
+<li class="fragment">OK, back to <code>indexing</code>.</li>
+</ul>
+</section>
+
+<section id="indexing-lists" class="title-slide slide level1 smaller center">
+<h1>Indexing Lists</h1>
+<ul>
+<li class="fragment">So we can do the same thing with <code>lists</code>, and a very similar thing with <code>dicts</code> and full datasets (<code>DataFrames</code>, more on this in future sessions).</li>
+<li class="fragment">lets take a list</li>
+</ul>
+<div class="fragment">
+<p><code>beatles = ['John', 'Paul', 'George', 'Ringo']</code></p>
+<ul>
+<li class="fragment">This list is indexed exactly the same way as <code>m</code></li>
+</ul>
+</div>
+<div class="fragment">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">index</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">item</td>
+<td style="text-align: center;">‘John’</td>
+<td style="text-align: center;">‘Paul’</td>
+<td style="text-align: center;">‘George’</td>
+<td style="text-align: center;">‘Ringo’</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="indexing-lists-1" class="title-slide slide level1 smaller center">
+<h1>Indexing Lists</h1>
+<ul>
+<li class="fragment">So we can use exactly the same <code>syntax</code> to find out what is at a particular <code>index</code> in the list.</li>
+</ul>
+<div class="fragment">
+<div id="efa8f0c8" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>beatles <span class="op">=</span> [<span class="st">'John'</span>, <span class="st">'Paul'</span>, <span class="st">'George'</span>, <span class="st">'Ringo'</span>] <span class="co">#creating the list, and assigning it the variable beatles</span></span>
+<span id="cb27-2"><a href=""></a></span>
+<span id="cb27-3"><a href=""></a><span class="bu">print</span>(beatles[<span class="dv">0</span>])<span class="co"># getting the first object from the list beatles, it's 'John'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>John</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">See? Simple.</li>
+</ul>
+</div>
+</section>
+
+<section id="indexing-lists---negative-indexing" class="title-slide slide level1 smaller center">
+<h1>Indexing Lists - negative indexing</h1>
+<ul>
+<li class="fragment">We can also use negative numbers to index from the end of the list.</li>
+<li class="fragment">This is useful if you don’t know how long the list is, but you know you want the last item.</li>
+<li class="fragment">As in the context where a list is updated regularly, and you just want to know the last item.</li>
+</ul>
+<div id="8e3409bb" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="bu">print</span>(beatles[<span class="op">-</span><span class="dv">1</span>])<span class="co"># getting the last object from the list beatles, it's 'Ringo'</span></span>
+<span id="cb29-2"><a href=""></a><span class="bu">print</span>(beatles[<span class="op">-</span><span class="dv">2</span>])<span class="co"># getting the second last object from the list beatles, it's 'George'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ringo
+George</code></pre>
+</div>
+</div>
+</section>
+
+<section id="indexing---assignment" class="title-slide slide level1 smaller center">
+<h1>Indexing - Assignment</h1>
+<div id="0d5e8242" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a>j <span class="op">=</span> m[<span class="op">-</span><span class="dv">1</span>]<span class="co"># Taking the last character from the string m, and assigning it to the variable j</span></span>
+<span id="cb31-2"><a href=""></a>k <span class="op">=</span> beatles[<span class="dv">2</span>]<span class="co"># takine the second object from the list beatles, and assigning it to the variable k </span></span>
+<span id="cb31-3"><a href=""></a><span class="bu">print</span>(j)</span>
+<span id="cb31-4"><a href=""></a><span class="bu">print</span>(k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>d
+George</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>We did a couple of things there, and one is kind of sneaky (sorry/not sorry).</p></li>
+<li class="fragment"><p>At the simplest level, we used our <code>indexing syntax</code> to extract a character from a string and <em>store it as a new variable</em></p></li>
+<li class="fragment"><p>then we used the same <code>syntax</code> to save 1 of the elements from our list sperately.</p></li>
+</ul>
+<div class="fragment">
+<p>It’s worth noting that we haven’t actually changed the list or string.</p>
+<p>When we say we’ve ‘extracted’ a part of them we don’t mean that we have literally just pulled them out, we just mean we’ve selected those bits of information and given us a way to access them easily, but the original items are still intact.</p>
+</div>
+</section>
+
+<section id="indexing---assignment-1" class="title-slide slide level1 smaller center">
+<h1>Indexing - Assignment</h1>
+<div id="773439d9" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="bu">print</span>(m) <span class="co">#prints 'hello world'</span></span>
+<span id="cb33-2"><a href=""></a><span class="bu">print</span>(<span class="ss">f"The last letted of `m` is </span><span class="sc">{</span>j<span class="sc">}</span><span class="ss">"</span>) <span class="co">#prints 'd'</span></span>
+<span id="cb33-3"><a href=""></a><span class="bu">print</span>(beatles) <span class="co">#prints ['John', 'Paul', 'George', 'Ringo']</span></span>
+<span id="cb33-4"><a href=""></a><span class="bu">print</span>(k) <span class="co">#prints 'George' because we indexed the third object in the list beatles in an earlier cell</span></span>
+<span id="cb33-5"><a href=""></a>k <span class="op">=</span> <span class="st">'Derrick'</span> <span class="co">#changing the variable k to 'Derrick'</span></span>
+<span id="cb33-6"><a href=""></a><span class="bu">print</span>(<span class="ss">f"New variable k: </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">"</span>) <span class="co">#prints 'New variable k: Derrick'</span></span>
+<span id="cb33-7"><a href=""></a><span class="bu">print</span>(beatles) <span class="co">#prints ['John', 'Paul', 'George', 'Ringo'] because we only changed the variable k, not the list beatles</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hello world
+The last letted of `m` is d
+['John', 'Paul', 'George', 'Ringo']
+George
+New variable k: Derrick
+['John', 'Paul', 'George', 'Ringo']</code></pre>
+</div>
+</div>
+</section>
+
+<section id="slicing" class="title-slide slide level1 smaller center">
+<h1>Slicing</h1>
+<ul>
+<li class="fragment"><code>Slicing</code> is the process of selecting multiple characters from a string.</li>
+<li class="fragment">We can use slicing to select a range of characters from a string, or items from a list.</li>
+<li class="fragment">The syntax for slicing is similar to the syntax for indexing, but we use a colon <code>:</code> to indicate a <code>range</code> of positions.</li>
+</ul>
+<div id="8a2c63eb" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a><span class="bu">print</span>(m[<span class="dv">0</span>:<span class="dv">5</span>])<span class="co">#prints 'hello'</span></span>
+<span id="cb35-2"><a href=""></a><span class="bu">print</span>(beatles[<span class="dv">1</span>:<span class="dv">3</span>])<span class="co">#prints ['Paul', 'George']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hello
+['Paul', 'George']</code></pre>
+</div>
+</div>
+</section>
+
+<section id="slicing-1" class="title-slide slide level1 smaller center">
+<h1>Slicing</h1>
+<div id="50ebf76b" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a><span class="bu">print</span>(m[<span class="dv">0</span>:<span class="dv">5</span>])<span class="co">#prints 'hello'</span></span>
+<span id="cb37-2"><a href=""></a><span class="bu">print</span>(beatles[<span class="dv">1</span>:<span class="dv">3</span>])<span class="co">#prints ['Paul', 'George']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hello
+['Paul', 'George']</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Slicing is a little more complex than indexing, but it’s still pretty simple.</li>
+<li class="fragment">We specify the <code>start</code> and <code>end</code> of the slice, and python will return everything between those two points.</li>
+<li class="fragment">but, the <code>end</code> point is not included in the slice.</li>
+<li class="fragment">In the first line we are slicing the string <code>m</code>, starting at 0 and ending at 5.</li>
+<li class="fragment">So we start a 0 and take everything <strong>up to but not including</strong> position 5 (we stop with position 4).</li>
+</ul>
+</section>
+
+<section id="slicing-2" class="title-slide slide level1 smaller center">
+<h1>Slicing</h1>
+<div id="57b850d8" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a><span class="bu">print</span>(m[<span class="dv">0</span>:<span class="dv">5</span>])<span class="co">#prints 'hello'</span></span>
+<span id="cb39-2"><a href=""></a><span class="bu">print</span>(beatles[<span class="dv">1</span>:<span class="dv">3</span>])<span class="co">#prints ['Paul', 'George']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hello
+['Paul', 'George']</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">In the second line we are slicing the list <code>beatles</code>, starting at 1 and ending at position 2.</li>
+<li class="fragment">So we start at 1 and take everything <strong>up to but not including</strong> position 3 (we stop with position 2).</li>
+<li class="fragment">Imagine you had a scale with 50 items in it, and you wanted just select the items between 10 and 20.</li>
+<li class="fragment">Slicing would allow you to do that.</li>
+</ul>
+<div class="fragment">
+<p><code>my_scale[10:21] #would give you items 10 to 20</code></p>
+</div>
+</section>
+
+<section id="indexing-and-slicing---your-turn" class="title-slide slide level1 smaller center">
+<h1>Indexing and Slicing - your turn</h1>
+<ul>
+<li class="fragment">In your own jupyter notebook, create a string and a list, and then use indexing to extract the first and last items from each.</li>
+<li class="fragment">Maybe try using <code>f-strings</code> when making your string? (you could make an <code>int</code> variable and <code>add</code> it to your string using an <code>f-string</code>).</li>
+<li class="fragment">Then try using negative indexing to extract the second last item from each.</li>
+</ul>
+</section>
+
+<section>
+<section id="indexing-recap-and-moving-forward" class="title-slide slide level1 smaller center">
+<h1>Indexing Recap and Moving Forward</h1>
+<ul>
+<li class="fragment">This was just an introduction to indexing, and we’ll play around with it more when we start working with full datasets.</li>
+<li class="fragment">If you want to learn more about it, you can check out https://pythonguides.com/indexing-and-slicing-in-python/.</li>
+<li class="fragment">It will give you more examples and also introduce you to something called <code>slicing</code>.</li>
+<li class="fragment">For now, we’re going to move on to…</li>
+</ul>
+</section>
+<section id="functions" class="slide level2 smaller">
+<h2>Functions</h2>
+<ul>
+<li class="fragment">Before we get into what functions are, we need to apologize, for you see, we tricked you.</li>
+<li class="fragment">We tricked you into using functions without telling you… and we’re deeply sorry (cough)…</li>
+</ul>
+</section>
+<section id="functions-1" class="slide level2 smaller">
+<h2>Functions</h2>
+<ul>
+<li class="fragment"><code>print('Hello world')</code></li>
+<li class="fragment">That line of <code>code</code> tells the computer to write out the <code>string</code> ‘Hello world’.</li>
+<li class="fragment">Getting the computer to write something out actually requires a lot of code, but thanks to <code>functions</code> we can ‘compress’ all that code, all its functionality, into a simple-to-type statement <em>followed by a pair of brackets</em>.</li>
+<li class="fragment">Let’s look at another function:</li>
+</ul>
+</section>
+<section id="functions-2" class="slide level2 smaller">
+<h2>Functions</h2>
+<ul>
+<li class="fragment"><code>type('Hello world')</code></li>
+<li class="fragment">This line tells python to find the datatype of the object between the brackets.</li>
+<li class="fragment">Again, there’s a lot of code ‘hidden’ behind <code>type()</code> but we don’t need to worry about that now.</li>
+<li class="fragment">Right now we just want to pay attention to the <code>syntax</code> for both of those functions:</li>
+</ul>
+</section>
+<section id="functions-3" class="slide level2 smaller">
+<h2>Functions</h2>
+<ul>
+<li class="fragment"><code>function_name(thing to run the function on, also called an argument)</code></li>
+<li class="fragment">We start by typing the name of the function (print, or type in the examples we’ve used so far), then we open brackets, then we enter the object we want the function to work on, then we close the brackets.</li>
+</ul>
+<div id="2f6ccb60" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a>a <span class="op">=</span> <span class="st">'This is a string'</span><span class="co">#</span></span>
+<span id="cb41-2"><a href=""></a>b <span class="op">=</span> <span class="dv">10</span><span class="co">#</span></span>
+<span id="cb41-3"><a href=""></a>c <span class="op">=</span> [<span class="st">'Sarah'</span>, <span class="st">'Navid'</span>, <span class="st">'Robert'</span>, <span class="st">'Noura'</span>]<span class="co">#</span></span>
+<span id="cb41-4"><a href=""></a><span class="bu">print</span>(<span class="ss">f"c is a </span><span class="sc">{</span><span class="bu">type</span>(c)<span class="sc">}</span><span class="ss">, but a is a </span><span class="sc">{</span><span class="bu">type</span>(a)<span class="sc">}</span><span class="ss">"</span>)<span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>c is a &lt;class 'list'&gt;, but a is a &lt;class 'str'&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="functions-4" class="slide level2 smaller">
+<h2>Functions</h2>
+<ul>
+<li class="fragment">The <code>len()</code> function is another function that should be pretty easy to understand.</li>
+</ul>
+<div class="fragment">
+<div id="4a5e3c1b" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>l <span class="op">=</span> <span class="bu">len</span>(c[<span class="dv">1</span>]) <span class="co"># We're using a function to assign a new variable</span></span>
+<span id="cb43-2"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>c[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'s name is </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss"> characters long"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Navid's name is 5 characters long</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="functions---explanation" class="slide level2 smaller">
+<h2>Functions - Explanation</h2>
+<ul>
+<li class="fragment">In the above cells, we <code>assigned</code> a few <code>variables</code> and <code>called</code> a few <code>functions</code> on them.</li>
+<li class="fragment">In some lines we actually <code>called</code> a <code>function</code> <em>within</em> another <code>function</code>,</li>
+<li class="fragment">and in one, we used a <code>function</code> to <em>create</em> a <code>variable</code>, all with really small amounts of typing on our part.</li>
+<li class="fragment">This should demonstrate that functions are really useful. Let’s look at how <code>functions</code> are made (the <code>syntax</code> of <code>defining a function</code>).</li>
+</ul>
+</section>
+<section id="defining-our-own-functions" class="slide level2 smaller">
+<h2>Defining our own functions</h2>
+<ul>
+<li class="fragment">Let’s imagine that we want to have the computer take any number and multiply it by 42 (get it?) and then print out the result.</li>
+<li class="fragment">We know that this is a simple example, but stick with us here.</li>
+</ul>
+<div class="fragment">
+<div id="3221ff13" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="co"># let's just use 3 for this example</span></span>
+<span id="cb45-2"><a href=""></a><span class="bu">print</span>(<span class="dv">3</span><span class="op">*</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>126</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">We could just use the code above, but what if we wanted to do this a lot?</li>
+<li class="fragment">It would be really inefficient to keep typing out <code>print(n*42)</code> every time we wanted to multiply a number by 42.</li>
+</ul>
+</div>
+</section>
+<section id="defining-our-own-functions-1" class="slide level2 smaller">
+<h2>Defining our own functions</h2>
+<ul>
+<li class="fragment">However, if we want to have the ability to do this often, we might want to make a function that does this for us…</li>
+</ul>
+<div class="fragment">
+<div id="d1bade31" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a><span class="kw">def</span> my_func(i): <span class="co"># def is short for define, i is a placeholder variable, note the colon after the brackets</span></span>
+<span id="cb47-2"><a href=""></a>    <span class="bu">print</span>(i<span class="op">*</span><span class="dv">42</span>) <span class="co"># note the indentation, indentation is really important, we indent using 'tab' (or 4 spaces, but don't do that)</span></span>
+<span id="cb47-3"><a href=""></a></span>
+<span id="cb47-4"><a href=""></a>my_func(<span class="dv">3</span>) <span class="co"># we're calling the function we just defined, and passing the number 3 to it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>126</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">We’ve just defined a function called <code>my_func</code> that takes a single argument (a number) and multiplies it by 42 and prints out the result.</li>
+<li class="fragment">Then we <code>called</code> the function and passed the number 3 to it.</li>
+<li class="fragment">Take a sec and really look at the <code>syntax</code> of defining a function, it’s really important.</li>
+</ul>
+</div>
+</section>
+<section id="what-did-we-just-do" class="slide level2 smaller">
+<h2>What did we just do?</h2>
+<ul>
+<li class="fragment">When making a function we start on a newline with the term <code>def</code> which is short for ‘define’ (in technical terms we’re ‘<code>defining</code>’ a function).</li>
+<li class="fragment">Then we type the name for our function (in this example we just called it <code>my_func</code>, using underscore instead of spaces).</li>
+<li class="fragment">Then we open brackets, put in a placeholder variable (<code>i</code> in this case, but it could be <code>x</code> or <code>banana</code>), then close the brackets.</li>
+<li class="fragment">Then we finish that line with a colon (:).</li>
+<li class="fragment">Then we go to a newline.</li>
+<li class="fragment">Then we <code>indent</code> the line with either a ‘tab’ or 4 spaces (don’t use 4 spaces, it’ll work but just… don’t be that guy).</li>
+<li class="fragment">Then we can start putting in the functionality.</li>
+</ul>
+</section>
+<section id="indentation-in-python" class="slide level2 smaller">
+<h2>Indentation in Python</h2>
+<ul>
+<li class="fragment">Indentation is a whole thing in Python, it has to do with something called <code>scope</code> and we’ll cover it more in more detail in later sessions.</li>
+<li class="fragment">For now just know that in simple functions, every new line under the <code>def</code> line (after the colon) starts with an indentation (press the <code>tab</code> key first).</li>
+<li class="fragment">Because we’re working in VSCode, and we’ve told VSCode that we’re working in Python, it will <em>usually</em> put the indentation in for you.</li>
+<li class="fragment">But there will be times when you need to manage the indentation yourself.</li>
+</ul>
+</section></section>
+<section id="quick-exercise" class="title-slide slide level1 smaller center">
+<h1>Quick Exercise</h1>
+<ul>
+<li class="fragment">In your jupyter notebook, make a new cell and copy the code below.</li>
+<li class="fragment">We’ve defined a function with incorrect indentation.</li>
+<li class="fragment">Run the cell first, read the error, then go back and fix the indentation (and for the love of God, use tab not 4-spaces).</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb49-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb49-2"><a href=""></a><span class="in">def new_function(): # we're not putting a placeholder variable in this cause we don't need it</span></span>
+<span id="cb49-3"><a href=""></a><span class="in">print('This') # We're splitting the functionality up into multiple lines</span></span>
+<span id="cb49-4"><a href=""></a><span class="in">print('Function')</span></span>
+<span id="cb49-5"><a href=""></a><span class="in">print('Works')</span></span>
+<span id="cb49-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+
+<section>
+<section id="quick-exercise-1" class="title-slide slide level1 smaller center">
+<h1>Quick Exercise</h1>
+<ul>
+<li class="fragment">You’ll notice that before we fix the cell up above we get an error (called a <code>traceback</code> in Python language, can you think of why?).</li>
+<li class="fragment">Once we fix the indentation we get no output from the cell, this is because we just <code>defined</code> the <code>function</code>, we never <code>called</code> it.</li>
+<li class="fragment">Calling a function is easy:</li>
+</ul>
+<div id="fad1944a" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a>my_func(<span class="dv">12</span>) <span class="co"># calling the 'my_func()' function to multiply 12 by 42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>504</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Make a new cell in your jupyter notebook and call the function <code>new_function()</code> that you just fixed.</li>
+</ul>
+</section>
+<section id="exercise" class="slide level2 smaller">
+<h2>Exercise</h2>
+<ul>
+<li class="fragment">OK, now for the final exercise of this session is to <code>define</code> a <code>function</code> that uses a little bit of everything we’ve covered so far.</li>
+<li class="fragment">This function should take a string as an <code>argument</code> (the bit between the brackets) and then, using <code>f-strings</code> and <code>indexing</code> prints out something like:</li>
+</ul>
+<p><code>This is my string: (string); and it's last letter is (last letter)</code></p>
+<ul>
+<li class="fragment">All the <code>syntax</code> you need is in this notebook, just take your time and think about the ‘order’ that you want things to happen in, don’t forget to comment your code and don’t forget to call the function once it’s working.</li>
+</ul>
+</section></section>
+<section id="wrap-up" class="title-slide slide level1 smaller center">
+<h1>Wrap up</h1>
+<ul>
+<li class="fragment">We’ve covered quite a bit, but none of it is particularly difficult.</li>
+<li class="fragment">There’s lots of chunks of <code>syntax</code> to remember, but you’ll get used to it.</li>
+<li class="fragment">Before we take a brake, take a stab at the recap quiz on Brightspace.</li>
+<li class="fragment">Work together, ask me questions, and don’t be afraid to make mistakes.</li>
+</ul>
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="day1-1Slides_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="day1-1Slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="day1-1Slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="day1-1Slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="day1-1Slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="day1-1Slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="day1-1Slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="day1-1Slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="day1-1Slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="day1-1Slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

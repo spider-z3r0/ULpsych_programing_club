@@ -399,7 +399,7 @@
 </section>
 <section id="welcome-back" class="title-slide slide level1 center">
 <h1>Welcome Back!</h1>
-<p>It’s the second day of the summerschool!! And I promise that by the end of the day you’ll know why this is session 1.0 and not 2.0, and why yesday was Day 0 and not Day 1.</p>
+<p>It’s the second day of the summerschool!! And I promise that by the end of the day you’ll know why this is session 1.0 and not 2.0, and why yesterday was Day 0 and not Day 1.</p>
 </section>
 
 <section id="before-we-get-back-into-things" class="title-slide slide level1 center">
@@ -434,7 +434,7 @@
 <section id="things-to-remember---paths" class="title-slide slide level1 smaller center">
 <h1>Things to remember - Paths</h1>
 <ul>
-<li class="fragment"><code>Paths</code> are how we find (and point our computer) to files and folders.
+<li class="fragment"><code>Paths</code> are how we find (and point our computer to ) files and folders.
 <ul>
 <li class="fragment"><code>Paths</code> use slashes to separate elements (folders and files) in the path.</li>
 <li class="fragment">They annoyingly use different slashes on different operating systems and different contexts (eg, different in YAML or markdown vs in code cells)</li>
@@ -445,12 +445,12 @@
 <section id="things-to-remember---quarto-documents" class="title-slide slide level1 smaller center">
 <h1>Things to remember - Quarto Documents</h1>
 <ul>
-<li class="fragment">There’s quarto markdown, which is the most common quarto file.
+<li class="fragment">There’s quarto markdown documents, which are the most common quarto file.
 <ul>
 <li class="fragment">It has a <code>.qmd</code> extension</li>
 <li class="fragment">It can have code cells and markdown cells</li>
 <li class="fragment">It can be rendered into a variety of formats (we’re even using it to make these slides!)</li>
-<li class="fragment">It’s really good for writing up research, and sharing code and results, most commonsly associate with R code.</li>
+<li class="fragment">It’s really good for writing up research, and sharing code and results, most commonly associate with R code.</li>
 </ul></li>
 </ul>
 </section>
@@ -473,7 +473,7 @@
 <p>Why are you still looking at me?</p>
 </section>
 
-<section id="todays-plan" class="title-slide slide level1 center">
+<section id="todays-plan" class="title-slide slide level1 smaller center">
 <h1>Today’s Plan</h1>
 <p>Today we’re going to start learning about programming in python, but…</p>
 <ul>
@@ -488,10 +488,10 @@
 </ul>
 </section>
 
-<section id="todays-plan-1" class="title-slide slide level1 center">
+<section id="todays-plan-1" class="title-slide slide level1 smaller center">
 <h1>Today’s Plan</h1>
 <ul>
-<li class="fragment">We’re going to be workgin <em>with</em> python, and we’re going to be working <em>in</em> jupyter notebooks.</li>
+<li class="fragment">We’re going to be working <em>with</em> python, and we’re going to be working <em>in</em> jupyter notebooks.</li>
 <li class="fragment">R is a really excellent language that is really good for data analysis and statistics.</li>
 <li class="fragment">Python is also used a lot in data analysis and statistics, but it’s also used in a lot of other fields, like web development, machine learning, and automation.</li>
 <li class="fragment">The languages are really similar, but they have some differences that make them better for different things.</li>
@@ -500,8 +500,8 @@
 </section>
 
 <section>
-<section id="so-lets-talk-about-code-shall-we." class="title-slide slide level1 center">
-<h1>So lets talk about code, shall we?.</h1>
+<section id="so-lets-talk-about-code-shall-we" class="title-slide slide level1 center">
+<h1>So lets talk about code, shall we?</h1>
 
 </section>
 <section id="what-is-code" class="slide level2">
@@ -509,7 +509,7 @@
 <ul>
 <li class="fragment">At the microscopic level computers are just a series of switches that can be turned on and off.</li>
 <li class="fragment">Code is just a way of telling the computer which switches (transistors) to turn on and off, and when.</li>
-<li class="fragment">The switches can only be ‘on’ or ‘off’, so we group then together to allow for more complex combinations of ‘on’ and ‘off’.</li>
+<li class="fragment">The switches can only be ‘on’ or ‘off’, so we group them together to allow for more complex combinations of ‘on’ and ‘off’.</li>
 <li class="fragment">The more switches we have, the more complex the instructions we can give the computer.</li>
 </ul>
 </section>
@@ -535,7 +535,7 @@
 <ul>
 <li class="fragment">The code above is written in C, a language that is <em>easier</em> (but not easy) for humans to read and write.</li>
 <li class="fragment">The code is telling the computer to ‘write’ the words ‘Hello World!’ to the console (the screen).</li>
-<li class="fragment">The computer can’t understand C#, so we need to use a ‘compiler’ or ‘interpreter’ to translate the code into machine code.</li>
+<li class="fragment">The computer can’t understand C, so we need to use a ‘compiler’ to translate the code into machine code.</li>
 <li class="fragment">Over the years we’ve developed a lot of languages that are easier for humans to read and write, and we’ve developed a lot of compilers and interpreters to translate that code into machine code.</li>
 </ul>
 </section>
@@ -546,9 +546,12 @@
 <li class="fragment">Python is ‘interpreted’, which means that the code is translated into machine code ‘on the fly’ as it’s run.</li>
 <li class="fragment">It’s actually written in C, which is more complex than python, and C then converts the python code into machine code.</li>
 </ul>
-<div id="bad77619" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb3-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb3-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb3-4"><a href=""></a><span class="in">print("Hello World!")</span></span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="what-is-code-4" class="slide level2 smaller">
 <h2>What is code?</h2>
@@ -574,15 +577,16 @@
 
 <section id="python-basics---comments-1" class="title-slide slide level1 smaller center">
 <h1>Python Basics - comments</h1>
-<div id="f581541a" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co"># This is a comment, the computer will ignore it!</span></span>
-<span id="cb4-2"><a href=""></a><span class="co"># This is also a comment, the computer will ignore it too!</span></span>
-<span id="cb4-3"><a href=""></a><span class="co"># The next line starts with actual code, but then there's a comment</span></span>
-<span id="cb4-4"><a href=""></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>) <span class="co"># This line prints out 'Hello World!' to the console</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Hello World!</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb4-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb4-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb4-4"><a href=""></a><span class="in"> </span></span>
+<span id="cb4-5"><a href=""></a><span class="in"># This is a comment, the computer will ignore it!</span></span>
+<span id="cb4-6"><a href=""></a><span class="in"># This is also a comment, the computer will ignore it too!</span></span>
+<span id="cb4-7"><a href=""></a><span class="in"># The next line starts with actual code, but then there's a comment</span></span>
+<span id="cb4-8"><a href=""></a><span class="in">print("Hello World!") # This line prints out 'Hello World!' to the console</span></span>
+<span id="cb4-9"><a href=""></a></span>
+<span id="cb4-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="./images/python_comment.jpg" class="fullwidth r-stretch quarto-figure-center"><p class="caption">Quarto python chunk, this image is taken from this slideshow document!</p></section>
 
@@ -598,16 +602,15 @@
 <section id="python-basics---data-types" class="title-slide slide level1 smaller center">
 <h1>Python Basics - data types</h1>
 <ul>
-<li class="fragment"><p>As psychologists, you have already know about several types of data, particularly quantitative data (numbers) and qualitative data (written language). Generally, we tend to think of data in terms of as large tables of numbers (with value labels, ie 1 = ‘never’), or blocks of text like interview transcripts.</p></li>
+<li class="fragment"><p>As psychologists, you already know about several types of data, particularly quantitative data (numbers) and qualitative data (written language). Generally, we tend to think of data in terms of as large tables of numbers (with value labels, ie 1 = ‘never’), or blocks of text like interview transcripts.</p></li>
 <li class="fragment"><p>In python, we can also work with these types of data (numbers or words) but we need to think about them a little differently, specifically we need to know what <code>data type</code> a particular piece of data is. There are lots of data types but today we’re going to focus on the 5 most basic types:</p>
 <ul>
 <li class="fragment">strings (called <code>str</code>; ie: words or text),</li>
 <li class="fragment">integers (<code>ints</code>),</li>
 <li class="fragment">floating-point numbers (ie: 1.5, <code>floats</code>),</li>
 <li class="fragment"><code>lists</code>,</li>
-<li class="fragment">and dictionaties (<code>dicts</code>).</li>
+<li class="fragment">and dictionaries (<code>dicts</code>).</li>
 </ul></li>
-<li class="fragment"><p>We’re going to start out looking at <code>strs</code> which is just the <code>data type</code> for alphanumeric characters (letters and numbers) or human language in python.</p></li>
 </ul>
 </section>
 
@@ -615,42 +618,42 @@
 <h1>Python Basics - <code>str</code></h1>
 <ul>
 <li class="fragment"><p>Strings (<code>str</code>) are just a sequence of characters (letters, numbers, symbols) that are enclosed in quotes.</p></li>
-<li class="fragment"><p>You can use single quotes (<code>'</code>) or double quotes (<code>"</code>) to enclose a string, but you have to use the same type of quote at the start and end of the string.</p></li>
-<li class="fragment"><p>You can also use triple quotes (<code>'''</code> or <code>"""</code>) to enclose a string that spans multiple lines.</p></li>
+<li class="fragment"><p>You can use single quotes (<code>'</code>) or double quotes (<code>"</code>to ) enclose a string, but you have to use the same type of quote at the start and end of the string.</p></li>
+<li class="fragment"><p>You can also use triple quotes (<code>'''</code> or <code>"""</code>to ) enclose a string that spans multiple lines.</p></li>
 <li class="fragment"><p>Lets look at some examples!</p></li>
 </ul>
 </section>
 
 <section id="python-basics---strings-single-quotes" class="title-slide slide level1 center">
 <h1>Python Basics - <code class="smaller">strings single quotes</code></h1>
-<div id="36cb0140" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co">'Hello World!'</span> <span class="co"># This is a string that uses single quotes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>'Hello World!'</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb5-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb5-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a><span class="in">'Hello World!' # This is a string that uses single quotes</span></span>
+<span id="cb5-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="./images/python_single_quotes_good.jpg" class="fullwidth r-stretch quarto-figure-center"><p class="caption">Can anyone tell me what might be problematic about the code above?</p></section>
 
 <section id="python-basics---strings-single-quotes-1" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings single quotes</h1>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb8-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb8-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb8-4"><a href=""></a></span>
-<span id="cb8-5"><a href=""></a><span class="in">'It's a beautiful day!' # This is a string that uses single quotes</span></span>
-<span id="cb8-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb6-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb6-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb6-4"><a href=""></a></span>
+<span id="cb6-5"><a href=""></a><span class="in">'It's a beautiful day!' # This is a string that uses single quotes</span></span>
+<span id="cb6-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="./images/python_single_quote_bad.jpg" class="r-stretch quarto-figure-center"><p class="caption">Is it easier to spot now?</p></section>
 
 <section id="python-basics---strings-single-quotes-2" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings single quotes</h1>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb9-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb9-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb9-4"><a href=""></a></span>
-<span id="cb9-5"><a href=""></a><span class="in">'It's a beautiful day!' # This is a string that uses single quotes</span></span>
-<span id="cb9-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb7-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb7-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb7-4"><a href=""></a></span>
+<span id="cb7-5"><a href=""></a><span class="in">'It's a beautiful day!' # This is a string that uses single quotes</span></span>
+<span id="cb7-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li class="fragment">The code above is going to cause an error because the computer thinks that the string ends at the second single quote, and then it doesn’t know what to do with the rest of the code.</li>
 <li class="fragment">Like we said, computers are really dumb, they don’t understand context, they just do what they’re told.</li>
@@ -660,45 +663,408 @@
 
 <section id="python-basics---strings-double-quotes" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings double quotes</h1>
-<div id="8be3480c" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>"T'is"</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb8-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb8-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb8-4"><a href=""></a><span class="in">#Hey Check me out commenting my code!!</span></span>
+<span id="cb8-5"><a href=""></a></span>
+<span id="cb8-6"><a href=""></a><span class="in">#The line below uses double quotes. </span></span>
+<span id="cb8-7"><a href=""></a><span class="in">"Isn't this better?"</span></span>
+<span id="cb8-8"><a href=""></a><span class="in">#So does the next line</span></span>
+<span id="cb8-9"><a href=""></a><span class="in">"T'is"</span></span>
+<span id="cb8-10"><a href=""></a></span>
+<span id="cb8-11"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="./images/python_double_quotes_good.jpg" class="r-stretch quarto-figure-center"><p class="caption">More pictures behind the slides!</p><ul>
-<li class="fragment">Now you know how to write the names of the authors of this material (“O’Brien”, “O’Malley” &amp; ‘Donovan’)</li>
-<li class="fragment">But <code>single and double quotes</code> only work for quite short <code>strs</code> like single names or a short sentence.</li>
-</ul>
-</section>
+<img data-src="./images/python_double_quotes_good.jpg" style="width:120.0%" class="r-stretch quarto-figure-center"><p class="caption">More pictures behind the slides!</p></section>
 
 <section id="python-basics---strings-triple-quotes" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings triple quotes</h1>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb11-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb11-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a><span class="in"># Below is an *attempt* at a multiline str</span></span>
-<span id="cb11-6"><a href=""></a><span class="in">"I wonderded lonely as a undergrad</span></span>
-<span id="cb11-7"><a href=""></a><span class="in">trying to find their way to the psych labs"</span></span>
-<span id="cb11-8"><a href=""></a></span>
-<span id="cb11-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb9-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb9-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a><span class="in"># Below is an *attempt* at a multiline str</span></span>
+<span id="cb9-6"><a href=""></a><span class="in">"I wonderded lonely as a undergrad</span></span>
+<span id="cb9-7"><a href=""></a><span class="in">trying to find their way to the psych labs"</span></span>
+<span id="cb9-8"><a href=""></a></span>
+<span id="cb9-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="./images/python_trip_quotes_good.jpg" class="r-stretch quarto-figure-center"><p class="caption">This will throw an error</p></section>
+<img data-src="./images/python_trip_quotes_bad.jpg" class="r-stretch quarto-figure-center"><p class="caption">This will throw an error</p></section>
 
 <section id="python-basics---strings-triple-quotes-1" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings triple quotes</h1>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{python}</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb10-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb10-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb10-4"><a href=""></a></span>
+<span id="cb10-5"><a href=""></a><span class="in"># Below is an actual at a multiline str, note the three apostrophes</span></span>
+<span id="cb10-6"><a href=""></a><span class="in">'''I wonderded lonely as a undergrad</span></span>
+<span id="cb10-7"><a href=""></a><span class="in">trying to find their way to the psych labs'''</span></span>
+<span id="cb10-8"><a href=""></a></span>
+<span id="cb10-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li class="fragment">The code above is going to work because the computer knows that the string starts at the first triple quote and ends at the second triple quote.</li>
+<li class="fragment">It can ‘read’ the invisible character that is the ‘newline’ character, and it knows that the string is still going.</li>
+<li class="fragment">We can also use triple quotes to write really long strings, or strings that have lots of quotes in them.</li>
+</ul>
+</section>
+
+<section id="python-basics---strings-triple-quotes-2" class="title-slide slide level1 smaller center">
+<h1>Python Basics - strings triple quotes</h1>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb11-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb11-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a><span class="in"># Below is an actual at a multiline str, note the three quotation marks</span></span>
+<span id="cb11-6"><a href=""></a><span class="in">"""I wonderded lonely as a undergrad</span></span>
+<span id="cb11-7"><a href=""></a><span class="in">trying to find their way to the psych labs"""</span></span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+
+<section id="python-basics---strings---your-turn" class="title-slide slide level1 smaller center">
+<h1>Python Basics - strings - your turn</h1>
+<p>Now it’s your turn to try writing some strings.</p>
+<ul>
+<li class="fragment">Starting from scratch, create a new folder in the summerschool folder on your computer called ‘Day 1’.</li>
+<li class="fragment">Inside that folder, create a new jupyter notebook called ‘Day 1 - Python Basics.ipynb’.</li>
+<li class="fragment">Create a new code cell in the notebook that looks like this (don’t forget the comments!):</li>
+</ul>
+</section>
+
+<section id="python-basics---strings---your-turn-1" class="title-slide slide level1 smaller center">
+<h1>Python Basics - strings - your turn</h1>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{{python}}</span></span>
 <span id="cb12-2"><a href=""></a><span class="in">#| echo: true</span></span>
 <span id="cb12-3"><a href=""></a><span class="in">#| eval: false</span></span>
 <span id="cb12-4"><a href=""></a></span>
-<span id="cb12-5"><a href=""></a><span class="in"># Below is an actual at a multiline str, note the three apostrophes</span></span>
-<span id="cb12-6"><a href=""></a><span class="in">'''I wonderded lonely as a undergrad</span></span>
-<span id="cb12-7"><a href=""></a><span class="in">trying to find their way to the psych labs'''</span></span>
-<span id="cb12-8"><a href=""></a></span>
-<span id="cb12-9"><a href=""></a></span>
-<span id="cb12-10"><a href=""></a></span>
-<span id="cb12-11"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href=""></a><span class="in"># print out a string that uses single quotes</span></span>
+<span id="cb12-6"><a href=""></a><span class="in">print('Hello World!') # Note the word 'print' is a function that prints out the string to the console (we'll talk about consols and functions in a sec)</span></span>
+<span id="cb12-7"><a href=""></a><span class="in"># don't forget to run the cell!</span></span>
+<span id="cb12-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li class="fragment">Remember to select the kernel in the top right of the notebook, and then run the cell by clicking the ‘play’ button in the top left of the cell.</li>
+</ul>
+</section>
+
+<section id="python-basics---strings---your-turn-2" class="title-slide slide level1 smaller center">
+<h1>Python Basics - strings - your turn</h1>
+<p><strong>Congrats!</strong></p>
+<p>You’ve just written your first python code!</p>
+<ul>
+<li class="fragment">You’ve created a string that uses single quotes, and you’ve printed it to the console.</li>
+<li class="fragment">You’ve also written a comment that explains what the code does.</li>
+<li class="fragment">You’ve also created the file on your computer that allowed you to run the code.</li>
+<li class="fragment">You’re a coder now!</li>
+</ul>
+</section>
+
+<section id="python-basics---strings---recap" class="title-slide slide level1 smaller center">
+<h1>Python Basics - strings - recap!</h1>
+<ul>
+<li class="fragment">A string (<code>str</code>), just like in SPSS, is the data type for standard written (alphanumeric) language.</li>
+<li class="fragment">Strings can be a single letter, a word, or a short sentence. You can make them by simply placing apostrophies/single quotes (’) at either end of your chosen characters, whether they are a single letter/word/sentence.</li>
+</ul>
+<div class="fragment">
+<p><code>'is short'</code></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">However, if the string contains an apostrophe (like when we type “isn’t” instead of ‘is not’) you need to use inverted commas/double quotes (“) at either end</li>
+</ul>
+</div>
+<div class="fragment">
+<p><code>"isn't short"</code></p>
+<ul>
+<li class="fragment">If you want to span multiple lines, you can use triple quotes (’’’ or “““).</li>
+</ul>
+</div>
+<div class="fragment">
+<p><code>"""This is multiple lines of text in a single string"""</code></p>
+</div>
+</section>
+
+<section id="python-basics---variables" class="title-slide slide level1 smaller center">
+<h1>Python Basics - variables</h1>
+<p>So now that we have a string, what might we do with it?</p>
+<ul>
+<li class="fragment">We might want to store it so that we can use it later.</li>
+<li class="fragment">When we want to hold onto a piece of data to work with it we <code>'assign'</code> it to a <code>variable</code> using the format</li>
+</ul>
+<div class="fragment">
+<p><code>variable_name = datapoint</code></p>
+</div>
+</section>
+
+<section id="python-basics---variables-1" class="title-slide slide level1 smaller center">
+<h1>Python Basics - variables</h1>
+<ul>
+<li class="fragment">So lets say we have a string that we want to use often in our code, we would assign it to a variable as shown in the cell below</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb13-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb13-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb13-4"><a href=""></a></span>
+<span id="cb13-5"><a href=""></a><span class="in">name = 'Jane' # This is a string, stored in a variable called name</span></span>
+<span id="cb13-6"><a href=""></a><span class="in">print(name) # This will print out the string 'Jane' to the console</span></span>
+<span id="cb13-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li class="fragment">Notice how the name of the variable in the cell above has no quote marks around it?</li>
+<li class="fragment">Even though it’s just the word <code>name</code>.</li>
+<li class="fragment">When we’re using letters as a <code>variable name</code> we just type them without enclosing them in apostrophes or quotation marks.</li>
+<li class="fragment">This is part of how the computer interprets python, we don’t need to spend time on this, it’s just something to keep in mind.</li>
+</ul>
+</div>
+</section>
+
+<section id="python-basics---variables-2" class="title-slide slide level1 smaller center">
+<h1>Python Basics - variables</h1>
+<ul>
+<li class="fragment">In a sense a <code>variable</code> is like a hook you can use to grab (and hold onto) a piece of data.</li>
+<li class="fragment">You can then use that hook to grab the data and do things with it.</li>
+<li class="fragment">The hook can be way easier to type than the actual data, for example:</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb14-2"><a href=""></a></span>
+<span id="cb14-3"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb14-4"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb14-5"><a href=""></a></span>
+<span id="cb14-6"><a href=""></a><span class="in"># Below is a string that is really long, I've saved it to a variable called s</span></span>
+<span id="cb14-7"><a href=""></a><span class="in">s = "This is a really long string that I don't want to type out every time I want to use it"</span></span>
+<span id="cb14-8"><a href=""></a><span class="in"># It's much easier to type s than the whole string out every time</span></span>
+<span id="cb14-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="python-basics---variables-3" class="title-slide slide level1 smaller center">
+<h1>Python Basics - variables</h1>
+<p>With just single string, this might not seem like a big deal, but when you’re working with lots of data, or lots of code, it can be a real time saver.</p>
+<ul>
+<li class="fragment">You can also change the data that is stored in a variable, or you can store different types of data in the same variable.</li>
+<li class="fragment">You can also use variables to store the results of calculations, or the results of functions (we’ll talk about functions in just a minute).</li>
+<li class="fragment">Note that you can not have spaces in variable names, so if you want to use more than one word, you can use an underscore (<code>_</code>).</li>
+</ul>
+</section>
+
+<section id="python-basics---variables---your-turn" class="title-slide slide level1 smaller center">
+<h1>Python Basics - variables - your turn</h1>
+<p>Now it’s your turn to try using variables.</p>
+<ul>
+<li class="fragment">In a new code cell in your jupyter notebook:
+<ul>
+<li class="fragment">Create a new <code>str</code> variable called name, and assign it the value of your name.</li>
+</ul></li>
+<li class="fragment">Then make another cell that prints out the value of the variable name.
+<ul>
+<li class="fragment"><code>print(name)</code></li>
+</ul></li>
+<li class="fragment">Then make a third cell that changes the value of the variable name to a different name, and then prints out the new value of the variable name.
+<ul>
+<li class="fragment">see if you can do it without hints.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="python-basics---ints-and-floats" class="title-slide slide level1 smaller center">
+<h1>Python Basics - ints and floats</h1>
+<ul>
+<li class="fragment">So we’ve talked about alphanumeric text, but what about literal numbers?</li>
+<li class="fragment">In python, we have two types of numbers, <code>integers</code> (<code>int</code>) and <code>floating-point numbers</code> (<code>float</code>).</li>
+<li class="fragment">Integers are whole numbers, and floating-point numbers are numbers with a decimal point.</li>
+<li class="fragment">You can do all the normal math stuff with numbers in python, like addition, subtraction, multiplication, and division.</li>
+<li class="fragment">You can also <code>store</code> numbers in <code>variables</code>, just like you can with <code>str</code>.</li>
+</ul>
+</section>
+
+<section id="python-basics---ints-and-floats-1" class="title-slide slide level1 smaller center">
+<h1>Python Basics - ints and floats</h1>
+<ul>
+<li class="fragment">Lets look at some examples of <code>ints</code> and <code>floats</code>:</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb15-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb15-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb15-4"><a href=""></a><span class="in">age = 30 # This is an integer</span></span>
+<span id="cb15-5"><a href=""></a><span class="in">print(age)</span></span>
+<span id="cb15-6"><a href=""></a><span class="in">f = 0.5 # This is a float</span></span>
+<span id="cb15-7"><a href=""></a><span class="in">print(age * f) # This will multiply the integer age by the float f</span></span>
+<span id="cb15-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+
+<section id="python-basics---ints-and-floats-2" class="title-slide slide level1 smaller center">
+<h1>Python Basics - ints and floats</h1>
+<ul>
+<li class="fragment">There’s not much more to say about <code>ints</code> and <code>floats</code>, they’re just numbers.
+<ul>
+<li class="fragment">You can do all the normal math stuff with them, and you can store them in variables.</li>
+<li class="fragment">You can also convert between <code>ints</code> and <code>floats</code> using the <code>int()</code> and <code>float()</code> functions.</li>
+<li class="fragment">You can also convert between numbers of either type and <code>str</code> using the <code>str()</code> function.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="python-basics---ints-and-floats---operations" class="title-slide slide level1 smaller center">
+<h1>Python Basics - ints and floats - operations</h1>
+<p>You can add, subtract, multiply, and divide numbers in python</p>
+<ul>
+<li class="fragment">Use the <code>+</code> symbol to add numbers</li>
+<li class="fragment">Use the <code>-</code> symbol to subtract numbers</li>
+<li class="fragment">Use the <code>*</code> symbol to multiply numbers</li>
+<li class="fragment">Use the <code>/</code> symbol to divide numbers</li>
+<li class="fragment">Use the <code>**</code> symbol to raise a number to a power</li>
+<li class="fragment">Use the <code>%</code> symbol to get the remainder of a division (called the modulus operator)</li>
+<li class="fragment">Use the <code>==</code> symbol to check if two numbers are equal (this will return <code>True</code> or <code>False</code>)</li>
+</ul>
+</section>
+
+<section id="python-basics---ints-and-floats---operations-1" class="title-slide slide level1 smaller center">
+<h1>Python Basics - ints and floats - operations</h1>
+<ul>
+<li class="fragment">In your jupyter notebook, create a new code cell and try out some math operations with numbers.</li>
+<li class="fragment">You might have noticed that the operators in python are the same as those in SPSS and excel (feel free to look up the operators if you’re not sure).</li>
+<li class="fragment">So play around a bit</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb16-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb16-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb16-4"><a href=""></a><span class="in">year = 2024 # This is an integer</span></span>
+<span id="cb16-5"><a href=""></a><span class="in">age = 30.5 # This is a float</span></span>
+<span id="cb16-6"><a href=""></a><span class="in">b_year = year - age # This will subtract the float age from the integer year</span></span>
+<span id="cb16-7"><a href=""></a><span class="in">print(b_year == 1993.5) # This will print out True</span></span>
+<span id="cb16-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+
+<section id="python-basics---ints-and-floats---operations-2" class="title-slide slide level1 smaller center">
+<h1>Python Basics - ints and floats - operations</h1>
+<ul>
+<li class="fragment">Did you notice that the ‘=’ symbol is used differently in python than in math?</li>
+<li class="fragment">Instead of useing it to see the result of an operation, we use it to assign a value to a variable.</li>
+<li class="fragment">We can use this to assign the <em>result of an operation</em> to a variable, and then use that variable later on.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb17-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb17-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb17-4"><a href=""></a><span class="in">two_squared = 2 ** 2 # This will raise 2 to the power of 2</span></span>
+<span id="cb17-5"><a href=""></a><span class="in">print(two_squared) # This will print out 4, which is the result of the maths operation</span></span>
+<span id="cb17-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+
+<section id="python-basics---lists" class="title-slide slide level1 smaller center">
+<h1>Python Basics - lists</h1>
+<ul>
+<li class="fragment"><p>So far we have looked at data types for individual pieces of data like (single numbers), but in the real world we work with groups of datapoints.</p></li>
+<li class="fragment"><p>There are a number of ‘structures’ in python that can contain multiple datapoints, eventually we’ll work our way up to the <code>DataFrame</code> (think of the dataview in SPSS), but the simplest data structure is a <code>list</code>.</p></li>
+<li class="fragment"><p>The cell below contains an example of a <code>list</code>.</p></li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb18-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb18-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb18-4"><a href=""></a><span class="in">#this `list` contains strings, ints and a float </span></span>
+<span id="cb18-5"><a href=""></a><span class="in">["Mary", 110.4, 15, -1, 'b']# each item is separated by ',' and surrounded by [] (square brackets)</span></span>
+<span id="cb18-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="python-basics---lists-1" class="title-slide slide level1 smaller center">
+<h1>Python Basics - lists</h1>
+<ul>
+<li class="fragment">A <code>list</code> is datastructure (which is a subset of datatype) that can contain multiple different datapoints.</li>
+<li class="fragment">The simplest way to make a <code>list</code> is to open square brackets (‘[’) write in each individual data point, separated by a comma, and then close the square brackets (’]’).</li>
+<li class="fragment">Python will recognise this as a <code>list</code> straight away.</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb19-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb19-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb19-4"><a href=""></a><span class="in">#this `list` contains str, float, int, AND a list</span></span>
+<span id="cb19-5"><a href=""></a><span class="in"># A `list` can contain any type of data, and can even contain other lists</span></span>
+<span id="cb19-6"><a href=""></a><span class="in">["John", "Nevada", ["red", "green", "blue"], 0.25, 12]# each item is separated by ',' and surrounded by [] (square brackets)</span></span>
+<span id="cb19-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="python-basics---lists---your-turn" class="title-slide slide level1 smaller center">
+<h1>Python Basics - lists - your turn</h1>
+<ul>
+<li class="fragment">This time, you’re going to create a <code>list</code> of your own, store it in a <code>variable</code> called <code>yourname_list</code></li>
+<li class="fragment">Print out the <code>list</code> to the console</li>
+<li class="fragment">Then, you’re going to email the code to your partner, and they’re going to run it on their computer.</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb20-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb20-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb20-4"><a href=""></a><span class="in">kev_list = ["Kev", "Ginger", ["Drum &amp; Bass", "Jazz", "90's hip hop"], 38] # This is a `list` that contains a string, a list, and an int</span></span>
+<span id="cb20-5"><a href=""></a><span class="in">print(kev_list) # This will print out the `list` to the console</span></span>
+<span id="cb20-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="python-basics---dicts" class="title-slide slide level1 smaller center">
+<h1>Python Basics - dicts</h1>
+<ul>
+<li class="fragment">We’ve seen how we can work with alphanumeric text, numbers, and groups of data, but what about when we want to work with data that is more complex?</li>
+<li class="fragment">For example, what if we have a participant in a study, and we want to store their name, age, course, and year of study?</li>
+<li class="fragment">We could use a <code>list</code> to store this data, but it would be hard to know what each piece of data was.</li>
+<li class="fragment">Python has another <code>datastructure</code> called a <code>dictionary</code> (<code>dict</code>) that can store data in a way that is more ‘human readable’.</li>
+</ul>
+</section>
+
+<section id="python-basics---dicts-1" class="title-slide slide level1 smaller center">
+<h1>Python Basics - dicts</h1>
+<ul>
+<li class="fragment">A dict is a slightly more complex datastructure than a list.</li>
+<li class="fragment">Where a list is just a collection of single items, a dictionary is composed of <code>keys</code> and <code>values</code>.</li>
+<li class="fragment">While there’s a lot of ways to demonstrate this idea, we’ll start with a dictionary that contains information that might be more familiar to us as psychologists.</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb21-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb21-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb21-4"><a href=""></a><span class="in">{'name':'Sarah', 'age':26, 'course':'BA, Psychology and Sociology', 'year':3}# note the curly brackets, the colons, and the commas.</span></span>
+<span id="cb21-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="python-basics---dicts-2" class="title-slide slide level1 smaller center">
+<h1>Python Basics - dicts</h1>
+<ul>
+<li class="fragment">The first thing that should be clear is that dicts are enclosed in curly brackets (‘{}’) unlike lists which use square brackets (‘[]’).</li>
+<li class="fragment">The next thing that is worth drawing your attention to is the format of a <em>key - value</em> pair.</li>
+<li class="fragment"><code>{key:value}</code> pairs are separated by commas, and the key and value are separated by a colon.</li>
+<li class="fragment">The dict above starts with the pair <code>'name':'Sarah'</code>, which is really just two strings linked by a colon (‘:’). The second pair is <code>'age':26</code> which is a int linked to a string.</li>
+<li class="fragment">Each of these pairs is separated by a comma (just like the individual items in a list).</li>
+</ul>
+</section>
+
+<section>
+<section id="python-basics---dicts---your-turn" class="title-slide slide level1 smaller center">
+<h1>Python Basics - dicts - your turn</h1>
+
+</section>
+<h3 id="key-value"><code>Key : Value</code></h3>
+<ul>
+<li class="fragment">In a new code cell in your jupyter notebook, create a new <code>dict</code> called <code>yourname_dict</code> that contains the following key-value pairs:
+<ul>
+<li class="fragment"><code>'name' : 'your name'</code></li>
+<li class="fragment"><code>'partner' : 'your partner's name'</code></li>
+<li class="fragment"><code>'my list' : your list from the previous exercise</code></li>
+<li class="fragment"><code>'partners list' : your partner's list from the previous exercise</code></li>
+</ul></li>
+</ul></section>
+<section id="python-basics---recap" class="title-slide slide level1 smaller center">
+<h1>Python Basics - recap</h1>
+<ul>
+<li class="fragment">We’ve covered a lot here, but none of it is particularly complex.</li>
+<li class="fragment">Rather than me recapping now, we’re going to try something a little different.</li>
+<li class="fragment">In your jupyter notebook, create <code>Markdown</code> cells at the top of the document, and between each of the code cells that you’ve written.</li>
+<li class="fragment">In these cells, write a brief summary of what you’ve learned in the code cells below.</li>
+<li class="fragment">Then save the file and send it to your partner, and read through eachothers summaries, and see if you can understand what the other person has written, and if you’re not sure or if there’s a contradiction lets talk it out.</li>
+<li class="fragment">Work together to make corrections, and then submit the corrected document to the Brightspace site.</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
