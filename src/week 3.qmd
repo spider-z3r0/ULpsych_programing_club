@@ -1,0 +1,551 @@
+---
+title: Week 3 - Scoping for the love of loops.
+jupyter: python3
+---
+
+
+Welcome back to the python for SPSS users sessions. This week we're going to talk about `loops`, python `modules`, and something called `scope`. But first...
+
+## Let's recap: Strings operations (1/3)
+
+
+Last week we did a lot of stuff with strings, we combined them (`concatenation`):
+
+
+```{python}
+a = 'Hello' #assigning a string to a variable
+b = 'World' #assigning a string to a variable
+
+print(a + b)# concatenating the 2 strings
+print(a + ' ' + b + '!')# adding a space and an exclamaition to make the strings print in a more human readable way
+```
+
+We multiplied them (`replication`):
+
+```{python}
+# remember that we can only multiply strings by ints, not floats
+print(a*8 )# getting python to print 'Hello' 8 times
+```
+
+And we learned an easy and powerful way to `format` strings (`f-strings`):
+
+```{python}
+c = 'me' #assigning a string to a variable
+
+d = f"{a}, is it {c} you're looking for?"# assigning a formatted string to a variable, the f-string includes the variables a and c
+
+print(d)
+```
+
+The `f` and the `{}` in `f-strings` are really powerful, they let you run python within a sentence of human readable text. From the point of view of people writing results sections, this can be really powerful. Have a read through the cell below and before you run it and take a minute to think about how you might use it (try not to get overly exci... no actually get excited).
+
+```{python}
+from statistics import mean, stdev# ignore this for now
+
+scores = [7, 4, 6, 3, 7, 7, 4, 3, 3, 2, 1, 1, 1, 6, 7, 8, 8, 5, 4]# imagine this is a column in a data set
+
+# now check out this magic
+print(f'The participant scores range from {min(scores)} to {max(scores)} (M = {round(mean(scores),2)}, SD = {round(stdev(scores),2)}).')
+```
+
+**See?!?** unless you really love copying and pasting numbers from spss output into word documents that collection of code should be really interesting to you. 
+
+So, in the cell below make a couple of `string` variables and put them in an `f-string` (make it funny, might as well have a laugh)
+
+```{python}
+# make your first string below
+
+
+# and make the second one below
+
+
+# and now print out an f-string with those variables below
+```
+
+These are just simple examples of the kinds of things you can do with `strings` and there are more that we'll cover (especially when cleaning data) but for right now, the `f-string` is something you should keep in mind. 
+
+## Let's recap: Indexing (2/3)
+
+
+Remember that the `index` of an item is it's position *within an object*, and that for lists and strings we represent that position with a number. 
+
+`example of 'str' index`
+|index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|:-----|:--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|--:|
+|char  | h | e | l | l | o |   | w | o | r | l | d |
+
+
+
+`example of 'list' index`
+|index | 0 | 1 | 2 | 3 |
+|:-----|:-:|:-:|:-:|:-:|
+|item  | 'John' | 'Paul' | 'George' | 'Ringo' |
+
+When we want to extract some thing from an object we use the synax:
+
+`object[index_number]`
+
+In the cell below, use that syntax to get print out the _*second*_ and _*second-last*_ character of the first string variable you made earlier.
+
+If you want to be really fancy, you could pop them into an `f-string`. It's good practice. 
+
+```{python}
+# play around with this syntax here, you can use f-strings if you like
+# you could store the requested characters as variables before you make the f-string
+# or you could just use the syntax within the {}s in the f-string
+# have fun
+```
+
+With `dicts` its just a little different, we use the `key` of the `key:value` pair instead of a number inside the [], like this:
+
+```
+my_dict = {'first_name':'Grampton', 'last_name':'St.Rumpterfraple', 'movie':'The Duchess Approves'}
+
+print(my_dict['movie'])
+```
+
+Again these are very simple examples, but they for the basis of something really powerful. As long as you have the general `syntax` in your mind you can use it in lots of different ways. 
+
+## Let's recap: Functions (3/3)
+
+The last thing that we worked on last week was `functions`. 
+
+We talked about the fact that a `function` can be thought of a way of wrapping up a lot of code in a short and easy to type statement, like the `print()` and `type()` functions. The  `syntax` of using functions is pretty simple, but it might be worth taking a few minutes to break down that syntax a little more. 
+
+
+```
+print('Hello world')
+```
+
+You already know that he `print` bit is the name of the `function` and that this is followed by a pair of brackets `()`. The brackets are what actually tell python to exectute the `function`. The thing (or things) *between* the brackets is called an `argument`, so in the example above `'Hello world'` is the `argument` for the `print()` function. All of the premade `functions` we've looked at all take 1 argument. 
+
+```
+print('Hello world')
+type('Hello world')
+```
+
+However, each specific `function` will have a required number of `arguments` and you can look them up as you need them. Don't worry about it too much because you can *always* look up a specific `function` when you need it, and the more you use a particular one, the better you'll remember it.
+
+### Defining functions
+
+Python has a whole world of functions, and there are more being added everyday (don't panic you don't need to know them all) but you can also make your own with a pretty simple `syntax`. We demonstrated two versions of this `syntax` last week. 
+
+The first example just runs the same code everytime it's called so doesn't require any `arguments`
+
+```{python}
+def my_function_1(): # we're not putting a placeholder variable in this cause we don't need it
+    # all the lines below are the first one are indented by 1 tab (or 4 spaces, but sersiously, just use 1 tab)
+    print('This')# We're splitting the functionality up into multiple lines
+    print('Function')
+    print('Works')
+```
+
+In this second example we want the `function` to be able to operate on a `variable` so we need to use a placeholder when we define it 
+
+```{python}
+def my_function_2(placeholder):# notice that this line is almost exactly the same except for the placeholder, 
+    # again, all the lines are indented
+    print(f'The variable is: {placeholder}')# using an f-string to print out the variable
+    print(f'it is a {type(placeholder)} object')
+```
+
+So now that we have defined these two functions in the cells above we can call them in subsequent cells without having to type out all that code again.
+
+```{python}
+my_function_1()
+```
+
+```{python}
+my_function_2(6)
+```
+
+```{python}
+my_function_2('Banana')
+```
+
+```{python}
+z = 24.5
+
+my_function_2(z)
+```
+
+We can also define a function that takes multiple arguments
+
+```{python}
+def my_function_3(a,b): #we are using two placeholders here
+    print(a*b)# this function takes numbers and multiplies them
+```
+
+```{python}
+my_function_3(2,3)
+my_function_3(100, 2.24)
+```
+
+In the cell below, define a function that takes a number and multiplies it by another number (2 arguments)
+
+```{python}
+#define your function in this cell
+```
+
+### A note about function: Placeholder variables
+
+One of the most important things to understand about functions (and Python in general) is the use of placeholders variables. 
+
+Typically, when you write functions, you will often have a specific purpose in mind. For example, last week we asked you to write a function that took your name, and then printed both your name and the last letter of your name within a f-string. Since we had already asked you to store your first name in a variable (`first_name`) the temptation is to write your function specifically to print out that variable, and avoid using the placeholder variable within your function. 
+
+For example you could have written that function like this:
+
+```{python}
+first_name = "Eve"
+
+def last_week_function_v1():
+    print(f"Hi there, my name is {first_name} and the last letter in my name is {first_name[-1]}.")
+
+last_week_function_v1(first_name)
+
+print(first_name)
+```
+
+However we asked you to write your function including the placeholder variable, x, within the print statement, like this:
+
+```{python}
+def last_week_function_v2(x):
+    print(f"Hi there, my name is {x} and the last letter in my name is {x[-1]}.")
+    
+
+last_week_function_v2(first_name)
+```
+
+If the two functions above produce the exact same output, then why should we use a placeholder?
+
+The value of a placeholder is that it significantly increases the flexibility of our code. The way we have defined our last_week_function1 limits our code only to print whatever is stored into our first_name variable. 
+
+Look what happens when we change what we use to call the function for both versions. 
+
+```{python}
+first_name = "Eve"
+last_name = "Squarepants"
+
+def last_week_function_v1(x):
+    print(f"Hi there, my name is {first_name} and the last letter in my name is {first_name[-1]}.")
+
+last_week_function_v1(last_name)
+```
+
+```{python}
+def last_week_function_v2(x):
+    print(f"Hi there, my name is {x} and the last letter in my name is {x[-1]}.")
+    
+
+last_week_function_v2(last_name)
+```
+
+You can see that the first function does not adapt to our function call, but the second function, does.
+
+The second function, the one we wrote last week, enables us to be much more flexible. To use an analogy, imagine you bought a fitbit, and rather than the fitbit calculating your resting heart rate, or the resting heart of anyone who wore it, it instead calculated the heart rate of some shmuck in Minnesota named Larry. And while you may be deeply concerned about Larry's slightly high RHR, it would not be a particularly useful product, because it would not be adaptable to the person wearing it. 
+
+Similarly, with our functions, we want them to be as adaptable as possible. Adaptable functions prevent us from writing more functions. And we have not told you yet, but as programmers, we all worship the majestic creatures of the sloth (more on that and the necessary blood sacrifices in week 7). For now, make sure to embrace your inner sloth, and make use of your placeholder variables within your functions. 
+
+Again, there are lots of functions 'built in' to python, and you can make your own with the `syntax` you've used above, but we don't want to overwhelm you with the idea that you need to learn all the functions in python *right now*. 
+In most cases you'll find functions to solve a particular problem in tutorials or on **stackoverflow** answers (more about this in later sessions) and the more you use a particular function, the better you'll get to know it and the less you need to look it up. 
+
+If you are interested in diving deeper we strongly recomend 2 books:
+
+ 1. Python crash course 2nd edition by Mathews (the first edition focuses on an outdated version of python)
+  - This is a really good, project based, introduction to python, with chapters on web development, game development, and data science. 
+ 2. Pandas for everyone by Chen
+  - This is *the* book on using python for data science and it includes a good general introduction to python. 
+
+We do recomend these books, they're really enjoyable introductions to python, but you don't *need* them to go through these notebooks (and Kev has them in his office if you want to borrow them).
+
+OK, that's enough recaping let's get t'looping.
+
+
+## Loops
+
+So since we conned... I mean convinced you to start learning python as a tool for data management and analysis we have been mentioning the power of getting the computer to do things for you, the power of `automation`. This is just taking a repetative task and getting the computer to carry out those tasks for you, and `loops` are core of that process. 
+
+## For loops
+Lets imagine that you want to print out every item in a list, with what we've talked about so far you might do this with a seperate `print()` statement for each item
+
+```{python}
+beatles = ['John', 'Paul', 'George', 'Ringo']
+
+print(beatles[0])
+print(beatles[1])
+print(beatles[2])
+print(beatles[3])
+
+```
+
+However, there are a lot of things wrong with that approach:
+ 1. It's not really automation, you're giving each instruction line by line
+ 2. It's not effecient code, you're wasting time typing out essentially the same statement 
+ 3. It's ugly (trust us, it's ugly code) and it can make it harder to fix issues when they pop up
+
+This is where the power of `for loops` comes in, take a look at the example below:
+
+```{python}
+for name in beatles: # starts with 'for' and ends with a :
+    print(name) # each new line is indented 
+```
+
+It might be apparent that this `syntax` is really similar to the `syntax` we use for `defining` a `function`, with some specific differences. 
+
+ 1. we start with `for`
+ 2. we enter a placeholder variable
+ 3. we type 'in'
+ 4. we type the name of the collection we want to work on (if it has one)
+ 5. we end with a colon
+ 6. we start each new line with an indentation
+ 7. we `call` what ever function or functionality we want passing the placeholder variable as the argument (the placeholder can be any alphabetic character )
+
+```{python}
+for i in beatles:
+    print(i)
+```
+
+This `syntax` works on any `iterable`, which is just another name for a collection of objects like a list or string.
+
+```{python}
+for l in beatles[0]: #using the first item in 'beatles', which is a string
+    print(l)# printing each letter of the string
+```
+
+So as you can see, `for loops` are quite simple, in essence, but they are really powerful, and honestly, they are just handy. 
+
+In the cell below, make a list, it can be any list you like, but keep it simple, and then write a `for loop` that prints out each object in that list. 
+
+```{python}
+# make a list on the next line
+
+# write a for-loop that prints out each item in the list
+```
+
+Now to practice again, make a list of number, floats or ints, and write a for loop that multiplies all of those number by 10. 
+
+```{python}
+# Make your list of numbers here. 
+
+
+#write a for loop that multiples each number (n) by 10 (n*10)
+```
+
+Look at you go!! Using `for loops` like an absolute champion!! It's a great first step to being able to automate boring tasks. 
+
+For instance, lets imagine you have a raw data set from qualtrics in an excel file, and the person (or *Absolute flippin' ejit*) didn't name the questions in qualtrics when they were programing the survey (*blargh*). All of the items in the raw data are just called 'Q1, Q2' etc, and you have to clean the data, giving a useful name to each item. 
+
+One of the ways that we might do this (ignoring actually importing the data into python for now) is make an empty list, and then populate that list using a `for-loop`. Lets imagine you want to name the items of the BFI-44:
+
+```{python}
+bfi = [] #making an empty list
+
+for i in range(1,45):# begining the for loop, and using the range function
+    bfi.append(f'bfi_{i}')#using the 'append' method and an f-string to append a formatted string to our empty list
+
+print(bfi[0:10])# printing out the first ten items of the bfi list to check if the formatting has worked. 
+```
+
+You now have a clean list that you can use to rename columns, no copying and pasting, no moving between excel and spss, just 3 lines of code and your object is ready. We'll show you how to actually do this on 'real' data in future sessions but for now we just want to give you a sense of how to use simple `for-loops` and the kind of thing they might be used for. 
+
+Ok we're nearly done with `for loops` for now, but there's a couple of other things we want to show you. 
+
+## Nested for loops
+There are lots you can do with `for loops`, but something that may need to be pointed out is that they can be `nested` meaning that multiple `for loops` can be run at the same time, if, for example, you want to work with two or more lists at the same time. 
+
+In the example below we have two lists of numbers and we want each number is the first list (called `ns`) to be multiplied by each number in the second list (called `np`) and then want some output to be produced that updates the user on what's happening (using an `f-string`). Take a look at the exmaple we've used below, pay close attention to the `syntax`; specifically the `indentation`. 
+
+
+```{python}
+ns = [6,5,4,3]# making a list of numbers
+np = [4,3,2,1]# making another list of numbers
+
+for i, n in enumerate(ns):# enumerate() is a new function that allows us to access the index and the item in one call
+    #note the first indentation
+    for j in np:
+        # note the second indentation
+        k = n*j
+        print(f'The number at position {i}(which is {n}) has been multiplied by {j}. The result is {k}')
+```
+
+Let's talk through that cell because it's one of the more complex examples we've thrown at you so far. 
+
+We start by making a couple of lists of `ints` so we have something to work with. Then we start our first `for loop` using a `function` which allows us to access both the index of an item and the item itself from our *first list* ('`enumerate()`', this is a handy `function` to keep in your pocket). After the first ':' we then start a new `indented` line where we begin a *new* `for loop` that calls the items in our second list. 
+
+After the ':' for our second for loop we start another `indented` line that begins another `for loop` calls items in our second list (`np`) and after that (after the ':' for that `loop`) we `indent` again. 
+
+Each level of indentation tells python that the indented code relates to the top line, rather than just being a new line of code. We don't want to bog you down with a long explanation of `indentation` but in essence it helps python tell the difference between `code lines`; which are individual lines of code, and `code blocks`; which is a chunk of code that runs over multiple lines. 
+
+As a further example of this, in the cell below, we have defined a function that uses a for loop to make a list of SPSS-like column names (basically putting the for loop in an earlier cell into a function)
+
+```{python}
+#Making a function that we might use often
+def spss_names(x,y):
+    '''This function takes a string and a number and uses them to make a list of 
+    SPSS like names that we can use to rename columns of our dataset'''
+    t = []#making a temperary list
+    for i in range(1,y+1):# starting a for loop, which is indented within the function
+        t.append(f'{x}_{str(i)}')# this is the functionality of the for-loop
+    # note the indentation here, it's part of the function, not the for-loop so its indentation moves back out to the level of the function
+    return(t)# This passes our new list back out to us so that we can work with it, we'll explain this more later
+
+bfi = spss_names('bfi', 44)# using the new function we've made to make assign this list to a variable
+
+print(bfi)# printing out that new list to make sure that its what we want
+```
+
+Now, we know that the cell up above might seem a little daunting, but if you just relax (*breath in*) and take it line-by-line (*breath out*), you'll see that there's almost nothing in it that you haven't seen before. It's just a way of taking the little bits of `syntax` you've already practiced and thinking about how we can be combined.
+
+There are only 2 new things in that example above. 
+
+ 1. `Docstrings`: strings encased in triple quotes ('''), three single apostrophes, allow you to write `strings` that take up multiple lines, these are often used in `functions` to write explanations of what the function does, you can think of them as long #comments but you can also use docstrings anywhere you would use any of the other types of string.
+ 2. The '`return()`' statment: This is something that you have to put into a function if you want the `function` to give you back a `variable`. Again there are loads of [online tutorials](https://www.w3schools.com/python/ref_keyword_return.asp) about this but basically, this tells python that the `function` is finished and to pass something back to the user so. In earlier lessons you've just used function to print things out, but with a `return()` statement you can use `functions` to actually make `objects` that you can work with. 
+
+We'll cover those things again in future, and we'll get you to practice them again, but before we move onto something new we want you to, without copying and pasting, make your own version of the `spss_names()` `function` that we've made above. Take your time with it, play around, you can just make the same function we made (but give it a different name) or you can do something else if you want (but keep it simple). Read over the cell above carefully first, and then try to replicate it yourself. 
+
+```{python}
+# make your own function, with a for loop in it in this cell
+# don't foget to comment your work and try using docstrings (''') yourself to explain the function
+```
+
+# Modules 
+
+One of the most useful things Python enables you to do is to use code that has already been written. This code can either have been written by someone else (and they have been generous enough to the whole community to share their work) or by a prior version of you. 
+
+Python enables this by using modules.
+
+Modules are other Python files that we want to incorporate into our code (really that’s all they are). The specific python file(s) – AKA module - may contain a list of variables (e.g., think about importing variables from a dataset) that you want to perform analysis on, or a set of functions that you want to execute on your variables. Modules are useful, because they i) prevent us from having to manually write out variables (think about how many damn times you have been asked to manually insert data into SPSS from a word document), ii) creating functions ourselves that have already been created, or iii) redefining our own functions every time we open a new file.
+
+Today, we want to walk you through how you import and use a module in Python. Python has a number of modules that readily available through something called the standard library, which is just a collection of modules that are readily available and easy to import when you use python. The modules we are going to work with today are both useful and easy to implement, they are called `pathlib`, `datetime`, and `webbrowser`. 
+
+## Importing the module Pathlib
+
+When we use Python for data science, we will often be working with files and folders. For example, at some point in these workshops we will ask you to access raw data from a file, clean it and process the data, and then save the cleaned and processed datasets (along with the results) in a relevant folder location. 
+
+To do this, we need relatively sophisticated code to work with our operating systems and the way we have structured our folders and files. This is where the pathlib module comes in. Pathlib includes several useful functions to deal with files and 'paths' (the location of your file on your compter and how to get there)
+
+To get you started with pathlib, let's get it imported. 
+
+```{python}
+import pathlib #Line 1
+
+dir(pathlib) ### Line 2
+```
+
+In line 1, I asked python (nicely) to import the module called pathlib. This will be generally be the syntax you will use to import a module into your python script - there are a few bells and whistles we can throw on in a sec. 
+
+On line 2, I then ask python to print the directory of the pathlib. All that means really is I have asked python to tell me what is in pathlib. Each item listed is a different class/instance of pathlib. You can see that the pathlib module contains a lot of classes, so many that our jupyter output will not print all of them. 
+
+We are now going to use one of those classes, Path (6th one down from the top), to get some information about our files. 
+
+```{python}
+current_dir = pathlib.Path.cwd() #Line 3
+print(current_dir) #Line 4
+```
+
+Okay, so on line 3, we created a variable `current_dir`. We then assign `pathlib.Path.cwd()` to that variable. To understand what this `pathlib.Path.cwd()` doohickey is doing, we will break it down into three parts, going from left to right. 
+
+1. `pathlib`: We specify that this code is working from the pathlib module first. 
+
+2. `.Path`: We specify that from the pathlib module, we are working with the Path class. 
+
+3. `cwd()`: From the path class, we are using the cwd() function. 
+
+Essentially we have told our computer: "Go to `pathlib`, into the `Path` section, and get me the `cwd()` function" (and like a lazy sloth we have not moved an inch from our recliner asking for this)
+
+Then on line 4, we print the `current_dir` and it outputs the pathway to the current folder we are working from (ideally, this should be within your Python folder you create for the first notebook, and within that folder, it should be in the "src" folder). For example, line 4 outputs the following for me:
+
+c:\Users\Ryan.Donovan\Desktop\Python_Data_Science\src
+
+Generally, whenever we import a module, and then use something from a class in its module, we can use the following syntax. 
+
+`module.class.function()`
+
+
+If we know ahead of time that we will only be working with one class, then we actually cut the amount of code we need to write. 
+
+For example, assuming we are only using the Path class, we could write
+
+```{python}
+from pathlib import Path # Line 5
+
+
+current_dir1 = Path.cwd() #Line 6
+print(current_dir1) #Line 7
+
+
+#Below you should get the same output as from the previous code cell
+```
+
+In line 5, rather than asking our computer to pull all the information from pathlib, I specify that `from` pathlib, I want the `Path` class. This means that I don't need to write pathlib in my code again after importing it. 
+
+We will be coming back to more to pathlib in coming weeks. For now, we just want to show it to you as an introduction to modules. 
+
+Two other modules we will look at are `datetime` and `webbrowser`
+
+## Importing the module datetime
+
+Python has a module named datetime to work with dates and times. This is useful as it enables us to handle different measurements of time (years, hours, days, seconds, miliseconds), to track timezones, the current date, day, along with a host of other information. 
+
+Let's import the datetime module and let's give it a nickname.
+
+```{python}
+import datetime as dt #saving the module datetime under the nickname: dt
+
+today = dt.datetime.now() #From the datetime module, select the class datetime (confusing I know), 
+# and use the now() function
+
+
+#Print out: Today's date is + today variable, using a f-string.
+#print() 
+```
+
+It's always use to save your modules under a nickname. We signify this nickname by using 'as'
+
+We can also use `dt` to print out a date from the past
+
+```{python}
+yester_year = dt.date(1993, 11, 6) #This uses the American format: Year, Month, Day 
+
+print(yester_year)
+
+#we can even go further and print the hour, minute, second, and microsecond
+
+yester_year1 = dt.datetime(1993, 11, 6, 18, 32, 12, 342380)
+print(yester_year1)
+```
+
+```{python}
+# Import the module datetime, give it a nickname, and then create a variable with your date of birth (or not, be that way)
+```
+
+That's a brief walkthrough of the datetime module. Let's wrap up today with our last module: `webbrowser`
+
+## Importing the module Web Browser
+
+One of the cool things you can do with Python is to interact with webpages online. For example, the `webbrowser` module enables you to display web pages. See what happens when you run the following:
+
+
+```{python}
+import webbrowser as wb
+
+wb.open("https://xkcd.com/353/")  #Use a comment to try and describe what is going on here
+#One difference is we have not called a class
+```
+
+```{python}
+# Use wb.open to open a web page on the internet of your chosing. Please keep it PG-13.  
+```
+
+These three modules are just a taste of the variety of things that you modules enable you to do. Today we just wanted you to get used to seeing modules. In the following weeks, we will using various modules to import, clean, analyse, and export code.
+
+Well done. There was a lot of conceptual ideas that we covered today that may take time getting your head around. If it has not clicked immediately, that is completely normal. The best thing you can do is try and identify any areas on what you are sure about, and then use the notebooks to practice those things! But remember, you can always read back through the notebooks, look for tutorials online, and ask for help (from eachother, us, or the internets)
+
+Next week we'll dive deeper into `modules`, expand on `methods`, and introduce you to `virtualenvs`. If you want to you can go look these up now, or you can wait for us to bring you through them. 
+
+Thanks a lot for sticking with us this week, and make sure you run your work by us before you go. 
+
+Best wishes, 
+
+Kev and Ryan
+

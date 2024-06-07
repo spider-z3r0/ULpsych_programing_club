@@ -34,11 +34,12 @@ csl: apa.csl
 
 Now we've talked about how python handles different types of data, we're going to start by looking at the (basic) things we can do with that data. 
 
- - We'll start with `indexing` and `slicing` strings
- - Then we'll look at `methods` and `functions` (again using strings as an example)
- - Then we'll take a look at `indexing` and `slicing` lists
- - Then we'll take a look at `loops`
- - Then we'll look at `conditionals` and introduce a new datatype, the `boolean`
+ In this session we're going to look at
+ - Operations with strings (string addition and multiplication)
+ - Indexing and slicing strings and lists
+  - Including why we start counting at 0
+ - Functions (What they are, how to define them, and how to use them)
+
 
 . . .
 
