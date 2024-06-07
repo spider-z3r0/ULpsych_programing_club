@@ -81,7 +81,7 @@ Remember that the `index` of an item is it's position *within an object*, and th
 |:-----|:-:|:-:|:-:|:-:|
 |item  | 'John' | 'Paul' | 'George' | 'Ringo' |
 
-When we want to extract some thing from an object we use the synax:
+When we want to extract some thing from an object we use the syntax:
 
 `object[index_number]`
 
@@ -226,7 +226,7 @@ Look what happens when we change what we use to call the function for both versi
 first_name = "Eve"
 last_name = "Squarepants"
 
-def last_week_function_v1(x):
+def last_week_function_v1():
     print(f"Hi there, my name is {first_name} and the last letter in my name is {first_name[-1]}.")
 
 last_week_function_v1(last_name)
@@ -249,24 +249,24 @@ Similarly, with our functions, we want them to be as adaptable as possible. Adap
 Again, there are lots of functions 'built in' to python, and you can make your own with the `syntax` you've used above, but we don't want to overwhelm you with the idea that you need to learn all the functions in python *right now*. 
 In most cases you'll find functions to solve a particular problem in tutorials or on **stackoverflow** answers (more about this in later sessions) and the more you use a particular function, the better you'll get to know it and the less you need to look it up. 
 
-If you are interested in diving deeper we strongly recomend 2 books:
+If you are interested in diving deeper we strongly recommend 2 books:
 
  1. Python crash course 2nd edition by Mathews (the first edition focuses on an outdated version of python)
   - This is a really good, project based, introduction to python, with chapters on web development, game development, and data science. 
  2. Pandas for everyone by Chen
   - This is *the* book on using python for data science and it includes a good general introduction to python. 
 
-We do recomend these books, they're really enjoyable introductions to python, but you don't *need* them to go through these notebooks (and Kev has them in his office if you want to borrow them).
+We do recommend these books, they're really enjoyable introductions to python, but you don't *need* them to go through these notebooks (and Kev has them in his office if you want to borrow them).
 
 OK, that's enough recaping let's get t'looping.
 
 
 ## Loops
 
-So since we conned... I mean convinced you to start learning python as a tool for data management and analysis we have been mentioning the power of getting the computer to do things for you, the power of `automation`. This is just taking a repetative task and getting the computer to carry out those tasks for you, and `loops` are core of that process. 
+So since we conned... I mean convinced you to start learning python as a tool for data management and analysis we have been mentioning the power of getting the computer to do things for you, the power of `automation`. This is just taking a repetitive task and getting the computer to carry out those tasks for you, and `loops` are core of that process. 
 
 ## For loops
-Lets imagine that you want to print out every item in a list, with what we've talked about so far you might do this with a seperate `print()` statement for each item
+Lets imagine that you want to print out every item in a list, with what we've talked about so far you might do this with a separate `print()` statement for each item
 
 ```{python}
 beatles = ['John', 'Paul', 'George', 'Ringo']
@@ -383,7 +383,7 @@ As a further example of this, in the cell below, we have defined a function that
 def spss_names(x,y):
     '''This function takes a string and a number and uses them to make a list of 
     SPSS like names that we can use to rename columns of our dataset'''
-    t = []#making a temperary list
+    t = []#making a temporary list
     for i in range(1,y+1):# starting a for loop, which is indented within the function
         t.append(f'{x}_{str(i)}')# this is the functionality of the for-loop
     # note the indentation here, it's part of the function, not the for-loop so its indentation moves back out to the level of the function

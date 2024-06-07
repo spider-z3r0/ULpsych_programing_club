@@ -699,4 +699,4 @@ print(current_dir.parent) # using the parent attribute to get the parent directo
  - Go to brightspace and download the `instructions.txt` file and then copy it into the folder where you have your new notebook.
  - Open it (in VScode) and read the instructions.
  - Work *with your partner* to complete the tasks in the instructions.
- - If you get stuck - call me. 
+ - If you get stuck - call me. for_loops
