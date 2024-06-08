@@ -123,14 +123,14 @@ int main() {
  - Python is 'interpreted', which means that the code is translated into machine code 'on the fly' as it's run.
  - It's actually written in C, which is more complex than python, and C then converts the python code into machine code.
 
-````{{{python}}}
+````{python}
 #| echo: true
 #| eval: false
 print("Hello World!")
 
 ````
 
-## What is code?{.smaller}
+## What is code?{}
 
  - As you can see, python is a lot easier to read and write than C, and it's a lot easier to learn.
  - So when you write code, you write it in python, which is then 'interpreted' by C, which is then translated into machine code.

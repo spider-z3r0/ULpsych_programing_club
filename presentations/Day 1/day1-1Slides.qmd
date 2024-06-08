@@ -37,7 +37,7 @@ Now we've talked about how python handles different types of data, we're going t
  In this session we're going to look at
  - Operations with strings (string addition and multiplication)
  - Indexing and slicing strings and lists
-  - Including why we start counting at 0
+ - Including why we start counting at 0
  - Functions (What they are, how to define them, and how to use them)
 
 
