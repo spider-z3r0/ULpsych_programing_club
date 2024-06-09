@@ -1,0 +1,518 @@
+---
+title: "Session 2.0"
+subtitle: "loops and dicts and bears (well Pandas)"
+format: 
+   revealjs:
+      incremental: true
+      theme: solarized
+editor: "visual"
+jupyter: wsl_prec
+bibliography: references.bib
+csl: apa.csl
+---
+
+# Good Morning!
+
+ - It's day 2 (but the third day) of the summer school (and today you know why we named it that way)
+ - We're going to start off with a recap of yesterday
+
+ . . .
+
+  And as always it's in the form or a Quiz!!!
+
+# Recap Quiz
+
+ - It's up on the same place as usual in brightspace
+ - Take your time with it, chat to your partners
+ - If you come to a question that doesn't make sense, then ask me about it! (I could have made an error)
+
+# This session{.smaller} 
+
+ - In this session we're going to recap loops a little bit 
+ - We're going to dive a little deeper into `dicts` 
+ - Then we're going to look at the `pandas` library
+   - We're going to look at the `DataFrame` object (which is a new `class` of object)
+   - We're going to talk about the `shape attribute` of the `DataFrame` object
+   - We're going to look at a few `methods` of the `DataFrame` object like `head()`, `tail()` and `describe()`
+
+# Loops - Recap{.smaller}
+
+ - We've looked at `for` loops so far.
+   - These let us `iterate` over a `collection` of items (like a `list`) and do something with each item in the collection
+
+```{python}
+#| echo : true
+#| eval : true
+for item in range(1, 6):
+    t_str = f"Item = {item}"
+    print(t_str)
+```
+
+# Loops - Recap{.smaller}
+
+ - We've learned that we can use this to, for example, `print` out the items in a `list`
+ - We could also use this to `sum` the items in a `list` (assuming they are `int`s or `float`s)
+ - Check out the `+=` operator in the code below, it's really handy
+
+. . . 
+
+```{python}
+#| echo : true
+#| eval : true
+t_list = [1, 2, 3, 4, 5]
+t_sum = 0
+for item in t_list:
+    t_sum += item # the += operator is the same as t_sum = t_sum + item
+print(t_sum)
+```
+
+# Loops - Recap{.smaller}
+
+ - There are other kinds of loops in Python
+   - `while` loops
+   - `do while` loops
+
+ - They're not really needed for what we're doing in this course, but they're good to know about and you might see them in other code
+
+. . . 
+
+```{python}
+#| echo : true
+#| eval : true
+t_sum = 0
+while t_sum < 10: # this will keep going until t_sum is 10 or more
+    t_sum += 1 # this will keep adding 1 to t_sum
+    print(f"the current value of t_sum is {t_sum}")
+```
+
+# Loops and indexing{.smaller}
+
+ - Remember when we spoke about `indexing and slicing` in `lists` and `strings`?
+ - Theres a few ways that we can combine that with `for loops` to do interesting things
+ - For example, if we know that we just want to work on the last 4 items in a list:
+
+```{python}
+#| echo : true
+#| eval : true
+t_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for item in t_list[-4:]: # notice how we're slicing and using negatice indexing here? 
+    print(f"item is of {type(item)}")
+```
+
+# dicts and indexing{.smaller}
+
+ - We've seen `dicts` before, they're a way of storing `key-value` pairs
+ - We can `index` into a `dict` using the `key` to get the `value`
+ - We can also `index` into a `dict` using the `key` to `set` the `value`
+
+```{python}
+#| echo : true
+#| eval : true
+t_dict = {"name": "John", "age": 30, "city": "New York"}
+print(t_dict["name"])
+t_dict["name"] = "Jane"
+print(t_dict["name"])
+```
+
+# dicts and indexing{.smaller}
+
+ - In a sense, we can think of a `dict` as 2 `lists` that are `zipped` together
+ - The `keys` are one `list` and the `values` are another `list`
+ - We can get the `keys` and `values` of a `dict` using the `keys()` and `values()` `methods` of the `dict` object
+
+```{python}
+#| echo : true
+#| eval : true
+t_dict = {"name": "John", "age": 30, "city": "New York"}
+print(t_dict.keys())
+print(t_dict.values())
+```
+
+
+# dicts and indexing and loops {.smaller}
+
+ - which means there are a few ways we can use `for loops` with `dicts`
+ - We can loop over the `keys()` of a `dict` and get the `values()` of the `dict` using the `key`
+ - In essence the `keysd()` and `values()` `methods` of a `dict` return `lists` that we can loop over
+
+. . . 
+
+```{python}
+#| echo : true
+#| eval : true
+for key in t_dict.keys():
+    print(f"key is {key} and value is {t_dict[key]}")
+```
+
+# dicts and indexing and loops {.smaller}
+
+ - We can also loop over the `items()` of a `dict` and get the `key` and `value` at the same time
+ - notice in the cell below that we're using the .items() `method`
+ - and we're using two `variables` in the `for loop` to `unpack` the `key` and `value` from the `dict`
+ - these are just `placeholders` for the `key` and `value` in the `dict`, but we've given them names that make sense
+ - we could have called them `a` and `b` if we wanted to, but that would be confusing (sometimes you'll see k, and v or, i and j)
+
+. . . 
+
+```{python}
+#| echo : true
+#| eval : true
+for key, value in t_dict.items():
+    print(f"key is {key} and value is {value}")
+```
+
+# dicts and zipping {.smaller}
+
+ - in fact, thinking about `dicts` as linked `lists` is a good way to think about them
+ - in python we call this `zipping` two `lists` together (like a `zipper` on a jacket)
+ - we can `zip` two `lists` together using the `zip()` `function` which takes two `lists` as `arguments` and returns a `list` of `tuples` (a `tuple` is like a list, but you can't change it once you've made it)
+
+```{python}
+#| echo : true
+#| eval : true
+t_list1 = [1, 2, 3, 4, 5] # temporary list 1
+t_list2 = ["a", "b", "c", "d", "e"] # temporary list 2
+#zip the two lists into a dict
+t_dict = dict(zip(t_list1, t_list2))
+print(t_dict)
+```
+
+# dicts and zipping {.smaller}
+
+```{python}
+#| echo : true
+#| eval : true
+#zip the two lists into a dict
+t_dict = dict(zip(t_list1, t_list2)) # using the zip() function to zip the two lists together
+# inside the dict() function to make a dict from the zipped lists
+print(t_dict)
+```
+# dicts, lists, indexing and zipping - your turn {.smaller}
+
+ - In a new notebook (called 'day 2.ipynb'), create two lists
+   - one with the `keys` of a `dict` you want to make
+   - one with the `values` of a `dict` you want to make
+ - then `zip` the two lists together into a `dict`
+ - then use a `for loop` to `print` out the `key` and `value` of the `dict`
+
+# quick recap{.smaller}
+
+ - you know know about 
+   - `strings`, 
+   - `ints`,
+   - `floats`,
+   - `lists`,
+   - `dicts`,
+   - `for loops`,
+   - `functions`
+   - `methods`
+   - `attributes`
+
+ - you're not an *expert* with any of them, but you know enough to be dangerous
+
+# quick recap{.smaller}
+
+- There are a couple more basics 
+  - like `booleans` (True and False)
+  - `if/elif/else` statements
+
+ - but these will make more sense to you when you start working in context, with actual data
+ - so now we're going to dive into `pandas` and start working with some real data
+
+# pandas{.smaller}
+
+```{python}
+#| echo: false
+#| eval: true
+import pandas as pd
+```
+
+ - Pandas is the main `module` used for handling SPSS like data.
+ - It's really powerful and it has a lot of built-in functionality that allows us to import, clean and process data, to run simple analysis, and to produce graphs and charts.
+ - It can also be extended with other modules to make working in python even more powerful (and fun) but right now we're going to focus on the `DataFrame` because this is the object that will actually contain our data. 
+
+# the pandas DatataFrame{.smaller}
+
+ - The `DataFrame` is the main object `type` in the `pandas` library
+ - It's a bit like a `list` of `dicts` or a `dict` of `lists`
+ - It's a way of storing `tabular data` in python
+ - It's a bit like a `spreadsheet` in excel or a `data view` in SPSS
+
+| | participant name | band | instrument | song writer | original member |
+|:-----|:--|:-:|:-:|:-:|:-:|
+|0 | 'John Lennon' | 'Beatles' | 'Guitar' | 'yes' | 'yes' |
+|1 | 'Morris Day'| 'The Time'| 'Vocals'| 'no' | 'yes' |
+|2 | 'Robert Trujillo'| 'metalica' | 'Bass'| 'no' | 'no' |
+
+# the pandas DataFrame{.smaller}
+
+ - The above is a simple example of a `DataFrame`,
+ - as a social science researcher you'll be `reading` your data into a `DataFrame` from files rather than creating them from scratch.
+ - In the cell below we're going to demonstrate how you might make a `DataFrame` from some `lists`, but you can also make them from `dicts`, and other types of objects as well (The code is on brightspace for you to use in your own notebooks)
+
+# the pandas DataFrame{.smaller}
+
+```{python}
+#| echo : true
+#| eval : true
+import pandas as pd #importaing pandas with the nickname pd
+# initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example
+names = ['John Lennon', 'Morris Day', 'Robert Rtujillo', 'Prince', 'Pete Best', 'Frank Zappa']
+bands = ['Beatles', 'The Time', 'metalica', 'The Time', 'Beatles', 'The Mothers']
+instruments = ['Guitar', 'Vocals', 'Bass', 'Multi', 'Drums', 'Multi']
+writer = ['yes', 'no', 'no', 'yes', 'no', 'yes']
+orig = ['yes', 'yes', 'no', 'yes', 'yes', 'yes']
+bands_df = pd.DataFrame(# opening brackets but moving to new line for readability, note the uppercase D and F in the call
+    list(zip(names,bands, instruments, writer, orig )), #first argument note the comma at the end of it, this is a couple of nested functions
+    columns = ['Participant name', 'band', 'instrument', 'song writer', 'original member']# second argument , passing a list to the columns arguments
+    )# closing the first pair of brackets to complete the function call
+```
+
+
+# a note on `constructors` {.smaller}
+
+ - We've actually shown you a couple of examples of `constructors` before 
+ - `int()`, `float()`, `str()`, `list()`, `dict()`, `pl.Path()` and `pd.DataFrame()` are all `constructors`
+ - a `constructor` is just a special type of `function` that creates an `object` of a certain `type`. 
+ - Take the name of the `type`, put `()` after it, and you pass in the `arguments` that you want to use to create the `object`.
+
+
+# another note on `constructors` {.smaller .scrollable}
+
+ - What you might note from `pl.Path()` and `pd.DataFrame()` is that both of these `constructor functions` use uppercase letters.
+ - Most `constructors` do, with the exception of the python basic classes like `list()`, `int()`, `dict()` etc, 
+ - Generally speaking a `constructor` will use uppercase letters at the start of each word in the name.
+
+` my_data = pd.DataFrame(...) # this is a constructor`
+
+` data_path = pl.Path(...) # this is a constructor`
+
+
+# Importing to pandas `DataFrame` {.smaller}
+
+ - As we said above, it's useful to know how to make a `DataFrame` by hand.
+ - However, you will be `reading` data into a `Dataframe` much more often,
+ - For example reading in a `.csv` or a `.xlsx` file from qualtrics,
+ - and pandas has a number of `pd.read...()` `functions` to allow you to do this easily.
+
+# Importing to pandas `DataFrame` {.smaller}
+
+  - The `pd.read_csv()` `function` is the most common way to read in a `.csv` file
+  - The `pd.read_excel()` `function` is the most common way to read in a `.xlsx` file
+  - The `pd.read_spss()` `function` is the most common way to read in a `.sav` file
+  - Although `pd.read_spss()` requrires the `pyreadstat` `module` to be installed (because SPSS is closed source and hard to work with)
+
+
+# Importing to pandas `DataFrame` {.smaller}
+ 
+ - The `pd.read_csv()` `function` is really powerful and has a lot of `arguments` that you can use to `customise` how your data is read in
+ - For example, you can specify the `delimiter` that separates the columns in your data, you can specify the `header` row, you can specify the `index` column, and you can specify the `column` names
+ - But, it can also be called really simply, with just the `file path` as an `argument`
+
+
+# Importing to pandas `DataFrame` {.smaller}
+
+
+```{python}
+#| echo : true
+#| eval : false
+import pathlib as pl # importing the pathlib module with the nickname pl 
+data_path = pl.Path(r".\data\bands_df.csv") # creating a path object to the location of your data
+bands_df = pd.read_csv(data_path) # reading in the data from the path object
+bands_df.head(3) # showing the first 5 rows of the data
+```
+# Importing your data into a pandas `DataFrame` {.smaller}
+
+ - The `read_excel()` `function` is very similar to the `read_csv()` `function`
+ - It has a lot of the same `arguments` and can be called in the same way
+
+```{python}
+#| echo : true
+#| eval : false
+#we've already imported pandas as pd and pathlib as pl so no need to do it again
+xl_path =  # creating a path object to the location of your data
+bands_df_xl = pd.read_excel(pl.Path(r".\data\bands_df.xlsx")) # reading in the data from the path object
+bands_df_xl.head(3) # showing the first 5 rows of the data
+```
+
+# Importing your data into a pandas `DataFrame` {.smaller}
+
+ - OK it's time for you to try this out for yourself
+ - In your `day 2` notebook, create a `DataFrame` from a `.csv` file
+ - the file is called `bands_df.csv` is up on brightspace in the data folder
+ - Download it, move it into a folder called `data` in the same folder as your notebook,
+ - then use the `pd.read_csv()` `function` to read it into a `DataFrame`
+
+# Importing your data into a pandas `DataFrame` {.smaller}
+ 
+ - There's lot's of ways to import data, you can even import multiple data files at once
+ - But for now, we're going to stick with the basics and we're going to start looking at some of the `attributes` and `methods` of the `DataFrame` object
+ - Don't worry, you'll be practicing other imports later on.
+
+
+# The anatomy of a `DataFrame`
+
+ - One of things thats great about `DataFrames` is that they have a very simple structure which allows us to work with them really easily.
+ - Too start out with we're going to look at 
+   - the `head()`,
+   - the `tail()`,
+   - the `shape`,
+   - the `columns` 
+   - and the `index`. 
+
+# The head() method{.smaller}
+
+ - The `head()` `method` of a `DataFrame` object is a really useful way to see the first few rows of your data
+ - It's really useful for checking that you've read your data in correctly
+ - By default it shows the first 5 rows of your data, but you can pass in a number to show more or fewer rows
+ - There is also a `tail()` `method` that shows the last few rows of your data
+
+```{python}
+#| echo : true
+# | eval : true
+bands_df.head() # this will show the first 5 rows of the DataFrame
+```
+
+# The head() method{.smaller}
+
+The *keen-eyed* amongst you might notice that `.head()` prints out the first **5** rows of the dataset, so poor Frank Zappa doesn't get included. **5** is the default value for `.head()`, but we can change that by just putting an `int` between the brackets.
+
+. . .
+```{python}
+#| echo : true
+# | eval : true
+bands_df.head(6) # this will show the first 5 rows of the DataFrame
+```
+
+
+
+
+# the `.tail()` method{.smaller}
+
+ - We're pretty sure you can guess what `.tail()` does... it displays the last *n* rows of a `DataFrame`. 
+
+```{python}
+bands_df.tail()# calling there last 5 rows of the bands data
+```
+
+- There's Frank!
+- You can also specify the number of rows with an int between the brackets. 
+
+# more importing practice {.smaller}
+
+ - In your `day 2` notebook, create a `DataFrame` from the `movies_df.xlsx` file
+ - The file is up on brightspace in the data folder
+ - Download it, move it into a folder called `data` in the same folder as your notebook,
+ - then use the `pd.read_excel()` `function` to read it into a `DataFrame`
+ - then use the `head()` and `tail()` `methods` to check that you've read it in correctly
+
+
+
+# Attributes
+An `attribute` is just one of the features of a `class` object, each `class` will have attributes associated with it. This is covered in more detail in [the youtube tutorials we mentioned earlier](https://www.youtube.com/watch?v=Z1Yd7upQsXY&list=PLP_zqJ75jdgoqr3oiDA21o_K8p8GFRWHa), but for right now we're just going to focus on three `attributes` of our `df`, the `shape`, the `columns`, and the `index`. 
+
+
+# `df.shape`
+The `shape` of a `df` is the height' and the 'width' of the dataset, which just means the number of rows and columns respectively. If we take a look at the `shape` of `bands_df` 
+
+```{python}
+bands_df.shape #note the lack of brackets!
+
+#don't forget to run this cell
+```
+
+we can see that we get a pair of values, 6 and 5. The first value (6) is the number of rows, which means we have 6 musicians in the dataset. The second value (5) is the number of columns in our dataset, which means we've got 5 variables related to each of our participants. One of the cool things about `shape` is that it can `return` a `list-like` object called `tuple`, which can be indexed like a `list` and so we could use it to make an `f-string` by using the `attribute` `syntax`
+
+```{python}
+print(f'A total of {bands_df.shape[0]} individuals took part in our research')
+```
+
+In the cell below call `.shape` on the csv `df`, this will tell you how many columns there are in total, and how many rows we have in the raw data.
+
+```{python}
+# check out the shape of csv_df in this cell
+
+
+# save the number of participants (using the indexing syntax) as the variable n 
+```
+
+# `df.columns`
+
+OK, so with the  `head()`, and `tail()` methods, and the `shape` attribute you can get a highlevel view of you data, but when we want to start editing our data to get it ready for analysis we want to be able to see what columns are called and where they are in the dataset. Pandas handles this in a really great way with the `.columns attribute`. 
+
+In short, `.columns` is a `list` of the columns, in the order in which they appear in the `df`. It's just a `list` of `strings` (99% of the time, unless someone has made some real errors when making the data), and so you already know how to do a lot of things with `.columns`. 
+
+Lets take a look at the `bands_df.columns` in the cell below. 
+
+```{python}
+for i in bands_df.columns: #using a for loop to iterate over each column name in the df columns
+    print(i)
+```
+
+We can also `index` it like any other list 
+
+```{python}
+bands_df.columns[0]
+```
+
+So we can see that the first column in the bands `df` is 'Participant name' (don't foget that python is 0-indexed). And you already know that if we want to find out the `index` of each column in our df, we can use a `for-loop` with the `enumerate()` function (like we did in one of the examples in the week 3 notebook). 
+
+```{python}
+for i, c in enumerate(bands_df.columns): #using the enumerate function to get the (i)ndex and the (c)olumn name for the columns in the bands data set
+    print(f'{i} = {c}')
+```
+
+This can be really handy when you want to rename columns (which we'll cover later) but since the column names are so accesible, they're just `strings` in a `list`, there's a lot that we can do with them, and it can make cleaning, splitting, and searching you're data really easy. In the cell below, print out the index and column name for each column in your csv data columns  
+
+```{python}
+# remember that you use the syntax "name_of_df.column" to get the columns attribute, there no brackets in an attribute call
+```
+
+Excellent, you now know how to import your data, to get a size of your data, how to view the top and bottom of your dataset, and how to call on the columns of your dataset. The last thing to talk about here is `df.index`. 
+
+# `df.index`
+
+You've already seen the word `index` in python, and when it comes to `lists` and `strings` you know that it means an items postition within an object. When it comes to `DataFrames` the term `index` is a little different but it still basically means the same thing, it refers to the `row` of a particular participant (observation) in your data set. In other words it refers to a row's vertical position (reading from top to bottom) in your `df`. 
+
+So, if we take a look at `bands_df.head()`
+
+```{python}
+bands_df.head(6)# calling 6 so we can see the whole of this small df
+```
+
+we can see that John Lennon is as `index` 0 and that Frank Zappa is at `index` 6 (or -1 because it's the last observation in our dataset). There are things we can do with the `index`, like set a different column (like maybe 'Participant name') to be the `index`
+
+```{python}
+new_bands_df = bands_df.set_index(bands_df.columns[0], drop=True) # creating a copy of the bands data with 'Participant name' as the index (df.set_index() is a class method)
+new_bands_df.head()# displaying the head of the new df
+```
+
+but generally, with simple `DataFrames` you can just leave it as it is. It doesn't `return` a `list` so we wouldn't tend to interact with it in the same way. 
+
+```{python}
+bands_df.index
+```
+
+Unless we've `set_index()` like I showed you above
+
+```{python}
+new_bands_df.index[0]
+```
+
+But this is only useful for very spific types of datasets, which you might work on in future but it's not the norm with the SPSS-like datasets that we normally work with. 
+
+OK, thats a lot of introduction stuff, but now we want you to try it out yourself with a different dataset. You should have an SPSS version (.sav) of the raw data saved, and or the rest of this document we want you to: 
+
+ 1. Save the path to that spss file as a `.Path()` object
+ 2. Use that object to import the data to a padas `df` (use the syntax `spss_df = pd.read_spss(path)`
+ 3. display the head
+ 4. display the tail
+ 5. print out each column name, and it's index in the `.columns` list
+ 6. make a copy of the `df` with 'ResponseId' as the index 
+
+Make a new code cell for each step and take your time working through it. 
+
+When you get to step two, there'll be a bit of a trick to get it to work, the cell will through an error the first time, read the error and see if you can figure out how to fix it (hint, the answer is in the word document 'Setting up a Virtual Environment with Anaconda.docx')
+
+
+

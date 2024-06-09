@@ -1,0 +1,12 @@
+director,names,genre,year,imdb_score,rt_critics,lead,cry
+John Carpenter,The Thing,Horror,1982,82,82,male,No
+,Blade Runner 2049,Sci-Fi,2017,80,88,Male,No
+Nicolas Winding Refn,Drive,Action,2011,78,93,m,No
+Matthijs van Heijningen,The Thing,Horror,2011,62,34,Female,No
+Damien Chazelle,Whiplash,Drama,2014,,,m,No
+Dennis Villanueve,Arrival,Sci-Fi,2016,79,94,Male,Yes
+Coen Brothers,No Country for Old Men,Drama,2007,82,93,fem,No
+Kelly Asbury,Shrek 2,Comedy,2004,73,89,Orgre,Yes
+Edgar Wright,Hot Fuzz,Comedy,2007,78,91,Male,No
+Coen Brothers,Fargo,Dark Comedy,1996,81,94,Male,No
+The Watchowskis,The Matrix,Sci-Fi,1999, 82, 94, Male, No

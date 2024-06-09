@@ -1,0 +1,381 @@
+---
+title: Week 5 - Lets get down to business!
+jupyter: python3
+---
+
+
+Hello and welcome back to week 5 of our python for SPSS users workshops. 
+
+This is the fist session where you will actually start to work with data in python, but before we start with that we just want to remind you that, even though there will be nuances to the `syntax` we use when when working with data, we have tried to introduce you to the fundamentals of each step. We'll do our best to point you to the previous resources or other online resources that you can use as you go. 
+
+So, rather than recaping anything this week, we're going to jump into it, but the earlier workbooks and word documents are always there for you to go back to.
+
+With that in mind... lets do this.
+
+## Part 1 - set up and work flow. 
+
+OK, the first part of any project is the set up. We can't stress enough how important it is to have a consistent workflow when working on a project, as anyone who has ever saved an assignment and then forgotten where they saved it will tell you. What we're going to quickly go through here is **an** example of how to do this, you might find other ways that suits you better, making small changes or laying things out differently, but these steps are the bare minimum, and while you can (and should) add things if they seem useful, there would need to be a very good reason to skip any of them.  
+
+### Create your directory
+A directory is another name for a 'folder' on your computer and every project you work on should have it's own directory where everything connected to that project is stored. We covered this in week one when we asked you to create a directory called something like 'Programming club'. This really should be the first step in any project, even if you're just playing around with some code. 
+
+#### Create your subdirectories
+A sub-directory is just a folder that exists within another folder, sometimes you'll see them called sub-folders, and we use them to help us keep track of a project, and to make sure that there is some reasonable order to the files that are required. In general it is good practice to have:
+
+ 1. A folder that contains all of your code - this is generally called 'src'
+ 2. A folder that contains all of your data - this is called (in a surprising twist) 'data'
+ 3. A folder that contains any output from your work, like text files, or graphs/figures - this is called 'output'
+
+Can you add other folders? Of course. Can you put folders within folders (to seperate old files from new files for example) again, please do! These directories are there to help you, so set them up as you will, [this paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) is a really good place to look for guidance on how to organise your project. We suggest you give it a read whenever, but honestly, untill you've got a couple of small projects under your belt, a lot of it won't really make sense to you. 
+
+In week 1 of these workshops we got you to set up a directory and subdirectories for these workshops, we have been encouraging you to save all the note books for each week in the 'src' folder and any of the preparatory word docs in a 'preparation' folder, so you can see that we added to the three basic sub-folders already with the 'preparation' sub-folder, so again, make it work for you. You can always add folders later in a project if they're needed, or you can move things into other sub-directories if you need to, but starting out with a structure in place is so valuable (trust us).
+
+You don't need to do this again for these workshops, we already had you do this in week 1, but we wanted to make it explicite. Its an important first step. 
+
+*In the future you will come across something called 'Git' or 'version control' and we encourage you to learn about it and something called 'github.com', it's really great, but we didn't want to overburden you with new stuff to early. If you're interested in it we can try to run a session on it, or you can check out the [git for poets](https://www.youtube.com/watch?v=BCQHnlnPusY&list=PLozRqGzj97d02YjR5JVqDwN2K0cAiT7VK) youtube tutorial (it's areally good start)*
+
+
+### Create your virtual environment
+
+**We. Can't. Stress. Enough.** How important it is to any project in python, data projects or otherwise, to use `virtual environments` also called `venvs`. We covered this in the sessions in week 4 but just to reiterate the point here. Python and the modules that we use in our projects are always growing and changing, new functionality is always being added and existing functionality is always being improved. This means that over time, code that you have written might stop working. This doesn't happen often, and it never happens out-of-the-blue, but it does happen. Imagine going back to a project after the summer holidays, for example, or switching over to a new device after there has been a significant update to python, and needing to go back through all your code to find `depreciated` (outdated) `code` that no longer works and rewtire all of it to get your results again. Virtual environments help to avoid this. 
+
+If you haven't set up a virtual environment yet, we sent out a document called 'Setting up a Virtual Environment with Anaconda.docx' that you should work through now, so that you have one for these workshops, but if you set one up last week, you can just continue to use that one. Don't be afraid to ask questions in the lab sessions (or drop us an email) if you need more help with it. 
+
+#### Installing modules (also called libraries or packages)
+Generally, when you are working on a project there will be `modules` that you know you'll need before you start and you want to make sure that those modules are installed when you create the `virtual environment`. For example, when working on an SPSS-like data project you'll need `pandas`, `matplotlib` and `scipy.stats` (theres others but these are the ones we reach for most often), and, as we outlined in the'Setting up a Virtual Environment with Anaconda.docx' guide, we would just install them with pip:
+
+```
+> pip install pandas 
+
+```
+
+You can always go back and install more later by reactivating your `venv` and just running another `pip` call, and this will happen fairly often when you start out, but it's a good idea to just install the ones you know you'll need at the outset. 
+
+### Put the files you need where you need them. 
+So now that you have your directory set up and you've made your `venv` you just need to bring any files that you know you'll need together to be ready to start writing code. So for example, we emailed you a some datafiles called `raw_data_spss.sav` and `raw_data_csv.csv`, so you should put those files in the 'data' sub-directory, if you had other files that needed to be there to start the project, like maybe a codebook file, or an outline text document, you might put them in an appropriate sub-directory too. 
+
+
+
+And with that you're basically ready to make your first python file. In this case you'll be working in this notebook, but in future you will open VScode (or another IDE if you find one you like) and get to work. 
+
+
+## Part 2 - get on with it lads!
+
+Ok ok. You're clearly ready to start working, so lets get to it. 
+
+### Importing modules
+
+Just like setting up your folder structure and `venv` is the start of any project, the start of any python file (whether it's a jupyter notebook or just a normal python file), is to `import` the modules you'll be using. We do this in the first cell of our notebook for a few reasons. 
+
+ 1. It helps others get a sense of the what the file is for, kind of like an abstract
+ 2. It condenses all of the `import` statments into one area so they're easy to find it there's a problem (you'd be amazed how much of coding is doing things 'in case')
+ 3. It is a convention. Other pythonistas do it that way and there isn't a good enough reason to change it
+
+You could absolutly just import the modules when you need them, but that would make your code confusing for others and harder for you to debug, so... don't be *that guy*. 
+
+For today we'll be importing, inspecting, and doing a little data cleaning so for today all we're going to `import` is `pandas`, `pathlib` and `datetime`. `Pandas` is the only 3rd party module, the other two are part of the [python standard library](https://docs.python.org/3/library/index.html). 
+
+
+```{python}
+import pathlib as pl# this module lets us work with directory paths
+import datetime as dt# this helps us to pars dates and times
+import pandas as pd# this is what lets us make, import and work with tabular data
+
+#don't forget to run this cell
+```
+
+And we're off... we have just imported the modules we'll need for the project, which means we now have all the `functions` and `classes` (we'll explain this in a minute) at our disposal to use as we need. Now we *could* just have written
+
+```
+import pathlib
+import datetime
+import pandas
+
+```
+
+and it would have done the samething, but using `as` and then providing a shorter tag like `pl` or `pd` means that we don't have to type the full name of the `module` everytime we want to use some of it's functionality. This will make more sense as we go along so... let's.. go along...
+
+
+## telling python where things are on our computer (working with `paths`)
+
+Much like when working in SPSS, we have to tell python which file we actually want to work with. In SPSS you often do this by clicking 'file' then clicking 'open', then 'data' and then a filexplorer window opens and you hunt for the file you want, then double click it, and then wait for SPSS to load in the `.sav` file (probably cooking a 3 course meal in the meantime). In contrast, all we need to do in python is enter the `path` to our file, and then we can just get python to work with that file. 
+
+### ok but what is a `path`?
+
+You probably know (but it's ok if you don't) that every file on your computer has an address, or a location where it is 'stored' on your computers harddrive, files are stored in directories which are (often) in other directories, which are located on your drive (unless you have multiple hardrives or are using an external hard drive/usb stick). For example, you might have a song on your computer which lives in your music folder, which is in your Documents folder, which is in your C: drive. Or you might have a Word doc that you're working on for one of your classes, which is on your Desktop, which is really just a directory (folder) on your harddrive. 
+
+The `path` is just the directions that the computer needs to follow - listing each directory along the way - to get to your file. So in the song example above, on a Windows computer the `path` to our song (the song's address) would be something like 
+
+```
+C:\\users\user.name\Documents\Music\song.mp3
+```
+
+Or for the Word doc example, if you were using a Mac the `path` might be
+
+```
+/Users/username/Desktop/assignment.docx
+```
+
+So simply put the `path` just lists each directory we need to go through to get to a file, with each directory seperated by a slash. On Windows systems it's a backslach (`\`) and on MacOS it's a forwardslash (`/`). Although paths might seem complicated, they are basically just a special type of `string` and thanks to `pathlib` we can do lots of cool things with them, as well as the `string operations` that we've covered earlier.
+
+#### where to get the `path` from
+You don't *need* to just remember the full `path` for a file or folder, you can always just go to the file on your computer (using file explorer on windows or finder on MacOS) and copy the `path`, but, if you have followed the setup steps we suggested up above you can find your file in the 'Explorer' pane in VScode, right click on your file and select '`copy path`', once you've done this you can just paste your `path` in as a `string` (so make sure you add the quotation marks) and then we can tell python that this is a `path` by using the `constructor` (don't worry we'll explain this) like so:
+
+```
+path_to_my_file = pl.Path('C:\Users\your.username\OneDrive - University of Limerick\Documents\GitHub\ULpsych_programing_club\data\raw_data_spss.sav') # note the upper-case 'P' at the start of Path()
+
+```
+
+If you look at the line of code above, all we did was create a `Path` object and passed it to a `variable` called `path_to_my_file`. 
+
+
+The `pl.Path()` bit means that we are using the `Path()` `constructor` (which is just a kind of `function`, again we'll explain them later) from the `Pathlib` module. Because we `imported Pathlib` as `pl` we don't need to type `pathlib.Path()`. 
+
+In the cell below create a `Path` object for the .csv version of the data
+
+##### *note about taking in files from windows computers*
+
+*because windows computers use '\\' we need to put an r immediately before the string to make python interpret the \ properly. This is called an `rstring` meaning 'raw string' just like `f-string` stands for 'formatted string'. If you're on a mac you don't need to worry about this.*
+
+*so on a windows computer it would look like*
+```
+my_path = pl.Path(r'path\to\my\file.doc')# note the 'r' before the quotation marks
+```
+
+```{python}
+#Create you Path objects here
+
+csvfile = pl.Path()#copy the path for the csv file in here
+
+#Don't forget to run this cell. 
+```
+
+Now that you have you have the `Path` objects created there's loads you can do with them. [This tutorial](https://realpython.com/python-pathlib/#picking-out-components-of-a-path) is a really good introduction to working with `pathlib` but for now we just need to the `paths` to allow us to import the data into python. 
+
+## The pandas `DataFrame`
+
+Pandas is the main program used for handling SPSS like data, it's really powerful and it has a lot of built-in functionality that allows us to import, clean and process data, to run simple analysis, and to produce graphs and charts. It can also be extended with other modules to make working in python even more powerful (and fun) but right now we're going to focus on the `DataFrame` because this is the object that will actually contain our data. 
+
+In essence a dataframe is just like the 'Data view' in SPSS or an excel spreadsheet, it's made up of columns and rows, where each columns represents  one of our measurement variables and each row represents one of our observations (or participants in most psychology data). This is called `tabular data` because it's basically just a big table.  
+
+
+| | participant name | band | instrument | song writer | original member |
+|:-----|:--|:-:|:-:|:-:|:-:|
+|0 | 'John Lennon' | 'Beatles' | 'Guitar' | 'yes' | 'yes' |
+|1 | 'Morris Day'| 'The Time'| 'Vocals'| 'no' | 'yes' |
+|2 | 'Robert Trujillo'| 'metalica' | 'Bass'| 'no' | 'no' |
+|3 | 'Prince'| 'The Time| 'Multi'| 'yes' | 'yes' |
+|4 | 'Pete Best' | 'Beatles' | 'Drums' | 'no' | 'yes' |
+
+This is a simple example of a `DataFrame` and theres loads of ways to make them, but more often than not, as a social science researcher you'll be importing your data into a `DataFrame` rather than creating them from scratch. In the cell below we're going to demonstrate how you might make a `DataFrame` from some `lists`, but you can also make them from `dicts`, and other types of objects as well. 
+
+```{python}
+# initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example
+
+names = ['John Lennon', 'Morris Day', 'Robert Rtujillo', 'Prince', 'Pete Best', 'Frank Zappa']
+bands = ['Beatles', 'The Time', 'metalica', 'The Time', 'Beatles', 'The Mothers']
+instruments = ['Guitar', 'Vocals', 'Bass', 'Multi', 'Drums', 'Multi']
+writer = ['yes', 'no', 'no', 'yes', 'no', 'yes']
+orig = ['yes', 'yes', 'no', 'yes', 'yes', 'yes']
+
+bands_df = pd.DataFrame(# opening brackets but moving to new line for readability, note the uppercase D and F in the call
+    list(zip(names,bands, instruments, writer, orig )), #first argument note the comma at the end of it, this is a couple of nested functions
+    columns = ['Participant name', 'band', 'instrument', 'song writer', 'original member']# second argument , passing a list to the columns arguments
+    )# closing the first pair of brackets to complete the function call
+```
+
+Thats just an example of how you can make a `DataFrame` by hand if you need to, which can be really useful if you need to make an example data set to get a question answered online without sharing participant data with d'internet. 
+
+All we did was use the `DataFrame` `constructor` to some `list` objects and turn them into a `DataFrame` object. 
+
+#### a note on `constructors`
+Now that we've shown you a couple of examples of `constructors` it will hopefully be clear that a `constructor` is just a speacial type of `function` that creates an `object` of a certain `class`. A `class` is just pythons name for a datatype, so other examples of classes are `lists`, `ints`, `dicts`, `Paths`, and of course `DataFrames`. Some of you noticed this when you called the `type()` `function` on objects in earlier workshops. It tells us the `class` of a given object. Run the cell below for a reminder. 
+
+```{python}
+print(type(names))
+print(type(names[0]))
+print(type(bands_df))
+```
+
+What you might note from `pl.Path()` and `pd.DataFrame()` is that both of these `constructor functions` use uppercase letters. Most `constructors` do, with the exception of the python basic classes like `list()`, `int()`, `dict()` etc, we don't know why these constructors are different but since they aren't used that often it doesn't really matter. Generally speaking a `constructor` will use uppercase letters at the start of each word in the name. This is why we've discouraged you from using uppercase letters in your own functions, if another python user saw uppercase letters in your `functions` they'd think it was a `constructor`. 
+
+
+### Importing your data into a pandas `DataFrame`
+As we said above, it's useful to know how to make a `DataFrame` by hand. However, you will be `reading` data into a `Dataframe` much more often, for example importing data from SPSS files sent by someone else, or reading in a `.csv` or a `.xlsx` file from qualtrics, and pandas has a number of `pd.read...()` `functions` to allow you to do this easily. In the cell below we're showing you an example of the `read_csv() function` which, unsurprisingly, is what we use to import `.csv` files. We're using the `csvfile` `Path()` variable that you made up in the first `code cell` of this workbook. If it doesn't work below make sure you made the `csvfile` variable properly (and don't forget to run that cell up above).  
+
+```{python}
+# 'df' is the shorthand convention used to name DataFrames, you'll see this all over the internet when looking for answers
+
+
+csv_df = pd.read_csv(csvfile) # using the csvfile Path variable inside read_csv() to import data to DataFrame 
+```
+
+Boom you've just imported your first dataset into pandas. You'll practice it yourself with the SPSS version of the file. 
+
+If you want to (and we really encourage you) to read up on `read_csv()` you should check out the [pandas documentation at this link](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html). You'll see that `read_csv()` can take loads of `arguments` which allows you to specify how you want the data to be imported. Which is really handy because not everyone makes nice data. As always you don't need to memorise all of those arguments now, just know they're there and you can always look for examples online if you come up against something tricky, but for right now just note the `syntax`
+
+```
+df_name = pd.read_csv('path/to/my/file.csv')
+```
+
+### The anatomy of a `DataFrame`
+One of things thats great about `DataFrames` is that they have a very simple structure which allows us to work with them really easily. Too start out with we're going to look at the `head()`, the `tail()`, the `shape`, the `columns` and the `index`. 
+
+####  `df.head()`
+The `head` of a `DataFrame` is just the first *n* rows of a `DataFrame`, which is great because often your data set will be really big (loads of participants with loads of observations) and so you only need to check a few rows. In the cell below we've called the `head()` of the bands `DataFrame` from earlier.
+
+```{python}
+bands_df.head() # calling the first 5 rows of the bands data
+```
+
+The *keen-eyed* amongst you might notice that `.head()` prints out the first **5** rows of the dataset, so poor Frank Zappa doesn't get included. **5** is the default value for `.head()`, but we can change that by just putting an `int` between the brackets.
+
+```{python}
+bands_df.head(3) # displaying the first 3 rows of the bands data
+```
+
+So `.head()` isn't really limited to a set amount of rows (*n*) but 5 is generally more than enough, if you want more just ask for more with a larger `int` in the brackets. 
+
+#### `df.tail()`
+We're pretty sure you can guess what `.tail()` does... it displays the last *n* rows of a `DataFrame`. 
+
+```{python}
+bands_df.tail()# calling there last 5 rows of the bands data
+```
+
+There's Frank!
+
+You can also specify the number of rows with an int between the brackets. 
+
+
+#### class methods
+You'll note that the `syntax` above is a little different, instead of `head()` being called like a `function` (e.g. `head(bands_df)`) we instead use the `syntax`:
+
+```
+df.head()
+```
+
+This is beacuse `head()` and `tails()` are `class methods`. Methods are, basically, a type of function that can *only run* on objects of a `*certain class*`. There's more to it than this but thats all you need to know to use them. If you want to `define` you're own `classes` and thus make your own `class methods` then you should take some time to go through [this set of youtube tutorials](https://www.youtube.com/watch?v=Z1Yd7upQsXY&list=PLP_zqJ75jdgoqr3oiDA21o_K8p8GFRWHa).
+
+*Honestly, its well worth your time anyway.*
+
+In the cell below, play around with calling the `head()` or `tail()` of the `csv_df`, play around with the amount of rows you request with each. Just rerun the cell when you make changes to your code. 
+ 
+
+```{python}
+# call the top or bottom of your df below
+
+# remember to use the method syntax
+```
+
+Great! You have now imported your data into a `DataFrame`, and you've inspected the top and the bottom of the data. 
+
+You have probably noticed that when you call `.head()` or `.tail()` it doesn't show you all the columns in the `df`, this is due to limitations with jupyter output, it can only display a certain number of rows and columns, and so it places an elipses (...) in the middle of the `df`, showing the first 10 and the last 10 columns. There are ways around this, like `indexing` columns or rows, but you might want to get a general sense of your data first, and we can do this by looking at some of the `atrributes` of our `df`
+
+
+### Attributes
+An `attribute` is just one of the features of a `class` object, each `class` will have attributes associated with it. This is covered in more detail in [the youtube tutorials we mentioned earlier](https://www.youtube.com/watch?v=Z1Yd7upQsXY&list=PLP_zqJ75jdgoqr3oiDA21o_K8p8GFRWHa), but for right now we're just going to focus on three `attributes` of our `df`, the `shape`, the `columns`, and the `index`. 
+
+
+### `df.shape`
+The `shape` of a `df` is the height' and the 'width' of the dataset, which just means the number of rows and columns respectively. If we take a look at the `shape` of `bands_df` 
+
+```{python}
+bands_df.shape #note the lack of brackets!
+
+#don't forget to run this cell
+```
+
+we can see that we get a pair of values, 6 and 5. The first value (6) is the number of rows, which means we have 6 musicians in the dataset. The second value (5) is the number of columns in our dataset, which means we've got 5 variables related to each of our participants. One of the cool things about `shape` is that it can `return` a `list-like` object called `tuple`, which can be indexed like a `list` and so we could use it to make an `f-string` by using the `attribute` `syntax`
+
+```{python}
+print(f'A total of {bands_df.shape[0]} individuals took part in our research')
+```
+
+In the cell below call `.shape` on the csv `df`, this will tell you how many columns there are in total, and how many rows we have in the raw data.
+
+```{python}
+# check out the shape of csv_df in this cell
+
+
+# save the number of participants (using the indexing syntax) as the variable n 
+```
+
+### `df.columns`
+
+OK, so with the  `head()`, and `tail()` methods, and the `shape` attribute you can get a highlevel view of you data, but when we want to start editing our data to get it ready for analysis we want to be able to see what columns are called and where they are in the dataset. Pandas handles this in a really great way with the `.columns attribute`. 
+
+In short, `.columns` is a `list` of the columns, in the order in which they appear in the `df`. It's just a `list` of `strings` (99% of the time, unless someone has made some real errors when making the data), and so you already know how to do a lot of things with `.columns`. 
+
+Lets take a look at the `bands_df.columns` in the cell below. 
+
+```{python}
+for i in bands_df.columns: #using a for loop to iterate over each column name in the df columns
+    print(i)
+```
+
+We can also `index` it like any other list 
+
+```{python}
+bands_df.columns[0]
+```
+
+So we can see that the first column in the bands `df` is 'Participant name' (don't foget that python is 0-indexed). And you already know that if we want to find out the `index` of each column in our df, we can use a `for-loop` with the `enumerate()` function (like we did in one of the examples in the week 3 notebook). 
+
+```{python}
+for i, c in enumerate(bands_df.columns): #using the enumerate function to get the (i)ndex and the (c)olumn name for the columns in the bands data set
+    print(f'{i} = {c}')
+```
+
+This can be really handy when you want to rename columns (which we'll cover later) but since the column names are so accesible, they're just `strings` in a `list`, there's a lot that we can do with them, and it can make cleaning, splitting, and searching you're data really easy. In the cell below, print out the index and column name for each column in your csv data columns  
+
+```{python}
+# remember that you use the syntax "name_of_df.column" to get the columns attribute, there no brackets in an attribute call
+```
+
+Excellent, you now know how to import your data, to get a size of your data, how to view the top and bottom of your dataset, and how to call on the columns of your dataset. The last thing to talk about here is `df.index`. 
+
+### `df.index`
+
+You've already seen the word `index` in python, and when it comes to `lists` and `strings` you know that it means an items postition within an object. When it comes to `DataFrames` the term `index` is a little different but it still basically means the same thing, it refers to the `row` of a particular participant (observation) in your data set. In other words it refers to a row's vertical position (reading from top to bottom) in your `df`. 
+
+So, if we take a look at `bands_df.head()`
+
+```{python}
+bands_df.head(6)# calling 6 so we can see the whole of this small df
+```
+
+we can see that John Lennon is as `index` 0 and that Frank Zappa is at `index` 6 (or -1 because it's the last observation in our dataset). There are things we can do with the `index`, like set a different column (like maybe 'Participant name') to be the `index`
+
+```{python}
+new_bands_df = bands_df.set_index(bands_df.columns[0], drop=True) # creating a copy of the bands data with 'Participant name' as the index (df.set_index() is a class method)
+new_bands_df.head()# displaying the head of the new df
+```
+
+but generally, with simple `DataFrames` you can just leave it as it is. It doesn't `return` a `list` so we wouldn't tend to interact with it in the same way. 
+
+```{python}
+bands_df.index
+```
+
+Unless we've `set_index()` like I showed you above
+
+```{python}
+new_bands_df.index[0]
+```
+
+But this is only useful for very spific types of datasets, which you might work on in future but it's not the norm with the SPSS-like datasets that we normally work with. 
+
+OK, thats a lot of introduction stuff, but now we want you to try it out yourself with a different dataset. You should have an SPSS version (.sav) of the raw data saved, and or the rest of this document we want you to: 
+
+ 1. Save the path to that spss file as a `.Path()` object
+ 2. Use that object to import the data to a padas `df` (use the syntax `spss_df = pd.read_spss(path)`
+ 3. display the head
+ 4. display the tail
+ 5. print out each column name, and it's index in the `.columns` list
+ 6. make a copy of the `df` with 'ResponseId' as the index 
+
+Make a new code cell for each step and take your time working through it. 
+
+When you get to step two, there'll be a bit of a trick to get it to work, the cell will through an error the first time, read the error and see if you can figure out how to fix it (hint, the answer is in the word document 'Setting up a Virtual Environment with Anaconda.docx')
+
