@@ -389,6 +389,17 @@ movies_df.rename(columns = {'Participant Name': 'Director'}, inplace = True)
 movies_df.head(2)
 ```
 
+# Renaming columns - option 1 {.smaller}
+
+ - You can also use the `.rename()` with the for loop as we did in a previous session
+
+```{python}
+#| echo: true
+#| eval: true
+
+for i in movies_df.columns:
+    movies_df[i].rename(columns ={i:i.lower()}, inplace = True)
+```
 
 
 ## Working with Our dataframe 
