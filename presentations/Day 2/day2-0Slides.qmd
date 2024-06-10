@@ -520,6 +520,17 @@ for col in bands_df.columns: # using a for loop to iterate over each column name
 print(bands_df.columns) # printing out the columns of the bands data set
 ```
 
+# `.rename()` method{.smaller}
+
+ - The `.rename()` `method` is a handy one to know, especially starting out, but it's not the only way to change column names in a `DataFrame`
+ - Note that when we call the `.rename()` `method` we're passing in a `dict` with the `old` column name as the `key` and the `new` column name as the `value` (and you know how you can `zip` two `lists` together to make a `dict` right?)
+  - We're also passing in the `inplace=True` `argument` which tells the `method` to change the `DataFrame` in place, rather than returning a new `DataFrame` with the changes made
+
+` bands_df.rename(columns=dict(zip(bands_df.columns[0:5]: ['id', 'age', 'gender', 'course'])), inplace=True)` 
+
+
+
+
 # `df.columns` {.smaller}
 
  - In your notebook, make all the column names in the `movies_df` uppercase using a `for-loop` and the `upper()` `method` of a `string`

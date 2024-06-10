@@ -1,0 +1,579 @@
+---
+title: Week 6 - Make the kind of data you want to see in the world
+jupyter: python3
+---
+
+
+Welcome back! 
+
+Last week we took a look at importing data into a Pands `DataFrame`, using Pathlib's `Path` objects. We also introduced you to the structure of a `DataFrame` through `class methods` like `.head()`, `.tail()` (which display the top and bottom of your `df` respectively) and `attributes` like the `shape` of the `DataFrame`, the `df.columns`, and the `df.index`. 
+
+This week we're going to look at some options for cleaning a dataframe, such as `dropping` unneeded columns and `rows`, standardising or `renaming` columns, as well as some other cool things (like ) `slicing` your data, and 'fixing' inconsistent data. 
+
+Before we get into that though, we need to import some data to work with so this is a good time to practice what you learned last week. In the cell below:
+
+ 1. Import the packages pandas and pathlib (don't forget the 'as' bit; make sure you have selected the kernel related to your virutal environment)
+ 2. Create a Path() to either the .csv or .sav version of your data (Last week you should have resolved the issue with importing a .sav file, so feel free to choose either type of file)
+ 3. Import your data into a Dataframe by using the Path() you have created (n.b. assign the path to a variable, and remember that we often use the shorthand 'df' when doing so)
+ 4. Display the head and tail of your dataframe to ensure that it has been imported correctly. 
+ 
+ 
+
+
+```{python}
+# Import the modules you need first
+
+
+# create the Path() to your file
+
+
+# use the pd.read_...() function to read in your data
+
+
+# display the head of your data
+
+#display the tail of your data
+```
+
+Well done, you now have data to work during this workshop. We also need some data to demonstrate examples. Run the cell below to generate our example data (``movies_df``). 
+
+```{python}
+# initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example
+import numpy as np #importing a module to allow me to include 'missing data
+
+
+director = ['John Carpenter', '', 'Nicolas Winding Refn', 'Matthijs van Heijningen', 'Damien Chazelle', 'Dennis Villanueve', 'Coen Brothers', 'Kelly Asbury', 'Edgar Wright', 'Coen Brothers']
+names = ['The Thing', 'Blade Runner 2049', 'Drive',  'The Thing', 'Whiplash', 'Arrival', 'No Country for Old Men', 'Shrek 2', 'Hot Fuzz', 'Fargo']
+genre = ['Horror', 'Sci-Fi', 'Action', 'Horror', 'Drama', 'Sci-Fi', 'Drama', 'Comedy', 'Comedy', 'Dark Comedy']
+year = ['1982', '2017', '2011', '2011', '2014', '2016', '2007', '2004', '2007', '1996']
+imdb_score = [82, 80, 78, 62, np.nan, 79, 82, 73, 78, 81]
+rt_critics = [82, 88, 93, 34, np.nan, 94, 93, 89, 91, 94]
+lead = ['male', 'Male', 'm', 'Female', 'm', 'Male', 'fem', 'Orgre', 'Male', 'Male']
+cry = ["No", "No", "No", "No", "No", "Yes", "No", "Yes", "No", "No"]
+
+
+
+
+
+movies_df = pd.DataFrame(# opening brackets but moving to new line for readability, note the uppercase D and F in the call
+    list(zip(director, names, genre, year, imdb_score, rt_critics, lead, cry)), #first argument note the comma at the end of it, this is a couple of nested functions
+    columns = ['Participant Name', 'Title of Thing', 'Genre', 'Year of Release', 'ImdB Score', 'Rotten Tomatoes Score', 'Gender of Lead', "Make Ryan Cry?"]# second argument , passing a list to the columns arguments
+    )# closing the first pair of brackets to complete the function call
+
+
+
+movies_df.head()# displaying the first 5 columns of the movies_df
+```
+
+## A closer look at the data
+
+You already know how to take the wide view of your data with `head()`, `tail()` and `.shape`, and those things are really useful but, especially with really large dataframes or unprocessed (messy) dataframes, we also need to be able to get a more focused view of sections of our data. Pandas has a lot of different ways to do this, some of which are interchangeable, and we're going to spend the next little while introducing you to some of them. 
+
+
+### Introduction to Slicing
+
+One of the most valuable operations you can perform to get a more focused view of your data is slicing. Before we learn about slicing, let's recap on indexing (slicing is essentially an extension of indexing).  
+
+Remember that we have an object, for example if we have a string, list, or dict, then each element in that object has a position. Indexing enables us to identify the which element is in a given position within that object. Let's say we have a list assigned to the variable, my_list
+
+
+```{python}
+my_list = ["apples", "bananas", "cauliflower", "dorritos", "enchiladas", "fajitas", "ginger", "honey"]
+```
+
+If we want to identify the first, fourth, and last element within my list, then we can use indexing to do that.  
+
+
+```{python}
+#my_list = ["apples", "bananas", "cauliflower", "dorritos", "enchiladas", "fajitas", "ginger", "honey"]
+#           0,         1,            2,            3,           4,           5,        6,         7   -> positive indexing
+
+print(my_list[0]) #Remember that when we index with Python, we start at 0. 
+print(my_list[3]) 
+print(my_list[7])
+```
+
+In this case, we used positive indexing (where the index positions we use to identify elements start from 0 and increase from there). But we can also use negative indexing, which is really handy when you have a large object, and want to identify the last element within that object, and you do not know how many elements are in that object.
+
+```{python}
+#my_list = ["apples", "bananas", "cauliflower", "dorritos", "enchiladas", "fajitas", "ginger", "honey"]
+#           0,         1,            2,            3,           4,           5,        6,         7   -> positive indexing
+#          -8,        -7,           -6,            -5,         -4,          -3,        -2,       -1   -> negative indexing       
+
+print(my_list[-8])  
+print(my_list[-5]) 
+print(my_list[-1])
+```
+
+You can see that while the values we have used to index an element have changed, the output is the same. While indexing is useful, it is also limited. Each time we can extract only one particular element within my object. But what if we wanted to extract several elements all at once?
+
+This is where slicing comes in. Let's say we wanted to get the first three elements within our list, we can run the following code:
+
+```{python}
+print(my_list[0:3])
+```
+
+We can see that our code returns a list of the first three elements within our object: apples, bananas, and califlower (not exactly my choice of a smoothie, but you do you)
+
+But what's going on here? Well like indexing, we use [] brackets to select elements within my object. However, unlike indexing, we insert two values to specify a range of elements we want to select within my object. The syntax for how Python slices this code is like this:
+
+`my_object[start_value:stop_value]`
+
+You may have noticed that while the element at the position of the start value is included in our list, the element at the position of our stop_value is not. This is because when we are slicing, our start_value is inclusive, but our stop_value is exclusive. If I wanted to include 'dorritos' into this smoothie of hell, I need to select one index position further
+
+```{python}
+print(my_list[0:4])
+```
+
+We can that slicing is a rather apt name - it slices up our object to return a list of elements. We just need to tell Python how we want to slice our cake. 
+
+For example, if I wanted to slice from our second element onwards, I could run the following code
+
+```{python}
+print(my_list[1:])
+```
+
+By leaving an empty space in place of the stop_value, we are telling Python to begin at the start_value, and then include everything after that within our list. 
+
+If we wanted to Python to start at the beginning of the object, and to return each element within a list up to a certain element, then we can leave an empty_space in our slice syntax
+
+```{python}
+print(my_list[:4])
+```
+
+Hopefully you can that slicing gives us a lot of flexibility, even if you are probably wondering when such functionality will come in handy. We will get on to that throughout the workshops (including todays one), but for now, in the next code cell, try slicing the my_list variable in a number of ways. But this time, see what happens when you use negative indexing. 
+
+```{python}
+# Slice 1 - Print the first three elements of my list using negative indexing
+
+
+
+
+#Slice 2 - Print the last three elements of my_list using negative indexing 
+
+
+
+
+#Slice 3 - Print the elements at index positions 2-6 (use positive or negative indexing)
+
+
+
+
+#Slice 4 - Repeat slice 3, but this time, see what happens if you combine positive and negative indexing
+
+
+
+
+#Slice 5 - See what happens when you slice a string. Uncomment the code and see what happens
+
+#my_string = "what happens if we slice this?"
+#my_string[0:-7]
+
+```
+
+You can see that negative indexing also works with Python, and not only that, but you can also combined positive and negative indexing too. We can also use slicing on strings as well as lists. Again, this part of the workshop is just to get you used to the idea of slicing, and to demonstrate its functionality and flexibility. 
+
+Before we move on to slicing a dataframe, there is one last piece of the slicing syntax that you need to know about. Not only can we specify a range for Python to slice out, we can specify the `steps` to that slicing:
+
+`my_object[start_value:stop_value: steps]`
+
+To demonstrate what I mean by steps, run the following code cell
+
+```{python}
+#example 1
+print(my_list[::2])
+
+#example 2
+print(my_list[1:5:2])
+```
+
+In example 1, since we have a left a blank space in our start_value and our stop_value, we have asked Python to essentially to span across all the elements within our object. 
+
+
+But the steps mean that Python will only return every select element within our specified range to our list. 
+
+Okay, let's see what we can do with slicing in relating to dataframes. 
+
+## Slicing our Dataframe
+
+Although we have only introduced the concept of slicing to you today, you've already sliced a dataframe before. For example, when you use the .head() or .tail() function on your dataframe, then you are slicing your dataframe to either return the top five rows `.head()` or the last five rows `.tail()`. 
+
+But we can select, or slice, a custom number of rows from our dataframe, using the same syntax from earlier.
+
+```{python}
+#let's display the first four rows from our df_movies dataframe
+
+movies_df[0:4]
+```
+
+```{python}
+#we can use negative indexing to display the last three rows from our df_movies dataframe
+
+movies_df[-3:]
+```
+
+```{python}
+#write code below to display the first seven rows of our df_movies dataframe
+```
+
+```{python}
+#write code below to display the last seven rows ouf our df_movies dataframe
+```
+
+```{python}
+#We can use the step function to print out every second row in the dataframe
+
+movies_df[::2]
+```
+
+The syntax for slicing a dataframe goes something like this:
+
+`dataframe[row_start_value:row_end_value:steps]`
+
+You can see that slicing returns the rows of a dataframe. It will not select specific columns to display. 
+
+If we want to select specific columns, then we need to use a specific method called `iloc`. This method enables us to return rows for specified columns. Those specified columns are located (loc) by it's index position (i) amongst the columns, hence why it is called `iloc`. 
+
+This might be a bit too abstract. The basic idea is that each row will have an index position in relation to other rows; similarly, each column will have an index position in relation to other columns. 
+
+Still too abstract? Well have ever seen a map (for example see this campus map: https://louisiana.edu/sites/louisiana/files/Campus_FullMap_121019.pdf) where the map is divided up into grids? 
+
+To orient you around the map, it will index one axis by letters('A', 'B'....'Z') and the other axis by numbers (1, 2,.....a gazillion). The combination of these two numbers, the co-ordinates, can then orient you to a specific place on the map. You can refer to the directory to find the specific building or location your looking for (e.g., "Starbucks Coffee - B7"). You know then that to find Starbucks on the map, you go to B on the letter axis (in this example, the rows) and then go to 7 on the number axis (in this example, the columns). 
+
+The same is true for slicing our dataframe using iloc. Both our columns and dataframes will have indices, and we can use the co-ordinates to identify specific values. The only difference between this case and our map example, is that both the row and columns co-ordinates are numerical, starting at 0 and increasing. 
+
+The Co-Ordinates of Our Dataframe (this will look weird in normal mode - double click into this markdown cell to see how the table should appear)
+
+    0   1   2   3   4
+    c1  c2  c3  c4  c5
+0   x   x   x   x   x
+1   x   x   x   x   x
+2   x   x   x   x   x
+3   x   x   x   x   x
+4   x   x   x   x   x
+
+
+Using iloc, let's return rows values only for specific columns, and then let's isolate specific values based on row x column co-ordinates. 
+
+```{python}
+### Let's select all the values for first three columns
+
+movies_df.iloc[:, 0:3]
+
+```
+
+So what happened here? Well the syntax for this operation goes like this:
+
+`dataframe.iloc[row_start_value:row_stop_value, column_start_value:column_stop_value]`
+
+For this particular example, since I left empty spaces for the row_start_value and row_stop_value, Python selects each row. But it will only return the row values for the columns between index position 0 (because our start_value is inclusive) and index position 2 (because our stop_value is exclusive). 
+
+```{python}
+#Using the syntax above, return the first two rows for the first three columns
+```
+
+One thing you might have noticed is that, so far, is that slicing has always been used to return a continous range (e.g. 2-4, 1-7). What if we wanted to select rows/columns that were not continous (e.g., 1, 3, 8)? 
+
+Slicing enables us to do that as well, we just need to pass a list of the rows/columns that we want to select
+
+```{python}
+#Let's select the values for the rows 1, 5; and the columns 2, 3, 7
+
+movies_df.iloc[[0, 4], [1, 2, -3]] #You can see that negative indexing also works with iloc. 
+```
+
+```{python}
+# Finally we can also return specific values. Have a think, and select the value that is in the first row, and in the second column 
+# (the output should be "The Thing" - one of the greatest horror movies ever made)
+
+print(movies_df.iloc[0:1, 1:2])
+```
+
+There is a lot more ways we can slice or `select` data (For example, you can also select columns based on column names). But that's enough slicing for now, let's start working with our dataframe.
+
+## Working with Our dataframe 
+
+Okay, so let's actually get working with the dataframe that we have. The first thing we are going to do is view our dataframe, just to remind ourselves what it looks like.
+
+Since the dataframe is relatively small, I am going to cheat a little bit and view the entire dataframe, rather than using the head or tail functions. 
+
+Let's view our dataframe. 
+
+```{python}
+movies_df
+```
+
+For the most part, the dataframe looks alright. But it is not perfectly clean. There are missing values, some of column titles are a bit awkward ("Title of Thing"), there are some inconsistent values ("Male" vs "m" vs "male"), classic data entry mistakes (Orgre when clearly it should be spelled Ogre), and there are columns that we are unlikely to need in our analysis (e.g., Did the movie make Ryan cry or not?). 
+
+There also some data points that we may want to add to the dataframe (for example, average review score across ImdB and Rotten Tomatoes, length of the movie). Overall, the dataframe is not ready for meaningful statistical analysis. 
+
+For the rest of this workshop, we are going to be showing you some tools that you can use to clean up the dataframe, so that it is ready for a more exhaustive analysis. 
+
+### Missing Data
+
+Nearly every dataframe that you will work with is likely to contain missing data. 
+
+There are two main types of missing data that you will come across with Python. Standard and non-standard. A standard missing value is typically recorded in Python as `NaN`, which refers to a "not a number" value, or a "null" value.
+
+The first thing we can do is check whether we have standard missing values labelled 'NaN'. We can do this by using the is.null() function. 
+
+```{python}
+movies_df.isnull() #This will go through our dataframe and check
+#for whether we have any missing values
+```
+
+The isnull() function will return our dataframe. It checks each entry our dataframe and asks the question "Is this a NaN" value? 
+
+If there us NaN value, it returns a "False" result. 
+
+If there is a NaN value, it returns a "True" result; meaning that there is NaN data within this cell.
+
+We can see from the output above that we have a couple of missing values in fifth row (index 4) under the columns `ImDb` score and `Rotten Tomatoes Score`
+
+In future weeks, we will be showing you what you can do with NaN results other than deleting them. But for now, we do not want to deal with the hassle of having NaN results, so we are going to drop any row that has a NaN result (where isnull() = True)
+
+We can do this by using the `dropna()` function - which means, "drop any row that has a null/NaN result". 
+
+```{python}
+movies_df_cleanv1 = movies_df.dropna() 
+
+movies_df_cleanv1
+```
+
+I store the resulting dataframe, without the NA results, in a new variable called `movies_df_cleanv1`. This way we still have access to the raw file within this notebook if we need it. 
+
+The other type of missing value is a non-standard missing value. A non-standard missing value usually occurs when within our dataframe there is a cell that from our perspective is "empty", but from Python's perspective there is a value there. 
+
+For example, we can see that in the second row, that from our perspective, there is an empty cell under `participant name`. However, from Python's perspective, there is a value there: an empty string `" "`. 
+
+There are multiple ways to deal with this, but given that we are only introducing missing values this week, what we are going to do is replace any missing values with a `NaN` result, and then remove that row from the dataframe. Basically, we convert a non-standard missing value into a missing value. 
+
+
+```{python}
+#Replace cell/field that's entirely space or empty with NaN
+
+a = movies_df_cleanv1.replace(r'^\s*$', np.nan, regex=True)
+
+## Hold on a second, what the hell is r'^\s*$'? and what the hell is a regex?
+
+# A regex is short for "regular expression". 
+# Regex enables us to identify a pattern in text (think about using search function in Word)
+# The 'r' indicates that we are using a regular expression. 
+# The '^\s*$' is regular expression syntax to identify empty strings
+
+#I save the result to a variable a, so I can use dropna() function on it
+
+movies_df_cleanv2 = a.dropna() 
+
+movies_df_cleanv2
+```
+
+In future weeks, we will show you more sophisticated ways of handling NaN data. But for now, we have a dataframe that has usable data in each cell. 
+
+Our next steps are to clean up some entries in our dataframe, and fix inconsistent data entries. 
+
+### Clean Data - Renaming Columns and Incorrect Entries
+
+#### Changing the name of a column
+
+Using a for loop, we can print out the names of our columns. Run the cell below. 
+
+
+```{python}
+for col in movies_df_cleanv2:
+    print(col)
+
+# The first line says iterate through each column name within our dataframe
+# The second line says that for each column, print out the name of that column
+
+```
+
+We can see that there are a couple of awkward names for our columns. A more fitting name for "Participant Name" is probably "Director". Similarly, a more appropriate (albeit less poetic due to the loss of alliteration) name for "Title of Thing" is "Movie" 
+
+We can rename these columns with a function called `rename`
+
+```{python}
+movies_df_cleanv2.rename(columns={'Participant Name':'Director', 'Title of Thing': 'Movie'}, inplace= True)
+
+#the rename function takes the old value as the Dictionary Key, and replaces with the new value
+
+#{"Old Column Name": "New Column Name"}
+
+movies_df_cleanv2
+```
+
+### Dropping Columns 
+
+Now that we have correct column names, let's fix up inconsistencies within our data. For example, it is unlikely that any scientific journals, even those low impact ones that constantly message you asking to submit any draft emails you have lying around are going to be interested in knowing whether Ryan cried during any of these movies. So for the sake of keeping our data clean and tidy (unlike Ryan's running mascara), we are going to chuck out that column. 
+
+```{python}
+movies_df_cleanv2.drop("Make Ryan Cry?", 1, inplace=True)
+
+movies_df_cleanv2
+```
+
+### Inconsistent Data
+
+Now that we have columns that we want to work with, let's clean up inconsistent data entries. 
+
+We can see that within our column, "Gender of Lead", that there are inconsistent values. Male is sometimes coded as "male", or "m". Female is sometimes codes as "fem". But it is good to get a quantitative idea of the different values that are entered within this column. One function we can use to identify the different values that are within a column, and also how many times that value appears within the column, is the function `value_counts()`.
+
+The first thing we need to do is select (aka slice) the particular column that we want, and then use the value_counts function. 
+
+```{python}
+movies_df_cleanv2.iloc[:, -1:].value_counts()
+```
+
+Okay we can see that our `Gender of Lead` is all over the place. Rather than having 6 Males and 2 females, we have 3 'Males', 1 'm', 1 'male', 1 'Orgre', 1 'Female', 1 'fem'. The values used to code our data is inconsistent. So let's fix it by using the `replace` function. 
+
+
+
+
+```{python}
+movies_df_cleanv2.iloc[:, -1:] = movies_df_cleanv2.iloc[:, -1:].replace(to_replace = ["Orgre", "m"], value = "Male")
+
+#the syntax for the following code is:
+#dataframe.replace(list_with_values_to_replace = ["Old Value1"...."Old ValueN"], value = "New Value1")
+```
+
+Now we could have also replaced the lowercase `male`, but we will show another method you use to handle cases where inconsistent values are related to capitalisation. 
+
+First let's fix the female values
+
+```{python}
+#Take the syntax from the previous code cell and use replace "fem" with "female" for the "Gender of Lead" column
+```
+
+Okay, now let's fix our capitalisation issue. We can do that by using the str.capitalise() method. 
+
+```{python}
+movies_df_cleanv2['Gender of Lead'] = movies_df_cleanv2['Gender of Lead'].str.capitalize()
+
+movies_df_cleanv2
+```
+
+Now there's a few things going on here. 
+
+1st. Instead of slicing our dataframe the way we have been showing you so far `movies_df_cleanv2.iloc[:, -1:]`, we instead selected our column by using actual name of the column. This is a perfectably acceptable way to select a column. 
+
+2nd. We use the str. function to treat everything inside our column as a string. 
+
+3rd. Then we call the capitalise() method on our strings in order to capitalise the first letter. There are other functions that we could apply instead of capitalise. For example, we could use str.upper() to transform every value into UPPER CASE. Or we could str.lower to transform every value into lower case. Feel free to toy around with them in the example above. 
+
+
+```{python}
+#Use the value counts function on the Genre column and see what type of movie pops up the most often in our dataset. 
+```
+
+```{python}
+#Let's say for the sake of our analysis, we do not need to make the distinction between a comedy and a dark comedy
+#Using the replace function, change "Dark Comedy" to "Comedy" in our dataset for the Genre column. 
+```
+
+```{python}
+#Convert the genre column to either upper or lower case (dealers choice!)
+```
+
+## Adding to our Dataframe
+
+Run the cell below to let us look at our dataframe again.
+
+```{python}
+movies_df_cleanv2
+```
+
+Hopefully if you have gotten to this stage, the columns are appropriately labelled, there are no missing values, and values are consistent within columns. It should look in a lot better shape. If not, then do not worry, just let us know. :) 
+
+### Add Rows
+
+Our dataframe is pretty small though right. And there aren't that many movies in there with a female lead, so how can we rectify that? 
+
+Well with pandas, it is relatively handy to add (or append) rows to a dataframe. 
+
+```{python}
+new_rows = {'Director': ['Ridley Scott', 'Greta Gerwig'], 
+'Movie': ['Alien', 'Lady Bird'], 
+'Genre': ['Horror', 'Drama'],
+"Year of Release": ['1979', '2017'],  
+"ImdB Score": [85, 74],
+"Rotten Tomatoes Score": [98, 99],
+"Gender of Lead": ["Female", "Female"]
+}
+
+df2 = pd.DataFrame(new_rows)
+
+movies_df_cleanv3 = movies_df_cleanv2.append(df2, ignore_index="True")
+
+movies_df_cleanv3
+```
+
+Wahey! Although there is still a gender imbalance, we are definitely healthier on male/female actor lead (the director situation is a different story). 
+
+But what went on to achieve that? Well, there's a few things to note:
+
+The first thing is we created a dict object, `new_rows`, containing our column names (dict keys) and column values (dict values). Because we are adding more than one value per column name, we enter the column values as a list. This enables Python to create multiple rows per each column. 
+
+The second thing is that we turned these dict into a dataframe, called `df`. This is because it is much more straightforward to add multiple rows to an existing dataframe, if those rows are in the shape of a dataframe. 
+
+The third thing is that we set `ignore_index = True`. The index refers to the co-ordinate system we have been using to slice our dataframe. The two dataframes, movies_df_cleanv2 and df2, will have their own indices. For example, the value in row 1, column 1, in movies_df_cleanv2 is "John Carpenter", whereas the same co-ordinates in df2 return "Ridley Scott". 
+
+To set ignore_index to true simply means to combine the two dataframes under one co-ordinate system, rather than keeping their own specific co-ordinate systems. Don't worry if this is still sounding too abstract, you do not need to know it for now. 
+
+
+
+```{python}
+# Try to add another row to the dataframe. 
+# Google any movie you like, create a dictionary containing its value for each of the columns
+# Turn that dict into a Dataframe
+# Then append that dataframe to our existing dataframe
+```
+
+### Add column 
+
+At the moment, our columns contain Rotten Tomatoes score from critics. But what if we wanted to add in the Rotten tomatoe scores from fans? We can do that fairly easily with pandas dataframes. 
+
+```{python}
+#first let's create a list that will be converted into a column within our dataframe
+
+rt_fans = [92.0, 79.0, 42.0, 82.0, 86.0, 69.0, 89.0, 93.0, 94.0, 79.0] #By the way, how in the hell does Shrek 2 only have a 69% on rotten tomatoes? What kind of sick joke is that?
+
+#Now let's create a column within our dataframe, and then set its values to rt_fans
+
+movies_df_cleanv3["Rotten Tomatoes Fans' Scores"] = rt_fans
+
+movies_df_cleanv3
+```
+
+Nice, we have the fans opinion in there too for Rotten Tomatoes. But ideally we would want it next to the Rotten Tomatoes Critics scores. Let's re-order our dataframe
+
+```{python}
+movies_df_cleanv3 = movies_df_cleanv3[["Director", "Movie", "Genre", "Year of Release", "ImdB Score", "Rotten Tomatoes Score", "Rotten Tomatoes Fans' Scores", "Gender of Lead"]]
+
+movies_df_cleanv3.head()
+```
+
+```{python}
+## What if we wanted to know whether the lead actor won an oscar or not? 
+
+#Take the following list, and add it as a column in the dataframe
+
+#oscar = ["No", "No", "No", "No", "Yes", "No", "No", "Yes", "No", "No"]
+```
+
+Well done. We have convered a lot this week. Do not worry if a lot of these ideas have not sunk in. That's normal. 
+
+Our recommendation would be to practice with your own dataframes. Practice will help this all sink in.
+
+In the cells below this one you can practice with the csv version of the raw data. 
+
+ 1. save a version of the your df that doesn't have any empty cells
+ 2. scan for inconsistent data
+ 3. see if you can fix it
+ 4. drop columns you don't need, or use `iloc` to save a version of the data that doesn't have the extra columns in it. 
+
+Next week, we will start looking at more sophisticated methods to handle missing values, how we can sort our dataframe, and start with calculating some descriptive statistics. 
+
+Until next time, 
+
+Kev & Ryan. 
+
