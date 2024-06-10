@@ -133,7 +133,7 @@ print(t_dict.values())
 
  - which means there are a few ways we can use `for loops` with `dicts`
  - We can loop over the `keys()` of a `dict` and get the `values()` of the `dict` using the `key`
- - In essence the `keysd()` and `values()` `methods` of a `dict` return `lists` that we can loop over
+ - In essence the `keys()` and `values()` `methods` of a `dict` return `lists` that we can loop over
 
 . . . 
 
@@ -291,7 +291,7 @@ bands_df = pd.DataFrame(# opening brackets but moving to new line for readabilit
 # Importing to pandas `DataFrame` {.smaller}
 
  - As we said above, it's useful to know how to make a `DataFrame` by hand.
- - However, you will be `reading` data into a `Dataframe` much more often,
+ - However, you will be `reading` data into a `DataFrame` much more often,
  - For example reading in a `.csv` or a `.xlsx` file from qualtrics,
  - and pandas has a number of `pd.read...()` `functions` to allow you to do this easily.
 
@@ -409,110 +409,222 @@ bands_df.tail()# calling there last 5 rows of the bands data
 
 
 # Attributes
-An `attribute` is just one of the features of a `class` object, each `class` will have attributes associated with it. This is covered in more detail in [the youtube tutorials we mentioned earlier](https://www.youtube.com/watch?v=Z1Yd7upQsXY&list=PLP_zqJ75jdgoqr3oiDA21o_K8p8GFRWHa), but for right now we're just going to focus on three `attributes` of our `df`, the `shape`, the `columns`, and the `index`. 
 
+ - You already know that `attributes` are like the `properties` of an `object`
+ - They're like `variables` that are attached to the `object` 
+ - They can be `called` in the same way that you would `call` a `variable`
+ - We're going to look at the `shape`, `columns`, and `index` `attributes` of the `DataFrame` object
 
-# `df.shape`
-The `shape` of a `df` is the height' and the 'width' of the dataset, which just means the number of rows and columns respectively. If we take a look at the `shape` of `bands_df` 
+# `df.shape`{.smaller}
+
+ - The `shape` of a `df` is the height' and the 'width' of the dataset
+ - which just means the number of rows and columns respectively.
+ - If we take a look at the `shape` of `bands_df` 
 
 ```{python}
-bands_df.shape #note the lack of brackets!
-
-#don't forget to run this cell
+#| echo : true
+#| eval : true
+print(bands_df.shape)#note the lack of brackets after 'shape'!
+# this will return a tuple with the number of rows and columns in the dataset
 ```
 
-we can see that we get a pair of values, 6 and 5. The first value (6) is the number of rows, which means we have 6 musicians in the dataset. The second value (5) is the number of columns in our dataset, which means we've got 5 variables related to each of our participants. One of the cool things about `shape` is that it can `return` a `list-like` object called `tuple`, which can be indexed like a `list` and so we could use it to make an `f-string` by using the `attribute` `syntax`
+# `df.shape`{.smaller}
+
+ - We get a pair of values, `{python} bands_df.shape[0]` and `{python} bands_df.shape[1]`.
+ - The first value (`{python} bands_df.shape[0]`) is the number of rows, which means we have 6 musicians in the dataset.
+ - The second value (`{python} bands_df.shape[1]`) is the number of columns in our dataset. 
+ - `shape` `returns` a `list-like` object called `tuple`, which can be indexed like a `list`
+
+. . . 
 
 ```{python}
+#| echo : true
+#| eval : true
 print(f'A total of {bands_df.shape[0]} individuals took part in our research')
+# I hope you see why this is useful to you in your life. 
 ```
 
-In the cell below call `.shape` on the csv `df`, this will tell you how many columns there are in total, and how many rows we have in the raw data.
+# `df.shape`{.smaller}
 
+ - In the your notebook call `.shape` on the csv `df`.
+ - (you might need to `print` it out if you're doing anything else in the same cell)
+ - This will tell you how many columns there are in total, and how many rows we have in the raw data.
+
+. . . 
 ```{python}
-# check out the shape of csv_df in this cell
-
-
+#| echo : true
+#| eval : true
 # save the number of participants (using the indexing syntax) as the variable n 
+n = bands_df.shape[0] # you use the movies_df variable name here
 ```
 
-# `df.columns`
+# `df.columns` {.smaller}
 
-OK, so with the  `head()`, and `tail()` methods, and the `shape` attribute you can get a highlevel view of you data, but when we want to start editing our data to get it ready for analysis we want to be able to see what columns are called and where they are in the dataset. Pandas handles this in a really great way with the `.columns attribute`. 
-
-In short, `.columns` is a `list` of the columns, in the order in which they appear in the `df`. It's just a `list` of `strings` (99% of the time, unless someone has made some real errors when making the data), and so you already know how to do a lot of things with `.columns`. 
-
-Lets take a look at the `bands_df.columns` in the cell below. 
+ - The  `head()` and `tail()` methods and the `shape` attribute give you a highlevel view of you data.
+ - But when we want to start editing our data to get it ready for analysis we want to be able to see what columns are called and where they are in the dataset.
+ - Pandas handles this in a really great way with the `.columns attribute`. 
 
 ```{python}
+#| echo : true
+#| eval : true
 for i in bands_df.columns: #using a for loop to iterate over each column name in the df columns
     print(i)
 ```
 
-We can also `index` it like any other list 
+# `df.columns` {.smaller}
+
+ - In short, `.columns` is a `list` of the columns, in the order in which they appear in the `df`.
+ - It's just a `list` of `strings` (99% of the time, unless someone has made some real errors when making the data) 
+ - and so you already know how to do a lot of things with `.columns`. 
+
+
+# `df.columns` {.smaller}
+
+ - For example:
+ - We can `index` it like any other list 
+
+. . .
 
 ```{python}
-bands_df.columns[0]
+#| echo: true
+#| eval: true
+print(bands_df.columns[0]) # this will return the first column name in the bands data set
 ```
 
-So we can see that the first column in the bands `df` is 'Participant name' (don't foget that python is 0-indexed). And you already know that if we want to find out the `index` of each column in our df, we can use a `for-loop` with the `enumerate()` function (like we did in one of the examples in the week 3 notebook). 
+# `df.columns` {.smaller}
+
+ - We can see that the first column in the bands `df` is '`{python} bands_df.columns[0]`' (don't forget that python is 0-indexed).
+ - And you already know that if we want to find out the `index` of each column in our df, we can use a `for-loop` with the `enumerate()` function (like we did in previous examples). 
+ - In your notebook, print out the `index` and `column name` for each column in the `df` using a `for-loop` and the `enumerate()` function.
+
+. . .
 
 ```{python}
+#| echo : true
+#| eval : true
 for i, c in enumerate(bands_df.columns): #using the enumerate function to get the (i)ndex and the (c)olumn name for the columns in the bands data set
     print(f'{i} = {c}')
 ```
 
-This can be really handy when you want to rename columns (which we'll cover later) but since the column names are so accesible, they're just `strings` in a `list`, there's a lot that we can do with them, and it can make cleaning, splitting, and searching you're data really easy. In the cell below, print out the index and column name for each column in your csv data columns  
+# `df.columns` {.smaller}
+
+ - Columns are really easy to work with in pandas, they're just `strings` in a `list`
+ - So if you wanted to make all the column names 'lowercase' you could do that with a `for-loop` and the `lower()` `method` of a `string`
 
 ```{python}
-# remember that you use the syntax "name_of_df.column" to get the columns attribute, there no brackets in an attribute call
+#| echo : true
+#| eval : true
+print(bands_df.columns) # printing out the columns of the bands data set
+for col in bands_df.columns: # using a for loop to iterate over each column name in the df columns
+    bands_df.rename(columns={col: col.lower()}, inplace=True) # using the rename() method to change the column names to lowercase
+print(bands_df.columns) # printing out the columns of the bands data set
 ```
 
-Excellent, you now know how to import your data, to get a size of your data, how to view the top and bottom of your dataset, and how to call on the columns of your dataset. The last thing to talk about here is `df.index`. 
+# `df.columns` {.smaller}
 
-# `df.index`
+ - In your notebook, make all the column names in the `movies_df` uppercase using a `for-loop` and the `upper()` `method` of a `string`
+ - the `.rename() method` is a handy one to know, especially starting out, but it's not the only way to change column names in a `DataFrame`
+ - then print out the `columns` to check that you've done it correctly
+````{{python}}
 
-You've already seen the word `index` in python, and when it comes to `lists` and `strings` you know that it means an items postition within an object. When it comes to `DataFrames` the term `index` is a little different but it still basically means the same thing, it refers to the `row` of a particular participant (observation) in your data set. In other words it refers to a row's vertical position (reading from top to bottom) in your `df`. 
+print(movies_df.columns) # printing out the columns of the movies data set
+for col in movies_df.columns: # using a for loop to iterate over each column name in the df columns
+    movies_df.rename(columns={col: col.upper()}, inplace=True) # using the rename() method to change the column names to uppercase
+print(movies_df.columns) # printing out the columns of the movies data set
+````
 
-So, if we take a look at `bands_df.head()`
+# `df.columns` {.smaller}
+
+- Excellent, you now know how to import your data, to get a size of your data, how to view the top and bottom of your dataset, and how to call on the columns of your dataset.
+- You can use the name of the column and the same `syntax we used with dicts to just view a single column of your dataset.
+- For example, if you wanted to see the `band` column of the `bands_df` you could do this:
 
 ```{python}
-bands_df.head(6)# calling 6 so we can see the whole of this small df
+#| echo : true
+#| eval : true
+bands_df['band'].head() # calling the 'band' column of the bands data set
 ```
 
-we can see that John Lennon is as `index` 0 and that Frank Zappa is at `index` 6 (or -1 because it's the last observation in our dataset). There are things we can do with the `index`, like set a different column (like maybe 'Participant name') to be the `index`
+# `df.columns` {.smaller}
+
+ - You can also view a `slice` of the `DataFrame` by using the `column` names in the same way you would use `keys` in a `dict`
+  - For example, if you wanted to see the `band` and `instrument` columns of the `bands_df` you could do this:
 
 ```{python}
-new_bands_df = bands_df.set_index(bands_df.columns[0], drop=True) # creating a copy of the bands data with 'Participant name' as the index (df.set_index() is a class method)
-new_bands_df.head()# displaying the head of the new df
+#| echo : true
+#| eval : true
+bands_df[['band', 'instrument']].head() # calling the 'band' and 'instrument' columns of the bands data set
+#just note that we've used double square brackets here, this is because we're passing a list of column names to the df
 ```
 
-but generally, with simple `DataFrames` you can just leave it as it is. It doesn't `return` a `list` so we wouldn't tend to interact with it in the same way. 
+# `df.columns` {.smaller}
+
+ - In the next session we're going to talk more about cleaning and preparing your data for analysis
+ - We'll talk a lot more about viewing your data, and about how to work with it in a way that makes sense to you
+ - But for now, we're going to look at the `index` of the `DataFrame` object
+
+# `df.index` {.smaller}
+
+ - You've already seen the word `index` when it comes to `lists` and `strings` you know that it means an items position within an object.
+ - When it comes to `DataFrames` the term `index` is a little different 
+ - Used alone, it refers to the `row` of a particular participant (observation) in your data set.
+ - In other words it refers to a row's vertical position (reading from top to bottom) in your `df`. 
+
+
+# `df.index` {.smaller}
+ - We can see that John Lennon is as `index` 0 and that Frank Zappa is at `index` 5 (or -1 because it's the last observation in our dataset). 
 
 ```{python}
-bands_df.index
+#| echo: true
+#| eval: true
+bands_df
 ```
 
-Unless we've `set_index()` like I showed you above
+# `df.index` {.smaller}
+
+ - There are things we can do with the `index`, like set a different column (like maybe 'Participant name') to be the `index`
+ - Using the `set_index()` `method` of the `DataFrame` object
 
 ```{python}
-new_bands_df.index[0]
+#| echo: true
+#| eval: true
+# setting the 'Participant name' column as the index of the bands data set
+new_bands_df = bands_df.copy() # making a copy of the bands data set
+new_bands_df.set_index('participant name', inplace=True)
+new_bands_df.head()
 ```
 
-But this is only useful for very spific types of datasets, which you might work on in future but it's not the norm with the SPSS-like datasets that we normally work with. 
+# `df.index` {.smaller}
 
-OK, thats a lot of introduction stuff, but now we want you to try it out yourself with a different dataset. You should have an SPSS version (.sav) of the raw data saved, and or the rest of this document we want you to: 
+ - But this is only useful for very spific types of datasets, which you might work on in future but it's not the norm with the SPSS-like datasets that we normally work with. 
+ - The `.index` `attribute` of a `DataFrame` isn't a `list` like the `columns` `attribute` 
+ - It's a `pandas` `index` object, which is a bit like a `list` but with some extra functionality that makes it really useful for working with `DataFrames`
+ - However, this means that if we want to select a row by it's `index` we need to use the `.loc[]` `attribute` of the `DataFrame` object
 
- 1. Save the path to that spss file as a `.Path()` object
- 2. Use that object to import the data to a padas `df` (use the syntax `spss_df = pd.read_spss(path)`
- 3. display the head
- 4. display the tail
- 5. print out each column name, and it's index in the `.columns` list
- 6. make a copy of the `df` with 'ResponseId' as the index 
+```{python}
+#| echo: true
+#| eval: true
+print(bands_df.loc[0]) # selecting the first row of the bands data set
+print(new_bands_df.loc['John Lennon']) # selecting the row with the index 'John Lennon' in the new bands data set
+```
 
+
+
+# `df.index` - practice {.smaller}
+
+ - That's a lot in this session, so before you go, I want you to do a little practice
+  1. Create a new notebook called 'data_practice_1.ipynb'
+  2. Download the `data_practice_.csv` file from brightspace, and put it in the `data`
+  3. Using `pl.Path()` and `pd.read_csv()` read the data into a `DataFrame`
+  4. display the head and tail
+  5. print out each column name, and it's index in the `.columns` list (using a `for-loop` and `enumerate()`)
+  6. print out the row with the index '4' and the row with the index '-1' using the `.loc[]` `method`
+  7. make a `.copy()` of the `df` and set 'ResponseId' as the index 
+  7. print out the row with the index 'p_001' and the row with the index 'p_004' using the `.loc[]` `method`
+
+. . .
 Make a new code cell for each step and take your time working through it. 
 
-When you get to step two, there'll be a bit of a trick to get it to work, the cell will through an error the first time, read the error and see if you can figure out how to fix it (hint, the answer is in the word document 'Setting up a Virtual Environment with Anaconda.docx')
 
 
 
