@@ -66,7 +66,7 @@ lead = ['male', 'Male', 'm', 'Female', 'm', 'Male', 'fem', 'Orgre', 'Male', 'Mal
 cry = ["No", "No", "No", "No", "No", "Yes", "No", "Yes", "No", "No"]
 movies_df = pd.DataFrame(
     list(zip(director, names, genre, year, imdb_score, rt_critics, lead, cry)), # first argument, passing a list of lists to the zip function
-    columns = ['Participant Name', 'Title of Thing', 'Genre', 'Year of Release', 'ImdB Score', 'Rotten Tomatoes Score', 'Gender of Lead', "Make Me Cry?"]# second argument , passing a list to the columns arguments
+    columns = ['Participant Name', 'Title of Thing', 'Genre', 'Year of Release', 'ImdB Score', 'Rotten Tomatoes Score ', 'Gender of Lead', "Make Me Cry?"]# second argument , passing a list to the columns arguments
     )# closing the first pair of brackets to complete the function call
 ```
 
@@ -233,7 +233,7 @@ Slicing with this `syntax` returns the rows of a dataframe. It will not select s
 #| echo: true
 #| eval: true
 
-movies_df[["Participant Name", "Title of Thing", "Genre"]]# note the double square brackets
+movies_df[["Participant Name", "Title of Thing", "Genre"]].head()# note the double square brackets
 ```
 
 # Slicing our Dataframe - columns {.smaller}
@@ -243,7 +243,7 @@ movies_df[["Participant Name", "Title of Thing", "Genre"]]# note the double squa
 ```{python}
 #| echo: true
 #| eval: true
-movies_df[movies_df.columns[0:3]] #This will return the first three columns of our dataframe
+movies_df[movies_df.columns[0:3]].head() #This will return the first three columns of our dataframe
 ```
 
 
@@ -276,7 +276,7 @@ movies_df.loc[0:2, 'Title of Thing': 'Year of Release']
 
 # Slicing our Dataframe - `location` slicing {.smaller}
 
- - Essentially, we're passing 2 slices (seperated by a comma) to the `loc` method.
+ - Essentially, we're passing 2 slices (separated by a comma) to the `loc` method.
  - The first slice is for the rows, and the second slice is for the columns.
  - And in both instances we're using the `labels` (Note that most of the time the `row labels` will be the numberical index, unless you have set the index, `.set_index()`, to be something else)
  - If we want to select all the rows, we can leave the row slice empty.
@@ -315,11 +315,11 @@ movies_df.iloc[0:2, 1:3]
  - Before we move on to cleaning our dataframe, we need to talk about `booleans`.
  - Booleans are a data type that can only have one of two values: `True` or `False`.
  - Booleans are really useful when we want to filter our data based on a condition.
- - For example, if we wanted to filter our data to only show the rows where the `Genre` column is equal to `Sci-Fi`, we can use a boolean operation.
+ - For example, when we wanted to filter our data to only show the rows where the `Genre` column is equal to `Sci-Fi`, we used `==`.
 
 # Boolean operators {.smaller}
 
- - The `==` operator is a boolean operator that checks whether two values are equal (remember that the `=` operator is used to assign a value to a variable).
+ - The `==` operator is a boolean operator that checks whether two values are *equal* (remember that the `=` operator is used to assign a value to a variable).
     - If the values are equal, then the `==` operator returns `True`, otherwise it returns `False`.
 
 ```{python}
@@ -348,6 +348,9 @@ print(5 == 5) #This will return True
   - See if you can use `iloc` to do the same thing.
   - Then use the `loc` method to select the rows where the `ImdB Score` is greater than 80. 
 
+. . .
+
+`df.loc[df["col_name"] boolean_operator value]`
 
 # Did you notice? {.smaller}
 
@@ -366,6 +369,11 @@ print(5 == 5) #This will return True
  - This makes tricky because python can't infer that 'Participant Name' and 'participant name' *mean* the same thing.
  - You have to type the column name *exactly* as it appears in the dataframe.
  - In your notebook, try calling a column that you know is in your dataframe, but only type in lowercase. What happens?
+
+
+# KeyError {.smaller}
+
+![keyerror](./images/keyerror.jpg)
 
 # KeyError {.smaller}
 
@@ -386,7 +394,7 @@ print(5 == 5) #This will return True
 #| echo: true
 #| eval: true
 movies_df.rename(columns = {'Participant Name': 'Director'}, inplace = True)
-movies_df.head(2)
+print(movies_df.columns)
 ```
 
 # Renaming columns - option 1 {.smaller}
@@ -397,7 +405,8 @@ movies_df.head(2)
 #| echo: true
 #| eval: true
 for i in movies_df.columns:
-    movies_df[i].rename(columns ={i:i.lower()}, inplace = True)
+    movies_df.rename(columns={i:i.lower()}, inplace = True)
+print(movies_df.columns)
 ```
 
 
@@ -410,10 +419,11 @@ for i in movies_df.columns:
 ```{python}
 #| echo: true
 #| eval: true
-df.columns = [i.replace(' ', '_') for i in df.columns]# isn't that awesome!!
+movies_df.columns = [i.replace(' ', '_') for i in movies_df.columns]# isn't that awesome!!
+print(movies_df.columns)
 ```
 
-# `list comprehensions {.smaller}
+# `list comprehensions` {.smaller}
 
  - `list comprehensions` work like this
 
@@ -422,66 +432,116 @@ df.columns = [i.replace(' ', '_') for i in df.columns]# isn't that awesome!!
 `[do_thing(placeholder) for placeholder in collection]`
 
  - They can be simply called in place or we can `return` a new list to us. 
- - We can also call `methods` instea of `functions`
+ - We can also call `methods` instead of `functions`
 
 . . . 
 
 `[placeholder.do_thing() for placeholder in collection]`
 
+# Renameing with `list comprehensions` {.smaller}
+
+ - We can use also use `list comprehensions` with the `rename` method
+ - we just combine the `dict(zip(...))` `syntax` we've seen before
+ - As if we had the BFI_44 in our data set starting at column 10
 
 
 
+`df.rename(columns = dict(zip(df.columns[10:55], [f"bfi_{i}" for i in range(1, 45)]))`
 
 
+# Renaming recap {.smaller}
 
-## Working with Our dataframe 
+ - So you can see there's multiple ways to rename columns in a dataframe
+   - You can use the `rename` method with a dictionary
+   - You can use a `for loop` with the `rename` method
+   - You can use a `list comprehension` to rename columns (my favourite way to just apply a `str` method to all the columns)
+   - You can use a `list comprehension` to rename columns with a `dict(zip(...))` `syntax`
 
-Okay, so let's actually get working with the dataframe that we have. The first thing we are going to do is view our dataframe, just to remind ourselves what it looks like.
+# Renaming `str methods` {.smaller}
 
-Since the dataframe is relatively small, I am going to cheat a little bit and view the entire dataframe, rather than using the head or tail functions. 
+ - You've seen the `.upper()`, `.lower()`, and `.title()` `str` methods before
+ - You also just seen the `.replace()` `str` method
+ - but there's others like `.strip()` which removes whitespace from the beginning and end of a string (hidden spaces or newlines)
+ - in your notebook try using each of the renaming strategies we've covered so far to rename the columns in your dataframe
+ - just use a different string method each time (`.lower(), .strip(), .replace(' ', '_')`)
+ - And as the most important part **look up** each `str` method online 
 
-Let's view our dataframe. 
 
-````{{python}}
-movies_df
-````
+```{python}
+#| echo: false
+#| eval: true
+movies_df.rename(columns = {'rotten_tomatoes_score_': 'rotten_tomatoes_score'}, inplace=True)
+```
 
-For the most part, the dataframe looks alright. But it is not perfectly clean. There are missing values, some of column titles are a bit awkward ("Title of Thing"), there are some inconsistent values ("Male" vs "m" vs "male"), classic data entry mistakes (Orgre when clearly it should be spelled Ogre), and there are columns that we are unlikely to need in our analysis (e.g., Did the movie make Ryan cry or not?). 
 
-There also some data points that we may want to add to the dataframe (for example, average review score across ImdB and Rotten Tomatoes, length of the movie). Overall, the dataframe is not ready for meaningful statistical analysis. 
+# Working with Our dataframe {.smaller}
 
-For the rest of this workshop, we are going to be showing you some tools that you can use to clean up the dataframe, so that it is ready for a more exhaustive analysis. 
+ - Okay, so let's actually get working with the dataframe that we have. The first thing we are going to do is view our dataframe, just to remind ourselves what it looks like.
+ - Since the dataframe is relatively small, I am going to cheat a little bit and view the entire dataframe, rather than using the head or tail functions. 
 
-### Missing Data
+# Let's view our dataframe {.smaller}
 
-Nearly every dataframe that you will work with is likely to contain missing data. 
+```{python}
+#| echo: false
+#| eval: true
+print(movies_df.head())
+```
 
-There are two main types of missing data that you will come across with Python. Standard and non-standard. A standard missing value is typically recorded in Python as `NaN`, which refers to a "not a number" value, or a "null" value.
+# Let's view our dataframe. {.smaller}
 
-The first thing we can do is check whether we have standard missing values labelled 'NaN'. We can do this by using the is.null() function. 
+ - For the most part, the dataframe looks alright, but it is not perfectly clean.
+ - We've already cleaned up the column names but:
+   - There are missing values (either empty or `np.nan`),
+   - there are some inconsistent values ("Male" vs "m" vs "male"),
+   - classic data entry mistakes (Orgre when clearly it should be spelled Ogre),
+   - and there are columns that we are unlikely to need in our analysis (e.g., Did the movie make me cry or not?). 
 
-````{{python}}
+# Let's view our dataframe. {.smaller}
+
+ - There also some data points that we may want to add to the dataframe (for example, average review score across ImdB and Rotten Tomatoes, length of the movie).
+ - Overall, the dataframe is not ready for meaningful statistical analysis. 
+ - For the rest of this workshop, we are going to be showing you some tools that you can use to clean up the dataframe, so that it is ready for a more exhaustive analysis. 
+
+# Missing Data {.smaller}
+
+ - Nearly every dataframe that you will work with is likely to contain missing data. 
+ - There are two main types of missing *numerical* data in Python.
+ - A standard missing value is typically recorded in Python as `NaN`, which refers to a "not a number" value, or a "null" value.
+ - The first thing we can do is check whether we have standard missing values labelled 'NaN'. We can do this by using the isnull() function. 
+
+# `.isnull()` {.smaller}
+
+ - The `isnull()` function will return our dataframe. It checks each entry our dataframe and asks the question "Is this a NaN" value? 
+ - If there is NaN value, it returns a "False" result. 
+ - If there is a NaN value, it returns a "True" result; meaning that there is NaN data within this cell.
+ - We can see from the output on the next slide that we have a couple of missing values in fifth row (index 4) under the columns `ImDb` score and `Rotten Tomatoes Score` 
+
+# `.isnull()` {.smaller}
+
+```{python}
+#| echo: true
+#| eval: true
 movies_df.isnull() #This will go through our dataframe and check
 #for whether we have any missing values
-````
+```
 
-The isnull() function will return our dataframe. It checks each entry our dataframe and asks the question "Is this a NaN" value? 
+# `.isnull()` {.smaller}
 
-If there us NaN value, it returns a "False" result. 
+ - We can see from the output above that we have a couple of missing values in fifth row (index 4) under the columns `ImDb` score and `Rotten Tomatoes Score`
+ - In future sessions, we will show you how to work with `NaN` results (other than deleting them).
+ - But for now, we do not want to deal with the hassle of having NaN results,
+ - so we are going to `drop` any row that has a `NaN` result (where isnull() == True)
 
-If there is a NaN value, it returns a "True" result; meaning that there is NaN data within this cell.
+# `.dropna()` {.smaller}
 
-We can see from the output above that we have a couple of missing values in fifth row (index 4) under the columns `ImDb` score and `Rotten Tomatoes Score`
+ - We can do this by using the `dropna()` function 
+ - which means, `drop` any row that has a null/NaN result". 
 
-In future weeks, we will be showing you what you can do with NaN results other than deleting them. But for now, we do not want to deal with the hassle of having NaN results, so we are going to drop any row that has a NaN result (where isnull() = True)
-
-We can do this by using the `dropna()` function - which means, "drop any row that has a null/NaN result". 
-
-````{{python}}
+```{python}
+#| echo: true
+#| eval: true 
 movies_df_cleanv1 = movies_df.dropna() 
-
-movies_df_cleanv1
-````
+```
 
 I store the resulting dataframe, without the NA results, in a new variable called `movies_df_cleanv1`. This way we still have access to the raw file within this notebook if we need it. 
 
@@ -515,9 +575,9 @@ In future weeks, we will show you more sophisticated ways of handling NaN data. 
 
 Our next steps are to clean up some entries in our dataframe, and fix inconsistent data entries. 
 
-### Clean Data - Renaming Columns and Incorrect Entries
+# Clean Data - Renaming Columns and Incorrect Entries
 
-#### Changing the name of a column
+## Changing the name of a column
 
 Using a for loop, we can print out the names of our columns. Run the cell below. 
 
@@ -545,7 +605,7 @@ movies_df_cleanv2.rename(columns={'Participant Name':'Director', 'Title of Thing
 movies_df_cleanv2
 ````
 
-### Dropping Columns 
+# Dropping Columns 
 
 Now that we have correct column names, let's fix up inconsistencies within our data. For example, it is unlikely that any scientific journals, even those low impact ones that constantly message you asking to submit any draft emails you have lying around are going to be interested in knowing whether Ryan cried during any of these movies. So for the sake of keeping our data clean and tidy (unlike Ryan's running mascara), we are going to chuck out that column. 
 
@@ -555,7 +615,7 @@ movies_df_cleanv2.drop("Make Ryan Cry?", 1, inplace=True)
 movies_df_cleanv2
 ````
 
-### Inconsistent Data
+# Inconsistent Data
 
 Now that we have columns that we want to work with, let's clean up inconsistent data entries. 
 
@@ -627,7 +687,7 @@ movies_df_cleanv2
 
 Hopefully if you have gotten to this stage, the columns are appropriately labelled, there are no missing values, and values are consistent within columns. It should look in a lot better shape. If not, then do not worry, just let us know. :) 
 
-### Add Rows
+# Add Rows
 
 Our dataframe is pretty small though right. And there aren't that many movies in there with a female lead, so how can we rectify that? 
 
@@ -671,7 +731,7 @@ To set ignore_index to true simply means to combine the two dataframes under one
 # Then append that dataframe to our existing dataframe
 ````
 
-### Add column 
+# Add column 
 
 At the moment, our columns contain Rotten Tomatoes score from critics. But what if we wanted to add in the Rotten tomatoe scores from fans? We can do that fairly easily with pandas dataframes. 
 

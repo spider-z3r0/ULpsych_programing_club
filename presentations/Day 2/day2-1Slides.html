@@ -452,7 +452,7 @@
 <section>
 <section id="this-weeks-data" class="title-slide slide level1 smaller center">
 <h1>This week’s data</h1>
-<div id="ac4a9f89" class="cell" data-execution_count="1">
+<div id="527f66f0" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#importing the pandas module</span></span>
 <span id="cb1-2"><a href=""></a><span class="co"># initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example</span></span>
 <span id="cb1-3"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co">#importing a module to allow me to include 'missing data</span></span>
@@ -467,7 +467,7 @@
 <span id="cb1-12"><a href=""></a>cry <span class="op">=</span> [<span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>]</span>
 <span id="cb1-13"><a href=""></a>movies_df <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb1-14"><a href=""></a>    <span class="bu">list</span>(<span class="bu">zip</span>(director, names, genre, year, imdb_score, rt_critics, lead, cry)), <span class="co"># first argument, passing a list of lists to the zip function</span></span>
-<span id="cb1-15"><a href=""></a>    columns <span class="op">=</span> [<span class="st">'Participant Name'</span>, <span class="st">'Title of Thing'</span>, <span class="st">'Genre'</span>, <span class="st">'Year of Release'</span>, <span class="st">'ImdB Score'</span>, <span class="st">'Rotten Tomatoes Score'</span>, <span class="st">'Gender of Lead'</span>, <span class="st">"Make Me Cry?"</span>]<span class="co"># second argument , passing a list to the columns arguments</span></span>
+<span id="cb1-15"><a href=""></a>    columns <span class="op">=</span> [<span class="st">'Participant Name'</span>, <span class="st">'Title of Thing'</span>, <span class="st">'Genre'</span>, <span class="st">'Year of Release'</span>, <span class="st">'ImdB Score'</span>, <span class="st">'Rotten Tomatoes Score '</span>, <span class="st">'Gender of Lead'</span>, <span class="st">"Make Me Cry?"</span>]<span class="co"># second argument , passing a list to the columns arguments</span></span>
 <span id="cb1-16"><a href=""></a>    )<span class="co"># closing the first pair of brackets to complete the function call</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -490,13 +490,13 @@
 
 <section id="recap-of-slicing-and-indexing-1" class="title-slide slide level1 smaller center">
 <h1>Recap of slicing and indexing</h1>
-<div id="e10fbb66" class="cell" data-execution_count="2">
+<div id="d7e8c005" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>my_list <span class="op">=</span> [<span class="st">"apples"</span>, <span class="st">"bananas"</span>, <span class="st">"cauliflower"</span>, <span class="st">"dorritos"</span>, <span class="st">"enchiladas"</span>, <span class="st">"fajitas"</span>, <span class="st">"ginger"</span>, <span class="st">"honey"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">If we want to identify the first, fourth, and last element within my list, then we can use indexing to do that.</li>
 </ul>
-<div id="f1e462dc" class="cell" data-execution_count="3">
+<div id="067d3a1a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co">#my_list = ["apples", "bananas", "cauliflower", "dorritos", "enchiladas", "fajitas", "ginger", "honey"]</span></span>
 <span id="cb3-2"><a href=""></a><span class="co">#           0,         1,            2,            3,           4,           5,        6,         7   -&gt; positive indexing</span></span>
 <span id="cb3-3"><a href=""></a></span>
@@ -547,7 +547,7 @@ honey</code></pre>
 <li class="fragment">This is because when we are slicing, our start_value is inclusive, but our stop_value is exclusive.</li>
 <li class="fragment">If I wanted to include ‘dorritos’ into this smoothie of hell, I need to select one index position further</li>
 </ul>
-<div id="b32c15d3" class="cell" data-execution_count="4">
+<div id="a8c26c48" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">0</span>:<span class="dv">4</span>])<span class="co"># evil smoothie ingredients</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['apples', 'bananas', 'cauliflower', 'dorritos']</code></pre>
@@ -561,7 +561,7 @@ honey</code></pre>
 <li class="fragment">Slicing is a rather apt name - it slices up our object to return a list of elements. We just need to tell Python how we want to slice our cake.</li>
 <li class="fragment">For example, if I wanted to slice from our second element onwards, I could run the following code</li>
 </ul>
-<div id="55d0330b" class="cell" data-execution_count="5">
+<div id="bd8844b5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">1</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['bananas', 'cauliflower', 'dorritos', 'enchiladas', 'fajitas', 'ginger', 'honey']</code></pre>
@@ -577,7 +577,7 @@ honey</code></pre>
 <ul>
 <li class="fragment">If we wanted to Python to start at the beginning of the object, and to return each element within a list up to a certain element, then we can leave an empty_space in our slice syntax</li>
 </ul>
-<div id="1d40d7d3" class="cell" data-execution_count="6">
+<div id="49735433" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="bu">print</span>(my_list[:<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['apples', 'bananas', 'cauliflower', 'dorritos']</code></pre>
@@ -601,7 +601,7 @@ honey</code></pre>
 <li class="fragment">Not only can we specify a range for Python to slice out, we can specify the <code>steps</code> to that slicing:</li>
 </ul>
 <p><code>my_object[start_value:stop_value: steps]</code></p>
-<div id="adb396fc" class="cell" data-execution_count="7">
+<div id="728e1195" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="co">#example 1</span></span>
 <span id="cb12-2"><a href=""></a><span class="bu">print</span>(my_list[::<span class="dv">2</span>])</span>
 <span id="cb12-3"><a href=""></a></span>
@@ -632,10 +632,10 @@ honey</code></pre>
 <li class="fragment"><code>.head()</code> and <code>.tail()</code> slice your dataframe to the top or bottom five rows</li>
 <li class="fragment">We can slice a custom number of <code>rows</code> from our <code>DataFrame</code>, using the same <code>syntax</code> from earlier.</li>
 </ul>
-<div id="55f07e4b" class="cell" data-execution_count="8">
+<div id="f8b96833" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>movies_df[<span class="op">-</span><span class="dv">2</span>:]<span class="co"># Note that I'm not using the '.loc[]'</span></span>
 <span id="cb14-2"><a href=""></a><span class="co"># I'm not directly trying to access the index. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 <div>
 <style scoped="">
@@ -712,9 +712,9 @@ honey</code></pre>
 <li class="fragment">If we want to select columns then there’s a few ways to do that.</li>
 <li class="fragment">The first way is to pass a list of the columns that you want to select <em>within</em> the square brackets we’re using for indexing.</li>
 </ul>
-<div id="d7bae08d" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>movies_df[[<span class="st">"Participant Name"</span>, <span class="st">"Title of Thing"</span>, <span class="st">"Genre"</span>]]<span class="co"># note the double square brackets</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div id="8892fe70" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>movies_df[[<span class="st">"Participant Name"</span>, <span class="st">"Title of Thing"</span>, <span class="st">"Genre"</span>]].head()<span class="co"># note the double square brackets</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 <div>
 <style scoped="">
@@ -770,36 +770,6 @@ honey</code></pre>
 <td>Damien Chazelle</td>
 <td>Whiplash</td>
 <td>Drama</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Dennis Villanueve</td>
-<td>Arrival</td>
-<td>Sci-Fi</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Coen Brothers</td>
-<td>No Country for Old Men</td>
-<td>Drama</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Kelly Asbury</td>
-<td>Shrek 2</td>
-<td>Comedy</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Edgar Wright</td>
-<td>Hot Fuzz</td>
-<td>Comedy</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Coen Brothers</td>
-<td>Fargo</td>
-<td>Dark Comedy</td>
 </tr>
 </tbody>
 </table>
@@ -815,9 +785,9 @@ honey</code></pre>
 <ul>
 <li class="fragment">Another option is to pass a <code>slice</code> of the <code>df.columns</code> attribute.</li>
 </ul>
-<div id="24917d8a" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>movies_df[movies_df.columns[<span class="dv">0</span>:<span class="dv">3</span>]] <span class="co">#This will return the first three columns of our dataframe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div id="a219648a" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>movies_df[movies_df.columns[<span class="dv">0</span>:<span class="dv">3</span>]].head() <span class="co">#This will return the first three columns of our dataframe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 <div>
 <style scoped="">
@@ -873,36 +843,6 @@ honey</code></pre>
 <td>Damien Chazelle</td>
 <td>Whiplash</td>
 <td>Drama</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Dennis Villanueve</td>
-<td>Arrival</td>
-<td>Sci-Fi</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Coen Brothers</td>
-<td>No Country for Old Men</td>
-<td>Drama</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Kelly Asbury</td>
-<td>Shrek 2</td>
-<td>Comedy</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Edgar Wright</td>
-<td>Hot Fuzz</td>
-<td>Comedy</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Coen Brothers</td>
-<td>Fargo</td>
-<td>Dark Comedy</td>
 </tr>
 </tbody>
 </table>
@@ -940,9 +880,9 @@ honey</code></pre>
 
 <section id="slicing-our-dataframe---location-slicing-2" class="title-slide slide level1 smaller center">
 <h1>Slicing our Dataframe - <code>location</code> slicing</h1>
-<div id="71af5f8e" class="cell" data-execution_count="11">
+<div id="bc69cacd" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>movies_df.loc[<span class="dv">0</span>:<span class="dv">2</span>, <span class="st">'Title of Thing'</span>: <span class="st">'Year of Release'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 <div>
 <style scoped="">
@@ -1004,7 +944,7 @@ honey</code></pre>
 <section id="slicing-our-dataframe---location-slicing-3" class="title-slide slide level1 smaller center">
 <h1>Slicing our Dataframe - <code>location</code> slicing</h1>
 <ul>
-<li class="fragment">Essentially, we’re passing 2 slices (seperated by a comma) to the <code>loc</code> method.</li>
+<li class="fragment">Essentially, we’re passing 2 slices (separated by a comma) to the <code>loc</code> method.</li>
 <li class="fragment">The first slice is for the rows, and the second slice is for the columns.</li>
 <li class="fragment">And in both instances we’re using the <code>labels</code> (Note that most of the time the <code>row labels</code> will be the numberical index, unless you have set the index, <code>.set_index()</code>, to be something else)</li>
 <li class="fragment">If we want to select all the rows, we can leave the row slice empty.</li>
@@ -1021,10 +961,10 @@ honey</code></pre>
 <ul>
 <li class="fragment">The last thing we can do with .loc is to select rows with specific values in a column.</li>
 </ul>
-<div id="a6f09af4" class="cell" data-execution_count="12">
+<div id="a89a7e03" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>movies_df.loc[movies_df[<span class="st">"Genre"</span>] <span class="op">==</span> <span class="st">"Sci-Fi"</span>].head() <span class="co"># note the '==' operator</span></span>
 <span id="cb18-2"><a href=""></a><span class="co"># This is a boolean operation, and will return a dataframe with only the rows that have 'Sci-Fi' in the 'Genre' column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <div>
 <div>
 <style scoped="">
@@ -1093,9 +1033,9 @@ honey</code></pre>
 <li class="fragment">If, instead of using labels, we want to select rows and columns based on their index position, then we can use the <code>iloc</code> method.</li>
 <li class="fragment">The <code>iloc</code> method is similar to the <code>loc</code> method, but instead of using labels, we use index positions.</li>
 </ul>
-<div id="ca09108f" class="cell" data-execution_count="13">
+<div id="2d7e4c06" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>movies_df.iloc[<span class="dv">0</span>:<span class="dv">2</span>, <span class="dv">1</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 <div>
 <style scoped="">
@@ -1146,19 +1086,19 @@ honey</code></pre>
 <li class="fragment">Before we move on to cleaning our dataframe, we need to talk about <code>booleans</code>.</li>
 <li class="fragment">Booleans are a data type that can only have one of two values: <code>True</code> or <code>False</code>.</li>
 <li class="fragment">Booleans are really useful when we want to filter our data based on a condition.</li>
-<li class="fragment">For example, if we wanted to filter our data to only show the rows where the <code>Genre</code> column is equal to <code>Sci-Fi</code>, we can use a boolean operation.</li>
+<li class="fragment">For example, when we wanted to filter our data to only show the rows where the <code>Genre</code> column is equal to <code>Sci-Fi</code>, we used <code>==</code>.</li>
 </ul>
 </section>
 
 <section id="boolean-operators" class="title-slide slide level1 smaller center">
 <h1>Boolean operators</h1>
 <ul>
-<li class="fragment">The <code>==</code> operator is a boolean operator that checks whether two values are equal (remember that the <code>=</code> operator is used to assign a value to a variable).
+<li class="fragment">The <code>==</code> operator is a boolean operator that checks whether two values are <em>equal</em> (remember that the <code>=</code> operator is used to assign a value to a variable).
 <ul>
 <li class="fragment">If the values are equal, then the <code>==</code> operator returns <code>True</code>, otherwise it returns <code>False</code>.</li>
 </ul></li>
 </ul>
-<div id="3b9a4eaa" class="cell" data-execution_count="14">
+<div id="ac5d8703" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="st">'5'</span>) <span class="co">#This will return False</span></span>
 <span id="cb20-2"><a href=""></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="dv">5</span>) <span class="co">#This will return True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1187,10 +1127,14 @@ True</code></pre>
 <h1>Filtering - practice</h1>
 <ul>
 <li class="fragment">I know you’ve seen a lot so far, but I’m going to get you to practice some of the things we’ve covered so far.</li>
-<li class="fragment">In a cell in your notebook, use <code>enumerate</code> to print the position and value of each column in your <code>df.columns</code></li>
+<li class="fragment">In a cell in your notebook, use <code>enumerate</code> to print the <strong>position and value</strong> of each column in your <code>df.columns</code></li>
 <li class="fragment">Then use the <code>loc</code> method to select the first 5 rows of your dataframe, but only the columns that contain the <code>Participant Name</code>, <code>Title of Thing</code>, and <code>Genre</code> of the movie.</li>
+<li class="fragment">See if you can use <code>iloc</code> to do the same thing.</li>
 <li class="fragment">Then use the <code>loc</code> method to select the rows where the <code>ImdB Score</code> is greater than 80.</li>
 </ul>
+<div class="fragment">
+<p><code>df.loc[df["col_name"] boolean_operator value]</code></p>
+</div>
 </section>
 
 <section id="did-you-notice" class="title-slide slide level1 smaller center">
@@ -1219,6 +1163,11 @@ True</code></pre>
 
 <section id="keyerror" class="title-slide slide level1 smaller center">
 <h1>KeyError</h1>
+
+<img data-src="./images/keyerror.jpg" class="r-stretch quarto-figure-center"><p class="caption">keyerror</p></section>
+
+<section id="keyerror-1" class="title-slide slide level1 smaller center">
+<h1>KeyError</h1>
 <ul>
 <li class="fragment">If you get a <code>KeyError</code>, it means that the column you are trying to access does not exist in your dataframe.</li>
 <li class="fragment">This is because Python is case sensitive, and the column name you have typed does not match the column name in your dataframe.</li>
@@ -1228,7 +1177,6 @@ True</code></pre>
 </ul>
 </section>
 
-<section>
 <section id="renaming-columns---option-1" class="title-slide slide level1 smaller center">
 <h1>Renaming columns - option 1</h1>
 <ul>
@@ -1237,10 +1185,182 @@ True</code></pre>
 <li class="fragment">This is a really useful method, because it enables you to rename multiple columns at once.</li>
 <li class="fragment">So if we just wanted to rename the <code>Participant Name</code> column to <code>Director</code>, we could do this:</li>
 </ul>
-<div id="a956c28e" class="cell" data-execution_count="15">
+<div id="391f50b0" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>movies_df.rename(columns <span class="op">=</span> {<span class="st">'Participant Name'</span>: <span class="st">'Director'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb22-2"><a href=""></a>movies_df.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="45">
+<span id="cb22-2"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['Director', 'Title of Thing', 'Genre', 'Year of Release', 'ImdB Score',
+       'Rotten Tomatoes Score ', 'Gender of Lead', 'Make Me Cry?'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</section>
+
+<section id="renaming-columns---option-1-1" class="title-slide slide level1 smaller center">
+<h1>Renaming columns - option 1</h1>
+<ul>
+<li class="fragment">You can also use the <code>.rename()</code> with the for loop as we did in a previous session</li>
+</ul>
+<div id="a386623e" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> movies_df.columns:</span>
+<span id="cb24-2"><a href=""></a>    movies_df.rename(columns<span class="op">=</span>{i:i.lower()}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb24-3"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['director', 'title of thing', 'genre', 'year of release', 'imdb score',
+       'rotten tomatoes score ', 'gender of lead', 'make me cry?'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</section>
+
+<section id="renaming-columns---option-2" class="title-slide slide level1 smaller center">
+<h1>Renaming columns - option 2</h1>
+<ul>
+<li class="fragment">Another option is to use what’s called a <code>list comprehension</code>.</li>
+<li class="fragment">I. Love. <code>List</code>. <code>Comprehensions</code>.</li>
+<li class="fragment">Basically they’re list putting a <code>for loop</code> inside a <code>list</code></li>
+</ul>
+<div id="31d5ea20" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>movies_df.columns <span class="op">=</span> [i.replace(<span class="st">' '</span>, <span class="st">'_'</span>) <span class="cf">for</span> i <span class="kw">in</span> movies_df.columns]<span class="co"># isn't that awesome!!</span></span>
+<span id="cb26-2"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['director', 'title_of_thing', 'genre', 'year_of_release', 'imdb_score',
+       'rotten_tomatoes_score_', 'gender_of_lead', 'make_me_cry?'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</section>
+
+<section id="list-comprehensions" class="title-slide slide level1 smaller center">
+<h1><code>list comprehensions</code></h1>
+<ul>
+<li class="fragment"><code>list comprehensions</code> work like this</li>
+</ul>
+<div class="fragment">
+<p><code>[do_thing(placeholder) for placeholder in collection]</code></p>
+<ul>
+<li class="fragment">They can be simply called in place or we can <code>return</code> a new list to us.</li>
+<li class="fragment">We can also call <code>methods</code> instead of <code>functions</code></li>
+</ul>
+</div>
+<div class="fragment">
+<p><code>[placeholder.do_thing() for placeholder in collection]</code></p>
+</div>
+</section>
+
+<section id="renameing-with-list-comprehensions" class="title-slide slide level1 smaller center">
+<h1>Renameing with <code>list comprehensions</code></h1>
+<ul>
+<li class="fragment">We can use also use <code>list comprehensions</code> with the <code>rename</code> method</li>
+<li class="fragment">we just combine the <code>dict(zip(...))</code> <code>syntax</code> we’ve seen before</li>
+<li class="fragment">As if we had the BFI_44 in our data set starting at column 10</li>
+</ul>
+<p><code>df.rename(columns = dict(zip(df.columns[10:55], [f"bfi_{i}" for i in range(1, 45)]))</code></p>
+</section>
+
+<section id="renaming-recap" class="title-slide slide level1 smaller center">
+<h1>Renaming recap</h1>
+<ul>
+<li class="fragment">So you can see there’s multiple ways to rename columns in a dataframe
+<ul>
+<li class="fragment">You can use the <code>rename</code> method with a dictionary</li>
+<li class="fragment">You can use a <code>for loop</code> with the <code>rename</code> method</li>
+<li class="fragment">You can use a <code>list comprehension</code> to rename columns (my favourite way to just apply a <code>str</code> method to all the columns)</li>
+<li class="fragment">You can use a <code>list comprehension</code> to rename columns with a <code>dict(zip(...))</code> <code>syntax</code></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="renaming-str-methods" class="title-slide slide level1 smaller center">
+<h1>Renaming <code>str methods</code></h1>
+<ul>
+<li class="fragment">You’ve seen the <code>.upper()</code>, <code>.lower()</code>, and <code>.title()</code> <code>str</code> methods before</li>
+<li class="fragment">You also just seen the <code>.replace()</code> <code>str</code> method</li>
+<li class="fragment">but there’s others like <code>.strip()</code> which removes whitespace from the beginning and end of a string (hidden spaces or newlines)</li>
+<li class="fragment">in your notebook try using each of the renaming strategies we’ve covered so far to rename the columns in your dataframe</li>
+<li class="fragment">just use a different string method each time (<code>.lower(), .strip(), .replace(' ', '_')</code>)</li>
+<li class="fragment">And as the most important part <strong>look up</strong> each <code>str</code> method online</li>
+</ul>
+</section>
+
+<section id="working-with-our-dataframe" class="title-slide slide level1 smaller center">
+<h1>Working with Our dataframe</h1>
+<ul>
+<li class="fragment">Okay, so let’s actually get working with the dataframe that we have. The first thing we are going to do is view our dataframe, just to remind ourselves what it looks like.</li>
+<li class="fragment">Since the dataframe is relatively small, I am going to cheat a little bit and view the entire dataframe, rather than using the head or tail functions.</li>
+</ul>
+</section>
+
+<section id="lets-view-our-dataframe" class="title-slide slide level1 smaller center">
+<h1>Let’s view our dataframe</h1>
+<div id="cf6d426f" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-stdout">
+<pre><code>                  director     title_of_thing   genre year_of_release  \
+0           John Carpenter          The Thing  Horror            1982   
+1                           Blade Runner 2049  Sci-Fi            2017   
+2     Nicolas Winding Refn              Drive  Action            2011   
+3  Matthijs van Heijningen          The Thing  Horror            2011   
+4          Damien Chazelle           Whiplash   Drama            2014   
+
+   imdb_score  rotten_tomatoes_score gender_of_lead make_me_cry?  
+0        82.0                   82.0           male           No  
+1        80.0                   88.0           Male           No  
+2        78.0                   93.0              m           No  
+3        62.0                   34.0         Female           No  
+4         NaN                    NaN              m           No  </code></pre>
+</div>
+</div>
+</section>
+
+<section id="lets-view-our-dataframe." class="title-slide slide level1 smaller center">
+<h1>Let’s view our dataframe.</h1>
+<ul>
+<li class="fragment">For the most part, the dataframe looks alright, but it is not perfectly clean.</li>
+<li class="fragment">We’ve already cleaned up the column names but:
+<ul>
+<li class="fragment">There are missing values (either empty or <code>np.nan</code>),</li>
+<li class="fragment">there are some inconsistent values (“Male” vs “m” vs “male”),</li>
+<li class="fragment">classic data entry mistakes (Orgre when clearly it should be spelled Ogre),</li>
+<li class="fragment">and there are columns that we are unlikely to need in our analysis (e.g., Did the movie make me cry or not?).</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="lets-view-our-dataframe.-1" class="title-slide slide level1 smaller center">
+<h1>Let’s view our dataframe.</h1>
+<ul>
+<li class="fragment">There also some data points that we may want to add to the dataframe (for example, average review score across ImdB and Rotten Tomatoes, length of the movie).</li>
+<li class="fragment">Overall, the dataframe is not ready for meaningful statistical analysis.</li>
+<li class="fragment">For the rest of this workshop, we are going to be showing you some tools that you can use to clean up the dataframe, so that it is ready for a more exhaustive analysis.</li>
+</ul>
+</section>
+
+<section id="missing-data" class="title-slide slide level1 smaller center">
+<h1>Missing Data</h1>
+<ul>
+<li class="fragment">Nearly every dataframe that you will work with is likely to contain missing data.</li>
+<li class="fragment">There are two main types of missing <em>numerical</em> data in Python.</li>
+<li class="fragment">A standard missing value is typically recorded in Python as <code>NaN</code>, which refers to a “not a number” value, or a “null” value.</li>
+<li class="fragment">The first thing we can do is check whether we have standard missing values labelled ‘NaN’. We can do this by using the isnull() function.</li>
+</ul>
+</section>
+
+<section id="isnull" class="title-slide slide level1 smaller center">
+<h1><code>.isnull()</code></h1>
+<ul>
+<li class="fragment">The <code>isnull()</code> function will return our dataframe. It checks each entry our dataframe and asks the question “Is this a NaN” value?</li>
+<li class="fragment">If there is NaN value, it returns a “False” result.</li>
+<li class="fragment">If there is a NaN value, it returns a “True” result; meaning that there is NaN data within this cell.</li>
+<li class="fragment">We can see from the output on the next slide that we have a couple of missing values in fifth row (index 4) under the columns <code>ImDb</code> score and <code>Rotten Tomatoes Score</code></li>
+</ul>
+</section>
+
+<section id="isnull-1" class="title-slide slide level1 smaller center">
+<h1><code>.isnull()</code></h1>
+<div id="05451983" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>movies_df.isnull() <span class="co">#This will go through our dataframe and check</span></span>
+<span id="cb29-2"><a href=""></a><span class="co">#for whether we have any missing values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
 <div>
 <div>
 <style scoped="">
@@ -1261,38 +1381,126 @@ True</code></pre>
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Director</th>
-<th data-quarto-table-cell-role="th">Title of Thing</th>
-<th data-quarto-table-cell-role="th">Genre</th>
-<th data-quarto-table-cell-role="th">Year of Release</th>
-<th data-quarto-table-cell-role="th">ImdB Score</th>
-<th data-quarto-table-cell-role="th">Rotten Tomatoes Score</th>
-<th data-quarto-table-cell-role="th">Gender of Lead</th>
-<th data-quarto-table-cell-role="th">Make Me Cry?</th>
+<th data-quarto-table-cell-role="th">director</th>
+<th data-quarto-table-cell-role="th">title_of_thing</th>
+<th data-quarto-table-cell-role="th">genre</th>
+<th data-quarto-table-cell-role="th">year_of_release</th>
+<th data-quarto-table-cell-role="th">imdb_score</th>
+<th data-quarto-table-cell-role="th">rotten_tomatoes_score</th>
+<th data-quarto-table-cell-role="th">gender_of_lead</th>
+<th data-quarto-table-cell-role="th">make_me_cry?</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>John Carpenter</td>
-<td>The Thing</td>
-<td>Horror</td>
-<td>1982</td>
-<td>82.0</td>
-<td>82.0</td>
-<td>male</td>
-<td>No</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td></td>
-<td>Blade Runner 2049</td>
-<td>Sci-Fi</td>
-<td>2017</td>
-<td>80.0</td>
-<td>88.0</td>
-<td>Male</td>
-<td>No</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
 </tr>
 </tbody>
 </table>
@@ -1302,193 +1510,201 @@ True</code></pre>
 </div>
 </div>
 </section>
-<section id="working-with-our-dataframe" class="slide level2">
-<h2>Working with Our dataframe</h2>
-<p>Okay, so let’s actually get working with the dataframe that we have. The first thing we are going to do is view our dataframe, just to remind ourselves what it looks like.</p>
-<p>Since the dataframe is relatively small, I am going to cheat a little bit and view the entire dataframe, rather than using the head or tail functions.</p>
-<p>Let’s view our dataframe.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb23-2"><a href=""></a><span class="in">movies_df</span></span>
-<span id="cb23-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For the most part, the dataframe looks alright. But it is not perfectly clean. There are missing values, some of column titles are a bit awkward (“Title of Thing”), there are some inconsistent values (“Male” vs “m” vs “male”), classic data entry mistakes (Orgre when clearly it should be spelled Ogre), and there are columns that we are unlikely to need in our analysis (e.g., Did the movie make Ryan cry or not?).</p>
-<p>There also some data points that we may want to add to the dataframe (for example, average review score across ImdB and Rotten Tomatoes, length of the movie). Overall, the dataframe is not ready for meaningful statistical analysis.</p>
-<p>For the rest of this workshop, we are going to be showing you some tools that you can use to clean up the dataframe, so that it is ready for a more exhaustive analysis.</p>
-<h3 id="missing-data">Missing Data</h3>
-<p>Nearly every dataframe that you will work with is likely to contain missing data.</p>
-<p>There are two main types of missing data that you will come across with Python. Standard and non-standard. A standard missing value is typically recorded in Python as <code>NaN</code>, which refers to a “not a number” value, or a “null” value.</p>
-<p>The first thing we can do is check whether we have standard missing values labelled ‘NaN’. We can do this by using the is.null() function.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb24-2"><a href=""></a><span class="in">movies_df.isnull() #This will go through our dataframe and check</span></span>
-<span id="cb24-3"><a href=""></a><span class="in">#for whether we have any missing values</span></span>
-<span id="cb24-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The isnull() function will return our dataframe. It checks each entry our dataframe and asks the question “Is this a NaN” value?</p>
-<p>If there us NaN value, it returns a “False” result.</p>
-<p>If there is a NaN value, it returns a “True” result; meaning that there is NaN data within this cell.</p>
-<p>We can see from the output above that we have a couple of missing values in fifth row (index 4) under the columns <code>ImDb</code> score and <code>Rotten Tomatoes Score</code></p>
-<p>In future weeks, we will be showing you what you can do with NaN results other than deleting them. But for now, we do not want to deal with the hassle of having NaN results, so we are going to drop any row that has a NaN result (where isnull() = True)</p>
-<p>We can do this by using the <code>dropna()</code> function - which means, “drop any row that has a null/NaN result”.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb25-2"><a href=""></a><span class="in">movies_df_cleanv1 = movies_df.dropna() </span></span>
-<span id="cb25-3"><a href=""></a></span>
-<span id="cb25-4"><a href=""></a><span class="in">movies_df_cleanv1</span></span>
-<span id="cb25-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<section id="isnull-2" class="title-slide slide level1 smaller center">
+<h1><code>.isnull()</code></h1>
+<ul>
+<li class="fragment">We can see from the output above that we have a couple of missing values in fifth row (index 4) under the columns <code>ImDb</code> score and <code>Rotten Tomatoes Score</code></li>
+<li class="fragment">In future sessions, we will show you how to work with <code>NaN</code> results (other than deleting them).</li>
+<li class="fragment">But for now, we do not want to deal with the hassle of having NaN results,</li>
+<li class="fragment">so we are going to <code>drop</code> any row that has a <code>NaN</code> result (where isnull() == True)</li>
+</ul>
+</section>
+
+<section id="dropna" class="title-slide slide level1 smaller center">
+<h1><code>.dropna()</code></h1>
+<ul>
+<li class="fragment">We can do this by using the <code>dropna()</code> function</li>
+<li class="fragment">which means, <code>drop</code> any row that has a null/NaN result”.</li>
+</ul>
+<div id="89755db1" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>movies_df_cleanv1 <span class="op">=</span> movies_df.dropna() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>I store the resulting dataframe, without the NA results, in a new variable called <code>movies_df_cleanv1</code>. This way we still have access to the raw file within this notebook if we need it.</p>
 <p>The other type of missing value is a non-standard missing value. A non-standard missing value usually occurs when within our dataframe there is a cell that from our perspective is “empty”, but from Python’s perspective there is a value there.</p>
 <p>For example, we can see that in the second row, that from our perspective, there is an empty cell under <code>participant name</code>. However, from Python’s perspective, there is a value there: an empty string <code>" "</code>.</p>
 <p>There are multiple ways to deal with this, but given that we are only introducing missing values this week, what we are going to do is replace any missing values with a <code>NaN</code> result, and then remove that row from the dataframe. Basically, we convert a non-standard missing value into a missing value.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb26-2"><a href=""></a><span class="in">#Replace cell/field that's entirely space or empty with NaN</span></span>
-<span id="cb26-3"><a href=""></a></span>
-<span id="cb26-4"><a href=""></a><span class="in">a = movies_df_cleanv1.replace(r'^\s*$', np.nan, regex=True)</span></span>
-<span id="cb26-5"><a href=""></a></span>
-<span id="cb26-6"><a href=""></a><span class="in">## Hold on a second, what the hell is r'^\s*$'? and what the hell is a regex?</span></span>
-<span id="cb26-7"><a href=""></a></span>
-<span id="cb26-8"><a href=""></a><span class="in"># A regex is short for "regular expression". </span></span>
-<span id="cb26-9"><a href=""></a><span class="in"># Regex enables us to identify a pattern in text (think about using search function in Word)</span></span>
-<span id="cb26-10"><a href=""></a><span class="in"># The 'r' indicates that we are using a regular expression. </span></span>
-<span id="cb26-11"><a href=""></a><span class="in"># The '^\s*$' is regular expression syntax to identify empty strings</span></span>
-<span id="cb26-12"><a href=""></a></span>
-<span id="cb26-13"><a href=""></a><span class="in">#I save the result to a variable a, so I can use dropna() function on it</span></span>
-<span id="cb26-14"><a href=""></a></span>
-<span id="cb26-15"><a href=""></a><span class="in">movies_df_cleanv2 = a.dropna() </span></span>
-<span id="cb26-16"><a href=""></a></span>
-<span id="cb26-17"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
-<span id="cb26-18"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb31-2"><a href=""></a><span class="in">#Replace cell/field that's entirely space or empty with NaN</span></span>
+<span id="cb31-3"><a href=""></a></span>
+<span id="cb31-4"><a href=""></a><span class="in">a = movies_df_cleanv1.replace(r'^\s*$', np.nan, regex=True)</span></span>
+<span id="cb31-5"><a href=""></a></span>
+<span id="cb31-6"><a href=""></a><span class="in">## Hold on a second, what the hell is r'^\s*$'? and what the hell is a regex?</span></span>
+<span id="cb31-7"><a href=""></a></span>
+<span id="cb31-8"><a href=""></a><span class="in"># A regex is short for "regular expression". </span></span>
+<span id="cb31-9"><a href=""></a><span class="in"># Regex enables us to identify a pattern in text (think about using search function in Word)</span></span>
+<span id="cb31-10"><a href=""></a><span class="in"># The 'r' indicates that we are using a regular expression. </span></span>
+<span id="cb31-11"><a href=""></a><span class="in"># The '^\s*$' is regular expression syntax to identify empty strings</span></span>
+<span id="cb31-12"><a href=""></a></span>
+<span id="cb31-13"><a href=""></a><span class="in">#I save the result to a variable a, so I can use dropna() function on it</span></span>
+<span id="cb31-14"><a href=""></a></span>
+<span id="cb31-15"><a href=""></a><span class="in">movies_df_cleanv2 = a.dropna() </span></span>
+<span id="cb31-16"><a href=""></a></span>
+<span id="cb31-17"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
+<span id="cb31-18"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In future weeks, we will show you more sophisticated ways of handling NaN data. But for now, we have a dataframe that has usable data in each cell.</p>
 <p>Our next steps are to clean up some entries in our dataframe, and fix inconsistent data entries.</p>
-<h3 id="clean-data---renaming-columns-and-incorrect-entries">Clean Data - Renaming Columns and Incorrect Entries</h3>
-<h4 id="changing-the-name-of-a-column">Changing the name of a column</h4>
+</section>
+
+<section>
+<section id="clean-data---renaming-columns-and-incorrect-entries" class="title-slide slide level1 center">
+<h1>Clean Data - Renaming Columns and Incorrect Entries</h1>
+
+</section>
+<section id="changing-the-name-of-a-column" class="slide level2">
+<h2>Changing the name of a column</h2>
 <p>Using a for loop, we can print out the names of our columns. Run the cell below.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb27-2"><a href=""></a><span class="in">for col in movies_df_cleanv2:</span></span>
-<span id="cb27-3"><a href=""></a><span class="in">    print(col)</span></span>
-<span id="cb27-4"><a href=""></a></span>
-<span id="cb27-5"><a href=""></a><span class="in"># The first line says iterate through each column name within our dataframe</span></span>
-<span id="cb27-6"><a href=""></a><span class="in"># The second line says that for each column, print out the name of that column</span></span>
-<span id="cb27-7"><a href=""></a></span>
-<span id="cb27-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb32-2"><a href=""></a><span class="in">for col in movies_df_cleanv2:</span></span>
+<span id="cb32-3"><a href=""></a><span class="in">    print(col)</span></span>
+<span id="cb32-4"><a href=""></a></span>
+<span id="cb32-5"><a href=""></a><span class="in"># The first line says iterate through each column name within our dataframe</span></span>
+<span id="cb32-6"><a href=""></a><span class="in"># The second line says that for each column, print out the name of that column</span></span>
+<span id="cb32-7"><a href=""></a></span>
+<span id="cb32-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We can see that there are a couple of awkward names for our columns. A more fitting name for “Participant Name” is probably “Director”. Similarly, a more appropriate (albeit less poetic due to the loss of alliteration) name for “Title of Thing” is “Movie”</p>
 <p>We can rename these columns with a function called <code>rename</code></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb28-2"><a href=""></a><span class="in">movies_df_cleanv2.rename(columns={'Participant Name':'Director', 'Title of Thing': 'Movie'}, inplace= True)</span></span>
-<span id="cb28-3"><a href=""></a></span>
-<span id="cb28-4"><a href=""></a><span class="in">#the rename function takes the old value as the Dictionary Key, and replaces with the new value</span></span>
-<span id="cb28-5"><a href=""></a></span>
-<span id="cb28-6"><a href=""></a><span class="in">#{"Old Column Name": "New Column Name"}</span></span>
-<span id="cb28-7"><a href=""></a></span>
-<span id="cb28-8"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
-<span id="cb28-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="dropping-columns">Dropping Columns</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb33-2"><a href=""></a><span class="in">movies_df_cleanv2.rename(columns={'Participant Name':'Director', 'Title of Thing': 'Movie'}, inplace= True)</span></span>
+<span id="cb33-3"><a href=""></a></span>
+<span id="cb33-4"><a href=""></a><span class="in">#the rename function takes the old value as the Dictionary Key, and replaces with the new value</span></span>
+<span id="cb33-5"><a href=""></a></span>
+<span id="cb33-6"><a href=""></a><span class="in">#{"Old Column Name": "New Column Name"}</span></span>
+<span id="cb33-7"><a href=""></a></span>
+<span id="cb33-8"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
+<span id="cb33-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section id="dropping-columns" class="title-slide slide level1 center">
+<h1>Dropping Columns</h1>
 <p>Now that we have correct column names, let’s fix up inconsistencies within our data. For example, it is unlikely that any scientific journals, even those low impact ones that constantly message you asking to submit any draft emails you have lying around are going to be interested in knowing whether Ryan cried during any of these movies. So for the sake of keeping our data clean and tidy (unlike Ryan’s running mascara), we are going to chuck out that column.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb29-2"><a href=""></a><span class="in">movies_df_cleanv2.drop("Make Ryan Cry?", 1, inplace=True)</span></span>
-<span id="cb29-3"><a href=""></a></span>
-<span id="cb29-4"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
-<span id="cb29-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="inconsistent-data">Inconsistent Data</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb34-2"><a href=""></a><span class="in">movies_df_cleanv2.drop("Make Ryan Cry?", 1, inplace=True)</span></span>
+<span id="cb34-3"><a href=""></a></span>
+<span id="cb34-4"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
+<span id="cb34-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+
+<section>
+<section id="inconsistent-data" class="title-slide slide level1 center">
+<h1>Inconsistent Data</h1>
 <p>Now that we have columns that we want to work with, let’s clean up inconsistent data entries.</p>
 <p>We can see that within our column, “Gender of Lead”, that there are inconsistent values. Male is sometimes coded as “male”, or “m”. Female is sometimes codes as “fem”. But it is good to get a quantitative idea of the different values that are entered within this column. One function we can use to identify the different values that are within a column, and also how many times that value appears within the column, is the function <code>value_counts()</code>.</p>
 <p>The first thing we need to do is select (aka slice) the particular column that we want, and then use the value_counts function.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb30-2"><a href=""></a><span class="in">movies_df_cleanv2.iloc[:, -1:].value_counts()</span></span>
-<span id="cb30-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb35-2"><a href=""></a><span class="in">movies_df_cleanv2.iloc[:, -1:].value_counts()</span></span>
+<span id="cb35-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Okay we can see that our <code>Gender of Lead</code> is all over the place. Rather than having 6 Males and 2 females, we have 3 ‘Males’, 1 ‘m’, 1 ‘male’, 1 ‘Orgre’, 1 ‘Female’, 1 ‘fem’. The values used to code our data is inconsistent. So let’s fix it by using the <code>replace</code> function.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb31-2"><a href=""></a><span class="in">movies_df_cleanv2.iloc[:, -1:] = movies_df_cleanv2.iloc[:, -1:].replace(to_replace = ["Orgre", "m"], value = "Male")</span></span>
-<span id="cb31-3"><a href=""></a></span>
-<span id="cb31-4"><a href=""></a><span class="in">#the syntax for the following code is:</span></span>
-<span id="cb31-5"><a href=""></a><span class="in">#dataframe.replace(list_with_values_to_replace = ["Old Value1"...."Old ValueN"], value = "New Value1")</span></span>
-<span id="cb31-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb36-2"><a href=""></a><span class="in">movies_df_cleanv2.iloc[:, -1:] = movies_df_cleanv2.iloc[:, -1:].replace(to_replace = ["Orgre", "m"], value = "Male")</span></span>
+<span id="cb36-3"><a href=""></a></span>
+<span id="cb36-4"><a href=""></a><span class="in">#the syntax for the following code is:</span></span>
+<span id="cb36-5"><a href=""></a><span class="in">#dataframe.replace(list_with_values_to_replace = ["Old Value1"...."Old ValueN"], value = "New Value1")</span></span>
+<span id="cb36-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we could have also replaced the lowercase <code>male</code>, but we will show another method you use to handle cases where inconsistent values are related to capitalisation.</p>
 <p>First let’s fix the female values</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb32-2"><a href=""></a><span class="in">#Take the syntax from the previous code cell and use replace "fem" with "female" for the "Gender of Lead" column</span></span>
-<span id="cb32-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb37-2"><a href=""></a><span class="in">#Take the syntax from the previous code cell and use replace "fem" with "female" for the "Gender of Lead" column</span></span>
+<span id="cb37-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Okay, now let’s fix our capitalisation issue. We can do that by using the str.capitalise() method.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb33-2"><a href=""></a><span class="in">movies_df_cleanv2['Gender of Lead'] = movies_df_cleanv2['Gender of Lead'].str.capitalize()</span></span>
-<span id="cb33-3"><a href=""></a></span>
-<span id="cb33-4"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
-<span id="cb33-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb38-2"><a href=""></a><span class="in">movies_df_cleanv2['Gender of Lead'] = movies_df_cleanv2['Gender of Lead'].str.capitalize()</span></span>
+<span id="cb38-3"><a href=""></a></span>
+<span id="cb38-4"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
+<span id="cb38-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now there’s a few things going on here.</p>
 <p>1st. Instead of slicing our dataframe the way we have been showing you so far <code>movies_df_cleanv2.iloc[:, -1:]</code>, we instead selected our column by using actual name of the column. This is a perfectably acceptable way to select a column.</p>
 <p>2nd. We use the str. function to treat everything inside our column as a string.</p>
 <p>3rd. Then we call the capitalise() method on our strings in order to capitalise the first letter. There are other functions that we could apply instead of capitalise. For example, we could use str.upper() to transform every value into UPPER CASE. Or we could str.lower to transform every value into lower case. Feel free to toy around with them in the example above.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb34-2"><a href=""></a><span class="in">#Use the value counts function on the Genre column and see what type of movie pops up the most often in our dataset. </span></span>
-<span id="cb34-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb35-2"><a href=""></a><span class="in">#Let's say for the sake of our analysis, we do not need to make the distinction between a comedy and a dark comedy</span></span>
-<span id="cb35-3"><a href=""></a><span class="in">#Using the replace function, change "Dark Comedy" to "Comedy" in our dataset for the Genre column. </span></span>
-<span id="cb35-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb36-2"><a href=""></a><span class="in">#Convert the genre column to either upper or lower case (dealers choice!)</span></span>
-<span id="cb36-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb39-2"><a href=""></a><span class="in">#Use the value counts function on the Genre column and see what type of movie pops up the most often in our dataset. </span></span>
+<span id="cb39-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb40-2"><a href=""></a><span class="in">#Let's say for the sake of our analysis, we do not need to make the distinction between a comedy and a dark comedy</span></span>
+<span id="cb40-3"><a href=""></a><span class="in">#Using the replace function, change "Dark Comedy" to "Comedy" in our dataset for the Genre column. </span></span>
+<span id="cb40-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb41-2"><a href=""></a><span class="in">#Convert the genre column to either upper or lower case (dealers choice!)</span></span>
+<span id="cb41-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="adding-to-our-dataframe" class="slide level2">
 <h2>Adding to our Dataframe</h2>
 <p>Run the cell below to let us look at our dataframe again.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb37-2"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
-<span id="cb37-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb42-2"><a href=""></a><span class="in">movies_df_cleanv2</span></span>
+<span id="cb42-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Hopefully if you have gotten to this stage, the columns are appropriately labelled, there are no missing values, and values are consistent within columns. It should look in a lot better shape. If not, then do not worry, just let us know. :)</p>
-<h3 id="add-rows">Add Rows</h3>
+</section></section>
+<section id="add-rows" class="title-slide slide level1 center">
+<h1>Add Rows</h1>
 <p>Our dataframe is pretty small though right. And there aren’t that many movies in there with a female lead, so how can we rectify that?</p>
 <p>Well with pandas, it is relatively handy to add (or append) rows to a dataframe.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb38-2"><a href=""></a><span class="in">new_rows = {'Director': ['Ridley Scott', 'Greta Gerwig'], </span></span>
-<span id="cb38-3"><a href=""></a><span class="in">'Movie': ['Alien', 'Lady Bird'], </span></span>
-<span id="cb38-4"><a href=""></a><span class="in">'Genre': ['Horror', 'Drama'],</span></span>
-<span id="cb38-5"><a href=""></a><span class="in">"Year of Release": ['1979', '2017'],  </span></span>
-<span id="cb38-6"><a href=""></a><span class="in">"ImdB Score": [85, 74],</span></span>
-<span id="cb38-7"><a href=""></a><span class="in">"Rotten Tomatoes Score": [98, 99],</span></span>
-<span id="cb38-8"><a href=""></a><span class="in">"Gender of Lead": ["Female", "Female"]</span></span>
-<span id="cb38-9"><a href=""></a><span class="in">}</span></span>
-<span id="cb38-10"><a href=""></a></span>
-<span id="cb38-11"><a href=""></a><span class="in">df2 = pd.DataFrame(new_rows)</span></span>
-<span id="cb38-12"><a href=""></a></span>
-<span id="cb38-13"><a href=""></a><span class="in">movies_df_cleanv3 = movies_df_cleanv2.append(df2, ignore_index="True")</span></span>
-<span id="cb38-14"><a href=""></a></span>
-<span id="cb38-15"><a href=""></a><span class="in">movies_df_cleanv3</span></span>
-<span id="cb38-16"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb43-2"><a href=""></a><span class="in">new_rows = {'Director': ['Ridley Scott', 'Greta Gerwig'], </span></span>
+<span id="cb43-3"><a href=""></a><span class="in">'Movie': ['Alien', 'Lady Bird'], </span></span>
+<span id="cb43-4"><a href=""></a><span class="in">'Genre': ['Horror', 'Drama'],</span></span>
+<span id="cb43-5"><a href=""></a><span class="in">"Year of Release": ['1979', '2017'],  </span></span>
+<span id="cb43-6"><a href=""></a><span class="in">"ImdB Score": [85, 74],</span></span>
+<span id="cb43-7"><a href=""></a><span class="in">"Rotten Tomatoes Score": [98, 99],</span></span>
+<span id="cb43-8"><a href=""></a><span class="in">"Gender of Lead": ["Female", "Female"]</span></span>
+<span id="cb43-9"><a href=""></a><span class="in">}</span></span>
+<span id="cb43-10"><a href=""></a></span>
+<span id="cb43-11"><a href=""></a><span class="in">df2 = pd.DataFrame(new_rows)</span></span>
+<span id="cb43-12"><a href=""></a></span>
+<span id="cb43-13"><a href=""></a><span class="in">movies_df_cleanv3 = movies_df_cleanv2.append(df2, ignore_index="True")</span></span>
+<span id="cb43-14"><a href=""></a></span>
+<span id="cb43-15"><a href=""></a><span class="in">movies_df_cleanv3</span></span>
+<span id="cb43-16"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Wahey! Although there is still a gender imbalance, we are definitely healthier on male/female actor lead (the director situation is a different story).</p>
 <p>But what went on to achieve that? Well, there’s a few things to note:</p>
 <p>The first thing is we created a dict object, <code>new_rows</code>, containing our column names (dict keys) and column values (dict values). Because we are adding more than one value per column name, we enter the column values as a list. This enables Python to create multiple rows per each column.</p>
 <p>The second thing is that we turned these dict into a dataframe, called <code>df</code>. This is because it is much more straightforward to add multiple rows to an existing dataframe, if those rows are in the shape of a dataframe.</p>
 <p>The third thing is that we set <code>ignore_index = True</code>. The index refers to the co-ordinate system we have been using to slice our dataframe. The two dataframes, movies_df_cleanv2 and df2, will have their own indices. For example, the value in row 1, column 1, in movies_df_cleanv2 is “John Carpenter”, whereas the same co-ordinates in df2 return “Ridley Scott”.</p>
 <p>To set ignore_index to true simply means to combine the two dataframes under one co-ordinate system, rather than keeping their own specific co-ordinate systems. Don’t worry if this is still sounding too abstract, you do not need to know it for now.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb39-2"><a href=""></a><span class="in"># Try to add another row to the dataframe. </span></span>
-<span id="cb39-3"><a href=""></a><span class="in"># Google any movie you like, create a dictionary containing its value for each of the columns</span></span>
-<span id="cb39-4"><a href=""></a><span class="in"># Turn that dict into a Dataframe</span></span>
-<span id="cb39-5"><a href=""></a><span class="in"># Then append that dataframe to our existing dataframe</span></span>
-<span id="cb39-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="add-column">Add column</h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb44-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb44-2"><a href=""></a><span class="in"># Try to add another row to the dataframe. </span></span>
+<span id="cb44-3"><a href=""></a><span class="in"># Google any movie you like, create a dictionary containing its value for each of the columns</span></span>
+<span id="cb44-4"><a href=""></a><span class="in"># Turn that dict into a Dataframe</span></span>
+<span id="cb44-5"><a href=""></a><span class="in"># Then append that dataframe to our existing dataframe</span></span>
+<span id="cb44-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+
+<section id="add-column" class="title-slide slide level1 center">
+<h1>Add column</h1>
 <p>At the moment, our columns contain Rotten Tomatoes score from critics. But what if we wanted to add in the Rotten tomatoe scores from fans? We can do that fairly easily with pandas dataframes.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb40-2"><a href=""></a><span class="in">#first let's create a list that will be converted into a column within our dataframe</span></span>
-<span id="cb40-3"><a href=""></a></span>
-<span id="cb40-4"><a href=""></a><span class="in">rt_fans = [92.0, 79.0, 42.0, 82.0, 86.0, 69.0, 89.0, 93.0, 94.0, 79.0] #By the way, how in the hell does Shrek 2 only have a 69% on rotten tomatoes? What kind of sick joke is that?</span></span>
-<span id="cb40-5"><a href=""></a></span>
-<span id="cb40-6"><a href=""></a><span class="in">#Now let's create a column within our dataframe, and then set its values to rt_fans</span></span>
-<span id="cb40-7"><a href=""></a></span>
-<span id="cb40-8"><a href=""></a><span class="in">movies_df_cleanv3["Rotten Tomatoes Fans' Scores"] = rt_fans</span></span>
-<span id="cb40-9"><a href=""></a></span>
-<span id="cb40-10"><a href=""></a><span class="in">movies_df_cleanv3</span></span>
-<span id="cb40-11"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb45-2"><a href=""></a><span class="in">#first let's create a list that will be converted into a column within our dataframe</span></span>
+<span id="cb45-3"><a href=""></a></span>
+<span id="cb45-4"><a href=""></a><span class="in">rt_fans = [92.0, 79.0, 42.0, 82.0, 86.0, 69.0, 89.0, 93.0, 94.0, 79.0] #By the way, how in the hell does Shrek 2 only have a 69% on rotten tomatoes? What kind of sick joke is that?</span></span>
+<span id="cb45-5"><a href=""></a></span>
+<span id="cb45-6"><a href=""></a><span class="in">#Now let's create a column within our dataframe, and then set its values to rt_fans</span></span>
+<span id="cb45-7"><a href=""></a></span>
+<span id="cb45-8"><a href=""></a><span class="in">movies_df_cleanv3["Rotten Tomatoes Fans' Scores"] = rt_fans</span></span>
+<span id="cb45-9"><a href=""></a></span>
+<span id="cb45-10"><a href=""></a><span class="in">movies_df_cleanv3</span></span>
+<span id="cb45-11"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Nice, we have the fans opinion in there too for Rotten Tomatoes. But ideally we would want it next to the Rotten Tomatoes Critics scores. Let’s re-order our dataframe</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb41-2"><a href=""></a><span class="in">movies_df_cleanv3 = movies_df_cleanv3[["Director", "Movie", "Genre", "Year of Release", "ImdB Score", "Rotten Tomatoes Score", "Rotten Tomatoes Fans' Scores", "Gender of Lead"]]</span></span>
-<span id="cb41-3"><a href=""></a></span>
-<span id="cb41-4"><a href=""></a><span class="in">movies_df_cleanv3.head()</span></span>
-<span id="cb41-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb42-2"><a href=""></a><span class="in">## What if we wanted to know whether the lead actor won an oscar or not? </span></span>
-<span id="cb42-3"><a href=""></a></span>
-<span id="cb42-4"><a href=""></a><span class="in">#Take the following list, and add it as a column in the dataframe</span></span>
-<span id="cb42-5"><a href=""></a></span>
-<span id="cb42-6"><a href=""></a><span class="in">#oscar = ["No", "No", "No", "No", "Yes", "No", "No", "Yes", "No", "No"]</span></span>
-<span id="cb42-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb46-2"><a href=""></a><span class="in">movies_df_cleanv3 = movies_df_cleanv3[["Director", "Movie", "Genre", "Year of Release", "ImdB Score", "Rotten Tomatoes Score", "Rotten Tomatoes Fans' Scores", "Gender of Lead"]]</span></span>
+<span id="cb46-3"><a href=""></a></span>
+<span id="cb46-4"><a href=""></a><span class="in">movies_df_cleanv3.head()</span></span>
+<span id="cb46-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb47-2"><a href=""></a><span class="in">## What if we wanted to know whether the lead actor won an oscar or not? </span></span>
+<span id="cb47-3"><a href=""></a></span>
+<span id="cb47-4"><a href=""></a><span class="in">#Take the following list, and add it as a column in the dataframe</span></span>
+<span id="cb47-5"><a href=""></a></span>
+<span id="cb47-6"><a href=""></a><span class="in">#oscar = ["No", "No", "No", "No", "Yes", "No", "No", "Yes", "No", "No"]</span></span>
+<span id="cb47-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Well done. We have convered a lot this week. Do not worry if a lot of these ideas have not sunk in. That’s normal.</p>
 <p>Our recommendation would be to practice with your own dataframes. Practice will help this all sink in.</p>
 <p>In the cells below this one you can practice with the csv version of the raw data.</p>
@@ -1506,7 +1722,7 @@ True</code></pre>
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
