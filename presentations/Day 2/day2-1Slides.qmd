@@ -396,10 +396,42 @@ movies_df.head(2)
 ```{python}
 #| echo: true
 #| eval: true
-
 for i in movies_df.columns:
     movies_df[i].rename(columns ={i:i.lower()}, inplace = True)
 ```
+
+
+# Renaming columns - option 2 {.smaller}
+
+ - Another option is to use what's called a `list comprehension`.
+ - I. Love. `List`. `Comprehensions`.
+ - Basically they're list putting a `for loop` inside a `list`
+
+```{python}
+#| echo: true
+#| eval: true
+df.columns = [i.replace(' ', '_') for i in df.columns]# isn't that awesome!!
+```
+
+# `list comprehensions {.smaller}
+
+ - `list comprehensions` work like this
+
+. . .
+
+`[do_thing(placeholder) for placeholder in collection]`
+
+ - They can be simply called in place or we can `return` a new list to us. 
+ - We can also call `methods` instea of `functions`
+
+. . . 
+
+`[placeholder.do_thing() for placeholder in collection]`
+
+
+
+
+
 
 
 ## Working with Our dataframe 
