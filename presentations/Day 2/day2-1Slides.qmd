@@ -512,9 +512,9 @@ print(movies_df.head())
 # `.isnull()` {.smaller}
 
  - The `isnull()` function will return our dataframe. It checks each entry our dataframe and asks the question "Is this a NaN" value? 
- - If there is NaN value, it returns a "False" result. 
- - If there is a NaN value, it returns a "True" result; meaning that there is NaN data within this cell.
+ - If there is NaN value, it returns a "True" value (in a *numerical column*). 
  - We can see from the output on the next slide that we have a couple of missing values in fifth row (index 4) under the columns `ImDb` score and `Rotten Tomatoes Score` 
+ - But if you notice the 'director' column also has empty valuse, but because this is not a 'numeric' `column`.
 
 # `.isnull()` {.smaller}
 
@@ -522,7 +522,7 @@ print(movies_df.head())
 #| echo: true
 #| eval: true
 movies_df.isnull() #This will go through our dataframe and check
-#for whether we have any missing values
+#for whether we have any missing numeric values
 ```
 
 # `.isnull()` {.smaller}
@@ -543,79 +543,95 @@ movies_df.isnull() #This will go through our dataframe and check
 movies_df_cleanv1 = movies_df.dropna() 
 ```
 
-I store the resulting dataframe, without the NA results, in a new variable called `movies_df_cleanv1`. This way we still have access to the raw file within this notebook if we need it. 
+# `.dropna()` {.smaller}
 
-The other type of missing value is a non-standard missing value. A non-standard missing value usually occurs when within our dataframe there is a cell that from our perspective is "empty", but from Python's perspective there is a value there. 
+ - We store the resulting dataframe,without the NA results
+ - We call it `movies_df_cleanv1`.
+ - This way we still have access to the raw file within this notebook if we need it. 
+ - For example, if we needed to go back and view values from a row we've deleted. 
 
-For example, we can see that in the second row, that from our perspective, there is an empty cell under `participant name`. However, from Python's perspective, there is a value there: an empty string `" "`. 
+# Empty but no empty {.smaller}
 
-There are multiple ways to deal with this, but given that we are only introducing missing values this week, what we are going to do is replace any missing values with a `NaN` result, and then remove that row from the dataframe. Basically, we convert a non-standard missing value into a missing value. 
+ - The other type of missing value is a non-standard missing value.
+ - A non-standard missing value usually occurs when there is a cell that **looks** "empty" to us, but from Python's perspective there is a value there. 
+ - For example, we can see that in the second row, that from our perspective, there is an empty cell under `participant name`. However, from Python's perspective, there is a value there: an empty string `" "`. 
 
 
-````{{python}}
+# Empty but not empty {.smaller}
+
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv1.head(3)
+```
+
+# `.replace()' {.smaller}
+
+ - There are multiple ways to deal with this, but what we are going to do is use `.replace()` 
+ - We'll `replace() any missing values with a `NaN` result,
+ - Thenremove that row from the dataframe. 
+ - Basically, we convert a non-standard missing value into a missing value. 
+
+
+```{python}
 #Replace cell/field that's entirely space or empty with NaN
-
 a = movies_df_cleanv1.replace(r'^\s*$', np.nan, regex=True)
-
 ## Hold on a second, what the hell is r'^\s*$'? and what the hell is a regex?
-
 # A regex is short for "regular expression". 
 # Regex enables us to identify a pattern in text (think about using search function in Word)
 # The 'r' indicates that we are using a regular expression. 
 # The '^\s*$' is regular expression syntax to identify empty strings
-
 #I save the result to a variable a, so I can use dropna() function on it
-
 movies_df_cleanv2 = a.dropna() 
-
 movies_df_cleanv2
-````
+```
 
-In future weeks, we will show you more sophisticated ways of handling NaN data. But for now, we have a dataframe that has usable data in each cell. 
+# `.replace()' {.smaller}
 
-Our next steps are to clean up some entries in our dataframe, and fix inconsistent data entries. 
+ - There are moresophisticated ways of handling NaN data.
+ - But for now, we have a dataframe that has usable (if imperfect) data in each cell. 
+ - Our next steps are to clean up some entries in our dataframe, and fix inconsistent data entries. 
 
-# Clean Data - Renaming Columns and Incorrect Entries
+# Dropping Columns {.smaller}
 
-## Changing the name of a column
+ - Often, we get data sets that contain variables (`columns`) that we don't need
+ - As when working with Quatrics data that contains columns like 'Conscent' and 'ResponseIP_Address'
+ - We can use the `drop()` method
 
-Using a for loop, we can print out the names of our columns. Run the cell below. 
+. . .
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2 = movies_df_cleanv1.drop("make_me_cry?", axis = 1) #dropping and assigning to new variable
+for i in movies_df_cleanv2.columns:
+    print(i)
+```
+
+# `.drop()` {.smaller}
+
+. . . 
+
+`df.drop('label', axis = 1`)
+
+ - As you can see the `drop() method` takes 2 `arguments`
+   - The label of the thing you want to `drop`
+   - The `axis` of the thing you want to `drop`
+ - The `axis` argument just states whether your dropping rows or columns
+   - `axis = 0` relates to `rows`
+   - `axis = 0` relates to `columns`
+
+# `axis` 
+
+![axis image](.images)
+
+# more practice! {.smaller}
+
+ - In you're own notebook create a new cell
+ - drop the "make_me_cry?" column (but put the outcome in a new variable
 
 
-````{{python}}
-for col in movies_df_cleanv2:
-    print(col)
 
-# The first line says iterate through each column name within our dataframe
-# The second line says that for each column, print out the name of that column
-
-````
-
-We can see that there are a couple of awkward names for our columns. A more fitting name for "Participant Name" is probably "Director". Similarly, a more appropriate (albeit less poetic due to the loss of alliteration) name for "Title of Thing" is "Movie" 
-
-We can rename these columns with a function called `rename`
-
-````{{python}}
-movies_df_cleanv2.rename(columns={'Participant Name':'Director', 'Title of Thing': 'Movie'}, inplace= True)
-
-#the rename function takes the old value as the Dictionary Key, and replaces with the new value
-
-#{"Old Column Name": "New Column Name"}
-
-movies_df_cleanv2
-````
-
-# Dropping Columns 
-
-Now that we have correct column names, let's fix up inconsistencies within our data. For example, it is unlikely that any scientific journals, even those low impact ones that constantly message you asking to submit any draft emails you have lying around are going to be interested in knowing whether Ryan cried during any of these movies. So for the sake of keeping our data clean and tidy (unlike Ryan's running mascara), we are going to chuck out that column. 
-
-````{{python}}
-movies_df_cleanv2.drop("Make Ryan Cry?", 1, inplace=True)
-
-movies_df_cleanv2
-````
-
-# Inconsistent Data
+# Inconsistent Data {.smaller}
 
 Now that we have columns that we want to work with, let's clean up inconsistent data entries. 
 
