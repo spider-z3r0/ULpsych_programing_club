@@ -627,8 +627,8 @@ for i in movies_df_cleanv2.columns:
 # more practice! {.smaller}
 
  - In you're own notebook create a new cell
- - drop the "make_me_cry?" column (but put the outcome in a new variable
-
+ - use the `.replace() to replace the empty `strings` with `Nan`
+ - Drop the "make_me_cry?" column (but put the outcome in a new variable)
 
 
 # Inconsistent Data {.smaller}
