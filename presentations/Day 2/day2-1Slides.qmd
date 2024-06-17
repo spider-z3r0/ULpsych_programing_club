@@ -633,7 +633,28 @@ for i in movies_df_cleanv2.columns:
 
 # Inconsistent Data {.smaller}
 
- - Now that we have columns that we want to work with, let's clean up inconsistent data entries. 
+ - Now that we have columns that we want to work with, let's take a look at our data again to see if there are any inconsistencies.
+
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2.head()
+```
+
+# Inconsistent Data {.smaller}
+
+ - Taking a look at the 'gender of lead' column, we can see that there are some inconsistencies in the way that the data is entered.
+
+```{python}
+#| echo: true
+#| eval: true
+
+movies_df_cleanv2['gender_of_lead'].value_counts()
+```
+
+# Inconsistent Data {.smaller}
+
+ - We can see that within
 
 We can see that within our column, "Gender of Lead", that there are inconsistent values. Male is sometimes coded as "male", or "m". Female is sometimes codes as "fem". But it is good to get a quantitative idea of the different values that are entered within this column. One function we can use to identify the different values that are within a column, and also how many times that value appears within the column, is the function `value_counts()`.
 
@@ -779,7 +800,7 @@ movies_df_cleanv3.head()
 #oscar = ["No", "No", "No", "No", "Yes", "No", "No", "Yes", "No", "No"]
 ````
 
-Well done. We have convered a lot this week. Do not worry if a lot of these ideas have not sunk in. That's normal. 
+Well done. We have covered a lot this week. Do not worry if a lot of these ideas have not sunk in. That's normal. 
 
 Our recommendation would be to practice with your own dataframes. Practice will help this all sink in.
 
