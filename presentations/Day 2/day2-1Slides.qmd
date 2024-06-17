@@ -633,7 +633,7 @@ for i in movies_df_cleanv2.columns:
 
 # Inconsistent Data {.smaller}
 
-Now that we have columns that we want to work with, let's clean up inconsistent data entries. 
+ - Now that we have columns that we want to work with, let's clean up inconsistent data entries. 
 
 We can see that within our column, "Gender of Lead", that there are inconsistent values. Male is sometimes coded as "male", or "m". Female is sometimes codes as "fem". But it is good to get a quantitative idea of the different values that are entered within this column. One function we can use to identify the different values that are within a column, and also how many times that value appears within the column, is the function `value_counts()`.
 
