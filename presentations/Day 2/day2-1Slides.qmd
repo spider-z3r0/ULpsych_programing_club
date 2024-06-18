@@ -550,11 +550,11 @@ movies_df_cleanv1 = movies_df.dropna()
  - This way we still have access to the raw file within this notebook if we need it. 
  - For example, if we needed to go back and view values from a row we've deleted. 
 
-# Empty but no empty {.smaller}
+# Empty but not empty {.smaller}
 
  - The other type of missing value is a non-standard missing value.
  - A non-standard missing value usually occurs when there is a cell that **looks** "empty" to us, but from Python's perspective there is a value there. 
- - For example, we can see that in the second row, that from our perspective, there is an empty cell under `participant name`. However, from Python's perspective, there is a value there: an empty string `" "`. 
+ - For example, we can see that in the second row, that from our perspective, there is an empty cell under `participant name`. However, from Python's perspective, there is a value there: an empty string `""`. 
 
 
 # Empty but not empty {.smaller}
@@ -565,32 +565,55 @@ movies_df_cleanv1 = movies_df.dropna()
 movies_df_cleanv1.head(3)
 ```
 
-# `.replace()' {.smaller}
+# `replace()` {.smaller}
 
  - There are multiple ways to deal with this, but what we are going to do is use `.replace()` 
- - We'll `replace() any missing values with a `NaN` result,
- - Thenremove that row from the dataframe. 
+ - We'll `replace()` the value there with `np.nan`
+ - Then remove that row from the dataframe. 
  - Basically, we convert a non-standard missing value into a missing value. 
 
 
+# `replace()` {.smaller}
+
 ```{python}
+#| echo: true
+#|eval: true
 #Replace cell/field that's entirely space or empty with NaN
-a = movies_df_cleanv1.replace(r'^\s*$', np.nan, regex=True)
+movies_df_cleanv1.replace(r'^\s*$', np.nan, regex=True, inplace=True)
 ## Hold on a second, what the hell is r'^\s*$'? and what the hell is a regex?
 # A regex is short for "regular expression". 
 # Regex enables us to identify a pattern in text (think about using search function in Word)
-# The 'r' indicates that we are using a regular expression. 
+# The 'r' indicates that we are using a 'raw string' (remember these from paths). 
 # The '^\s*$' is regular expression syntax to identify empty strings
-#I save the result to a variable a, so I can use dropna() function on it
-movies_df_cleanv2 = a.dropna() 
-movies_df_cleanv2
+movies_df_cleanv2 = movies_df_cleanv1.dropna() 
+movies_df_cleanv2.head(2)
 ```
 
-# `.replace()' {.smaller}
 
- - There are moresophisticated ways of handling NaN data.
+# `replace()` {.smaller}
+
+ - There are more sophisticated ways of handling NaN data.
  - But for now, we have a dataframe that has usable (if imperfect) data in each cell. 
- - Our next steps are to clean up some entries in our dataframe, and fix inconsistent data entries. 
+ - Our next steps are 
+     - to reset the index labels
+     - remove columns we don't need
+     - to clean up some inconsistent entries in our DataFrame
+
+# reseting the index {.smaller}
+
+ - when we `drop` rows the `index labels` of the `DataFrame` doesn't update. 
+ - you can see this if you view the `DataFrame` after dropping
+ - `pandas` has a really simple `method` to manage this
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2.reset_index()
+movies_df_cleanv2.head()
+```
+
 
 # Dropping Columns {.smaller}
 
@@ -654,99 +677,126 @@ movies_df_cleanv2['gender_of_lead'].value_counts()
 
 # Inconsistent Data {.smaller}
 
- - We can see that within
+ - The `df[column name].value_counts()` method gives us a sense of what values we have in a given column
+ - We have 3 'Male', 1 'm', 1 'male', 1 'Orgre', 1 'Female', 1 'fem'.
+ - Just like in SPSS, these would be considered different categories, even though we know that 
+    - 'Female'
+    - 'fem'
+ - Both mean the same thing
+ - We can use the `.replace()` method to fix this. 
 
-We can see that within our column, "Gender of Lead", that there are inconsistent values. Male is sometimes coded as "male", or "m". Female is sometimes codes as "fem". But it is good to get a quantitative idea of the different values that are entered within this column. One function we can use to identify the different values that are within a column, and also how many times that value appears within the column, is the function `value_counts()`.
+# `.replace()` {.smaller}
 
-The first thing we need to do is select (aka slice) the particular column that we want, and then use the value_counts function. 
-
-````{{python}}
-movies_df_cleanv2.iloc[:, -1:].value_counts()
-````
-
-Okay we can see that our `Gender of Lead` is all over the place. Rather than having 6 Males and 2 females, we have 3 'Males', 1 'm', 1 'male', 1 'Orgre', 1 'Female', 1 'fem'. The values used to code our data is inconsistent. So let's fix it by using the `replace` function. 
-
-
-
-
-````{{python}}
-movies_df_cleanv2.iloc[:, -1:] = movies_df_cleanv2.iloc[:, -1:].replace(to_replace = ["Orgre", "m"], value = "Male")
-
-#the syntax for the following code is:
-#dataframe.replace(list_with_values_to_replace = ["Old Value1"...."Old ValueN"], value = "New Value1")
-````
-
-Now we could have also replaced the lowercase `male`, but we will show another method you use to handle cases where inconsistent values are related to capitalisation. 
-
-First let's fix the female values
-
-````{{python}}
-#Take the syntax from the previous code cell and use replace "fem" with "female" for the "Gender of Lead" column
-````
-
-Okay, now let's fix our capitalisation issue. We can do that by using the str.capitalise() method. 
-
-````{{python}}
-movies_df_cleanv2['Gender of Lead'] = movies_df_cleanv2['Gender of Lead'].str.capitalize()
-
-movies_df_cleanv2
-````
-
-Now there's a few things going on here. 
-
-1st. Instead of slicing our dataframe the way we have been showing you so far `movies_df_cleanv2.iloc[:, -1:]`, we instead selected our column by using actual name of the column. This is a perfectably acceptable way to select a column. 
-
-2nd. We use the str. function to treat everything inside our column as a string. 
-
-3rd. Then we call the capitalise() method on our strings in order to capitalise the first letter. There are other functions that we could apply instead of capitalise. For example, we could use str.upper() to transform every value into UPPER CASE. Or we could str.lower to transform every value into lower case. Feel free to toy around with them in the example above. 
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2['gender_of_lead'] = movies_df_cleanv2['gender_of_lead'].replace(to_replace = ["Orgre", "m"], value = "male")
+print(movies_df_cleanv2['gender_of_lead'].value_counts())
+```
 
 
-````{{python}}
-#Use the value counts function on the Genre column and see what type of movie pops up the most often in our dataset. 
-````
+ - The syntax for the relevant code is:
+ - `df[column_name].replace(to_replace = ["Old Value1"...."Old ValueN"], value = "New Value1")`
+ - note that *instead* of slicing, we've just put the name of the column inside `[]` 
+ - like we were working with a `dict` 
 
-````{{python}}
-#Let's say for the sake of our analysis, we do not need to make the distinction between a comedy and a dark comedy
-#Using the replace function, change "Dark Comedy" to "Comedy" in our dataset for the Genre column. 
-````
+. . .
 
-````{{python}}
-#Convert the genre column to either upper or lower case (dealers choice!)
-````
+We could have also replaced the uppercase `Male`, but we will show another method you use to handle cases where inconsistent values are related to capitalisation. 
 
-## Adding to our Dataframe
+# `.replace()` {.smaller}
 
-Run the cell below to let us look at our dataframe again.
+ - First let's fix the female values
+ - In your own notebook, use `replace()` to normalise the values for 'male' and 'female'
+ - Don't forget the `.value_counts()` method will help you see what values you need to clean. 
 
-````{{python}}
-movies_df_cleanv2
-````
+. . .
 
-Hopefully if you have gotten to this stage, the columns are appropriately labelled, there are no missing values, and values are consistent within columns. It should look in a lot better shape. If not, then do not worry, just let us know. :) 
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2['gender_of_lead'] = movies_df_cleanv2['gender_of_lead'].replace(to_replace = ["Female", "fem"], value = "female")
+```
 
-# Add Rows
+# fixing capitalisation {.smaller}
+
+ - Now let's fix our capitalisation issue.
+ - You already know that there are lots of `str methods`
+ - We can use the `str.lower()` method to set all the values to lower. 
+
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2['gender_of_lead'] = movies_df_cleanv2['gender_of_lead'].str.lower()
+movies_df_cleanv2['gender_of_lead'].value_counts()
+```
+
+
+# fixing capitalisation {.smaller}
+
+ - There's a few things going on here. 
+    - 1. We use the `df[column_name]` syntax to select the column
+    - 2. We call `.str` to treat everything inside our column as a string (if it can). 
+    - 3. Then we call the `.lower() str method`.
+
+ - There are other functions that we could apply instead of `.lower`.
+ - For example, we could use `str.upper()` to transform every value into UPPER CASE 
+
+# fixing data - practice {.smaller}
+
+ - In your own notebook, make the column title case before resetting it to lower case
+ - (Don't forget to inspect the results with `.head()` or `.value_counts()`
+ - Use the value counts function on the `'genre'` column and see what type of movie pops up the most often in our dataset. 
+ - Let's say for the sake of our analysis, we do not need to make the distinction between a comedy and a dark comedy
+ - Using the replace function, change "Dark Comedy" to "Comedy" in our dataset for the `'genre'` column. 
+ - Convert the `'genre'` column to either upper or lower case (dealers choice!)
+
+# fixing data {.smaller}
+
+ - At this stage
+    - the columns are appropriately labelled,
+    - there are no missing values,
+    - and values are consistent within columns.
+
+. . .
 
 Our dataframe is pretty small though right. And there aren't that many movies in there with a female lead, so how can we rectify that? 
 
-Well with pandas, it is relatively handy to add (or append) rows to a dataframe. 
+# ph {.smaller}
 
-````{{python}}
-new_rows = {'Director': ['Ridley Scott', 'Greta Gerwig'], 
-'Movie': ['Alien', 'Lady Bird'], 
-'Genre': ['Horror', 'Drama'],
-"Year of Release": ['1979', '2017'],  
-"ImdB Score": [85, 74],
-"Rotten Tomatoes Score": [98, 99],
-"Gender of Lead": ["Female", "Female"]
+```{python}
+movies_df_cleanv2.isnull()
+
+```
+
+# Add Rows {.smaller}
+
+
+ - It is quite easy to concatenate (remember that from the earlier sessions with strings?)
+
+```{python}
+#| echo: true
+#| eval: true
+# make a dict of our new rows
+new_rows = {'director': ['Ridley Scott', 'Greta Gerwig'], 
+'title_of_thing': ['Alien', 'Lady Bird'], 
+'genre': ['Horror', 'Drama'],
+"year_of_release": ['1979', '2017'],  
+"imdB_score": [85, 74],
+"rotten_tomatoes_score": [98, 99],
+"gender of lead": ["female", "female"]
 }
+#convert the dict to a DataFrame
+df2 = pd.DataFrame(new_rows) #just call the DataFrame class and pass our dict to it
+movies_df_cleanv3 = pd.concat([movies_df_cleanv2,df2], ignore_index="True")
+movies_df_cleanv3.tail(3)
+```
 
-df2 = pd.DataFrame(new_rows)
 
-movies_df_cleanv3 = movies_df_cleanv2.append(df2, ignore_index="True")
-
-movies_df_cleanv3
-````
-
+# Add Rows {.smaller}
 Wahey! Although there is still a gender imbalance, we are definitely healthier on male/female actor lead (the director situation is a different story). 
 
 But what went on to achieve that? Well, there's a few things to note:
