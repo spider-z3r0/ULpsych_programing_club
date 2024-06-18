@@ -120,6 +120,7 @@ dmypy.json
 # files to ignore
 src/scratch.py
 src/scratch.ipynb
+src/scratch.qmd
 .Rproj.user
 presentations\Day 0\images
 sandra_examples
