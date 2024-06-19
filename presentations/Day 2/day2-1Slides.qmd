@@ -923,60 +923,19 @@ movies_df_cleanv3.head()
 # Practice Exercises {.smaller}
 
  - Well done. We have covered a lot this week. Do not worry if a lot of these ideas have not sunk in. That's normal.
- - Our recommendation would be to practice with your own dataframes. Practice will help this all sink in.
+ - This stuff is all about *doing*
+ - You have to practice recalling it, to get it into your fingertips, like learning an instrument
+ - In new notebooks, you can practice with the CSV version of the raw data thats up on brightspace.
 
- - In the cells below this one, you can practice with the CSV version of the raw data.
+   1. Save a version of your df that doesn't have any empty cells.
+   2. Scan for inconsistent data.
+   3. See if you can fix it.
+   4. Drop columns you don't need, or use `iloc` to save a version of the data that doesn't have the extra columns in it.
 
- 1. Save a version of your df that doesn't have any empty cells.
- 2. Scan for inconsistent data.
- 3. See if you can fix it.
- 4. Drop columns you don't need, or use `iloc` to save a version of the data that doesn't have the extra columns in it.
-
-```{python}
-#| echo: true
-#| eval: true
-# Save a version of your df that doesn't have any empty cells
-movies_df_no_empty = movies_df_cleanv3.dropna()
-print(movies_df_no_empty)
-
-# Scan for inconsistent data
-print(movies_df_no_empty['genre'].value_counts())
-
-# Fix inconsistent data
-movies_df_no_empty['genre'] = movies_df_no_empty['genre'].replace("Dark Comedy", "Comedy").str.lower()
-print(movies_df_no_empty['genre'].value_counts())
-
-# Drop columns you don't need
-movies_df_final = movies_df_no_empty.drop(['oscar_winner'], axis=1)
-print(movies_df_final)
-```
-
+# Additional Practice Exercises {.smaller}
  - Additionally, try adding more data to your DataFrame:
    - Google more movies, create dictionaries for each movie, and append them to your DataFrame.
    - Add more columns with relevant data (e.g., box office earnings, runtime).
    - Create a new DataFrame with only the movies released after the year 2000.
    - Calculate and add a new column for the average score between IMDb and Rotten Tomatoes Critics.
 
-```{python}
-#| echo: true
-#| eval: true
-# Additional Practice
-
-# Add more rows
-additional_movies = {
-    'director': ['Christopher Nolan', 'Patty Jenkins'],
-    'title_of_thing': ['Inception', 'Wonder Woman'],
-    'genre': ['Sci-Fi', 'Action'],
-    'year_of_release': ['2010', '2017'],
-    'imdB_score': [88, 75],
-movies_df_extended['runtime'] = [120, 110, 130, 115, 95, 105, 123, 95, 121, 113, 148, 141]
-print(movies_df_extended.head())
-
-# Filter movies released after 2000
-movies_post_2000 = movies_df_extended[movies_df_extended['year_of_release'].astype(int) > 2000]
-print(movies_post_2000)
-
-# Calculate and add average score column
-movies_df_extended['average_score'] = (movies_df_extended['imdB_score'] + movies_df_extended['rotten_tomatoes_score']) / 2
-print(movies_df_extended.head())
-```
