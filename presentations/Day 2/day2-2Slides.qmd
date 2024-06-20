@@ -13,6 +13,8 @@ csl: apa.csl
 
 # Welcome back!!{.smaller}
 
+
+
  - Welcome back!! 
  - In the last few sessions we've been getting you up to speed with the *basics* of python and `pandas`
  - We've covered a lot of ground, but we've also been trying to keep it simple.
@@ -33,7 +35,7 @@ csl: apa.csl
  - We've shown you how to `clean` your data
     - `df.dropna()`, `df.replace()`
  - We've shown you how to `examine` your data
-    - `df.head()`, `df.tail()`, `df.shape`, `df.columns`
+    - `df.head()`, `df.tail()`, `df[column].value_counts()`, `df.columns`
  - We've shown you how to `slice` your data
     - `df.iloc[]`, `df.loc[]`, `df[]`
     - `df[df['column'] == 'value']`
@@ -124,7 +126,7 @@ movies_df.columns
  - Use the `pd.read_csv()` method to import the data into a new `DataFrame` called `movies_df`
  - Take your time and call me if you get stuck. 
  - Once you have the data imported, take a look at the `head` of the data to make sure it's all there.
- - Check the `shape` of the data to see how many rows and columns you have.
+ - Check the `df.shape attribute` of the data to see how many rows and columns you have.
  - Use a for loop to print out the `columns` of the data.
  - From your previous notebook you should have some examples of how to clean the data
  - `replace` any missing values with `np.nan` and then `drop` any rows that contain `np.nan` values.
@@ -132,7 +134,7 @@ movies_df.columns
  - Finally, `reset` the index of the dataframe so that it starts at 0.
 
 
-## Saving stuff {.smaller}
+# Saving stuff {.smaller}
 
  - One of the key things we might want to do is **save**  things. 
  - You might want to save clean data once you've made it.
@@ -149,10 +151,10 @@ movies_df.columns
 
 ```{{python}}
 #saving a dataframe to a csv file
-name_of_dataframe.to_csv('path\to\where\you\want\to\save\filename.csv')
+name_of_dataframe.to_csv('path\to\where\you\want\to\save\filename.csv', index=False)
 
 #saving a dataframe to an excel file
-name_of_dataframe.to_excel('path\to\where\you\want\to\save\filename.xlsx')
+name_of_dataframe.to_excel('path\to\where\you\want\to\save\filename.xlsx', index=False)
 ``` 
 
 
@@ -171,199 +173,268 @@ name_of_dataframe.to_excel('path\to\where\you\want\to\save\filename.xlsx')
 
 Using an `r-string` or a `Path` is often a matter of personal preference, but we would encourage you to work with `Path` objects more often because they can be a lot more flexible. Let's take an aside for a few minutes and look at what we can do with `Paths` to make our lives easier. 
 
-## Path components 
+# Path components {.smaller} 
 
-Much like a `DataFrame` has attributes like `.columns` and `.shape`, a `Path` object also has attributes that can be useful, and these attributes are bassically just the components of a file path. For a really good breakdown of the `pathlib` module you should check out [this tutorial](https://realpython.com/python-pathlib/) (in particular take a look at the 'Picking out the components of a path' section). These `attributes` allow us to pick apart a `path` so that we can use the bits of it we need. To get a sense of this, in the cell below create a `Path` to the `csv` version of the raw data we sent you in week 5 (it should be called 'raw_data_csv.csv' and it should be in the 'data' sub-folder)
+ - Just like a `DataFrame` has `attributes` like `.columns` and `.shape`
+ - A `Path` object also has attributes that can be useful, and these attributes are basically just the components of a file path.
+ - These `attributes` allow us to pick apart a `path` so that we can use the bits of it we need.
+ - To get a sense of this, in the cell below we'll create a `Path` to the `csv`  
+
+. . .
 
 ```{python}
 #| echo: true
 #| eval: true
 #make your path object on the next line
-
-csv_file = pl.Path(r'/home/kevin/my_projects/ULpsych_programing_club/data/raw_data_spss.sav')#just paste the path to your file between the ''
+csv_file = pl.Path(r'../../data/movies_df_2_2.csv')#using the ../../ to move up two directories to the data folder
 ```
 
 Now that we have an example path, we can can look at some of the attributes.
 
-### name
-if we want to get the name of the file or folder that a `path` points to, we just use the syntax
+# `.name` {.smaller}
 
-```
-file_variable.name
-```
+ - The first attribute we're going to look at is the `name` attribute of a `Path` object. 
+ - This is the name of the file or folder that the `path` points to including the file `suffix`. 
+ - This is useful because it allows us to get the name of the file or folder without having to parse the `path` string. 
 
-In the cell below, try printing out the name of the csv_file variable you made up above. 
 
 ```{python}
-# print the name of your csv file in this cell
-csv_file.name
+#| echo: true
+#| eval: true
+# printing the file name
+print(csv_file.name)# note that it is not followed by `()` because it is an attribute not a method
 ```
 
-Boom. 
 
-You'll notice that the filename also has the `.csv` extenstion after the name. Obviously if it was an excel workbook the extension would be `.xlsx` and if it was a jupyter notebook it would be `.ipynb`. In the context of `Path` objects, these are called the `suffix` of a file (folders don't have `suffixes`) and you can call them with the syntax 
+# `stem` and `suffix` {.smaller}
 
-```
-file_variable.suffix
-```
-
-In the cell below, print out the `suffix` of your file
+ - The `name` attribute is useful, but sometimes we want to get the `stem` of the file (the name without the `suffix`) or the `suffix` of the file (the `.csv` or `.xlsx` at the end of the name) 
+ - Like if we specficially want to find files with the same `stem` but different `suffixes` or if we want to save a new file with the same `stem` but a different `suffix`.
 
 ```{python}
-# print the name of your csv file in this cell
-csv_file.suffix
+#| echo: true
+#| eval: true
+# printing the stem of the file
+print(csv_file.stem)
+# printing the suffix of the file
+print(csv_file.suffix)
 ```
 
-Both of these `attributes` return `strings` that you can perform all the usual `string operations` on, and we know how much you love those (honestly, it's endearing). But we can also also access the `path` to the folder your file (or subfolder) is in by calling the `parent`.
-```
-file_or_folder.parent
-```
 
-In the cell below, print out the `parent` of the the csv file
+# `stem` and `suffix` {.smaller}
+ 
+ - Boom. 
+ - You'll notice that the filename also has the `.csv` `suffix`.
+ -  Obviously if it was an excel workbook the extension would be `.xlsx` and if it was a jupyter notebook it would be `.ipynb`. 
+ - All of these `attributes` return `strings` that you can perform all the usual `string operations` on, and we know how much you love those (honestly, it's endearing).
+ - So you can call `csv_file.stem.upper()` and it will return the `stem` of the file in uppercase.
+ - Or you can call `csv_file.suffix.replace('.', '')` and it will return the `suffix` of the file without the `.` at the start.
+
+
+# parent {.smaller}
+
+ - The `parent` attribute of a `Path` is the `folder` one level up from the file or folder that the `path` points to.
+ - So if the full `path` is 
+      - `C:\Users\username\Documents\programming_club\data\movies_df_2_2.csv`
+ - Then the `parent` of the `path` is
+      - `C:\Users\username\Documents\programming_club\data`
 
 ```{python}
-#print the parent of the csv file
-csv_file.parent
+#| echo: true
+#| eval: true
+# printing the parent of the file
+print(csv_file.parent)
 ```
 
-Rather than being a `string` object, this `parent` object is also a `Path` and what is useful about this is we can use some of `pathlibs` built in functionality to make our lives a little easier.
+# `paths` and `saving` {.smaller}
 
-For example, we can add to an existing path by using `syantax` that is very similar to `string concatenation` oniy instead of using `+` to join to strings together, we can use `/` (forwardslash) to join a `string` onto the end of the `parent Path` for when we want to save a new file in the same folder as an existing file **without overwriting our old file**. 
+- Now that we know about some of these `attributes` we can use them to make our lives a little easier when we're saving files.
+- For example, we can use the `path` we saved to the `csv` file to save a new file in the same folder as the `csv` file without overwriting our old file.
+- We just need to use the parent of the `path` and add a new `.name` (which includes with `suffix`).
+- `Pathlib` is really good at this because it allows us to use `/` (forwardslash) to join a `string` onto the end of a `Path` object.
 
-```
-new_file_path = old_file_path.parent / 'new_filename.filetype'
-```
-
-So what we've done there is taken the `parent folder` of our original `Path` and added a new `.name` (which includes with `suffix`). We've also saved this as a `variable` so we can call it if we need it. 
-
-We can combine this `syntax` with the `syntax` we use to save dataframes
-
-```
-#to save a csv file
-dataframe.to_csv(old_file_path.parent/'new_file.csv') # pay close attention to the syntax
-```
-
-In the cell below, try saving `movies_df` to the `parent` of the `csv_file` `Path`. Take you're time with it and really think through the syntax example above. 
-
-You should see the file show up in the 'data' sub-folder of our programming club directory. 
-
-You can open it using excel, and you can also view it in vscode. Take a look at it.  
-
-```{python}
-# save the movies df into a csv file
-# call the file 'movies.csv'
-```
-
-When you open up the movies.csv file you might notice that there is an extra column at the start of the dataframe. Like so
-
-|    |   Unnamed: 0 | Participant Name        | Movie Title            | Genre       |   Year of Release |   ImdB Score |   Rotten Tomatoes Score | Gender of Lead   |
-|---:|-------------:|:------------------------|:-----------------------|:------------|------------------:|-------------:|------------------------:|:-----------------|
-|  0 |            0 | John Carpenter          | The Thing              | Horror      |              1982 |           82 |                      82 | Male             |
-|  1 |            1 | Nicolas Winding Refn    | Drive                  | Action      |              2011 |           78 |                      93 | Male             |
-|  2 |            2 | Matthijs van Heijningen | The Thing              | Horror      |              2011 |           62 |                      34 | Female           |
-|  3 |            3 | Dennis Villanueve       | Arrival                | Sci-Fi      |              2016 |           79 |                      94 | Male             |
-|  4 |            4 | Coen Brothers           | No Country for Old Men | Drama       |              2007 |           82 |                      93 | Female           |
-|  5 |            5 | Kelly Asbury            | Shrek 2                | Comedy      |              2004 |           73 |                      89 | Orgre            |
-|  6 |            6 | Edgar Wright            | Hot Fuzz               | Comedy      |              2007 |           78 |                      91 | Male             |
-|  7 |            7 | Coen Brothers           | Fargo                  | Dark Comedy |              1996 |           81 |                      94 | Male             |
-
- This is the `index` of the dataframe. Often however, we do not want to save the `index` when we save a dataset (sometimes we really do) and so we need to use a `keyword argument` in the `df.to_csv()` method 
-
-```
-df.to_csv(path, index = False)#index is a keyword argument, setting it to false means that the index will not show up as a column in the exported csv
-```
-
-In the cell below save the `movies_df` again, but this time call it `movies_2.csv` and set `index =False`.
-
-```{python}
-#Save the movies df without the index column
-```
-
-Unless you have decided to use a different column as the index (like maybe the participant_id) or you have a `multiindex` dataframe (look it up, they are cool) you will rarely want to include the     `index` as a column in an exported dataframe, so setting `index = False` is a reasonable habbit to get into. Other wise, you will always have to `drop` the first column, or do some kind of `iloc` selection when you import your cleaned dataframe for analysis. 
-
-
-Now, here comes the big practice bit. 
-
-For the rest of this session, we want you to import the SPSS version of the raw data (raw_data_spss.sav) into a pandas dataframe, clean it up (select only the needed columns, clean up any missing or inconsistent data) and then save it to a new csv file, so we can do some simple analysis and charting next week. Remember the the `pathlib` tricks we just talked about up above when importing and saving the data. We're going to talk you through some of the specifics that come up when working with SPSS data (you probably don't need to ask us how we feel about SPSS files...)
-
-## Importing SPSS files. 
-
-Earlier in these series of courses we, introduced you to importing datafiles into `pandas DataFrames` and we did this mainly with `.csv` files, but we tricked you into installing the `pyreadstat` module as well, because this is needed to allow python to read `.sav` files. Once you have `pyreadstat` installed in your `venv` you can just use the simple `pd.read_spss(path)` to import your dataframe. 
-
-We can do this three ways:
-
- 1. We can create a whole new Path object to our spss file
- 2. We can use the `parent` of the `csv_file` Path with `/ 'raw_data_spss.sav'` 
- 3. We can just copy the path for the spss file and paste it as an `r_string` into the `read_spss()` method.
-
-Because we have already made a `path` object, it might be most efficient to just use the parent of that object, but any of those methods will work. 
-
-Import the `.sav` version of the raw data into a dataframe called `sdf1` below, using whichever method you prefer. Or try it a few times, changing the approach each time, im not your damn boss!
+. . .
 
 ```{{python}}
-#import the .sav file into a pandas dataframe in the cell below
-
-sdf1 = pd.read_spss()# importing the spss data to a pandas df
-sdf1.head()
+# new file path
+new_csv_file = csv_file.parent / 'new_filename.csv'
 ```
+
+# `paths` and `saving` {.smaller}
+
+ - Or what if you wanted to save it into a another folder in the same project directory?
+ - You could use the `parent` of the `parent`!!
+
+. . .
+
+```{{python}}
+# new file path
+new_csv_file = csv_file.parent.parent / 'processed_data/new_filename.csv'
+```
+
+# `paths` and `saving` {.smaller}
+
+ - There's lots you can do with `pathlib` and we've only just scratched the surface.
+ - My favourite is to use the `pathlib` `.iterdir()` method to `loop` through all the files in a folder and do something with them.
+ - `[i for i in csv_file.parent.iterdir()]` will return a list of all the files in the folder that the `csv_file` is in.
+ - But thats a story for another day.
+
+# Saving data {.smaller}
+
+ - Your next task is to save the 'cleaned' `movies_df` to a new `csv` file so that you don't lose all the hard work you've done cleaning it up.
+ - I suggest you save it to a csv with the `df.to_csv()` method. 
+ - Pass the `path` between the brackets and make sure you set `index = False` so that the `index` of the `df` doesn't show up as a column in the exported `csv` file.
+ - Be really careful with the `path` you pass to the `to_csv()` method, you don't want to overwrite your original data (this is where the `pathlib` `attributes` can be really useful).
+ - But if you do overwrite your original data, don't worry, you can always download the file again, but that not always be true of the data you're working with.
+
+# Descriptive statistics {.smaller}
+
+ - Now that we've saved our data, we can start to look at some of the `descriptive statistics` of the data.
+ - You all know well what descriptive stats are, you've made lots of tables in your time, but we're going to look at how to do this in `pandas`.
+ - We can look at things like the `mean`, `median`, `mode`, `standard deviation`, `variance`, `range`, `quartiles`, and `percentiles` of the data.
+ - We can use the `df.describe()` method to get a summary of the data in the `DataFrame` (and with quarto we can render them in apa, but thats for later)
+
+# Descriptive statistics {.smaller}
+
+ - The `df.describe()` method is a really useful method for getting a summary of the data in a `DataFrame`.
+ - It can be called on a whole `DataFrame` or on a single `column` of a `DataFrame`.
+ - It returns a `DataFrame` with the `mean`, `standard deviation`, `min`, `max`, `quartiles`, and `count` of the data in the `DataFrame`.
+ - Think about how useful that is for a second.
+
+# `.describe()` {.smaller}
+
+ - Let's take a look at the `describe()` method in action.
+
+. . .
 
 ```{python}
-sdf1 = pd.read_spss(csv_file.parent / 'raw_data_spss.sav')# importing the spss data to a pandas df
-sdf1.head()
+#| echo: true
+#| eval: true
+desc = movies_df.describe()# describe the whole dataframe
+desc
 ```
 
-Lets take a quick look at the `head` of `sdf1`. 
+# `.describe()` {.smaller}
 
-Firstly, we can see that, as with all Qualtrics datasets, it contains a lot of extra columns, and because this Qualtrics survey was programmed by a lunatic, obviously living fast with no regard for others, some of the columns are named things like 'Q_5... truly this was made by a monster... 
+ - So you can see that the `describe()` method returns a `DataFrame` with the major `descriptive statistics` for the `numberical` columns in the `DataFrame`.
+ - It's really easy to clean this up and make it look nice.
 
-You can also see that the we have some columns ('Q_1' to 'Q_11') that appear to be likert style scale items, and they appear to have the value labels instead of the values. This might make it difficult to calculate a total score (beacuse we have words where we would need numbers). Let's tackle these issues one at a time starting with removing the unwanted columns from our dataset. 
 
-## Getting rid of unwanted columns. 
-
-Depending on what you want to do there are a few ways get rid of columns that you don't want in your dataset, we can 
- 1. drop the unwanted columns us `df.drop()` 
- 2. select the wanted columns using `.iloc` or `.loc`
-and which you choose just depends on your needs, your dataset, and your preference. Lets start by looking at `df.drop()`
-
-### Dropping columns
-
-At this stage it might be pretty clear to you what `.drop()` does, partly because you've already seen the `.dropna()` method. Both of these methods allow us to just delete rows or columns from our `df`. With `dropna()` just we can quickly and easily delete alls rows that contain empty cells, `drop()` however, allows us to have a lot more control over what we're doing. In it's simplest form we use the `syntax`
-
-```
-new_df = df.drop('Column name', axis = 1)# dropping a single column
-newer_df = df.drop(['col1', 'col2' ...], axis = 1)# dropping a list of columns
-```
-
-This `syntax` should be pretty familiar to you, we're using the `.drop()` method on our `df` to `return` a new `df` that doesn't have the columns we dropped in it. *Simples!*
-
-If you want to make the changes to your original `df` object you just use its name at the start of the `syntax`
-
-```
-df = df.drop('Column name', axis = 1)# dropping a single column *within* the same dataframe
-```
-
-This will overwrite your `padas DataFrame` but it won't make changes to the file you imported it from. There will be times when you want to overwrite, and there will be time when you want to make a new `df`, you'll develop a sense of which is better. As long as you're not overwiting you **Raw Data file**, the one you've imported you data from originally, it really just depends on what you prefer.
-
-However, knowing the exact name of each column matters. If you get the column name wrong you'll get an error and so what we might want to do is have a full list of all the columns (and the index number of those columns) `for`tunately we've already shown you a way to `loop` through this. Go back to the week 3 and week 4 and try to figure out how to print out the index and item `for each item in the sdf1.columns list`...
+. . .
 
 ```{python}
-#do your printing magic here. 
+#| echo: true
+#| eval: true
+desc.columns = [i.replace('_', ' ').title() for i in desc.columns]#cleaning up the column names
+desc.index = [i.title() for i in desc.index]#cleaning up the index
+desc.round(2)#rounding the numbers to 2 decimal places
 ```
+
+
+# `.describe()` {.smaller}
+
+ - We can also just slice the `DataFrame` returned by the `describe()` method to get specific stats
+
+. . .
 
 ```{python}
-for i, j in enumerate(sdf1.columns):
-    print(f'{i} = {j}')
+#| echo: true
+#| eval: true
+desc.loc[['Mean', 'Std', 'Min', 'Max']]
 ```
 
-*Boom!*
 
-You might notice that the list is too long to be displayed as output in the jupyter notebook, but there is an option to `'Open the full output in a` _text editor_' just under the code cell. If you click that it'll show you the full list. With that list now you can use the `drop()` syntax to get rid of columns that you don't need and have an easier dataset to work on. 
+# `.describe()` {.smaller}
 
-For example, we could use 
+ - We can also call the `describe()` method on a single `column` of a `DataFrame` to get the `descriptive statistics` for that `column`.
 
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+movies_df['director'].describe()
 ```
-sdf2 = sdf1.drop('StartDate', axis = 1)
+
+. . . 
+
+```{python}
+#| echo: true
+#| eval: true
+
+movies_df['imdb_score'].describe()
 ```
 
-to save a new version of the dataset that doesn't have the 'StartDate' column. 
+# `.describe()` {.smaller}
+
+   - The `describe()` method is really useful for getting a quick summary of the data in a `DataFrame`.
+   - But what if we want to get the `mode` of the data?
+   - Or the `quartiles` of the data?
+   - Or the `percentiles` of the data?
+   - We can use the `df.mode()`, `df.min()`, `df.max()`, `df.quantile()`, and `df.percentile()` methods to get these stats.
+   - Let's take a look at these in action.
+
+# other stats {.smaller}
+ 
+  - Just like `.describe()` we can call these methods on a whole `DataFrame` or on a single `column` of a `DataFrame`.
+  - But we need to specify only numberical columns when we call these methods on a whole `DataFrame`.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+movies_df[['imdb_score', 'rotten_tomatoes_score', 'rotten_tomatoes_fan_score']].mode()#mode of the imdb_score column
+```
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+movies_df['imdb_score'].mode()#mode of the imdb_score column
+```
+
+
+# other stats {.smaller}
+
+ - We can use that `syntax` for any individual descriptive stat we might want
+ - so  `.quantile()`, `.percentile()`, `.std()`, `.var()`, `.mean()`, `.median()`, `.mode()`, `.min()`, `.max()`
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+print(movies_df['imdb_score'].quantile(0.25))#first quartile of the imdb_score column
+print(movies_df['imdb_score'].quantile(0.75))#third quartile of the imdb_score column
+print(movies_df['imdb_score'].mean())#mean of the imdb_score column
+```
+
+
+# other stats {.smaller}
+
+ - We can use that to add to our `desc` dataframe to get a more complete picture of the data
+ - We can, for example, add the `mode` of the data to the `desc` dataframe 
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+# adding the mode of the data to the desc dataframe
+desc.loc['Mode'] = movies_df.mode().iloc[0]
+desc.round(2)
+``` 
+
+
+# other stats {.smaller}
+
+ - So you can see that we can get a lot of `descriptive statistics` from a `DataFrame` really easily.
+ - As an academic writer you can then use these in lots of ways. 
+ - You can not only make tables of these stats, but you can also use them in your writing to describe the data you're working with.
 

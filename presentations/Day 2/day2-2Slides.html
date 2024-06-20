@@ -434,7 +434,7 @@
 </ul></li>
 <li class="fragment">We’ve shown you how to <code>examine</code> your data
 <ul>
-<li class="fragment"><code>df.head()</code>, <code>df.tail()</code>, <code>df.shape</code>, <code>df.columns</code></li>
+<li class="fragment"><code>df.head()</code>, <code>df.tail()</code>, <code>df[column].value_counts()</code>, <code>df.columns</code></li>
 </ul></li>
 <li class="fragment">We’ve shown you how to <code>slice</code> your data
 <ul>
@@ -465,7 +465,7 @@
 <li class="fragment">But first things first - we need to import the modules we’ll need for this session</li>
 </ul>
 <div class="fragment">
-<div id="29d1ea22" class="cell" data-execution_count="1">
+<div id="4988d08d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># import the needed modules in this cell</span></span>
 <span id="cb1-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># for working with dataframes</span></span>
 <span id="cb1-3"><a href=""></a><span class="im">import</span> pathlib <span class="im">as</span> pl <span class="co"># for working with file paths</span></span>
@@ -484,7 +484,7 @@
 
 <section id="set-up-for-the-session-2" class="title-slide slide level1 smaller center">
 <h1>Set up for the session</h1>
-<div id="f3d671c5" class="cell" data-execution_count="2">
+<div id="a09d1f7f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example</span></span>
 <span id="cb2-2"><a href=""></a>director <span class="op">=</span> [<span class="st">'John Carpenter'</span>, <span class="st">''</span>, <span class="st">'Nicolas Winding Refn'</span>, <span class="st">'Matthijs van Heijningen'</span>, <span class="st">'Damien Chazelle'</span>, <span class="st">'Dennis Villanueve'</span>, <span class="st">'Coen Brothers'</span>, <span class="st">'Kelly Asbury'</span>, <span class="st">'Edgar Wright'</span>, <span class="st">'Coen Brothers'</span>]</span>
 <span id="cb2-3"><a href=""></a>names <span class="op">=</span> [<span class="st">'The Thing'</span>, <span class="st">'Blade Runner 2049'</span>, <span class="st">'Drive'</span>,  <span class="st">'The Thing'</span>, <span class="st">'Whiplash'</span>, <span class="st">'Arrival'</span>, <span class="st">'No Country for Old Men'</span>, <span class="st">'Shrek 2'</span>, <span class="st">'Hot Fuzz'</span>, <span class="st">'Fargo'</span>]</span>
@@ -517,8 +517,8 @@
 
 <section id="ph1" class="title-slide slide level1 smaller center">
 <h1>ph1</h1>
-<div id="b4c840bd" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div id="ff99b8a0" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>Index(['director', 'movie_title', 'genre', 'year_of_release', 'imdb_score',
        'rotten_tomatoes_score', 'rotten_tomatoes_fan_score', 'gender_of_lead'],
       dtype='object')</code></pre>
@@ -526,7 +526,6 @@
 </div>
 </section>
 
-<section>
 <section id="set-up-for-the-session-3" class="title-slide slide level1 smaller center">
 <h1>Set up for the session</h1>
 <ul>
@@ -534,7 +533,7 @@
 <li class="fragment">Use the <code>pd.read_csv()</code> method to import the data into a new <code>DataFrame</code> called <code>movies_df</code></li>
 <li class="fragment">Take your time and call me if you get stuck.</li>
 <li class="fragment">Once you have the data imported, take a look at the <code>head</code> of the data to make sure it’s all there.</li>
-<li class="fragment">Check the <code>shape</code> of the data to see how many rows and columns you have.</li>
+<li class="fragment">Check the <code>df.shape attribute</code> of the data to see how many rows and columns you have.</li>
 <li class="fragment">Use a for loop to print out the <code>columns</code> of the data.</li>
 <li class="fragment">From your previous notebook you should have some examples of how to clean the data</li>
 <li class="fragment"><code>replace</code> any missing values with <code>np.nan</code> and then <code>drop</code> any rows that contain <code>np.nan</code> values.</li>
@@ -542,8 +541,9 @@
 <li class="fragment">Finally, <code>reset</code> the index of the dataframe so that it starts at 0.</li>
 </ul>
 </section>
-<section id="saving-stuff" class="slide level2 smaller">
-<h2>Saving stuff</h2>
+
+<section id="saving-stuff" class="title-slide slide level1 smaller center">
+<h1>Saving stuff</h1>
 <ul>
 <li class="fragment">One of the key things we might want to do is <strong>save</strong> things.</li>
 <li class="fragment">You might want to save clean data once you’ve made it.
@@ -553,7 +553,8 @@
 </ul></li>
 <li class="fragment">You might have made a table, or a chart, or a plot that you want to save so that you can use it in a report or a presentation.</li>
 </ul>
-</section></section>
+</section>
+
 <section id="saving-data" class="title-slide slide level1 smaller center">
 <h1>Saving data</h1>
 <ul>
@@ -563,15 +564,14 @@
 <div class="fragment">
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a><span class="in">```{python}</span></span>
 <span id="cb4-2"><a href=""></a><span class="in">#saving a dataframe to a csv file</span></span>
-<span id="cb4-3"><a href=""></a><span class="in">name_of_dataframe.to_csv('path\to\where\you\want\to\save\filename.csv')</span></span>
+<span id="cb4-3"><a href=""></a><span class="in">name_of_dataframe.to_csv('path\to\where\you\want\to\save\filename.csv', index=False)</span></span>
 <span id="cb4-4"><a href=""></a></span>
 <span id="cb4-5"><a href=""></a><span class="in">#saving a dataframe to an excel file</span></span>
-<span id="cb4-6"><a href=""></a><span class="in">name_of_dataframe.to_excel('path\to\where\you\want\to\save\filename.xlsx')</span></span>
+<span id="cb4-6"><a href=""></a><span class="in">name_of_dataframe.to_excel('path\to\where\you\want\to\save\filename.xlsx', index=False)</span></span>
 <span id="cb4-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
-<section>
 <section id="saving-data-1" class="title-slide slide level1 smaller center">
 <h1>Saving data</h1>
 <ul>
@@ -588,194 +588,173 @@
 <p>Using an <code>r-string</code> or a <code>Path</code> is often a matter of personal preference, but we would encourage you to work with <code>Path</code> objects more often because they can be a lot more flexible. Let’s take an aside for a few minutes and look at what we can do with <code>Paths</code> to make our lives easier.</p>
 </div>
 </section>
-<section id="path-components" class="slide level2">
-<h2>Path components</h2>
-<p>Much like a <code>DataFrame</code> has attributes like <code>.columns</code> and <code>.shape</code>, a <code>Path</code> object also has attributes that can be useful, and these attributes are bassically just the components of a file path. For a really good breakdown of the <code>pathlib</code> module you should check out <a href="https://realpython.com/python-pathlib/">this tutorial</a> (in particular take a look at the ‘Picking out the components of a path’ section). These <code>attributes</code> allow us to pick apart a <code>path</code> so that we can use the bits of it we need. To get a sense of this, in the cell below create a <code>Path</code> to the <code>csv</code> version of the raw data we sent you in week 5 (it should be called ‘raw_data_csv.csv’ and it should be in the ‘data’ sub-folder)</p>
-<div id="72126db7" class="cell" data-execution_count="4">
+
+<section id="path-components" class="title-slide slide level1 smaller center">
+<h1>Path components</h1>
+<ul>
+<li class="fragment">Just like a <code>DataFrame</code> has <code>attributes</code> like <code>.columns</code> and <code>.shape</code></li>
+<li class="fragment">A <code>Path</code> object also has attributes that can be useful, and these attributes are basically just the components of a file path.</li>
+<li class="fragment">These <code>attributes</code> allow us to pick apart a <code>path</code> so that we can use the bits of it we need.</li>
+<li class="fragment">To get a sense of this, in the cell below we’ll create a <code>Path</code> to the <code>csv</code></li>
+</ul>
+<div class="fragment">
+<div id="86d21e8a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co">#make your path object on the next line</span></span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a>csv_file <span class="op">=</span> pl.Path(<span class="vs">r'/home/kevin/my_projects/ULpsych_programing_club/data/raw_data_spss.sav'</span>)<span class="co">#just paste the path to your file between the ''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href=""></a>csv_file <span class="op">=</span> pl.Path(<span class="vs">r'../../data/movies_df_2_2.csv'</span>)<span class="co">#using the ../../ to move up two directories to the data folder</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that we have an example path, we can can look at some of the attributes.</p>
-<h3 id="name">name</h3>
-<p>if we want to get the name of the file or folder that a <code>path</code> points to, we just use the syntax</p>
-<pre><code>file_variable.name</code></pre>
-<p>In the cell below, try printing out the name of the csv_file variable you made up above.</p>
-<div id="a4e78f89" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>'raw_data_spss.sav'</code></pre>
 </div>
-</div>
-<p>Boom.</p>
-<p>You’ll notice that the filename also has the <code>.csv</code> extenstion after the name. Obviously if it was an excel workbook the extension would be <code>.xlsx</code> and if it was a jupyter notebook it would be <code>.ipynb</code>. In the context of <code>Path</code> objects, these are called the <code>suffix</code> of a file (folders don’t have <code>suffixes</code>) and you can call them with the syntax</p>
-<pre><code>file_variable.suffix</code></pre>
-<p>In the cell below, print out the <code>suffix</code> of your file</p>
-<div id="576562ed" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>'.sav'</code></pre>
-</div>
-</div>
-<p>Both of these <code>attributes</code> return <code>strings</code> that you can perform all the usual <code>string operations</code> on, and we know how much you love those (honestly, it’s endearing). But we can also also access the <code>path</code> to the folder your file (or subfolder) is in by calling the <code>parent</code>.</p>
-<pre><code>file_or_folder.parent</code></pre>
-<p>In the cell below, print out the <code>parent</code> of the the csv file</p>
-<div id="d525c217" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>PosixPath('/home/kevin/my_projects/ULpsych_programing_club/data')</code></pre>
-</div>
-</div>
-<p>Rather than being a <code>string</code> object, this <code>parent</code> object is also a <code>Path</code> and what is useful about this is we can use some of <code>pathlibs</code> built in functionality to make our lives a little easier.</p>
-<p>For example, we can add to an existing path by using <code>syantax</code> that is very similar to <code>string concatenation</code> oniy instead of using <code>+</code> to join to strings together, we can use <code>/</code> (forwardslash) to join a <code>string</code> onto the end of the <code>parent Path</code> for when we want to save a new file in the same folder as an existing file <strong>without overwriting our old file</strong>.</p>
-<pre><code>new_file_path = old_file_path.parent / 'new_filename.filetype'</code></pre>
-<p>So what we’ve done there is taken the <code>parent folder</code> of our original <code>Path</code> and added a new <code>.name</code> (which includes with <code>suffix</code>). We’ve also saved this as a <code>variable</code> so we can call it if we need it.</p>
-<p>We can combine this <code>syntax</code> with the <code>syntax</code> we use to save dataframes</p>
-<pre><code>#to save a csv file
-dataframe.to_csv(old_file_path.parent/'new_file.csv') # pay close attention to the syntax</code></pre>
-<p>In the cell below, try saving <code>movies_df</code> to the <code>parent</code> of the <code>csv_file</code> <code>Path</code>. Take you’re time with it and really think through the syntax example above.</p>
-<p>You should see the file show up in the ‘data’ sub-folder of our programming club directory.</p>
-<p>You can open it using excel, and you can also view it in vscode. Take a look at it.</p>
-<p>When you open up the movies.csv file you might notice that there is an extra column at the start of the dataframe. Like so</p>
-<table>
-<colgroup>
-<col style="width: 2%">
-<col style="width: 8%">
-<col style="width: 16%">
-<col style="width: 15%">
-<col style="width: 8%">
-<col style="width: 12%">
-<col style="width: 8%">
-<col style="width: 16%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: right;">Unnamed: 0</th>
-<th style="text-align: left;">Participant Name</th>
-<th style="text-align: left;">Movie Title</th>
-<th style="text-align: left;">Genre</th>
-<th style="text-align: right;">Year of Release</th>
-<th style="text-align: right;">ImdB Score</th>
-<th style="text-align: right;">Rotten Tomatoes Score</th>
-<th style="text-align: left;">Gender of Lead</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">John Carpenter</td>
-<td style="text-align: left;">The Thing</td>
-<td style="text-align: left;">Horror</td>
-<td style="text-align: right;">1982</td>
-<td style="text-align: right;">82</td>
-<td style="text-align: right;">82</td>
-<td style="text-align: left;">Male</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Nicolas Winding Refn</td>
-<td style="text-align: left;">Drive</td>
-<td style="text-align: left;">Action</td>
-<td style="text-align: right;">2011</td>
-<td style="text-align: right;">78</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: left;">Male</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Matthijs van Heijningen</td>
-<td style="text-align: left;">The Thing</td>
-<td style="text-align: left;">Horror</td>
-<td style="text-align: right;">2011</td>
-<td style="text-align: right;">62</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: left;">Female</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Dennis Villanueve</td>
-<td style="text-align: left;">Arrival</td>
-<td style="text-align: left;">Sci-Fi</td>
-<td style="text-align: right;">2016</td>
-<td style="text-align: right;">79</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: left;">Male</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">Coen Brothers</td>
-<td style="text-align: left;">No Country for Old Men</td>
-<td style="text-align: left;">Drama</td>
-<td style="text-align: right;">2007</td>
-<td style="text-align: right;">82</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: left;">Female</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">Kelly Asbury</td>
-<td style="text-align: left;">Shrek 2</td>
-<td style="text-align: left;">Comedy</td>
-<td style="text-align: right;">2004</td>
-<td style="text-align: right;">73</td>
-<td style="text-align: right;">89</td>
-<td style="text-align: left;">Orgre</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">Edgar Wright</td>
-<td style="text-align: left;">Hot Fuzz</td>
-<td style="text-align: left;">Comedy</td>
-<td style="text-align: right;">2007</td>
-<td style="text-align: right;">78</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: left;">Male</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">Coen Brothers</td>
-<td style="text-align: left;">Fargo</td>
-<td style="text-align: left;">Dark Comedy</td>
-<td style="text-align: right;">1996</td>
-<td style="text-align: right;">81</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: left;">Male</td>
-</tr>
-</tbody>
-</table>
-<p>This is the <code>index</code> of the dataframe. Often however, we do not want to save the <code>index</code> when we save a dataset (sometimes we really do) and so we need to use a <code>keyword argument</code> in the <code>df.to_csv()</code> method</p>
-<pre><code>df.to_csv(path, index = False)#index is a keyword argument, setting it to false means that the index will not show up as a column in the exported csv</code></pre>
-<p>In the cell below save the <code>movies_df</code> again, but this time call it <code>movies_2.csv</code> and set <code>index =False</code>.</p>
-<p>Unless you have decided to use a different column as the index (like maybe the participant_id) or you have a <code>multiindex</code> dataframe (look it up, they are cool) you will rarely want to include the <code>index</code> as a column in an exported dataframe, so setting <code>index = False</code> is a reasonable habbit to get into. Other wise, you will always have to <code>drop</code> the first column, or do some kind of <code>iloc</code> selection when you import your cleaned dataframe for analysis.</p>
-<p>Now, here comes the big practice bit.</p>
-<p>For the rest of this session, we want you to import the SPSS version of the raw data (raw_data_spss.sav) into a pandas dataframe, clean it up (select only the needed columns, clean up any missing or inconsistent data) and then save it to a new csv file, so we can do some simple analysis and charting next week. Remember the the <code>pathlib</code> tricks we just talked about up above when importing and saving the data. We’re going to talk you through some of the specifics that come up when working with SPSS data (you probably don’t need to ask us how we feel about SPSS files…)</p>
 </section>
-<section id="importing-spss-files." class="slide level2">
-<h2>Importing SPSS files.</h2>
-<p>Earlier in these series of courses we, introduced you to importing datafiles into <code>pandas DataFrames</code> and we did this mainly with <code>.csv</code> files, but we tricked you into installing the <code>pyreadstat</code> module as well, because this is needed to allow python to read <code>.sav</code> files. Once you have <code>pyreadstat</code> installed in your <code>venv</code> you can just use the simple <code>pd.read_spss(path)</code> to import your dataframe.</p>
-<p>We can do this three ways:</p>
-<ol type="1">
-<li class="fragment">We can create a whole new Path object to our spss file</li>
-<li class="fragment">We can use the <code>parent</code> of the <code>csv_file</code> Path with <code>/ 'raw_data_spss.sav'</code></li>
-<li class="fragment">We can just copy the path for the spss file and paste it as an <code>r_string</code> into the <code>read_spss()</code> method.</li>
-</ol>
-<p>Because we have already made a <code>path</code> object, it might be most efficient to just use the parent of that object, but any of those methods will work.</p>
-<p>Import the <code>.sav</code> version of the raw data into a dataframe called <code>sdf1</code> below, using whichever method you prefer. Or try it a few times, changing the approach each time, im not your damn boss!</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb15-2"><a href=""></a><span class="in">#import the .sav file into a pandas dataframe in the cell below</span></span>
-<span id="cb15-3"><a href=""></a></span>
-<span id="cb15-4"><a href=""></a><span class="in">sdf1 = pd.read_spss()# importing the spss data to a pandas df</span></span>
-<span id="cb15-5"><a href=""></a><span class="in">sdf1.head()</span></span>
-<span id="cb15-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="ef1cce29" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="22">
+
+<section id="name" class="title-slide slide level1 smaller center">
+<h1><code>.name</code></h1>
+<ul>
+<li class="fragment">The first attribute we’re going to look at is the <code>name</code> attribute of a <code>Path</code> object.</li>
+<li class="fragment">This is the name of the file or folder that the <code>path</code> points to including the file <code>suffix</code>.</li>
+<li class="fragment">This is useful because it allows us to get the name of the file or folder without having to parse the <code>path</code> string.</li>
+</ul>
+<div id="a369d25b" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># printing the file name</span></span>
+<span id="cb6-2"><a href=""></a><span class="bu">print</span>(csv_file.name)<span class="co"># note that it is not followed by `()` because it is an attribute not a method</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>movies_df_2_2.csv</code></pre>
+</div>
+</div>
+</section>
+
+<section id="stem-and-suffix" class="title-slide slide level1 smaller center">
+<h1><code>stem</code> and <code>suffix</code></h1>
+<ul>
+<li class="fragment">The <code>name</code> attribute is useful, but sometimes we want to get the <code>stem</code> of the file (the name without the <code>suffix</code>) or the <code>suffix</code> of the file (the <code>.csv</code> or <code>.xlsx</code> at the end of the name)</li>
+<li class="fragment">Like if we specficially want to find files with the same <code>stem</code> but different <code>suffixes</code> or if we want to save a new file with the same <code>stem</code> but a different <code>suffix</code>.</li>
+</ul>
+<div id="29647c0b" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="co"># printing the stem of the file</span></span>
+<span id="cb8-2"><a href=""></a><span class="bu">print</span>(csv_file.stem)</span>
+<span id="cb8-3"><a href=""></a><span class="co"># printing the suffix of the file</span></span>
+<span id="cb8-4"><a href=""></a><span class="bu">print</span>(csv_file.suffix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>movies_df_2_2
+.csv</code></pre>
+</div>
+</div>
+</section>
+
+<section id="stem-and-suffix-1" class="title-slide slide level1 smaller center">
+<h1><code>stem</code> and <code>suffix</code></h1>
+<ul>
+<li class="fragment">Boom.</li>
+<li class="fragment">You’ll notice that the filename also has the <code>.csv</code> <code>suffix</code>.</li>
+<li class="fragment">Obviously if it was an excel workbook the extension would be <code>.xlsx</code> and if it was a jupyter notebook it would be <code>.ipynb</code>.</li>
+<li class="fragment">All of these <code>attributes</code> return <code>strings</code> that you can perform all the usual <code>string operations</code> on, and we know how much you love those (honestly, it’s endearing).</li>
+<li class="fragment">So you can call <code>csv_file.stem.upper()</code> and it will return the <code>stem</code> of the file in uppercase.</li>
+<li class="fragment">Or you can call <code>csv_file.suffix.replace('.', '')</code> and it will return the <code>suffix</code> of the file without the <code>.</code> at the start.</li>
+</ul>
+</section>
+
+<section id="parent" class="title-slide slide level1 smaller center">
+<h1>parent</h1>
+<ul>
+<li class="fragment">The <code>parent</code> attribute of a <code>Path</code> is the <code>folder</code> one level up from the file or folder that the <code>path</code> points to.</li>
+<li class="fragment">So if the full <code>path</code> is
+<ul>
+<li class="fragment"><code>C:\Users\username\Documents\programming_club\data\movies_df_2_2.csv</code></li>
+</ul></li>
+<li class="fragment">Then the <code>parent</code> of the <code>path</code> is
+<ul>
+<li class="fragment"><code>C:\Users\username\Documents\programming_club\data</code></li>
+</ul></li>
+</ul>
+<div id="5130778d" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co"># printing the parent of the file</span></span>
+<span id="cb10-2"><a href=""></a><span class="bu">print</span>(csv_file.parent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>../../data</code></pre>
+</div>
+</div>
+</section>
+
+<section id="paths-and-saving" class="title-slide slide level1 smaller center">
+<h1><code>paths</code> and <code>saving</code></h1>
+<ul>
+<li class="fragment">Now that we know about some of these <code>attributes</code> we can use them to make our lives a little easier when we’re saving files.</li>
+<li class="fragment">For example, we can use the <code>path</code> we saved to the <code>csv</code> file to save a new file in the same folder as the <code>csv</code> file without overwriting our old file.</li>
+<li class="fragment">We just need to use the parent of the <code>path</code> and add a new <code>.name</code> (which includes with <code>suffix</code>).</li>
+<li class="fragment"><code>Pathlib</code> is really good at this because it allows us to use <code>/</code> (forwardslash) to join a <code>string</code> onto the end of a <code>Path</code> object.</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb12-2"><a href=""></a><span class="in"># new file path</span></span>
+<span id="cb12-3"><a href=""></a><span class="in">new_csv_file = csv_file.parent / 'new_filename.csv'</span></span>
+<span id="cb12-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="paths-and-saving-1" class="title-slide slide level1 smaller center">
+<h1><code>paths</code> and <code>saving</code></h1>
+<ul>
+<li class="fragment">Or what if you wanted to save it into a another folder in the same project directory?</li>
+<li class="fragment">You could use the <code>parent</code> of the <code>parent</code>!!</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb13-2"><a href=""></a><span class="in"># new file path</span></span>
+<span id="cb13-3"><a href=""></a><span class="in">new_csv_file = csv_file.parent.parent / 'processed_data/new_filename.csv'</span></span>
+<span id="cb13-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="paths-and-saving-2" class="title-slide slide level1 smaller center">
+<h1><code>paths</code> and <code>saving</code></h1>
+<ul>
+<li class="fragment">There’s lots you can do with <code>pathlib</code> and we’ve only just scratched the surface.</li>
+<li class="fragment">My favourite is to use the <code>pathlib</code> <code>.iterdir()</code> method to <code>loop</code> through all the files in a folder and do something with them.</li>
+<li class="fragment"><code>[i for i in csv_file.parent.iterdir()]</code> will return a list of all the files in the folder that the <code>csv_file</code> is in.</li>
+<li class="fragment">But thats a story for another day.</li>
+</ul>
+</section>
+
+<section id="saving-data-2" class="title-slide slide level1 smaller center">
+<h1>Saving data</h1>
+<ul>
+<li class="fragment">Your next task is to save the ‘cleaned’ <code>movies_df</code> to a new <code>csv</code> file so that you don’t lose all the hard work you’ve done cleaning it up.</li>
+<li class="fragment">I suggest you save it to a csv with the <code>df.to_csv()</code> method.</li>
+<li class="fragment">Pass the <code>path</code> between the brackets and make sure you set <code>index = False</code> so that the <code>index</code> of the <code>df</code> doesn’t show up as a column in the exported <code>csv</code> file.</li>
+<li class="fragment">Be really careful with the <code>path</code> you pass to the <code>to_csv()</code> method, you don’t want to overwrite your original data (this is where the <code>pathlib</code> <code>attributes</code> can be really useful).</li>
+<li class="fragment">But if you do overwrite your original data, don’t worry, you can always download the file again, but that not always be true of the data you’re working with.</li>
+</ul>
+</section>
+
+<section id="descriptive-statistics" class="title-slide slide level1 smaller center">
+<h1>Descriptive statistics</h1>
+<ul>
+<li class="fragment">Now that we’ve saved our data, we can start to look at some of the <code>descriptive statistics</code> of the data.</li>
+<li class="fragment">You all know well what descriptive stats are, you’ve made lots of tables in your time, but we’re going to look at how to do this in <code>pandas</code>.</li>
+<li class="fragment">We can look at things like the <code>mean</code>, <code>median</code>, <code>mode</code>, <code>standard deviation</code>, <code>variance</code>, <code>range</code>, <code>quartiles</code>, and <code>percentiles</code> of the data.</li>
+<li class="fragment">We can use the <code>df.describe()</code> method to get a summary of the data in the <code>DataFrame</code> (and with quarto we can render them in apa, but thats for later)</li>
+</ul>
+</section>
+
+<section id="descriptive-statistics-1" class="title-slide slide level1 smaller center">
+<h1>Descriptive statistics</h1>
+<ul>
+<li class="fragment">The <code>df.describe()</code> method is a really useful method for getting a summary of the data in a <code>DataFrame</code>.</li>
+<li class="fragment">It can be called on a whole <code>DataFrame</code> or on a single <code>column</code> of a <code>DataFrame</code>.</li>
+<li class="fragment">It returns a <code>DataFrame</code> with the <code>mean</code>, <code>standard deviation</code>, <code>min</code>, <code>max</code>, <code>quartiles</code>, and <code>count</code> of the data in the <code>DataFrame</code>.</li>
+<li class="fragment">Think about how useful that is for a second.</li>
+</ul>
+</section>
+
+<section id="describe" class="title-slide slide level1 smaller center">
+<h1><code>.describe()</code></h1>
+<ul>
+<li class="fragment">Let’s take a look at the <code>describe()</code> method in action.</li>
+</ul>
+<div class="fragment">
+<div id="ff763484" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>desc <span class="op">=</span> movies_df.describe()<span class="co"># describe the whole dataframe</span></span>
+<span id="cb14-2"><a href=""></a>desc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <div>
 <style scoped="">
@@ -796,222 +775,521 @@ dataframe.to_csv(old_file_path.parent/'new_file.csv') # pay close attention to t
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">StartDate</th>
-<th data-quarto-table-cell-role="th">EndDate</th>
-<th data-quarto-table-cell-role="th">Status</th>
-<th data-quarto-table-cell-role="th">IPAddress</th>
-<th data-quarto-table-cell-role="th">Progress</th>
-<th data-quarto-table-cell-role="th">Duration__in_seconds_</th>
-<th data-quarto-table-cell-role="th">Finished</th>
-<th data-quarto-table-cell-role="th">RecordedDate</th>
-<th data-quarto-table-cell-role="th">ResponseId</th>
-<th data-quarto-table-cell-role="th">RecipientLastName</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">Q_5</th>
-<th data-quarto-table-cell-role="th">Q_6</th>
-<th data-quarto-table-cell-role="th">Q_7</th>
-<th data-quarto-table-cell-role="th">Q_8</th>
-<th data-quarto-table-cell-role="th">Q_9</th>
-<th data-quarto-table-cell-role="th">Q_10</th>
-<th data-quarto-table-cell-role="th">Q_11</th>
-<th data-quarto-table-cell-role="th">FL_12_DO_positive</th>
-<th data-quarto-table-cell-role="th">FL_12_DO_negative</th>
-<th data-quarto-table-cell-role="th">FL_12_DO_control</th>
+<th data-quarto-table-cell-role="th">imdb_score</th>
+<th data-quarto-table-cell-role="th">rotten_tomatoes_score</th>
+<th data-quarto-table-cell-role="th">rotten_tomatoes_fan_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>8.000000</td>
+<td>8.000000</td>
+<td>8.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>76.875000</td>
+<td>83.750000</td>
+<td>80.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>6.685539</td>
+<td>20.492159</td>
+<td>17.566201</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>62.000000</td>
+<td>34.000000</td>
+<td>42.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>76.750000</td>
+<td>87.250000</td>
+<td>76.500000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>78.500000</td>
+<td>92.000000</td>
+<td>85.500000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>81.250000</td>
+<td>93.250000</td>
+<td>92.250000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>82.000000</td>
+<td>94.000000</td>
+<td>94.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="describe-1" class="title-slide slide level1 smaller center">
+<h1><code>.describe()</code></h1>
+<ul>
+<li class="fragment">So you can see that the <code>describe()</code> method returns a <code>DataFrame</code> with the major <code>descriptive statistics</code> for the <code>numberical</code> columns in the <code>DataFrame</code>.</li>
+<li class="fragment">It’s really easy to clean this up and make it look nice.</li>
+</ul>
+<div class="fragment">
+<div id="c5fa480d" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>desc.columns <span class="op">=</span> [i.replace(<span class="st">'_'</span>, <span class="st">' '</span>).title() <span class="cf">for</span> i <span class="kw">in</span> desc.columns]<span class="co">#cleaning up the column names</span></span>
+<span id="cb15-2"><a href=""></a>desc.index <span class="op">=</span> [i.title() <span class="cf">for</span> i <span class="kw">in</span> desc.index]<span class="co">#cleaning up the index</span></span>
+<span id="cb15-3"><a href=""></a>desc.<span class="bu">round</span>(<span class="dv">2</span>)<span class="co">#rounding the numbers to 2 decimal places</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Imdb Score</th>
+<th data-quarto-table-cell-role="th">Rotten Tomatoes Score</th>
+<th data-quarto-table-cell-role="th">Rotten Tomatoes Fan Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Count</td>
+<td>8.00</td>
+<td>8.00</td>
+<td>8.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Mean</td>
+<td>76.88</td>
+<td>83.75</td>
+<td>80.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Std</td>
+<td>6.69</td>
+<td>20.49</td>
+<td>17.57</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Min</td>
+<td>62.00</td>
+<td>34.00</td>
+<td>42.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>76.75</td>
+<td>87.25</td>
+<td>76.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>78.50</td>
+<td>92.00</td>
+<td>85.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>81.25</td>
+<td>93.25</td>
+<td>92.25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Max</td>
+<td>82.00</td>
+<td>94.00</td>
+<td>94.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="describe-2" class="title-slide slide level1 smaller center">
+<h1><code>.describe()</code></h1>
+<ul>
+<li class="fragment">We can also just slice the <code>DataFrame</code> returned by the <code>describe()</code> method to get specific stats</li>
+</ul>
+<div class="fragment">
+<div id="78592ba7" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>desc.loc[[<span class="st">'Mean'</span>, <span class="st">'Std'</span>, <span class="st">'Min'</span>, <span class="st">'Max'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Imdb Score</th>
+<th data-quarto-table-cell-role="th">Rotten Tomatoes Score</th>
+<th data-quarto-table-cell-role="th">Rotten Tomatoes Fan Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Mean</td>
+<td>76.875000</td>
+<td>83.750000</td>
+<td>80.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Std</td>
+<td>6.685539</td>
+<td>20.492159</td>
+<td>17.566201</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Min</td>
+<td>62.000000</td>
+<td>34.000000</td>
+<td>42.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Max</td>
+<td>82.000000</td>
+<td>94.000000</td>
+<td>94.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="describe-3" class="title-slide slide level1 smaller center">
+<h1><code>.describe()</code></h1>
+<ul>
+<li class="fragment">We can also call the <code>describe()</code> method on a single <code>column</code> of a <code>DataFrame</code> to get the <code>descriptive statistics</code> for that <code>column</code>.</li>
+</ul>
+<div class="fragment">
+<div id="a4c5aadd" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>movies_df[<span class="st">'director'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>count                 8
+unique                7
+top       Coen Brothers
+freq                  2
+Name: director, dtype: object</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div id="6ebc37e9" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>movies_df[<span class="st">'imdb_score'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>count     8.000000
+mean     76.875000
+std       6.685539
+min      62.000000
+25%      76.750000
+50%      78.500000
+75%      81.250000
+max      82.000000
+Name: imdb_score, dtype: float64</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="describe-4" class="title-slide slide level1 smaller center">
+<h1><code>.describe()</code></h1>
+<ul>
+<li class="fragment">The <code>describe()</code> method is really useful for getting a quick summary of the data in a <code>DataFrame</code>.</li>
+<li class="fragment">But what if we want to get the <code>mode</code> of the data?</li>
+<li class="fragment">Or the <code>quartiles</code> of the data?</li>
+<li class="fragment">Or the <code>percentiles</code> of the data?</li>
+<li class="fragment">We can use the <code>df.mode()</code>, <code>df.min()</code>, <code>df.max()</code>, <code>df.quantile()</code>, and <code>df.percentile()</code> methods to get these stats.</li>
+<li class="fragment">Let’s take a look at these in action.</li>
+</ul>
+</section>
+
+<section id="other-stats" class="title-slide slide level1 smaller center">
+<h1>other stats</h1>
+<ul>
+<li class="fragment">Just like <code>.describe()</code> we can call these methods on a whole <code>DataFrame</code> or on a single <code>column</code> of a <code>DataFrame</code>.</li>
+<li class="fragment">But we need to specify only numberical columns when we call these methods on a whole <code>DataFrame</code>.</li>
+</ul>
+<div class="fragment">
+<div id="9c83707c" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>movies_df[[<span class="st">'imdb_score'</span>, <span class="st">'rotten_tomatoes_score'</span>, <span class="st">'rotten_tomatoes_fan_score'</span>]].mode()<span class="co">#mode of the imdb_score column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">imdb_score</th>
+<th data-quarto-table-cell-role="th">rotten_tomatoes_score</th>
+<th data-quarto-table-cell-role="th">rotten_tomatoes_fan_score</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>2022-02-02 11:17:34</td>
-<td>2022-02-02 11:17:34</td>
-<td>Survey Preview</td>
-<td>193.1.100.60</td>
-<td>100.0</td>
-<td>126.0</td>
-<td>True</td>
-<td>2022-02-02 11:17:34</td>
-<td>R_FK38</td>
-<td></td>
-<td>...</td>
-<td>Agree strongly</td>
-<td>Agree strongly</td>
-<td>Agree strongly</td>
-<td>Agree strongly</td>
-<td>Agree strongly</td>
-<td>Agree strongly</td>
-<td>Agree strongly</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>78.0</td>
+<td>93.0</td>
+<td>42.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>2022-02-02 11:21:32</td>
-<td>2022-02-02 11:21:32</td>
-<td>Survey Preview</td>
-<td>193.1.100.60</td>
-<td>100.0</td>
-<td>20.0</td>
-<td>True</td>
-<td>2022-02-02 11:21:32</td>
-<td>R_MV94</td>
-<td></td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>82.0</td>
+<td>94.0</td>
+<td>69.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>2022-02-02 11:21:42</td>
-<td>2022-02-02 11:21:42</td>
-<td>Survey Preview</td>
-<td>193.1.100.60</td>
-<td>100.0</td>
-<td>10.0</td>
-<td>True</td>
-<td>2022-02-02 11:21:42</td>
-<td>R_OT20</td>
-<td></td>
-<td>...</td>
-<td>Agree strongly</td>
-<td>Disagree a little</td>
-<td>Neither agree or disagree</td>
-<td>Disagree moderately</td>
-<td>Disagree a little</td>
-<td>Disagree a little</td>
-<td>Disagree a little</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>1.0</td>
+<td>79.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>2022-02-09 08:07:06</td>
-<td>2022-02-09 08:07:06</td>
-<td>Survey Preview</td>
-<td>193.1.100.60</td>
-<td>100.0</td>
-<td>230.0</td>
-<td>True</td>
-<td>2022-02-09 08:07:06</td>
-<td>R_VA79</td>
-<td></td>
-<td>...</td>
-<td>Disagree moderately</td>
-<td>Neither agree or disagree</td>
-<td>Agree moderately</td>
-<td>NaN</td>
-<td>Agree strongly</td>
-<td>Agree a little</td>
-<td>Disagree moderately</td>
-<td>1.0</td>
 <td>NaN</td>
 <td>NaN</td>
+<td>82.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>2022-02-09 08:07:34</td>
-<td>2022-02-09 08:07:34</td>
-<td>Survey Preview</td>
-<td>193.1.100.60</td>
-<td>100.0</td>
-<td>40.0</td>
-<td>True</td>
-<td>2022-02-09 08:07:34</td>
-<td>R_PW73</td>
-<td></td>
-<td>...</td>
 <td>NaN</td>
-<td>Neither agree or disagree</td>
-<td>Disagree strongly</td>
-<td>Agree a little</td>
-<td>Neither agree or disagree</td>
-<td>Disagree moderately</td>
-<td>Agree a little</td>
 <td>NaN</td>
-<td>1.0</td>
+<td>89.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>92.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>93.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>94.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div id="796c5d68" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>movies_df[<span class="st">'imdb_score'</span>].mode()<span class="co">#mode of the imdb_score column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>0    78.0
+1    82.0
+Name: imdb_score, dtype: float64</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="other-stats-1" class="title-slide slide level1 smaller center">
+<h1>other stats</h1>
+<ul>
+<li class="fragment">We can use that <code>syntax</code> for any individual descriptive stat we might want</li>
+<li class="fragment">so <code>.quantile()</code>, <code>.percentile()</code>, <code>.std()</code>, <code>.var()</code>, <code>.mean()</code>, <code>.median()</code>, <code>.mode()</code>, <code>.min()</code>, <code>.max()</code></li>
+</ul>
+<div class="fragment">
+<div id="580a9b5c" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="bu">print</span>(movies_df[<span class="st">'imdb_score'</span>].quantile(<span class="fl">0.25</span>))<span class="co">#first quartile of the imdb_score column</span></span>
+<span id="cb24-2"><a href=""></a><span class="bu">print</span>(movies_df[<span class="st">'imdb_score'</span>].quantile(<span class="fl">0.75</span>))<span class="co">#third quartile of the imdb_score column</span></span>
+<span id="cb24-3"><a href=""></a><span class="bu">print</span>(movies_df[<span class="st">'imdb_score'</span>].mean())<span class="co">#mean of the imdb_score column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>76.75
+81.25
+76.875</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="other-stats-2" class="title-slide slide level1 smaller center">
+<h1>other stats</h1>
+<ul>
+<li class="fragment">We can use that to add to our <code>desc</code> dataframe to get a more complete picture of the data</li>
+<li class="fragment">We can, for example, add the <code>mode</code> of the data to the <code>desc</code> dataframe</li>
+</ul>
+<div class="fragment">
+<div id="eee53dfb" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="co"># adding the mode of the data to the desc dataframe</span></span>
+<span id="cb26-2"><a href=""></a>desc.loc[<span class="st">'Mode'</span>] <span class="op">=</span> movies_df.mode().iloc[<span class="dv">0</span>]</span>
+<span id="cb26-3"><a href=""></a>desc.<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Imdb Score</th>
+<th data-quarto-table-cell-role="th">Rotten Tomatoes Score</th>
+<th data-quarto-table-cell-role="th">Rotten Tomatoes Fan Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Count</td>
+<td>8.00</td>
+<td>8.00</td>
+<td>8.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Mean</td>
+<td>76.88</td>
+<td>83.75</td>
+<td>80.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Std</td>
+<td>6.69</td>
+<td>20.49</td>
+<td>17.57</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Min</td>
+<td>62.00</td>
+<td>34.00</td>
+<td>42.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>76.75</td>
+<td>87.25</td>
+<td>76.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>78.50</td>
+<td>92.00</td>
+<td>85.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>81.25</td>
+<td>93.25</td>
+<td>92.25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Max</td>
+<td>82.00</td>
+<td>94.00</td>
+<td>94.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Mode</td>
+<td>NaN</td>
+<td>NaN</td>
 <td>NaN</td>
 </tr>
 </tbody>
 </table>
 
-<p>5 rows × 33 columns</p>
 </div>
 </div>
 </div>
 </div>
-<p>Lets take a quick look at the <code>head</code> of <code>sdf1</code>.</p>
-<p>Firstly, we can see that, as with all Qualtrics datasets, it contains a lot of extra columns, and because this Qualtrics survey was programmed by a lunatic, obviously living fast with no regard for others, some of the columns are named things like ’Q_5… truly this was made by a monster…</p>
-<p>You can also see that the we have some columns (‘Q_1’ to ‘Q_11’) that appear to be likert style scale items, and they appear to have the value labels instead of the values. This might make it difficult to calculate a total score (beacuse we have words where we would need numbers). Let’s tackle these issues one at a time starting with removing the unwanted columns from our dataset.</p>
+</div>
 </section>
-<section id="getting-rid-of-unwanted-columns." class="slide level2">
-<h2>Getting rid of unwanted columns.</h2>
-<p>Depending on what you want to do there are a few ways get rid of columns that you don’t want in your dataset, we can 1. drop the unwanted columns us <code>df.drop()</code> 2. select the wanted columns using <code>.iloc</code> or <code>.loc</code> and which you choose just depends on your needs, your dataset, and your preference. Lets start by looking at <code>df.drop()</code></p>
-<h3 id="dropping-columns">Dropping columns</h3>
-<p>At this stage it might be pretty clear to you what <code>.drop()</code> does, partly because you’ve already seen the <code>.dropna()</code> method. Both of these methods allow us to just delete rows or columns from our <code>df</code>. With <code>dropna()</code> just we can quickly and easily delete alls rows that contain empty cells, <code>drop()</code> however, allows us to have a lot more control over what we’re doing. In it’s simplest form we use the <code>syntax</code></p>
-<pre><code>new_df = df.drop('Column name', axis = 1)# dropping a single column
-newer_df = df.drop(['col1', 'col2' ...], axis = 1)# dropping a list of columns</code></pre>
-<p>This <code>syntax</code> should be pretty familiar to you, we’re using the <code>.drop()</code> method on our <code>df</code> to <code>return</code> a new <code>df</code> that doesn’t have the columns we dropped in it. <em>Simples!</em></p>
-<p>If you want to make the changes to your original <code>df</code> object you just use its name at the start of the <code>syntax</code></p>
-<pre><code>df = df.drop('Column name', axis = 1)# dropping a single column *within* the same dataframe</code></pre>
-<p>This will overwrite your <code>padas DataFrame</code> but it won’t make changes to the file you imported it from. There will be times when you want to overwrite, and there will be time when you want to make a new <code>df</code>, you’ll develop a sense of which is better. As long as you’re not overwiting you <strong>Raw Data file</strong>, the one you’ve imported you data from originally, it really just depends on what you prefer.</p>
-<p>However, knowing the exact name of each column matters. If you get the column name wrong you’ll get an error and so what we might want to do is have a full list of all the columns (and the index number of those columns) <code>for</code>tunately we’ve already shown you a way to <code>loop</code> through this. Go back to the week 3 and week 4 and try to figure out how to print out the index and item <code>for each item in the sdf1.columns list</code>…</p>
-<div id="21cc1619" class="cell" data-execution_count="12">
-<div class="cell-output cell-output-stdout">
-<pre><code>0 = StartDate
-1 = EndDate
-2 = Status
-3 = IPAddress
-4 = Progress
-5 = Duration__in_seconds_
-6 = Finished
-7 = RecordedDate
-8 = ResponseId
-9 = RecipientLastName
-10 = RecipientFirstName
-11 = RecipientEmail
-12 = ExternalReference
-13 = LocationLatitude
-14 = LocationLongitude
-15 = DistributionChannel
-16 = UserLanguage
-17 = consent
-18 = age
-19 = Q_1
-20 = Q_2
-21 = Q_3
-22 = Q_4
-23 = Q_5
-24 = Q_6
-25 = Q_7
-26 = Q_8
-27 = Q_9
-28 = Q_10
-29 = Q_11
-30 = FL_12_DO_positive
-31 = FL_12_DO_negative
-32 = FL_12_DO_control</code></pre>
-</div>
-</div>
-<p><em>Boom!</em></p>
-<p>You might notice that the list is too long to be displayed as output in the jupyter notebook, but there is an option to <code>'Open the full output in a</code> <em>text editor</em>’ just under the code cell. If you click that it’ll show you the full list. With that list now you can use the <code>drop()</code> syntax to get rid of columns that you don’t need and have an easier dataset to work on.</p>
-<p>For example, we could use</p>
-<pre><code>sdf2 = sdf1.drop('StartDate', axis = 1)</code></pre>
-<p>to save a new version of the dataset that doesn’t have the ‘StartDate’ column.</p>
+
+<section id="other-stats-3" class="title-slide slide level1 smaller center">
+<h1>other stats</h1>
+<ul>
+<li class="fragment">So you can see that we can get a lot of <code>descriptive statistics</code> from a <code>DataFrame</code> really easily.</li>
+<li class="fragment">As an academic writer you can then use these in lots of ways.</li>
+<li class="fragment">You can not only make tables of these stats, but you can also use them in your writing to describe the data you’re working with.</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
