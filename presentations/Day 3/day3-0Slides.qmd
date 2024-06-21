@@ -84,6 +84,73 @@ bibliography: references.bib
    - "data"
    - "src"
    - "output"
+ - Copy the movies_df.csv file from yesterday into the "data" folder
+ - And in the "src" folder, create a new file called "intro.qmd"
+
+# Setting up your code {.smaller}
+
+ - In python we told you that there are packages/libraries/modules that you can use to 'go beyond' the basic functionality of python
+ - These are things like `pathlib`, `pandas`, `numpy`, `matplotlib`
+ - The same thing exists in `R`, but they're called `packages` or `libraries`
+ - In both languages you need to install the packages before you can `import` them into your code
+ - We didn't show you how to do that in python yet, but we're going to show you how to do it in `R` now
+
+
+# The R terminal {.smaller}
+
+ - On Day 0 we showeded you the terminal in VSCode
+ - It's in the bottom panel of the window
+ - This is a place where you can run code (commands) directly
+ - On the computers you're using the terminal is running something called PowerShell by default
+ - This is the windows 'shell'
+ - If you were on a mac, it would be running something called `bash` which is the mac 'shell'
+ - you can also run `python` and `R` code in the terminal by typing `python` or `R` and hitting enter
+
+# The R terminal {.smaller}
+
+ - In VSCodes, use your mouse to make the terminal bigger
+ - Then type `R` and hit enter and watch how the terminal changes
+ - You should see something like this
+
+![R terminal](images/r_terminal.jpg)
+
+
+# The R terminal {.smaller}
+ 
+ - You actually already know some R code
+ - Try typing `print("Hello World!")` and hitting enter in the terminal
+ - You should see `Hello World!` printed out with a `[1]` in front of it
+ - R and Python are very similar in a lot of ways and you'll see that as we go through the day
+ - As you can see from the instructions on the screen, you can type `q()` to quit the R terminal
+ - It will ask if you want to save your workspace image, just type `y` and hit enter
+ - So try quitting the R terminal, then type `R` and hit enter to start it again and print `Hello World!` again
+
+# Installing packages in R {.smaller}
+
+ - To install packages in R, you need the R terminal open because installing packages is a command you have to run in R directly. 
+ - To install a package in R, you use the `install.packages()` function
+ - And you pass the name of the package you want to install as a `string` to the function
+ - In order to work with quarto and R you need to install the `quarto` package (which is different from the `quarto` software)
+ - So in the R terminal, type `install.packages("quarto")` and hit enter
+   - This will install the quarto package on your computer, whatch the terminal to see what happens
+ - You should also install the 'rmarkdown' package by typing `install.packages("rmarkdown")` and hitting enter
+
+# Installing packages in R {.smaller}
+
+ - Ok, you now have the packages installed that we need for this session, but there are others
+    - 'tidyverse' (a collection of packages that make working with data easier)
+    - 'ggplot2' (a package for making plots)
+    - 'psych' (a package for doing some basic statistics)
+    - 'lavaan' (a package for doing structural equation modeling)
+ - Depending on your project you'll use some or all of these, we'll look at some of them throughout the day. 
+ - But for now you can `quit` the R terminal by typing `q()` and hitting enter (and saving your workspace image)
+
+
+
+
+
+
+
  
 
 

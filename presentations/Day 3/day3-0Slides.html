@@ -467,7 +467,7 @@
 <li class="fragment">Over the years various researchers have come up with best practices for setting up your projects</li>
 <li class="fragment">And they wrapped them up in a set of guidelines called the ‘Best Practices for Scientific Computing’</li>
 <li class="fragment">But they were too big and no one followed them…</li>
-<li class="fragment">So they were distilled down into a set of guidelines called the ‘Good Enough Practices for Scientific Computing’ <span class="citation" data-cites="wilson2017good">(<a href="#/setting-up-your-folders-1" role="doc-biblioref" onclick="">Wilson 2017</a>)</span></li>
+<li class="fragment">So they were distilled down into a set of guidelines called the ‘Good Enough Practices for Scientific Computing’ <span class="citation" data-cites="wilson2017good">(<a href="#/installing-packages-in-r-1" role="doc-biblioref" onclick="">Wilson 2017</a>)</span></li>
 </ul>
 </section>
 
@@ -514,7 +514,7 @@
 </ul>
 </section>
 
-<section id="setting-up-your-folders-1" class="title-slide slide level1 smaller scrollable">
+<section id="setting-up-your-folders-1" class="title-slide slide level1 smaller center">
 <h1>Setting up your folders</h1>
 <ul>
 <li class="fragment">Inside the “Day 3” folder, create the following subfolders
@@ -523,6 +523,85 @@
 <li class="fragment">“src”</li>
 <li class="fragment">“output”</li>
 </ul></li>
+<li class="fragment">Copy the movies_df.csv file from yesterday into the “data” folder</li>
+<li class="fragment">And in the “src” folder, create a new file called “intro.qmd”</li>
+</ul>
+</section>
+
+<section id="setting-up-your-code" class="title-slide slide level1 smaller center">
+<h1>Setting up your code</h1>
+<ul>
+<li class="fragment">In python we told you that there are packages/libraries/modules that you can use to ‘go beyond’ the basic functionality of python</li>
+<li class="fragment">These are things like <code>pathlib</code>, <code>pandas</code>, <code>numpy</code>, <code>matplotlib</code></li>
+<li class="fragment">The same thing exists in <code>R</code>, but they’re called <code>packages</code> or <code>libraries</code></li>
+<li class="fragment">In both languages you need to install the packages before you can <code>import</code> them into your code</li>
+<li class="fragment">We didn’t show you how to do that in python yet, but we’re going to show you how to do it in <code>R</code> now</li>
+</ul>
+</section>
+
+<section id="the-r-terminal" class="title-slide slide level1 smaller center">
+<h1>The R terminal</h1>
+<ul>
+<li class="fragment">On Day 0 we showeded you the terminal in VSCode</li>
+<li class="fragment">It’s in the bottom panel of the window</li>
+<li class="fragment">This is a place where you can run code (commands) directly</li>
+<li class="fragment">On the computers you’re using the terminal is running something called PowerShell by default</li>
+<li class="fragment">This is the windows ‘shell’</li>
+<li class="fragment">If you were on a mac, it would be running something called <code>bash</code> which is the mac ‘shell’</li>
+<li class="fragment">you can also run <code>python</code> and <code>R</code> code in the terminal by typing <code>python</code> or <code>R</code> and hitting enter</li>
+</ul>
+</section>
+
+<section id="the-r-terminal-1" class="title-slide slide level1 smaller center">
+<h1>The R terminal</h1>
+<ul>
+<li class="fragment">In VSCodes, use your mouse to make the terminal bigger</li>
+<li class="fragment">Then type <code>R</code> and hit enter and watch how the terminal changes</li>
+<li class="fragment">You should see something like this</li>
+</ul>
+
+<img data-src="images/r_terminal.jpg" class="r-stretch quarto-figure-center"><p class="caption">R terminal</p></section>
+
+<section id="the-r-terminal-2" class="title-slide slide level1 smaller center">
+<h1>The R terminal</h1>
+<ul>
+<li class="fragment">You actually already know some R code</li>
+<li class="fragment">Try typing <code>print("Hello World!")</code> and hitting enter in the terminal</li>
+<li class="fragment">You should see <code>Hello World!</code> printed out with a <code>[1]</code> in front of it</li>
+<li class="fragment">R and Python are very similar in a lot of ways and you’ll see that as we go through the day</li>
+<li class="fragment">As you can see from the instructions on the screen, you can type <code>q()</code> to quit the R terminal</li>
+<li class="fragment">It will ask if you want to save your workspace image, just type <code>y</code> and hit enter</li>
+<li class="fragment">So try quitting the R terminal, then type <code>R</code> and hit enter to start it again and print <code>Hello World!</code> again</li>
+</ul>
+</section>
+
+<section id="installing-packages-in-r" class="title-slide slide level1 smaller center">
+<h1>Installing packages in R</h1>
+<ul>
+<li class="fragment">To install packages in R, you need the R terminal open because installing packages is a command you have to run in R directly.</li>
+<li class="fragment">To install a package in R, you use the <code>install.packages()</code> function</li>
+<li class="fragment">And you pass the name of the package you want to install as a <code>string</code> to the function</li>
+<li class="fragment">In order to work with quarto and R you need to install the <code>quarto</code> package (which is different from the <code>quarto</code> software)</li>
+<li class="fragment">So in the R terminal, type <code>install.packages("quarto")</code> and hit enter
+<ul>
+<li class="fragment">This will install the quarto package on your computer, whatch the terminal to see what happens</li>
+</ul></li>
+<li class="fragment">You should also install the ‘rmarkdown’ package by typing <code>install.packages("rmarkdown")</code> and hitting enter</li>
+</ul>
+</section>
+
+<section id="installing-packages-in-r-1" class="title-slide slide level1 smaller scrollable">
+<h1>Installing packages in R</h1>
+<ul>
+<li class="fragment">Ok, you now have the packages installed that we need for this session, but there are others
+<ul>
+<li class="fragment">‘tidyverse’ (a collection of packages that make working with data easier)</li>
+<li class="fragment">‘ggplot2’ (a package for making plots)</li>
+<li class="fragment">‘psych’ (a package for doing some basic statistics)</li>
+<li class="fragment">‘lavaan’ (a package for doing structural equation modeling)</li>
+</ul></li>
+<li class="fragment">Depending on your project you’ll use some or all of these, we’ll look at some of them throughout the day.</li>
+<li class="fragment">But for now you can <code>quit</code> the R terminal by typing <code>q()</code> and hitting enter (and saving your workspace image)</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
