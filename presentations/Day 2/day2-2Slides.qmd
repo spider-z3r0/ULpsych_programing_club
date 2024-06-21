@@ -386,7 +386,7 @@ movies_df['imdb_score'].describe()
 #| echo: true
 #| eval: true
 
-movies_df[['imdb_score', 'rotten_tomatoes_score', 'rotten_tomatoes_fan_score']].mode()#mode of the imdb_score column
+movies_df[['imdb_score', 'rotten_tomatoes_score']].min()#mode of the imdb_score column
 ```
 
 . . .
@@ -418,23 +418,344 @@ print(movies_df['imdb_score'].mean())#mean of the imdb_score column
 
 # other stats {.smaller}
 
- - We can use that to add to our `desc` dataframe to get a more complete picture of the data
- - We can, for example, add the `mode` of the data to the `desc` dataframe 
+ - So you can see that we can get a lot of `descriptive statistics` from a `DataFrame` really easily.
+ - As an academic writer you can then use these in lots of ways. 
+ - You can not only make tables of these stats, but you can also use them in your writing to describe the data you're working with.
+ - This is a quarto feature rather than a python feature but you can use `inline code`
+
+# inline code {.smaller}
+
+ - the syntax for this is to use \``{{python}} df[column].mean()`\` and then you can use the `quarto` `apa` style to render the output in `apa` style.
+ - for `R` the syntax is \``{{r}} mean(df$column)`\`
+ - in both cases you need the backtik '\`' followed by the curly braces `{}` containing the name of the programming language you're using and then the code you want to run.
+ - I'm using it here to say the mean of the `imdb_score` column is `{python} movies_df['imdb_score'].mean().round(2)` 
+
+. . . 
+
+![inlinecode](./images/inline_python.jpg)
+
+# plots {.smaller}
+
+ - plotting is a whole thing in python and R. 
+ - There are genuinely amazing libraries for plotting in both languages. 
+ - And entire books on the subject.
+ - But we're going to keep it simple and just show you how to make a few basic plots in `pandas`.
+
+# plots {.smaller}
+
+ - the main plotting library in python is called `matplotlib` and it's really powerful.
+ - it has approximately 1 gajillion different ways to plot data.... which is ...great... but also a bit overwhelming.
+ - `pandas` has a `plot()` method that is built on top of `matplotlib` and makes it really easy to make simple plots. 
+ - We can use the `plot()` method to make `line`, `bar`, `scatter`, `hist`, `box`, `density`, `area`, `pie`, `hexbin`, and `kde` plots.
+ - We can also use the `plot()` method to make `subplots` and `stacked` plots. 
+ - Let's take a look at a `hist` plot of the `imdb_score` column.
+
+# plots {.smaller}
+
+   - The `plot()` method is really easy to use.
+   - We just call the `plot()` method on a `DataFrame` or a `column` and pass the `kind` of plot we want to make.
+   - We can also pass a bunch of other `arguments` to the `plot()` method to customise the plot.
+   - Let's take a look at a `hist` plot of the `imdb_score` column.
 
 . . .
 
 ```{python}
 #| echo: true
 #| eval: true
-# adding the mode of the data to the desc dataframe
-desc.loc['Mode'] = movies_df.mode().iloc[0]
-desc.round(2)
-``` 
+histogram = movies_df['imdb_score'].plot(kind = 'hist', bins = 100, title = 'Histogram of Imdb Scores')
+```
+
+# plots {.smaller}
+
+ - Ok... that wasn't a great plot. 
+ - There isn't enough data... but you can see that the `plot()` method is really easy to use.\
+ - We can also make a `bar` plot showing the `mean` of the `imdb_score` for each `genre` in the `DataFrame`.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+bar = movies_df.groupby('genre')['imdb_score'].mean().plot(kind = 'bar', title = 'Mean Imdb Score by Genre')
+```
+
+# plots {.smaller}
+ 
+ - `movies_df.groupby('genre')['imdb_score'].mean().plot(kind = 'bar', title = 'Mean Imdb Score by Genre')`
+ - Let's walk through this code a little bit.
+    - We're calling the `groupby()` method on the `DataFrame` and passing the `column` we want to group by.
+    - We then pass the `column` we want to get the `mean` of.
+    - We're then calling the `mean()` method on the `column` we want to get the `mean` of.
+    - We're then calling the `plot()` method on the `mean` object and passing the `kind` of plot we want to make.
+    - We're also passing a `title` to the `plot()` method to give the plot a title.
+ - **All as one line of code.**
+
+# plots {.smaller}
+
+   - We can also make a `scatter` plot of the `imdb_score` and `rotten_tomatoes_score` columns.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+scatter_plot = movies_df.plot(kind = 'scatter', x = 'imdb_score', y = 'rotten_tomatoes_score', title = 'Imdb Score vs Rotten Tomatoes Score')
+```
+
+# plots {.smaller}
+
+ - As you can see, the plot method is really easy to use.
+ - There's loads of options though and you won't remember them all.
+ - The `bar`, `scatter`, and `hist` plots are the most common plots you'll use
+ - Because we generally use them to inspect the data as part of the prep and preliminary analysis of the data.
+ - If you need a specific plot there are literally 1000s of online video and written tutorials on how to make them.
+ - Also, if you learn how to make a plot in `matplotlib` you will be really really employable, way beyond academia.
+
+# Saving plots {.smaller}
+
+ - Just like we can save a `DataFrame` to a `csv` or `xlsx` file, we can also save a plot to a `png` or `pdf` file.
+ - We can use the `savefig()` method to save a plot to a file.
+ - We just pass the `path` to the `savefig()` method and it will save the plot to that `path`.
+ - Let's take a look at how to save the `scatter` plot we just made.
+
+# Saving plots {.smaller}
+
+   - The `savefig()` method is really easy to use but we have to call it after another method for it to work.
+   - We need to call the `get_figure()` method on the plot to make it into a `figure` object.
+   - We can then call the `savefig()` method on the `figure` object and pass the `path` to the `savefig()` method.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+scatter_plot.get_figure().savefig(csv_file.parent / 'scatter_plot.png')
+scatter_plot
+```
+
+# plots practice {.smaller}
+
+ - In your own notebook you should:
+ - Make a `bar` plot of the `mean` of the `imdb_score` for each `gender of lead` in the `DataFrame`.
+   - `df.groupby('column')['column'].mean().plot(kind = 'bar', title = 'Mean of column by column')`
+ - Make a `scatter` plot of the `rotten_tomatoes_score` and `rotten_tomatoes_fan_score` columns.
+   - `df.plot(kind = 'scatter', x = 'column', y = 'column', title = 'column vs column')`
+ - Save both of them into the parent folder of the `csv` file you imported earlier.
+   - `plot.get_figure().savefig(csv_file.parent / 'plot.png')`
+ - Then make a table of the descrtiptives of the `DataFrame` and save it to a `csv` file.
+   - `df.describe().to_csv(csv_file.parent / 'name_of_file.csv')`
 
 
-# other stats {.smaller}
 
- - So you can see that we can get a lot of `descriptive statistics` from a `DataFrame` really easily.
- - As an academic writer you can then use these in lots of ways. 
- - You can not only make tables of these stats, but you can also use them in your writing to describe the data you're working with.
+# plots practice {.smaller}
+
+```{python}
+#| echo: false
+#| eval: true
+
+movies_df.groupby('gender_of_lead')['imdb_score'].mean().plot(kind = 'bar', title = 'Mean of Imdb Score')
+```
+
+
+
+# but what `if` {.smaller}
+
+ - When we're working with data we often want to do something `if` a certain condition is met.
+ - For example, if the mean, the median, and the mode of a column are all the same then we might use that as one of the tests for normality.
+ - We can use the `if-elif-else` statement to do this.
+ - These are really simple, but really powerful tools for controlling the flow of a program.
+
+# `if` statements {.smaller}
+
+ - The `if` statement is the most basic of the `if-elif-else` statements.
+ - It allows us to execute a block of code if a certain condition is met.
+ - The syntax is really simple.
+ - We use the `if` keyword followed by the condition we want to test (using the `boolean` opperators that we covered previously).
+ - We then open a block of code with a colon `:` and indent the code we want to execute if the condition is met.
+ - Let's look at a simple example.
+
+. . . 
+
+```{python}
+#| echo: true
+#| eval: true
+
+x = 10 # setting the value of x
+if x > 5: # testing if x is greater than 5
+    print('x is greater than 5') 
+else: # if x is not greater than 5
+    print('x is not greater than 5')
+```
+
+# `if` statements {.smaller}
+
+ - We can use if statements to test lots of things. 
+ - For example, we can test if the mean of a column is equal to the median of a column.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+if movies_df['imdb_score'].mean() == movies_df['imdb_score'].median():
+    print('The mean and median of the imdb_score column are the same')
+else:
+    print('The mean and median of the imdb_score column are not the same')
+```
+
+
+ - We can use if statements to test lots of things. 
+ - For example, we can test if the mean of a column is equal to the median of a column.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+if movies_df['imdb_score'].mean() == movies_df['imdb_score'].median():
+    print('The mean and median of the imdb_score column are the same')
+else:
+    print('The mean and median of the imdb_score column are not the same')
+```
+
+. . . 
+
+Well if the mean and the median are the same then the data is more likely to be normal. 
+
+
+# `if-elif-else` statements {.smaller}
+
+ - The `if-elif-else` statement is a more complex version of the `if` statement.
+ - It allows us to test multiple conditions and execute different code depending on which condition is met.
+ - The syntax is not much more complex than the `if` statement.
+
+. . . 
+
+```{python}
+#| echo: true
+#| eval: true
+
+x = 10 # setting the value of x
+if x > 5: # testing if x is greater than 5
+    print('x is greater than 5') 
+elif x < 5: # if x is not greater than 5
+    print('x is less than 5')
+else: # if x is not greater than 5
+    print('x is equal to 5')
+```
+
+# `pandas and if-elif-else` {.smaller}
+
+ - We could use some `if` logic to do other things with the `DataFrame`
+ - For example, we could use `if` logic to check the `dtype` (which is an attribute) of a column and then do something depending on the `dtype`.
+ - if the `dtype` is `float64` we could `describe()` the column, if it's `object` we could `value_counts()` the column, if it's `int64` we could `plot()` the column.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+if movies_df['imdb_score'].dtype == 'float64':
+    print(movies_df['imdb_score'].describe())
+elif movies_df['imdb_score'].dtype == 'object':
+    print(movies_df['imdb_score'].value_counts())
+else:
+    movies_df['imdb_score'].plot(kind = 'hist')
+```
+ 
+# `if-elif-else` practice {.smaller}
+
+ - In your own notebook you should:
+ - Use an `if-elif-else` statement to check if the `mean` of the `imdb_score` column is greater than the `median` of the `imdb_score` column.
+ - If the `mean` is greater than the `median` then print 'The mean is greater than the median', if not then print 'The mean is not greater than the median'.
+ - Use an `if-elif-else` statement to check if the `dtype` of the `imdb_score` column is `float64`, `object`, or `int64`.
+ - If the `dtype` is `float64` then `describe()` the column, if it's `object` then `value_counts()` the column, if it's `int64` then `plot()` the column.
+
+# simple analysis {.smaller}
+
+ - While there are a lot of powerful python tools for doing quite complex analyses in python, these involve using other `packages` like `scipy` and `pingouin`.
+ - To do a `t-test` for example we would use the `ttest_ind()` method from the `scipy.stats` module.
+ - To 'finish' this session we're just going to look at how you can use the `corr()` method to get the `correlation` between `columns` in a `DataFrame.
+
+
+
+# `correlations` {.smaller}
+
+ - Correlations are really easy to do in `pandas`.
+ - We can use the `corr()` method to get the `correlation` between `columns` in a `DataFrame`.
+ - We can specify the `method` of `correlation` we want to use by passing the `method` to the `corr()` method.
+ - We can use the `pearson`, `kendall`, and `spearman` methods of `correlation`.
+ - We have to specify `numeric_only = True` when we call the `corr()` method to get the `correlation` between `numeric` `columns`.
+
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+movies_df.corr(method = 'pearson', numeric_only=True)
+```
+
+# `correlations` {.smaller}
+
+ - You'll notice that the `corr()` method returns a `DataFrame` with the `correlation` between the `numeric` `columns` in the `DataFrame`.
+ - We can also check for `specific` `correlations` by combining slicing and the `corr()` method.
+ - As if we just wanted to see if the Rotten tomatoes score and the Rotten tomatoes fan score were correlated we could do this.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+movies_df[['rotten_tomatoes_score', 'rotten_tomatoes_fan_score']].corr(method = 'pearson')
+```
+
+
+# `correlations` {.smaller}
+
+ - We can also use the `corr()` method to get the `correlation` between a `column` and some number of other columns
+ - If we wanted to store the `correlation` between the two different `rotten tomatoes` scores we could do this.
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+
+correlation = movies_df['rotten_tomatoes_score'].corr(movies_df['rotten_tomatoes_fan_score'], method = 'pearson')
+
+if correlation  > 0.3:
+    print(f'The Rotten Tomatoes Score and the Rotten Tomatoes Fan Score are positively correlated, r = {correlation: .2f}')
+elif correlation < -0.3:
+    print(f'The Rotten Tomatoes Score and the Rotten Tomatoes Fan Score are negatively correlated, r = {correlation: .2f}')
+else:
+    print(f'The Rotten Tomatoes Score and the Rotten Tomatoes Fan Score are not correlated, r = {correlation: .2f}')
+```
+
+# `correlations` {.smaller}
+
+ - So you can see that just using `pandas` we can import our data, clean it, slice it. 
+ - We can then do some basic `descriptive statistics`, make some simple `plots`, and check for `correlations`.
+ - We could also do things like make certain columns into categories, or change the `dtype` of a column, or make a new column based on the values of other columns.
+ - In your own notebook, play around with correalting the `imdb_score` with the `rotten_tomatoes_score` and the `rotten_tomatoes_fan_score` and then save the `correlation` to a `csv` file.
+ - You could also make a `scatter` plot of the `imdb_score` and the `rotten_tomatoes_score` and save it to a `png` file.
+ - Use an `if-elif-else` statement to check if the `correlation` between the `imdb_score` and the `rotten_tomatoes_score` is greater than 0.3, less than -0.3, or between -0.3 and 0.3.
+
+# Summary {.smaller}
+
+   - We've covered a lot in this session.
+   - We've looked at how to save data to a `csv` or `xlsx` file.
+   - We've looked at how to use `pathlib` to make working with `paths` easier.
+   - We've looked at how to get `descriptive statistics` from a `DataFrame`.
+   - We've looked at how to make `plots` in `pandas`.
+   - We've looked at how to save `plots` to a `png` or `pdf` file.
+   - We've looked at how to use `if-elif-else` statements to control the flow of a program.
+   - We've looked at how to use `correlations` to check for relationships between `columns` in a `DataFrame`.
+   - You've done a lot of work in this session, and you should be really proud of yourself.
+
 
