@@ -1,0 +1,115 @@
+---
+title: "Session 3.0"
+subtitle: "It's R time to shine!"
+format: 
+   revealjs:
+      incremental: true
+      theme: solarized
+editor: "visual"
+bibliography: references.bib
+---
+
+
+# Welcome back!! {.smaller}
+
+ - Over the last few days we've introduced you to quarto and markdown
+ - We've shown you quarto markdown and jupyter notebooks and how you can write code and text in the same document
+ - And we've taken you through some programming basics like
+   - Variables (saving data under a name you can use later)
+   - Data types (like `strings`, `integers`, `floats`, and `booleans`)
+   - Functions ( a way to `define` a set of instructions and run it multiple times)
+   - Control structures (like `loops` and `if` statements)
+   - Data structures (like `lists`, `dictionaries`, and `DataFrames`)
+   - And more
+
+# Recap quiz {.smaller}
+
+ - Before we get started, let's do a quick recap quiz to see how much you remember
+ - This quiz is a little longer than the previous ones, but it's still untimed
+ - And getting things wrong will still remind you of the correct answer
+ - It's up in Day 3 on Brightspace
+
+# Today's plan {.smaller}
+
+ - Today we're going to introduce you to `R`, but we're just going to be looking at how R does things you've already seen in Python
+ - We'll be looking at
+   - Variables
+   - Data types
+   - Functions
+   - Control structures
+   - Data structures
+ - But we'll also be getting you to work in quarto markdown instead of jupyter notebooks
+ - And we'll be talking you through more about best practices for setting up your projects
+
+# Setting up your project {.smaller}
+
+ - Over the years various researchers have come up with best practices for setting up your projects
+ - And they wrapped them up in a set of guidelines called the 'Best Practices for Scientific Computing'
+ - But they were too big and no one followed them...
+ - So they were distilled down into a set of guidelines called the 'Good Enough Practices for Scientific Computing' [@wilson2017good]
+
+# Good Enough Practices for Scientific Computing {.smaller}
+ 
+ - I really suggest you read the paper (it's up on Brightspace)
+ - There's a lot in it that may not be relevant to you now, but the principles are good to know
+ - The main points are
+   - Have a clear project structure (set up your folders and files in a way that makes sense)
+   - Write code for humans, not computers (use comments and variable names that make sense)
+   - Automate repetitive tasks (use functions and loops)
+   - Use version control (there's tools like git that can help you keep track of changes to your writing and code)
+   - Document everything (write down what you did and why you did it)
+   - Collaborate (work with others and share your work)
+
+# Good Enough Practices for Scientific Computing {.smaller}
+
+ - We can't cover all those points, and honestly, you'll learn them better by doing them and making mistakes
+ - But things like setting up your projects in a way that makes sense, and writing code for humans are things we can help you with
+ - Before jumping into R, we're going to talk about how to set up your projects in a way that makes sense
+ - This means not only setting up your folders and files in a way that makes sense, but also setting up your code thoughtfully
+ - Installing the things you'll need to run your `R` code
+ - But first, lets practice setting up your folders
+
+# Setting up your folders {.smaller}
+
+ - When you start a new project, you should set up a folder for it, and then set up subfolders for different parts of your project
+ - For example, you might have a folder for your data, a folder for your code, a folder for your results, and a folder for your writing
+ - This makes it easier for you to work with things like `paths` and `relative paths` within and across your projects
+   - It also makes it easier for you to share your work with others
+   - We're going to get you to set up a folder structure for your project now
+ - Using what you learned about the `explorer` pane on the left of VSCode, create a new folder called "Day 3" in the folder you've been working in all week
+
+# Setting up your folders {.smaller}
+
+ - Inside the "Day 3" folder, create the following subfolders
+   - "data"
+   - "src"
+   - "output"
+ 
+
+
+
+
+
+
+
+
+
+```{r}
+#| label: setup
+
+#| eval: true
+#| include: false
+
+
+
+
+
+```
+
+```{r}
+#| label: test
+#| echo: true
+#| eval: true
+
+print("Hello World!")
+```

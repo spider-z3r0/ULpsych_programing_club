@@ -13,8 +13,6 @@ csl: apa.csl
 
 # Welcome back!!{.smaller}
 
-
-
  - Welcome back!! 
  - In the last few sessions we've been getting you up to speed with the *basics* of python and `pandas`
  - We've covered a lot of ground, but we've also been trying to keep it simple.
