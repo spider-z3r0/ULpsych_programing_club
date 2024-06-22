@@ -523,21 +523,405 @@ print(my_v[1:3])
 print(my_v[length(my_v)])
 ```
 
+# Practice with vectors {.smaller}
 
+ - In your "intro.qmd" file, add a new section with a level 1 heading
+ - Add a code block with the following code
+   - `my_v <- c("a", "b", "c", "d", "e")`
+   - `print(my_v[1])`
+   - `print(my_v[5])`
+   - `print(my_v[c(1, 3, 5)])`
+   - `print(my_v[-1])`
+   - `print(my_v[-c(1, 3, 5)])`
+   - `print(my_v[1:3])`
+   - `print(my_v[length(my_v)])`
 
+# Named vectors {.smaller}
 
-# Ph1 {.smaller}
+ - R doesn't have a dictionary data type like python
+ - But it does have something called a `named vector`
+ - This is a vector where each element has a name so it's really similar to a dictionary
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Making a named vector
+my_named_vector <- c("a" = 1, "b" = 2, "c" = 3, "d" = 4, "e" = 5)
+# Accessing elements in a named vector
+print(my_named_vector["a"])
+print(my_named_vector)
+```
+
+# Named vectors {.smaller}
+
+ - You'll notice that the name and the value in the named vector are separated by an `=` rather than a `:`
+ - But other than that we can still think about them like `key-value` pairs
+ - And we can access the values in the named vector using the names.  
+  - So the code:
+    - `print(my_named_vector["a"])`
+    - Will print the value `1` to the console
+  - And the code:
+    - `print(my_named_vector)`
+    - Will print the whole named vector to the console
+
+# Naming a vector {.smaller}
+
+ - We use the `c()` function to make both vectors and named vectors
+ - But we can also turn a vector into a named vector using the `names()` function
+ - The `syntax` for this is a little different to python but it's not too hard to get used to
+
+. . .
 
 ```{r}
 #| echo: true
 #| eval: true
 
 # Making a vector
-my_dict = c("name" = "Grampton St. Rumpterfrabble", "age" = 42, "is_human" = TRUE)
-print(class(my_dict))
-print(my_dict["name"])# what does this remind you of?
+my_v <- c(1, 2, 3, 4, 5)
+# Naming the vector
+names(my_v) <- c("a", "b", "c", "d", "e")
+# Accessing elements in a named vector
+print(my_v["a"])
+print(my_v["e"])
+```
+
+# Naming a vector {.smaller}
+
+ - You'll notice that we use the `names()` function to name the vector
+ - Passing the vector that we want named as an argument to the `names()` function
+ - Then we use the `assignment` operator `<-` 
+ - Then we create a vector of names that we want to use
+ - Another example might be if we had a vector of ages and we wanted to name them
+
+. . . 
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Creating a vector
+scores <- c(95, 85, 75)
+# Assigning names to the vector elements
+names(scores) <- c("Alice", "Bob", "Charlie")
+# Printing the named vector
+print(scores)
+# Accessing elements by name
+print(scores["Alice"])
+```
+
+# Named vectors {.smaller}
+
+ - You can also access multiple elements in a named vector by passing a vector of names to the square brackets
+ - So the code:
+   - `print(my_v[c("a", "c", "e")])`
+   - Will print the first, third, and fifth elements of the named vector `my_v`
+
+# Practice with named vectors {.smaller}
+
+ - In your "intro.qmd" file, add a new section with a level 1 heading
+  - Add a code block with the following code
+    - `my_named_vector <- c("a" = 1, "b" = 2, "c" = 3, "d" = 4, "e" = 5)`
+    - `print(my_named_vector["a"])`
+    - `print(my_named_vector)`
+    - `my_v <- c(1, 2, 3, 4, 5)`
+    - `names(my_v) <- c("a", "b", "c", "d", "e")`
+    - `print(my_v["a"])`
+    - `print(my_v["e"])`
+
+# Practice with named vectors {.smaller}
+
+ - Then make another code block with the following code
+    - `scores <- c(95, 85, 75)`
+    - `names(scores) <- c("Alice", "Bob", "Charlie")`
+    - `print(scores)`
+    - `print(scores["Alice"])`
+
+
+# Multidimensional data {.smaller}
+
+ - We mentioned earlier that R is a language that was designed for working with data
+ - This is apparent when we look at how R builds up to working with `dataframes`
+ - The next data structure we're going to look at is the `matrix` which is like a 2D vector
+ - But what does that mean?
+
+# Data in one dimension {.smaller}
+
+ - A vector is a 1D data structure
+ - Like a single columns or row in a table
+ - We only 'read' the data in one direction depending on how we're thinking about it. 
+ - For example, if we want to know the mean age, we add up all the ages in the column and divide by the number of people
+ - But no other information is needed
+ - Similarly, if we want to know everything we have on participant 3, we just look at the third row of the table
+
+# Data in two dimensions {.smaller}
+
+ - A matrix is a 2D data structure
+ - Like a table, it has height and width so to speak
+ - Can can think about them as stacking vectors on top of each other
+ - Or lining them up next to each other (if we're thinking about columns)
+ - This is much more like what you're used to seeing in a spreadsheet
+ - But if you think back to our pandas example, where we made a lot of lists, had to zip them into dictionaries, and *then* made a dataframe
+ - You can see that having a 2D data structure is a lot easier
+
+# Making a matrix {.smaller}
+
+ - Like vectors, a matrix can only contain one type of data
+ - So we can't have words and numbers in the same matrix, which again, may seem like a problem but it's really not, it's a feature
+ - We can make a matrix in R multiple ways: 
+   - `matrix()` function
+   - `cbind()` and `rbind()` functions
+ - Lets start with the `cbind()` function
+
+# Making a matrix with cbind() {.smaller}
+
+ - The `cbind()` function in R is used to combine vectors into a matrix by standing them next to each other
+ - So we're 'column' binding the vectors together
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# making 3 vectors
+v1 <- c(1, 2, 3)
+v2 <- c(4, 5, 6)
+v3 <- c(7, 8, 9)
+# making a matrix with cbing
+m <- cbind(v1, v2, v3)
+# printing the matrix
+print(m)
 ```
  
+ 
+# Making a matrix with rbind() {.smaller}
+ - The `rbind()` function in R is used to combine vectors into a matrix by stacking them on top of each other
+ - So we're 'row' binding the vectors together
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# making 3 vectors
+v1 <- c(1, 2, 3)
+v2 <- c(4, 5, 6)
+v3 <- c(7, 8, 9)
+# making a matrix with rbind
+m <- rbind(v1, v2, v3)
+# printing the matrix
+print(m)
+```
+
+# Binding vectors {.smaller}
+
+ - So we now know that we can bind together vectors to make a matrix
+ - And we can do so either by stacking them on top of each other or by standing them next to each other
+ - Thinking as rows and columns
+ - But we can also just make a matrix directly using the `matrix()` function
+ - The `matrix()` function takes a vector and the number of rows and columns we want in the matrix
+
+# Making a matrix with matrix() {.smaller}
+
+ - The `matrix()` function in R is used to create a matrix from a vector
+ - The `matrix()` function takes a vector and the number of rows and columns we want in the matrix
+ - So the code:
+   - `m <- matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9), nrow = 3, ncol = 3)`
+   - Will create a 3x3 matrix with the numbers 1 to 9 in it
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# making a matrix with the matrix function
+m <- matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9), nrow = 3, ncol = 3)
+# printing the matrix
+print(m)
+```
+
+# Indexing matrices {.smaller}
+
+ - Just like with vectors, we can access elements in a matrix using the square brackets
+ - But we need to pass two indexes to the square brackets
+ - The first index is the row we want to access and the second index is the column we want to access
+ - So the code:
+   - `print(m[1, 1])`
+   - Will print the element in the first row and first column of the matrix `m`
+  - And the code:
+    - `print(m[c(1, 3), c(1, 3)])`
+    - Will print the elements in the first and third rows and the first and third columns of the matrix `m`
+
+# Indexing matrices {.smaller}
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Accessing elements in a matrix
+print(m[1, 1])
+print(m[c(1, 3), c(1, 3)])
+```
+
+# Practice with matrices {.smaller}
+
+ - In your "intro.qmd" file, add a new section with a level 1 heading
+ - Add a code block where you make a matrix with the numbers 1 to 9 and 3 rows and 3 columns
+ - Choose a method to make the matrix and then print it
+ - Then make another cell and try a different method to make the matrix and print it
+
+# Operations with matrices and vectors {.smaller}
+
+ - One of the things that makes R so powerful is that it can do operations on matrices and vectors
+ - So we can add, subtract, multiply, and divide matrices and vectors
+ - And we can do this element-wise meaning that we can take the first element of one matrix and add it to the first element of another matrix
+
+# Operations with matrices and vectors {.smaller}
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Vector operations
+v1 <- c(1, 2, 3)
+v2 <- c(4, 5, 6)
+
+# Multiplying vectors
+print(v1 * v2)
+# Adding vectors
+print(v1 + v2)
+
+v3 = v1 + v2
+print(v3)
+```
+
+
+# Naming matrices {.smaller}
+
+ - Just like with vectors, we can name the rows and columns of a matrix
+ - We can do this using the `rownames()` and `colnames()` functions
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Naming the rows and columns of a matrix
+rownames(m) <- c("row1", "row2", "row3")
+colnames(m) <- c("score1", "score2", "score3")
+# Printing the matrix
+print(m)
+```
+
+# Naming matrices {.smaller}
+
+ - You'll notice that we use the `rownames()` and `colnames()` functions to name the rows and columns of the matrix
+ - We pass the matrix we want to name as an argument to the function
+ - Then we use the `assignment` operator `<-` 
+ - Then we create a vector of names that we want to use
+ - And we can access the elements in the matrix using the names
+
+# functions and assignment {.smaller}
+
+ - You'll have seen by now that some of the functions, like `rownames()` and `colnames()` and `names()` work differently in R than in python
+ - In python we would `return` the result of the function and assign it to a variable
+ - But when working with the attributes of a dataframe we use the = operator to assign the output to that attribute
+ - Like when we renamed the columns of a dataframe in pandas 
+ - `df.columns = ["new_name1", "new_name2"]`
+ - This is the same in R, we use the assignment operator `<-` in the same way
+ - But the rownames and colnames are functions that give us direct access to setting the row and column names
+ - Like the `attributes` are wrapped up in a function that lets us change them
+
+# Dataframes {.smaller}
+
+  - The `dataframe` is the most common data structure in R
+  - It's like a matrix but it can contain different types of data
+  - It's like a table in a spreadsheet
+  - It's more useful to social scientists than a matrix because it can contain different types of data
+  - And it's what we use to work with data in R
+  - We can make a dataframe in R using the `data.frame()` function
+  - The `data.frame()` function takes vectors and combines them into a dataframe
+
+# Making a dataframe {.smaller}
+
+  - The `data.frame()` function in R is used to create a dataframe from vectors
+  - The `data.frame()` function takes vectors and combines them into a dataframe
+
+. . . 
+
+```{r}
+#| echo: true
+#| eval: true
+# Making a dataframe
+df <- data.frame(name = c("Alice", "Bob", "Charlie"), age = c(25, 30, 35), is_human = c(TRUE, TRUE, FALSE))
+# Printing the dataframe
+print(df)
+```
+
+# Making a dataframe {.smaller}
+
+  - You'll notice that we use the `data.frame()` function to make the dataframe
+  - We pass the vectors that we want to combine into the dataframe to the `data.frame()` function
+  - And we use the assignment operator `<-` to assign the dataframe to a variable
+  - And we can access the elements in the dataframe using the names
+
+# Indexing dataframes {.smaller}
+
+  - Just like with matrices, we can access elements in a dataframe using the square brackets
+  - But we need to pass two indexes to the square brackets
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Accessing elements in a dataframe
+print(df[1, 1])
+print(df[1, "name"])
+print(df["name"])
+```
+
+# Saving data {.smaller}
+
+  - We can save data in R using the `write.csv()` function
+  - The `write.csv()` function takes a data, like a matrix or a dataframe and a file path as arguments
+  - And it writes the dataframe to a csv file at the file path
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Saving a dataframe
+write.csv(df, file = "data/df.csv")
+```
+
+
+
+# Practice with dataframes {.smaller}
+
+ - In your "intro.qmd" file, add a new section with a level 1 heading
+ - Add a code block where you make a dataframe with the names of the participants, their ages, and whether they're human
+ - Keep the dataframe small, maybe 3 rows and 3 columns
+ - Then print the dataframe
+ - Then make another code block where you save the dataframe to a csv file in the "data" folder you made earlier. 
+
+# Practice with dataframes {.smaller}
+
+ - Take your time with this, it's a lot of new stuff
+ - In the next section we're going to look at some other elements of coding in R
+   - Like loops and conditionals (if statements) and functions
+   - And we're going to look at some of the packages that make working with data in R easier
+ - But for now, just try to get the dataframe made and saved to a csv file
+
 
 
 # References

@@ -1100,21 +1100,548 @@
 </div>
 </section>
 
-<section id="ph1" class="title-slide slide level1 smaller center">
-<h1>Ph1</h1>
+<section id="practice-with-vectors" class="title-slide slide level1 smaller center">
+<h1>Practice with vectors</h1>
+<ul>
+<li class="fragment">In your “intro.qmd” file, add a new section with a level 1 heading</li>
+<li class="fragment">Add a code block with the following code
+<ul>
+<li class="fragment"><code>my_v &lt;- c("a", "b", "c", "d", "e")</code></li>
+<li class="fragment"><code>print(my_v[1])</code></li>
+<li class="fragment"><code>print(my_v[5])</code></li>
+<li class="fragment"><code>print(my_v[c(1, 3, 5)])</code></li>
+<li class="fragment"><code>print(my_v[-1])</code></li>
+<li class="fragment"><code>print(my_v[-c(1, 3, 5)])</code></li>
+<li class="fragment"><code>print(my_v[1:3])</code></li>
+<li class="fragment"><code>print(my_v[length(my_v)])</code></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="named-vectors" class="title-slide slide level1 smaller center">
+<h1>Named vectors</h1>
+<ul>
+<li class="fragment">R doesn’t have a dictionary data type like python</li>
+<li class="fragment">But it does have something called a <code>named vector</code></li>
+<li class="fragment">This is a vector where each element has a name so it’s really similar to a dictionary</li>
+</ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># Making a vector</span></span>
-<span id="cb28-2"><a href=""></a>my_dict <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"name"</span> <span class="ot">=</span> <span class="st">"Grampton St. Rumpterfrabble"</span>, <span class="st">"age"</span> <span class="ot">=</span> <span class="dv">42</span>, <span class="st">"is_human"</span> <span class="ot">=</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-3"><a href=""></a><span class="fu">print</span>(<span class="fu">class</span>(my_dict))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># Making a named vector</span></span>
+<span id="cb28-2"><a href=""></a>my_named_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"b"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"c"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"d"</span> <span class="ot">=</span> <span class="dv">4</span>, <span class="st">"e"</span> <span class="ot">=</span> <span class="dv">5</span>)</span>
+<span id="cb28-3"><a href=""></a><span class="co"># Accessing elements in a named vector</span></span>
+<span id="cb28-4"><a href=""></a><span class="fu">print</span>(my_named_vector[<span class="st">"a"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
+<pre><code>a 
+1 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">print</span>(my_dict[<span class="st">"name"</span>])<span class="co"># what does this remind you of?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">print</span>(my_named_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                         name 
-"Grampton St. Rumpterfrabble" </code></pre>
+<pre><code>a b c d e 
+1 2 3 4 5 </code></pre>
 </div>
 </div>
+</div>
+</section>
+
+<section id="named-vectors-1" class="title-slide slide level1 smaller center">
+<h1>Named vectors</h1>
+<ul>
+<li class="fragment">You’ll notice that the name and the value in the named vector are separated by an <code>=</code> rather than a <code>:</code></li>
+<li class="fragment">But other than that we can still think about them like <code>key-value</code> pairs</li>
+<li class="fragment">And we can access the values in the named vector using the names.<br>
+</li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>print(my_named_vector["a"])</code></li>
+<li class="fragment">Will print the value <code>1</code> to the console</li>
+</ul></li>
+<li class="fragment">And the code:
+<ul>
+<li class="fragment"><code>print(my_named_vector)</code></li>
+<li class="fragment">Will print the whole named vector to the console</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="naming-a-vector" class="title-slide slide level1 smaller center">
+<h1>Naming a vector</h1>
+<ul>
+<li class="fragment">We use the <code>c()</code> function to make both vectors and named vectors</li>
+<li class="fragment">But we can also turn a vector into a named vector using the <code>names()</code> function</li>
+<li class="fragment">The <code>syntax</code> for this is a little different to python but it’s not too hard to get used to</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="co"># Making a vector</span></span>
+<span id="cb32-2"><a href=""></a>my_v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb32-3"><a href=""></a><span class="co"># Naming the vector</span></span>
+<span id="cb32-4"><a href=""></a><span class="fu">names</span>(my_v) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>)</span>
+<span id="cb32-5"><a href=""></a><span class="co"># Accessing elements in a named vector</span></span>
+<span id="cb32-6"><a href=""></a><span class="fu">print</span>(my_v[<span class="st">"a"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>a 
+1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">print</span>(my_v[<span class="st">"e"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>e 
+5 </code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="naming-a-vector-1" class="title-slide slide level1 smaller center">
+<h1>Naming a vector</h1>
+<ul>
+<li class="fragment">You’ll notice that we use the <code>names()</code> function to name the vector</li>
+<li class="fragment">Passing the vector that we want named as an argument to the <code>names()</code> function</li>
+<li class="fragment">Then we use the <code>assignment</code> operator <code>&lt;-</code></li>
+<li class="fragment">Then we create a vector of names that we want to use</li>
+<li class="fragment">Another example might be if we had a vector of ages and we wanted to name them</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="co"># Creating a vector</span></span>
+<span id="cb36-2"><a href=""></a>scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">75</span>)</span>
+<span id="cb36-3"><a href=""></a><span class="co"># Assigning names to the vector elements</span></span>
+<span id="cb36-4"><a href=""></a><span class="fu">names</span>(scores) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>)</span>
+<span id="cb36-5"><a href=""></a><span class="co"># Printing the named vector</span></span>
+<span id="cb36-6"><a href=""></a><span class="fu">print</span>(scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Alice     Bob Charlie 
+     95      85      75 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="co"># Accessing elements by name</span></span>
+<span id="cb38-2"><a href=""></a><span class="fu">print</span>(scores[<span class="st">"Alice"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Alice 
+   95 </code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="named-vectors-2" class="title-slide slide level1 smaller center">
+<h1>Named vectors</h1>
+<ul>
+<li class="fragment">You can also access multiple elements in a named vector by passing a vector of names to the square brackets</li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>print(my_v[c("a", "c", "e")])</code></li>
+<li class="fragment">Will print the first, third, and fifth elements of the named vector <code>my_v</code></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="practice-with-named-vectors" class="title-slide slide level1 smaller center">
+<h1>Practice with named vectors</h1>
+<ul>
+<li class="fragment">In your “intro.qmd” file, add a new section with a level 1 heading</li>
+<li class="fragment">Add a code block with the following code
+<ul>
+<li class="fragment"><code>my_named_vector &lt;- c("a" = 1, "b" = 2, "c" = 3, "d" = 4, "e" = 5)</code></li>
+<li class="fragment"><code>print(my_named_vector["a"])</code></li>
+<li class="fragment"><code>print(my_named_vector)</code></li>
+<li class="fragment"><code>my_v &lt;- c(1, 2, 3, 4, 5)</code></li>
+<li class="fragment"><code>names(my_v) &lt;- c("a", "b", "c", "d", "e")</code></li>
+<li class="fragment"><code>print(my_v["a"])</code></li>
+<li class="fragment"><code>print(my_v["e"])</code></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="practice-with-named-vectors-1" class="title-slide slide level1 smaller center">
+<h1>Practice with named vectors</h1>
+<ul>
+<li class="fragment">Then make another code block with the following code
+<ul>
+<li class="fragment"><code>scores &lt;- c(95, 85, 75)</code></li>
+<li class="fragment"><code>names(scores) &lt;- c("Alice", "Bob", "Charlie")</code></li>
+<li class="fragment"><code>print(scores)</code></li>
+<li class="fragment"><code>print(scores["Alice"])</code></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="multidimensional-data" class="title-slide slide level1 smaller center">
+<h1>Multidimensional data</h1>
+<ul>
+<li class="fragment">We mentioned earlier that R is a language that was designed for working with data</li>
+<li class="fragment">This is apparent when we look at how R builds up to working with <code>dataframes</code></li>
+<li class="fragment">The next data structure we’re going to look at is the <code>matrix</code> which is like a 2D vector</li>
+<li class="fragment">But what does that mean?</li>
+</ul>
+</section>
+
+<section id="data-in-one-dimension" class="title-slide slide level1 smaller center">
+<h1>Data in one dimension</h1>
+<ul>
+<li class="fragment">A vector is a 1D data structure</li>
+<li class="fragment">Like a single columns or row in a table</li>
+<li class="fragment">We only ‘read’ the data in one direction depending on how we’re thinking about it.</li>
+<li class="fragment">For example, if we want to know the mean age, we add up all the ages in the column and divide by the number of people</li>
+<li class="fragment">But no other information is needed</li>
+<li class="fragment">Similarly, if we want to know everything we have on participant 3, we just look at the third row of the table</li>
+</ul>
+</section>
+
+<section id="data-in-two-dimensions" class="title-slide slide level1 smaller center">
+<h1>Data in two dimensions</h1>
+<ul>
+<li class="fragment">A matrix is a 2D data structure</li>
+<li class="fragment">Like a table, it has height and width so to speak</li>
+<li class="fragment">Can can think about them as stacking vectors on top of each other</li>
+<li class="fragment">Or lining them up next to each other (if we’re thinking about columns)</li>
+<li class="fragment">This is much more like what you’re used to seeing in a spreadsheet</li>
+<li class="fragment">But if you think back to our pandas example, where we made a lot of lists, had to zip them into dictionaries, and <em>then</em> made a dataframe</li>
+<li class="fragment">You can see that having a 2D data structure is a lot easier</li>
+</ul>
+</section>
+
+<section id="making-a-matrix" class="title-slide slide level1 smaller center">
+<h1>Making a matrix</h1>
+<ul>
+<li class="fragment">Like vectors, a matrix can only contain one type of data</li>
+<li class="fragment">So we can’t have words and numbers in the same matrix, which again, may seem like a problem but it’s really not, it’s a feature</li>
+<li class="fragment">We can make a matrix in R multiple ways:
+<ul>
+<li class="fragment"><code>matrix()</code> function</li>
+<li class="fragment"><code>cbind()</code> and <code>rbind()</code> functions</li>
+</ul></li>
+<li class="fragment">Lets start with the <code>cbind()</code> function</li>
+</ul>
+</section>
+
+<section id="making-a-matrix-with-cbind" class="title-slide slide level1 smaller center">
+<h1>Making a matrix with cbind()</h1>
+<ul>
+<li class="fragment">The <code>cbind()</code> function in R is used to combine vectors into a matrix by standing them next to each other</li>
+<li class="fragment">So we’re ‘column’ binding the vectors together</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="co"># making 3 vectors</span></span>
+<span id="cb40-2"><a href=""></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb40-3"><a href=""></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb40-4"><a href=""></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb40-5"><a href=""></a><span class="co"># making a matrix with cbing</span></span>
+<span id="cb40-6"><a href=""></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v1, v2, v3)</span>
+<span id="cb40-7"><a href=""></a><span class="co"># printing the matrix</span></span>
+<span id="cb40-8"><a href=""></a><span class="fu">print</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     v1 v2 v3
+[1,]  1  4  7
+[2,]  2  5  8
+[3,]  3  6  9</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="making-a-matrix-with-rbind" class="title-slide slide level1 smaller center">
+<h1>Making a matrix with rbind()</h1>
+<ul>
+<li class="fragment">The <code>rbind()</code> function in R is used to combine vectors into a matrix by stacking them on top of each other</li>
+<li class="fragment">So we’re ‘row’ binding the vectors together</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="co"># making 3 vectors</span></span>
+<span id="cb42-2"><a href=""></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb42-3"><a href=""></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb42-4"><a href=""></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb42-5"><a href=""></a><span class="co"># making a matrix with rbind</span></span>
+<span id="cb42-6"><a href=""></a>m <span class="ot">&lt;-</span> <span class="fu">rbind</span>(v1, v2, v3)</span>
+<span id="cb42-7"><a href=""></a><span class="co"># printing the matrix</span></span>
+<span id="cb42-8"><a href=""></a><span class="fu">print</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [,1] [,2] [,3]
+v1    1    2    3
+v2    4    5    6
+v3    7    8    9</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="binding-vectors" class="title-slide slide level1 smaller center">
+<h1>Binding vectors</h1>
+<ul>
+<li class="fragment">So we now know that we can bind together vectors to make a matrix</li>
+<li class="fragment">And we can do so either by stacking them on top of each other or by standing them next to each other</li>
+<li class="fragment">Thinking as rows and columns</li>
+<li class="fragment">But we can also just make a matrix directly using the <code>matrix()</code> function</li>
+<li class="fragment">The <code>matrix()</code> function takes a vector and the number of rows and columns we want in the matrix</li>
+</ul>
+</section>
+
+<section id="making-a-matrix-with-matrix" class="title-slide slide level1 smaller center">
+<h1>Making a matrix with matrix()</h1>
+<ul>
+<li class="fragment">The <code>matrix()</code> function in R is used to create a matrix from a vector</li>
+<li class="fragment">The <code>matrix()</code> function takes a vector and the number of rows and columns we want in the matrix</li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>m &lt;- matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9), nrow = 3, ncol = 3)</code></li>
+<li class="fragment">Will create a 3x3 matrix with the numbers 1 to 9 in it</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="co"># making a matrix with the matrix function</span></span>
+<span id="cb44-2"><a href=""></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb44-3"><a href=""></a><span class="co"># printing the matrix</span></span>
+<span id="cb44-4"><a href=""></a><span class="fu">print</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="indexing-matrices" class="title-slide slide level1 smaller center">
+<h1>Indexing matrices</h1>
+<ul>
+<li class="fragment">Just like with vectors, we can access elements in a matrix using the square brackets</li>
+<li class="fragment">But we need to pass two indexes to the square brackets</li>
+<li class="fragment">The first index is the row we want to access and the second index is the column we want to access</li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>print(m[1, 1])</code></li>
+<li class="fragment">Will print the element in the first row and first column of the matrix <code>m</code></li>
+</ul></li>
+<li class="fragment">And the code:
+<ul>
+<li class="fragment"><code>print(m[c(1, 3), c(1, 3)])</code></li>
+<li class="fragment">Will print the elements in the first and third rows and the first and third columns of the matrix <code>m</code></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="indexing-matrices-1" class="title-slide slide level1 smaller center">
+<h1>Indexing matrices</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="co"># Accessing elements in a matrix</span></span>
+<span id="cb46-2"><a href=""></a><span class="fu">print</span>(m[<span class="dv">1</span>, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="fu">print</span>(m[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    1    7
+[2,]    3    9</code></pre>
+</div>
+</div>
+</section>
+
+<section id="practice-with-matrices" class="title-slide slide level1 smaller center">
+<h1>Practice with matrices</h1>
+<ul>
+<li class="fragment">In your “intro.qmd” file, add a new section with a level 1 heading</li>
+<li class="fragment">Add a code block where you make a matrix with the numbers 1 to 9 and 3 rows and 3 columns</li>
+<li class="fragment">Choose a method to make the matrix and then print it</li>
+<li class="fragment">Then make another cell and try a different method to make the matrix and print it</li>
+</ul>
+</section>
+
+<section id="operations-with-matrices-and-vectors" class="title-slide slide level1 smaller center">
+<h1>Operations with matrices and vectors</h1>
+<ul>
+<li class="fragment">One of the things that makes R so powerful is that it can do operations on matrices and vectors</li>
+<li class="fragment">So we can add, subtract, multiply, and divide matrices and vectors</li>
+<li class="fragment">And we can do this element-wise meaning that we can take the first element of one matrix and add it to the first element of another matrix</li>
+</ul>
+</section>
+
+<section id="operations-with-matrices-and-vectors-1" class="title-slide slide level1 smaller center">
+<h1>Operations with matrices and vectors</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="co"># Vector operations</span></span>
+<span id="cb50-2"><a href=""></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb50-3"><a href=""></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb50-4"><a href=""></a></span>
+<span id="cb50-5"><a href=""></a><span class="co"># Multiplying vectors</span></span>
+<span id="cb50-6"><a href=""></a><span class="fu">print</span>(v1 <span class="sc">*</span> v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  4 10 18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="co"># Adding vectors</span></span>
+<span id="cb52-2"><a href=""></a><span class="fu">print</span>(v1 <span class="sc">+</span> v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 7 9</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>v3 <span class="ot">=</span> v1 <span class="sc">+</span> v2</span>
+<span id="cb54-2"><a href=""></a><span class="fu">print</span>(v3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 7 9</code></pre>
+</div>
+</div>
+</section>
+
+<section id="naming-matrices" class="title-slide slide level1 smaller center">
+<h1>Naming matrices</h1>
+<ul>
+<li class="fragment">Just like with vectors, we can name the rows and columns of a matrix</li>
+<li class="fragment">We can do this using the <code>rownames()</code> and <code>colnames()</code> functions</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="co"># Naming the rows and columns of a matrix</span></span>
+<span id="cb56-2"><a href=""></a><span class="fu">rownames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"row1"</span>, <span class="st">"row2"</span>, <span class="st">"row3"</span>)</span>
+<span id="cb56-3"><a href=""></a><span class="fu">colnames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"score1"</span>, <span class="st">"score2"</span>, <span class="st">"score3"</span>)</span>
+<span id="cb56-4"><a href=""></a><span class="co"># Printing the matrix</span></span>
+<span id="cb56-5"><a href=""></a><span class="fu">print</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     score1 score2 score3
+row1      1      4      7
+row2      2      5      8
+row3      3      6      9</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="naming-matrices-1" class="title-slide slide level1 smaller center">
+<h1>Naming matrices</h1>
+<ul>
+<li class="fragment">You’ll notice that we use the <code>rownames()</code> and <code>colnames()</code> functions to name the rows and columns of the matrix</li>
+<li class="fragment">We pass the matrix we want to name as an argument to the function</li>
+<li class="fragment">Then we use the <code>assignment</code> operator <code>&lt;-</code></li>
+<li class="fragment">Then we create a vector of names that we want to use</li>
+<li class="fragment">And we can access the elements in the matrix using the names</li>
+</ul>
+</section>
+
+<section id="functions-and-assignment" class="title-slide slide level1 smaller center">
+<h1>functions and assignment</h1>
+<ul>
+<li class="fragment">You’ll have seen by now that some of the functions, like <code>rownames()</code> and <code>colnames()</code> and <code>names()</code> work differently in R than in python</li>
+<li class="fragment">In python we would <code>return</code> the result of the function and assign it to a variable</li>
+<li class="fragment">But when working with the attributes of a dataframe we use the = operator to assign the output to that attribute</li>
+<li class="fragment">Like when we renamed the columns of a dataframe in pandas</li>
+<li class="fragment"><code>df.columns = ["new_name1", "new_name2"]</code></li>
+<li class="fragment">This is the same in R, we use the assignment operator <code>&lt;-</code> in the same way</li>
+<li class="fragment">But the rownames and colnames are functions that give us direct access to setting the row and column names</li>
+<li class="fragment">Like the <code>attributes</code> are wrapped up in a function that lets us change them</li>
+</ul>
+</section>
+
+<section id="dataframes" class="title-slide slide level1 smaller center">
+<h1>Dataframes</h1>
+<ul>
+<li class="fragment">The <code>dataframe</code> is the most common data structure in R</li>
+<li class="fragment">It’s like a matrix but it can contain different types of data</li>
+<li class="fragment">It’s like a table in a spreadsheet</li>
+<li class="fragment">It’s more useful to social scientists than a matrix because it can contain different types of data</li>
+<li class="fragment">And it’s what we use to work with data in R</li>
+<li class="fragment">We can make a dataframe in R using the <code>data.frame()</code> function</li>
+<li class="fragment">The <code>data.frame()</code> function takes vectors and combines them into a dataframe</li>
+</ul>
+</section>
+
+<section id="making-a-dataframe" class="title-slide slide level1 smaller center">
+<h1>Making a dataframe</h1>
+<ul>
+<li class="fragment">The <code>data.frame()</code> function in R is used to create a dataframe from vectors</li>
+<li class="fragment">The <code>data.frame()</code> function takes vectors and combines them into a dataframe</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Making a dataframe</span></span>
+<span id="cb58-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>), <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>), <span class="at">is_human =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
+<span id="cb58-3"><a href=""></a><span class="co"># Printing the dataframe</span></span>
+<span id="cb58-4"><a href=""></a><span class="fu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     name age is_human
+1   Alice  25     TRUE
+2     Bob  30     TRUE
+3 Charlie  35    FALSE</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="making-a-dataframe-1" class="title-slide slide level1 smaller center">
+<h1>Making a dataframe</h1>
+<ul>
+<li class="fragment">You’ll notice that we use the <code>data.frame()</code> function to make the dataframe</li>
+<li class="fragment">We pass the vectors that we want to combine into the dataframe to the <code>data.frame()</code> function</li>
+<li class="fragment">And we use the assignment operator <code>&lt;-</code> to assign the dataframe to a variable</li>
+<li class="fragment">And we can access the elements in the dataframe using the names</li>
+</ul>
+</section>
+
+<section id="indexing-dataframes" class="title-slide slide level1 smaller center">
+<h1>Indexing dataframes</h1>
+<ul>
+<li class="fragment">Just like with matrices, we can access elements in a dataframe using the square brackets</li>
+<li class="fragment">But we need to pass two indexes to the square brackets</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="co"># Accessing elements in a dataframe</span></span>
+<span id="cb60-2"><a href=""></a><span class="fu">print</span>(df[<span class="dv">1</span>, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Alice"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">print</span>(df[<span class="dv">1</span>, <span class="st">"name"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Alice"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">print</span>(df[<span class="st">"name"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     name
+1   Alice
+2     Bob
+3 Charlie</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="saving-data" class="title-slide slide level1 smaller center">
+<h1>Saving data</h1>
+<ul>
+<li class="fragment">We can save data in R using the <code>write.csv()</code> function</li>
+<li class="fragment">The <code>write.csv()</code> function takes a data, like a matrix or a dataframe and a file path as arguments</li>
+<li class="fragment">And it writes the dataframe to a csv file at the file path</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="co"># Saving a dataframe</span></span>
+<span id="cb66-2"><a href=""></a><span class="fu">write.csv</span>(df, <span class="at">file =</span> <span class="st">"data/df.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+
+<section id="practice-with-dataframes" class="title-slide slide level1 smaller center">
+<h1>Practice with dataframes</h1>
+<ul>
+<li class="fragment">In your “intro.qmd” file, add a new section with a level 1 heading</li>
+<li class="fragment">Add a code block where you make a dataframe with the names of the participants, their ages, and whether they’re human</li>
+<li class="fragment">Keep the dataframe small, maybe 3 rows and 3 columns</li>
+<li class="fragment">Then print the dataframe</li>
+<li class="fragment">Then make another code block where you save the dataframe to a csv file in the “data” folder you made earlier.</li>
+</ul>
+</section>
+
+<section id="practice-with-dataframes-1" class="title-slide slide level1 smaller center">
+<h1>Practice with dataframes</h1>
+<ul>
+<li class="fragment">Take your time with this, it’s a lot of new stuff</li>
+<li class="fragment">In the next section we’re going to look at some other elements of coding in R
+<ul>
+<li class="fragment">Like loops and conditionals (if statements) and functions</li>
+<li class="fragment">And we’re going to look at some of the packages that make working with data in R easier</li>
+</ul></li>
+<li class="fragment">But for now, just try to get the dataframe made and saved to a csv file</li>
+</ul>
 </section>
 
 <section id="references" class="title-slide slide level1 smaller scrollable">
