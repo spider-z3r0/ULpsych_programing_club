@@ -467,7 +467,7 @@
 <li class="fragment">Over the years various researchers have come up with best practices for setting up your projects</li>
 <li class="fragment">And they wrapped them up in a set of guidelines called the ‘Best Practices for Scientific Computing’</li>
 <li class="fragment">But they were too big and no one followed them…</li>
-<li class="fragment">So they were distilled down into a set of guidelines called the ‘Good Enough Practices for Scientific Computing’ <span class="citation" data-cites="wilson2017good">(<a href="#/installing-packages-in-r-1" role="doc-biblioref" onclick="">Wilson 2017</a>)</span></li>
+<li class="fragment">So they were distilled down into a set of guidelines called the ‘Good Enough Practices for Scientific Computing’ <span class="citation" data-cites="wilson2017good">(<a href="#/references" role="doc-biblioref" onclick="">Wilson 2017</a>)</span></li>
 </ul>
 </section>
 
@@ -590,7 +590,7 @@
 </ul>
 </section>
 
-<section id="installing-packages-in-r-1" class="title-slide slide level1 smaller scrollable">
+<section id="installing-packages-in-r-1" class="title-slide slide level1 smaller center">
 <h1>Installing packages in R</h1>
 <ul>
 <li class="fragment">Ok, you now have the packages installed that we need for this session, but there are others
@@ -603,20 +603,256 @@
 <li class="fragment">Depending on your project you’ll use some or all of these, we’ll look at some of them throughout the day.</li>
 <li class="fragment">But for now you can <code>quit</code> the R terminal by typing <code>q()</code> and hitting enter (and saving your workspace image)</li>
 </ul>
+</section>
+
+<section id="setting-up-your-.qmd-file" class="title-slide slide level1 smaller center">
+<h1>Setting up your <code>.qmd</code> file</h1>
+<ul>
+<li class="fragment">Now that you’ve installed the quarto and rmarkdown packages, you can start working in R</li>
+<li class="fragment">Open the “intro.qmd” file you created in the “src” folder</li>
+<li class="fragment">Remember that we can include <code>yaml</code>, <code>markdown</code>, and code in a .qmd file</li>
+<li class="fragment">We’re going to start by setting a simple yaml header</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="in">```{yaml}</span></span>
+<span id="cb1-2"><a href=""></a><span class="in">---</span></span>
+<span id="cb1-3"><a href=""></a><span class="in">title: "intro to R"</span></span>
+<span id="cb1-4"><a href=""></a><span class="in">author: "Your Name"</span></span>
+<span id="cb1-5"><a href=""></a><span class="in">engine: knitr</span></span>
+<span id="cb1-6"><a href=""></a><span class="in">---</span></span>
+<span id="cb1-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="setting-up-your-.qmd-file-1" class="title-slide slide level1 smaller center">
+<h1>Setting up your <code>.qmd</code> file</h1>
+<ul>
+<li class="fragment">This is a really simple yaml header</li>
+<li class="fragment">The <code>title</code> is the title of your document</li>
+<li class="fragment">The <code>author</code> is your name</li>
+<li class="fragment">The <code>engine</code> is the engine that will run your code</li>
+<li class="fragment">We’re using <code>knitr</code> because it’s the engine that will run R code</li>
+<li class="fragment">If we were using python code we would use <code>jupyter</code> as the engine</li>
+<li class="fragment">Now I want you to add some markdown to your file starting with a level 1 heading</li>
+<li class="fragment">Then write a short note about how you feel about learning R</li>
+</ul>
+</section>
+
+<section id="markdown-recap" class="title-slide slide level1 smaller center">
+<h1>Markdown recap</h1>
+<ul>
+<li class="fragment">We took a good look at markdown on Day 0</li>
+<li class="fragment">And you’ve answered questions on it in most of the quizzes</li>
+<li class="fragment">But just to remind you
+<ul>
+<li class="fragment">You can use <code>#</code> to create headings</li>
+<li class="fragment">You can use <code>-</code> to create lists</li>
+<li class="fragment">You can use <code>---</code> to create horizontal rules and to open and close the yaml header</li>
+<li class="fragment">You can use <code>![alt text](path/to/image)</code> to include images</li>
+<li class="fragment">And you use three backticks followed by{languagename} to include code blocks</li>
+</ul></li>
+<li class="fragment">In this session you’re going to use headings, plain markdown and code blocks</li>
+</ul>
+</section>
+
+<section id="markdown-example" class="title-slide slide level1 smaller center">
+<h1>Markdown example</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href=""></a><span class="in">```{markdown}</span></span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a><span class="in"># How I feel about learning R</span></span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a><span class="in">Nervous, but excited to never open SPSS again</span></span>
+<span id="cb2-6"><a href=""></a></span>
+<span id="cb2-7"><a href=""></a><span class="in">```{{r}}</span></span>
+<span id="cb2-8"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb2-9"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb2-10"><a href=""></a><span class="in"># This is a cell within a cell, cell-ception!</span></span>
+<span id="cb2-11"><a href=""></a><span class="in">print("Hello World!")</span></span>
+<span id="cb2-12"><a href=""></a><span class="in">```</span></span>
+<span id="cb2-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+
+<section id="make-notes" class="title-slide slide level1 smaller center">
+<h1>Make notes</h1>
+<ul>
+<li class="fragment">Before we get into the R code</li>
+<li class="fragment">Take a few minutes to make some notes in your “intro.qmd” file</li>
+<li class="fragment">Make a new section with a level 1 heading and list what we did so far
+<ol type="1">
+<li class="fragment">Set up a folder structure (Day 3, data, src, output)</li>
+<li class="fragment">Installed the quarto and rmarkdown packages in R</li>
+</ol>
+<ol type="a">
+<li class="fragment">Opened the R terminal</li>
+<li class="fragment">Installed the quarto package with <code>install.packages("quarto")</code></li>
+<li class="fragment">Installed the rmarkdown package with <code>install.packages("rmarkdown")</code></li>
+</ol>
+<ol start="3" type="1">
+<li class="fragment">Set up the “intro.qmd” file in the “src” folder</li>
+</ol>
+<ol type="a">
+<li class="fragment">Added a yaml header</li>
+<li class="fragment">Added a level 1 heading</li>
+</ol></li>
+<li class="fragment">Save your file and we’ll move on to the R code</li>
+</ul>
+</section>
+
+<section id="what-you-already-know-in-r" class="title-slide slide level1 smaller center">
+<h1>What you already know in R</h1>
+<ul>
+<li class="fragment">Believe it or not, learning some python has already taught you a lot about R</li>
+<li class="fragment">At the general level, you know about variables, data types, functions, control structures, and data structures</li>
+<li class="fragment">And python and R handle these things in very similar ways</li>
+<li class="fragment">So we’re going to go through some examples of how you can do things in R that you’ve already seen in python</li>
+<li class="fragment">The first thing to note is that comments in R are made with a <code>#</code> just like in python</li>
+<li class="fragment">And you can use <code>#</code> to comment out code in R just like in python</li>
+<li class="fragment">Comments really matter!! Don’t skimp on them!!</li>
+</ul>
+</section>
+
+<section id="strings-in-r" class="title-slide slide level1 smaller center">
+<h1>Strings in R</h1>
+<ul>
+<li class="fragment">In R, you can create strings by wrapping text in either single or double quotes</li>
+<li class="fragment">So the code:</li>
+<li class="fragment"><code>"Hello World!"</code> and <code>'Hello World!'</code></li>
+<li class="fragment">Will both create a string with the text <code>Hello World!</code></li>
+<li class="fragment">And the same reasons for using single or double quotes in python apply in R</li>
+<li class="fragment">Like in names that contain apostrophes or when quotes</li>
+</ul>
+</section>
+
+<section id="print-in-r" class="title-slide slide level1 smaller center">
+<h1>print() in R</h1>
+<ul>
+<li class="fragment">In R, you can print things to the console using the <code>print()</code> function</li>
+<li class="fragment">So the code:</li>
+<li class="fragment"><code>print("Hello World!")</code></li>
+<li class="fragment">Will print <code>Hello World!</code> to the console</li>
+<li class="fragment">So you see that functions in R are called the same way as in python</li>
+</ul>
+</section>
+
+<section id="variables-in-r" class="title-slide slide level1 smaller center">
+<h1>Variables in R</h1>
+<ul>
+<li class="fragment">Just as we can assign some data to a variable in python, we can do the same in R</li>
+<li class="fragment">There’s actually 2 ways to do this:
+<ul>
+<li class="fragment"><code>variable = data</code> (just like in python)</li>
+<li class="fragment"><code>variable &lt;- data</code>(this is the preferred way in R)</li>
+</ul></li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>x &lt;- "Hello World!"</code></li>
+<li class="fragment">Will assign the value <code>Hello World!</code> to the variable <code>x</code></li>
+</ul></li>
+<li class="fragment">And the code:
+<ul>
+<li class="fragment"><code>print(x)</code></li>
+<li class="fragment">Will print <code>Hello World!</code> to the console</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="first-practice" class="title-slide slide level1 smaller center">
+<h1>First practice</h1>
+<ul>
+<li class="fragment">In your “intro.qmd” file, add a new section with a level 1 heading</li>
+<li class="fragment">Add a code block with the following code
+<ul>
+<li class="fragment"><code>x &lt;- "Hello World!"</code></li>
+<li class="fragment"><code>print(x)</code></li>
+</ul></li>
+<li class="fragment">Save your file and then we’ll try more of the Day 0 quarto commands by getting you to preview your file</li>
+</ul>
+</section>
+
+<section id="previewing-your-file" class="title-slide slide level1 smaller center">
+<h1>Previewing your file</h1>
+<ul>
+<li class="fragment">To preview your file, you can use the <code>quarto preview</code> command in the terminal</li>
+<li class="fragment">But not in the R terminal, in the standard terminal</li>
+<li class="fragment">So from the menu at the top of the screen, select <code>Terminal</code> and then <code>New Terminal</code></li>
+<li class="fragment">This will open a new terminal window at the bottom of the screen</li>
+<li class="fragment">You’ll see the <code>directory</code> you’re in and a blinking cursor</li>
+<li class="fragment">You can right click on “intro.qmd” in the explorer pane and select <code>Copy Path</code></li>
+<li class="fragment">Then type <code>quarto preview</code> and paste the path to your file and hit enter</li>
+<li class="fragment">Cross all the fingers and toes and watch what happens</li>
+</ul>
+</section>
+
+<section id="previewing-your-file-1" class="title-slide slide level1 smaller center">
+<h1>Previewing your file</h1>
+<ul>
+<li class="fragment">If you see the preview of your file in your browser, then you’re good to go</li>
+<li class="fragment">If you see an error message, then you’ll need to read it and we’ll help you fix</li>
+<li class="fragment">Just start by making sure that your code looks like this</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href=""></a><span class="in"># Making a string</span></span>
+<span id="cb3-3"><a href=""></a><span class="in">x &lt;- "Hello World!"</span></span>
+<span id="cb3-4"><a href=""></a><span class="in"># Printing the string</span></span>
+<span id="cb3-5"><a href=""></a><span class="in">print(x)</span></span>
+<span id="cb3-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section id="previewing-your-file-2" class="title-slide slide level1 smaller center">
+<h1>Previewing your file</h1>
+<ul>
+<li class="fragment">You can leave that preview running and it will update everytime you save your file.</li>
+<li class="fragment">The preview won’t have all the formatting that you’ll see when you full render the file</li>
+<li class="fragment">But it’s a good way to check that your code is working and that your general formatting is correct</li>
+<li class="fragment">Add a new section to the file, maybe with a level 2 heading about previewing your file
+<ul>
+<li class="fragment">Remember that the command is <code>quarto preview</code> and then the path to your file (you can copy the path from the explorer pane)</li>
+</ul></li>
+<li class="fragment">Save your file, take a look at the preview, and then we’ll move on to data types</li>
+</ul>
+<div class="fragment">
+<p>Oh!</p>
+<ul>
+<li class="fragment">You can cancel the preview by hitting <code>ctrl + c</code> while you’re in the terminal</li>
+</ul>
+</div>
+</section>
+
+<section id="more-with-strings" class="title-slide slide level1 smaller center">
+<h1>More with strings</h1>
+<ul>
+<li class="fragment">We can <code>concatenate</code> strings in R, but it’s a little different than in python</li>
+<li class="fragment">In R, you use the <code>paste()</code> function to concatenate strings</li>
+<li class="fragment">Like so:</li>
+</ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Making a string</span></span>
+<span id="cb4-2"><a href=""></a>x <span class="ot">&lt;-</span> <span class="st">"Hello"</span></span>
+<span id="cb4-3"><a href=""></a>y <span class="ot">&lt;-</span> <span class="st">"World!"</span></span>
+<span id="cb4-4"><a href=""></a><span class="co"># Concatenating the strings</span></span>
+<span id="cb4-5"><a href=""></a>z <span class="ot">&lt;-</span> <span class="fu">paste</span>(x, y)</span>
+<span id="cb4-6"><a href=""></a><span class="co"># Printing the concatenated string</span></span>
+<span id="cb4-7"><a href=""></a><span class="fu">print</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Hello World!"</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="references" class="title-slide slide level1 smaller scrollable">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-wilson2017good" class="csl-entry" role="listitem">
+Wilson, Jennifer AND Cranston, Greg AND Bryan. 2017. <span>“Good Enough Practices in Scientific Computing.”</span> <em>PLOS Computational Biology</em> 13 (6): 1–20. <a href="https://doi.org/10.1371/journal.pcbi.1005510">https://doi.org/10.1371/journal.pcbi.1005510</a>.
 </div>
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
-</div>
-</div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-wilson2017good" class="csl-entry" role="listitem">
-Wilson, Jennifer AND Cranston, Greg AND Bryan. 2017. <span>“Good Enough Practices in Scientific Computing.”</span> <em>PLOS Computational Biology</em> 13 (6): 1–20. <a href="https://doi.org/10.1371/journal.pcbi.1005510">https://doi.org/10.1371/journal.pcbi.1005510</a>.
 </div>
 </div>
 </section>

@@ -146,37 +146,198 @@ bibliography: references.bib
  - But for now you can `quit` the R terminal by typing `q()` and hitting enter (and saving your workspace image)
 
 
+# Setting up your `.qmd` file {.smaller}
 
+ - Now that you've installed the quarto and rmarkdown packages, you can start working in R
+ - Open the "intro.qmd" file you created in the "src" folder
+ - Remember that we can include `yaml`, `markdown`, and code in a .qmd file
+ - We're going to start by setting a simple yaml header
 
+. . . 
 
-
-
- 
-
-
-
-
-
-
-
-
-
-```{r}
-#| label: setup
-
-#| eval: true
-#| include: false
-
-
-
-
-
+```{{yaml}}
+---
+title: "intro to R"
+author: "Your Name"
+engine: knitr
+---
 ```
 
+# Setting up your `.qmd` file {.smaller}
+
+ - This is a really simple yaml header
+ - The `title` is the title of your document
+ - The `author` is your name
+ - The `engine` is the engine that will run your code 
+ - We're using `knitr` because it's the engine that will run R code
+ - If we were using python code we would use `jupyter` as the engine
+ - Now I want you to add some markdown to your file starting with a level 1 heading
+ - Then write a short note about how you feel about learning R
+
+# Markdown recap {.smaller}
+
+ - We took a good look at markdown on Day 0
+ - And you've answered questions on it in most of the quizzes 
+ - But just to remind you
+   - You can use `#` to create headings
+   - You can use `-` to create lists
+   - You can use `---` to create horizontal rules and to open and close the yaml header
+   - You can use `![alt text](path/to/image)` to include images
+   - And you use three backticks followed by{languagename} to include code blocks
+ - In this session you're going to use headings, plain markdown and code blocks
+ 
+# Markdown example {.smaller}
+
+````{{markdown}}
+
+# How I feel about learning R
+
+Nervous, but excited to never open SPSS again
+
+```{{r}}
+#| echo: true
+#| eval: true
+# This is a cell within a cell, cell-ception!
+print("Hello World!")
+```
+````
+
+# Make notes {.smaller}
+
+ - Before we get into the R code
+ - Take a few minutes to make some notes in your "intro.qmd" file
+ - Make a new section with a level 1 heading and list what we did so far
+   1. Set up a folder structure (Day 3, data, src, output)
+   2. Installed the quarto and rmarkdown packages in R
+     a. Opened the R terminal
+     b. Installed the quarto package with `install.packages("quarto")`
+     c. Installed the rmarkdown package with `install.packages("rmarkdown")`
+   3. Set up the "intro.qmd" file in the "src" folder
+     a. Added a yaml header
+     b. Added a level 1 heading 
+ - Save your file and we'll move on to the R code
+
+# What you already know in R {.smaller}
+
+ - Believe it or not, learning some python has already taught you a lot about R
+ - At the general level, you know about variables, data types, functions, control structures, and data structures
+ - And python and R handle these things in very similar ways
+ - So we're going to go through some examples of how you can do things in R that you've already seen in python
+ - The first thing to note is that comments in R are made with a `#` just like in python
+ - And you can use `#` to comment out code in R just like in python
+ - Comments really matter!! Don't skimp on them!!
+
+# Strings in R {.smaller}
+
+ - In R, you can create strings by wrapping text in either single or double quotes
+ - So the code:
+  - ` "Hello World!" ` and ` 'Hello World!' `
+  - Will both create a string with the text `Hello World!`
+ - And the same reasons for using single or double quotes in python apply in R
+ - Like in names that contain apostrophes or when quotes
+
+# print() in R {.smaller}
+
+ - In R, you can print things to the console using the `print()` function
+ - So the code:
+  - `print("Hello World!")`
+  - Will print `Hello World!` to the console
+ - So you see that functions in R are called the same way as in python
+
+# Variables in R {.smaller}
+
+ - Just as we can assign some data to a variable in python, we can do the same in R
+ - There's actually 2 ways to do this:
+   - `variable = data` (just like in python)
+   - `variable <- data`(this is the preferred way in R)
+  - So the code:
+    - `x <- "Hello World!"`
+    - Will assign the value `Hello World!` to the variable `x`
+  - And the code:
+    - `print(x)`
+    - Will print `Hello World!` to the console
+
+# First practice {.smaller}
+
+ - In your "intro.qmd" file, add a new section with a level 1 heading
+ - Add a code block with the following code
+   - `x <- "Hello World!"`
+   - `print(x)`
+ - Save your file and then we'll try more of the Day 0 quarto commands by getting you to preview your file
+
+# Previewing your file {.smaller}
+
+ - To preview your file, you can use the `quarto preview` command in the terminal
+ - But not in the R terminal, in the standard terminal
+ - So from the menu at the top of the screen, select `Terminal` and then `New Terminal`
+  - This will open a new terminal window at the bottom of the screen
+  - You'll see the `directory` you're in and a blinking cursor
+  - You can right click on "intro.qmd" in the explorer pane and select `Copy Path`
+  - Then type `quarto preview ` and paste the path to your file and hit enter
+ - Cross all the fingers and toes and watch what happens
+
+# Previewing your file {.smaller}
+
+ - If you see the preview of your file in your browser, then you're good to go
+ - If you see an error message, then you'll need to read it and we'll help you fix 
+ - Just start by making sure that your code looks like this
+
+. . .
+
+```{{r}}
+# Making a string
+x <- "Hello World!"
+# Printing the string
+print(x)
+```
+
+# Previewing your file {.smaller}
+
+ - You can leave that preview running and it will update everytime you save your file. 
+ - The preview won't have all the formatting that you'll see when you full render the file
+ - But it's a good way to check that your code is working and that your general formatting is correct
+ - Add a new section to the file, maybe with a level 2 heading about previewing your file
+   - Remember that the command is `quarto preview` and then the path to your file (you can copy the path from the explorer pane)
+ - Save your file, take a look at the preview, and then we'll move on to data types
+
+. . . 
+
+Oh! 
+
+ - You can cancel the preview by hitting `ctrl + c` while you're in the terminal
+
+# More with strings {.smaller}
+
+ - We can `concatenate` strings in R, but it's a little different than in python
+ - In R, you use the `paste()` function to concatenate strings
+ - Like so:
+
+. . . 
 ```{r}
-#| label: test
 #| echo: true
 #| eval: true
 
-print("Hello World!")
+# Making a string
+x <- "Hello"
+y <- "World!"
+# Concatenating the strings
+z <- paste(x, y)
+# Printing the concatenated string
+print(z)
 ```
+
+
+
+
+
+
+
+# References
+
+::: {#refs}
+:::
+
+
+
+
+
