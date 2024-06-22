@@ -542,7 +542,7 @@
 <section id="the-r-terminal" class="title-slide slide level1 smaller center">
 <h1>The R terminal</h1>
 <ul>
-<li class="fragment">On Day 0 we showeded you the terminal in VSCode</li>
+<li class="fragment">On Day 0 we showed you the terminal in VSCode</li>
 <li class="fragment">It’s in the bottom panel of the window</li>
 <li class="fragment">This is a place where you can run code (commands) directly</li>
 <li class="fragment">On the computers you’re using the terminal is running something called PowerShell by default</li>
@@ -698,6 +698,40 @@
 </ul>
 </section>
 
+<section id="r-code" class="title-slide slide level1 smaller center">
+<h1>R code</h1>
+<ul>
+<li class="fragment">R is a <code>statistical programming language</code> that is used by a lot of researchers</li>
+<li class="fragment">It’s a little different than python, but it’s also very similar</li>
+<li class="fragment">Where python is a general purpose programming language, R is a language that was <em>designed</em> for working with data</li>
+<li class="fragment">It’s good at other stuff, but the underlying structure of the language is built around working with data</li>
+<li class="fragment">For some people, this makes R <em>feel</em> easier to work with than python</li>
+<li class="fragment">I’m not one of those people, but I can see where they’re coming from</li>
+<li class="fragment">Everything in R builds towards working with data, and the assumptions under it bend in that direction</li>
+</ul>
+</section>
+
+<section id="r-community" class="title-slide slide level1 smaller center">
+<h1>R community</h1>
+<ul>
+<li class="fragment">R has a really strong community of users</li>
+<li class="fragment">Specifically R has a really strong community of <code>data scientists</code> and <code>researchers</code></li>
+<li class="fragment">There are online groups like <code>Stack Overflow</code> and <code>Cross Validated</code> where you can ask questions</li>
+<li class="fragment">And there are more specialized groups like <code>R-bloggers</code> and <code>R Weekly</code> that share tips and tricks</li>
+<li class="fragment">And there are groups like <code>R-Ladies</code> and <code>RLadies Global</code> that work to increase the participation in R of underrepresented groups</li>
+</ul>
+</section>
+
+<section id="r-code-1" class="title-slide slide level1 smaller center">
+<h1>R code</h1>
+<ul>
+<li class="fragment">It has a lot of packages that make working with data easier</li>
+<li class="fragment">And we’re going to look at some of them today, but…</li>
+<li class="fragment">We’re going to start by looking at some of the basics of R</li>
+<li class="fragment">And we’re going to do that by showing you how to do things in R that you’ve already seen in python</li>
+</ul>
+</section>
+
 <section id="what-you-already-know-in-r" class="title-slide slide level1 smaller center">
 <h1>What you already know in R</h1>
 <ul>
@@ -711,15 +745,28 @@
 </ul>
 </section>
 
-<section id="strings-in-r" class="title-slide slide level1 smaller center">
-<h1>Strings in R</h1>
+<section id="characters-in-r" class="title-slide slide level1 smaller center">
+<h1>Characters in R</h1>
 <ul>
 <li class="fragment">In R, you can create strings by wrapping text in either single or double quotes</li>
 <li class="fragment">So the code:</li>
 <li class="fragment"><code>"Hello World!"</code> and <code>'Hello World!'</code></li>
 <li class="fragment">Will both create a string with the text <code>Hello World!</code></li>
 <li class="fragment">And the same reasons for using single or double quotes in python apply in R</li>
-<li class="fragment">Like in names that contain apostrophes or when quotes</li>
+<li class="fragment">But R calls this type of data <code>character</code> instead of <code>string</code></li>
+</ul>
+</section>
+
+<section id="numbers-in-r" class="title-slide slide level1 smaller center">
+<h1>Numbers in R</h1>
+<ul>
+<li class="fragment">R also has <code>integers</code> and <code>floats</code> like python</li>
+<li class="fragment">But R just calls both of these <code>numeric</code></li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>1</code> and <code>1.0</code></li>
+<li class="fragment">Will both create a numeric data type with the value <code>1</code></li>
+</ul></li>
 </ul>
 </section>
 
@@ -820,25 +867,252 @@
 </div>
 </section>
 
-<section id="more-with-strings" class="title-slide slide level1 smaller center">
-<h1>More with strings</h1>
+<section id="more-with-characters" class="title-slide slide level1 smaller center">
+<h1>More with <code>characters</code></h1>
 <ul>
-<li class="fragment">We can <code>concatenate</code> strings in R, but it’s a little different than in python</li>
-<li class="fragment">In R, you use the <code>paste()</code> function to concatenate strings</li>
+<li class="fragment">We can <code>concatenate</code> <code>characters</code> in R, but it’s a little different than in python</li>
+<li class="fragment">In R, you use the <code>paste()</code> function to concatenate <code>characters</code></li>
 <li class="fragment">Like so:</li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Making a string</span></span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Making some characters</span></span>
 <span id="cb4-2"><a href=""></a>x <span class="ot">&lt;-</span> <span class="st">"Hello"</span></span>
 <span id="cb4-3"><a href=""></a>y <span class="ot">&lt;-</span> <span class="st">"World!"</span></span>
-<span id="cb4-4"><a href=""></a><span class="co"># Concatenating the strings</span></span>
+<span id="cb4-4"><a href=""></a><span class="co"># Concatenating the characters</span></span>
 <span id="cb4-5"><a href=""></a>z <span class="ot">&lt;-</span> <span class="fu">paste</span>(x, y)</span>
-<span id="cb4-6"><a href=""></a><span class="co"># Printing the concatenated string</span></span>
+<span id="cb4-6"><a href=""></a><span class="co"># Printing the concatenated characters</span></span>
 <span id="cb4-7"><a href=""></a><span class="fu">print</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Hello World!"</code></pre>
 </div>
+</div>
+</div>
+</section>
+
+<section id="paste-in-r" class="title-slide slide level1 smaller center">
+<h1>Paste() in R</h1>
+<ul>
+<li class="fragment">The <code>paste()</code> function in R is a little different than the <code>+</code> operator in python</li>
+<li class="fragment">In R, you can pass multiple <code>characters</code> to the <code>paste()</code> function and it will concatenate them</li>
+<li class="fragment">You can also pass a <code>sep</code> argument to the <code>paste()</code> function to specify what you want to separate the strings with</li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>z &lt;- paste(x, y, sep = " ")</code></li>
+<li class="fragment">Will concatenate the strings <code>x</code> and <code>y</code> with a space between them</li>
+</ul></li>
+<li class="fragment">And the code:
+<ul>
+<li class="fragment"><code>print(z)</code></li>
+<li class="fragment">Will print <code>Hello World!</code> to the console</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="more-practice" class="title-slide slide level1 smaller center">
+<h1>More practice</h1>
+<ul>
+<li class="fragment">You may have also noticed that we assigned the result of the <code>paste()</code> function to a variable</li>
+<li class="fragment">In your “intro.qmd” file, you could add a new code block that gets the computer to say hi to you instead of the whole world</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Save a perfectly normal name</span></span>
+<span id="cb6-2"><a href=""></a>name <span class="ot">&lt;-</span> <span class="st">"Grampton St. Rumpterfrabble"</span></span>
+<span id="cb6-3"><a href=""></a><span class="co"># Concatenate the greeting</span></span>
+<span id="cb6-4"><a href=""></a>greeting <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Hello"</span>, name, <span class="at">sep =</span> <span class="st">" "</span>)</span>
+<span id="cb6-5"><a href=""></a><span class="fu">print</span>(greeting)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Hello Grampton St. Rumpterfrabble"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">You may notice that this is a little less flexible that the <code>f-string</code> in python</li>
+<li class="fragment">But it’s still a good way to work with strings</li>
+</ul>
+</div>
+</section>
+
+<section id="data-types-in-r" class="title-slide slide level1 smaller center">
+<h1>Data types in R</h1>
+<ul>
+<li class="fragment">We’ve seen that R has <code>numeric</code> and <code>character</code> data types</li>
+<li class="fragment">But theres others</li>
+<li class="fragment">And we can see what type of data we have by using the <code>class()</code> function</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># printing some classed</span></span>
+<span id="cb8-2"><a href=""></a><span class="fu">print</span>(<span class="fu">class</span>(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">print</span>(<span class="fu">class</span>(<span class="fl">1.0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">print</span>(<span class="fu">class</span>(<span class="st">"Hello World!"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">print</span>(<span class="fu">class</span>(<span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="data-types-in-r-1" class="title-slide slide level1 smaller center">
+<h1>Data types in R</h1>
+<ul>
+<li class="fragment">There are also things like <code>lists</code> and <code>dataframes</code> in R</li>
+<li class="fragment">The R list is similar to the python list, we just make it with <code>list()</code> instead of <code>[]</code></li>
+<li class="fragment">But you rarely see the R list in practice</li>
+<li class="fragment">R uses something called a <code>vector</code>, which is like a list but it can only contain one type of data</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Making a list</span></span>
+<span id="cb16-2"><a href=""></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Hello World!"</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb16-3"><a href=""></a><span class="co"># Making a vector</span></span>
+<span id="cb16-4"><a href=""></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb16-5"><a href=""></a></span>
+<span id="cb16-6"><a href=""></a><span class="fu">print</span>(<span class="fu">class</span>(my_list))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">print</span>(<span class="fu">class</span>(my_vector))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="vectors" class="title-slide slide level1 smaller center">
+<h1>Vectors</h1>
+<ul>
+<li class="fragment">The <code>vector</code> is much more common in R than the <code>list</code></li>
+<li class="fragment">It does a lot more than the <code>list</code>, even though it’s a little more restrictive</li>
+<li class="fragment">The fact that the vector can only contain one type of data is actually a good thing</li>
+<li class="fragment">Think of a column in a data table, it can only contain one type of data</li>
+<li class="fragment">Vectors form the basis of a lot of data structures in R</li>
+<li class="fragment">They’re used a lot in R so it’s good to know about them</li>
+</ul>
+</section>
+
+<section id="indexing-vectors" class="title-slide slide level1 smaller center">
+<h1>Indexing vectors</h1>
+<ul>
+<li class="fragment">Vectors are made using the <code>c()</code> function, and we pass the data we want to put in the vector to the function</li>
+<li class="fragment">We can also access elements in a vector in R using the same square brackets as in python</li>
+<li class="fragment">This is just like slicing in python but….</li>
+<li class="fragment">In R, the first element in a vector is element 1, not element 0 (R is a 1-indexed language)</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># Accessing elements in a vector</span></span>
+<span id="cb20-2"><a href=""></a><span class="co"># making a vector</span></span>
+<span id="cb20-3"><a href=""></a>my_v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>)</span>
+<span id="cb20-4"><a href=""></a><span class="co"># accessing the first element</span></span>
+<span id="cb20-5"><a href=""></a><span class="fu">print</span>(my_v[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># accessing the last element</span></span>
+<span id="cb22-2"><a href=""></a><span class="fu">print</span>(my_v[<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "e"</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="indexing-vectors-1" class="title-slide slide level1 smaller center">
+<h1>Indexing vectors</h1>
+<ul>
+<li class="fragment">You can also access multiple elements in a vector by passing a vector of indexes to the square brackets</li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>print(my_v[c(1, 3, 5)])</code></li>
+<li class="fragment">Will print the first, third, and fifth elements of the vector <code>my_v</code></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="indexing-vectors-2" class="title-slide slide level1 smaller center">
+<h1>Indexing vectors</h1>
+<ul>
+<li class="fragment">But negative indexes in R are a little different than in python</li>
+<li class="fragment">In R, a negative index will remove the element at that index</li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>print(my_v[-1])</code></li>
+<li class="fragment">Will print all the elements of the vector <code>my_v</code> <em>except</em> the first element</li>
+</ul></li>
+<li class="fragment">And the code:
+<ul>
+<li class="fragment"><code>print(my_v[-c(1, 3, 5)])</code></li>
+<li class="fragment">Will print all the elements of the vector <code>my_v</code> <em>except</em> the first, third, and fifth elements</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="slicing-vectors" class="title-slide slide level1 smaller center">
+<h1>Slicing vectors</h1>
+<ul>
+<li class="fragment">You can also slice vectors in R</li>
+<li class="fragment">Just like in python, you can use the colon <code>:</code> to slice a vector</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Slicing a vector</span></span>
+<span id="cb24-2"><a href=""></a><span class="fu">print</span>(my_v[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b" "c"</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="length-in-r" class="title-slide slide level1 smaller center">
+<h1><code>length()</code> in R</h1>
+<ul>
+<li class="fragment">You can also get the length of a vector in R using the <code>length()</code> function</li>
+<li class="fragment">So the code:
+<ul>
+<li class="fragment"><code>print(length(my_v))</code></li>
+<li class="fragment">Will print the length of the vector <code>my_v</code> to the console</li>
+</ul></li>
+<li class="fragment">We can use this to get the last element of a vector</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="co"># Getting the last element of a vector</span></span>
+<span id="cb26-2"><a href=""></a><span class="fu">print</span>(my_v[<span class="fu">length</span>(my_v)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "e"</code></pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="ph1" class="title-slide slide level1 smaller center">
+<h1>Ph1</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># Making a vector</span></span>
+<span id="cb28-2"><a href=""></a>my_dict <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"name"</span> <span class="ot">=</span> <span class="st">"Grampton St. Rumpterfrabble"</span>, <span class="st">"age"</span> <span class="ot">=</span> <span class="dv">42</span>, <span class="st">"is_human"</span> <span class="ot">=</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-3"><a href=""></a><span class="fu">print</span>(<span class="fu">class</span>(my_dict))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">print</span>(my_dict[<span class="st">"name"</span>])<span class="co"># what does this remind you of?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         name 
+"Grampton St. Rumpterfrabble" </code></pre>
 </div>
 </div>
 </section>

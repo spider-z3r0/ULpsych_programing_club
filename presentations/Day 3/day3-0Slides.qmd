@@ -98,7 +98,7 @@ bibliography: references.bib
 
 # The R terminal {.smaller}
 
- - On Day 0 we showeded you the terminal in VSCode
+ - On Day 0 we showed you the terminal in VSCode
  - It's in the bottom panel of the window
  - This is a place where you can run code (commands) directly
  - On the computers you're using the terminal is running something called PowerShell by default
@@ -217,6 +217,32 @@ print("Hello World!")
      b. Added a level 1 heading 
  - Save your file and we'll move on to the R code
 
+# R code {.smaller}
+
+ - R is a `statistical programming language` that is used by a lot of researchers
+ - It's a little different than python, but it's also very similar
+ - Where python is a general purpose programming language, R is a language that was *designed* for working with data
+ - It's good at other stuff, but the underlying structure of the language is built around working with data
+ - For some people, this makes R *feel* easier to work with than python
+ - I'm not one of those people, but I can see where they're coming from
+ - Everything in R builds towards working with data, and the assumptions under it bend in that direction
+
+# R community {.smaller}
+
+ - R has a really strong community of users
+ - Specifically R has a really strong community of `data scientists` and `researchers`
+ - There are online groups like `Stack Overflow` and `Cross Validated` where you can ask questions
+ - And there are more specialized groups like `R-bloggers` and `R Weekly` that share tips and tricks
+ - And there are groups like `R-Ladies` and `RLadies Global` that work to increase the participation in R of underrepresented groups
+
+
+# R code {.smaller}
+
+ - It has a lot of packages that make working with data easier
+ - And we're going to look at some of them today, but...
+ - We're going to start by looking at some of the basics of R
+ - And we're going to do that by showing you how to do things in R that you've already seen in python
+
 # What you already know in R {.smaller}
 
  - Believe it or not, learning some python has already taught you a lot about R
@@ -227,14 +253,22 @@ print("Hello World!")
  - And you can use `#` to comment out code in R just like in python
  - Comments really matter!! Don't skimp on them!!
 
-# Strings in R {.smaller}
+# Characters in R {.smaller}
 
  - In R, you can create strings by wrapping text in either single or double quotes
  - So the code:
   - ` "Hello World!" ` and ` 'Hello World!' `
   - Will both create a string with the text `Hello World!`
  - And the same reasons for using single or double quotes in python apply in R
- - Like in names that contain apostrophes or when quotes
+ - But R calls this type of data `character` instead of `string`
+
+# Numbers in R {.smaller}
+
+ - R also has `integers` and `floats` like python
+ - But R just calls both of these `numeric`
+  - So the code:
+    - `1` and `1.0`
+    - Will both create a numeric data type with the value `1`
 
 # print() in R {.smaller}
 
@@ -306,10 +340,10 @@ Oh!
 
  - You can cancel the preview by hitting `ctrl + c` while you're in the terminal
 
-# More with strings {.smaller}
+# More with `characters` {.smaller}
 
- - We can `concatenate` strings in R, but it's a little different than in python
- - In R, you use the `paste()` function to concatenate strings
+ - We can `concatenate` `characters` in R, but it's a little different than in python
+ - In R, you use the `paste()` function to concatenate `characters`
  - Like so:
 
 . . . 
@@ -317,19 +351,193 @@ Oh!
 #| echo: true
 #| eval: true
 
-# Making a string
+# Making some characters
 x <- "Hello"
 y <- "World!"
-# Concatenating the strings
+# Concatenating the characters
 z <- paste(x, y)
-# Printing the concatenated string
+# Printing the concatenated characters
 print(z)
+```
+
+
+. . .
+
+# Paste() in R {.smaller}
+
+ - The `paste()` function in R is a little different than the `+` operator in python
+ - In R, you can pass multiple `characters` to the `paste()` function and it will concatenate them
+ - You can also pass a `sep` argument to the `paste()` function to specify what you want to separate the strings with
+ - So the code:
+   - `z <- paste(x, y, sep = " ")`
+   - Will concatenate the strings `x` and `y` with a space between them
+ - And the code:
+   - `print(z)`
+   - Will print `Hello World!` to the console
+
+# More practice {.smaller}
+
+ - You may have also noticed that we assigned the result of the `paste()` function to a variable
+ - In your "intro.qmd" file, you could add a new code block that gets the computer to say hi to you instead of the whole world
+
+. . . 
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Save a perfectly normal name
+name <- "Grampton St. Rumpterfrabble"
+# Concatenate the greeting
+greeting <- paste("Hello", name, sep = " ")
+print(greeting)
+```
+
+. . . 
+
+ - You may notice that this is a little less flexible that the `f-string` in python
+ - But it's still a good way to work with strings 
+
+
+# Data types in R {.smaller}
+
+ - We've seen that R has `numeric` and `character` data types
+ - But theres others
+ - And we can see what type of data we have by using the `class()` function
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# printing some classed
+print(class(1))
+print(class(1.0))
+print(class("Hello World!"))
+print(class(TRUE))
+```
+
+# Data types in R {.smaller}
+
+ - There are also things like `lists` and `dataframes` in R
+ - The R list is similar to the python list, we just make it with `list()` instead of `[]`
+ - But you rarely see the R list in practice
+ - R uses something called a `vector`, which is like a list but it can only contain one type of data
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Making a list
+my_list <- list(1, 2, 3, "Hello World!", TRUE)
+# Making a vector
+my_vector <- c(1, 2, 3, 4, 5)
+
+print(class(my_list))
+print(class(my_vector))
+
+```
+
+# Vectors {.smaller}
+
+ - The `vector` is much more common in R than the `list`
+ - It does a lot more than the `list`, even though it's a little more restrictive
+ - The fact that the vector can only contain one type of data is actually a good thing
+ - Think of a column in a data table, it can only contain one type of data
+ - Vectors form the basis of a lot of data structures in R
+ - They're used a lot in R so it's good to know about them
+
+# Indexing vectors {.smaller}
+
+ - Vectors are made using the `c()` function, and we pass the data we want to put in the vector to the function
+ - We can also access elements in a vector in R using the same square brackets as in python
+ - This is just like slicing in python but....
+ - In R, the first element in a vector is element 1, not element 0 (R is a 1-indexed language)
+
+. . . 
+
+```{r}
+#| echo: true
+#| eval: true
+# Accessing elements in a vector
+# making a vector
+my_v <- c("a", "b", "c", "d", "e")
+# accessing the first element
+print(my_v[1])
+# accessing the last element
+print(my_v[5])
+```
+
+# Indexing vectors {.smaller}
+
+ - You can also access multiple elements in a vector by passing a vector of indexes to the square brackets
+ - So the code:
+   - `print(my_v[c(1, 3, 5)])`
+   - Will print the first, third, and fifth elements of the vector `my_v`
+
+# Indexing vectors {.smaller}
+
+ - But negative indexes in R are a little different than in python
+ - In R, a negative index will remove the element at that index
+  - So the code:
+    - `print(my_v[-1])`
+    - Will print all the elements of the vector `my_v` *except* the first element
+  - And the code:
+    - `print(my_v[-c(1, 3, 5)])`
+    - Will print all the elements of the vector `my_v` *except* the first, third, and fifth elements
+  
+# Slicing vectors {.smaller}
+
+ - You can also slice vectors in R
+ - Just like in python, you can use the colon `:` to slice a vector
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Slicing a vector
+print(my_v[1:3])
+```
+
+
+# `length()` in R {.smaller}
+
+ - You can also get the length of a vector in R using the `length()` function
+ - So the code:
+   - `print(length(my_v))`
+   - Will print the length of the vector `my_v` to the console
+ - We can use this to get the last element of a vector
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Getting the last element of a vector
+print(my_v[length(my_v)])
 ```
 
 
 
 
+# Ph1 {.smaller}
 
+```{r}
+#| echo: true
+#| eval: true
+
+# Making a vector
+my_dict = c("name" = "Grampton St. Rumpterfrabble", "age" = 42, "is_human" = TRUE)
+print(class(my_dict))
+print(my_dict["name"])# what does this remind you of?
+```
+ 
 
 
 # References

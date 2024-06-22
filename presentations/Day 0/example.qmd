@@ -4,14 +4,14 @@ author:
   - name: "UL Psychtech Team"
     corresponding: true
     orcid: 0000-0002-8393-5316
-    email: schneider@temple.edu
+    email: psychtech@ul.ie
     affiliations:
-      - name: Temple University
-        department: College of Education and Human Development
-        address: 1301 Cecil B. Moore Ave.
-        city: Philadelphia
-        region: PA
-        postal-code: 19122-6091
+      - name: University of Limerick
+        department: Department of Psychology
+        address: 
+          - line: "University of Limerick"
+          - line: "Limerick"
+          - line: "Ireland"
 abstract: "This is my abstract."
 keywords: [keyword1, keyword2]
 author-note:

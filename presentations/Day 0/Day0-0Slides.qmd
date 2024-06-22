@@ -202,8 +202,8 @@ While writers and researchers were using the tools of the printer and the graphi
  - Day 0: Introductions all round - getting you comfortable with writing in quarto using vscode (there's no code today, just writing).
  - Day 1: Introduction to Python - getting you comfortable with the basics of python (where you'll learn why yesterday was called 'Day 0').
  - Day 2: Python functions and libraries - getting you comfortable with using python to do data analysis and visualisation.
- - Day 3: Environment and version control - getting you comfortable with using git and github to manage your projects (code and documents).
- - Day 4: et cetera - intro to R, some example projects with Python and R, and a look at some other tools and resources.
+ - Day 3: Introducing you to R, Setting up projects and working with quarto
+ - Day 4: Setting up a project in Python writing a methods and results section in quarto
 
 ## How are we going to do it? {.smaller}
  - Working together in teams.
@@ -285,6 +285,7 @@ Open up VS Code and lets jump in.
 
 ::: {.notes}
 Show people how to open VScode, and walk them through the process of opening for the first time. 
+They need to go to 'C:\Users\Public\PSS 2024' right click and then 'open with code'.
 Don't forget the 'welcome' screen, and some of the choices they'll make. Give some time here. 
 :::
 
@@ -336,9 +337,9 @@ Point out the two options but focus on the 'file' button and the 'open folder' o
 
 ## Visual Studio Code{.smaller}
 
-On the computer you're using there is a folder called 'Programming summer school' at the address: 
+On the computer you're using there is a folder called 'PSS 2024' at the address: 
 
-### "C:\\Users\\Public\\Documents\\Programming\ summer\ school"
+### "C:\\Users\\Public\\Documents\\PSS\ 2024"
 
 ## Visual Studio Code{.smaller}
 ![](images/VSCODEfolder%20select.jpg){fig-align="center" height=500}
@@ -363,7 +364,7 @@ Click 'Yes, I trust the authors' (because you do, right?).
 
 ## Visual Studio Code{.smaller}
 
-You should now see the 'explorer' view in the activity bar on the left of the window, and a list of files and folders in the 'Programming summer school' folder.
+You should now see the 'explorer' view in the activity bar on the left of the window, and a list of files and folders in the 'PSS 2024' folder.
 Right now there's only one file, called `example.qmd`.
 
 Lets open that file and introduce you to your new best friend, the quarto markdown document!
@@ -667,7 +668,7 @@ Now these commands can be really *really* complex, so you're really going to hav
 Seriously, it's really complex.
 
 ## Rendering and Previewing{.smaller}
-Acctually... maybe you're not ready for this yet.
+Actually... maybe you're not ready for this yet.
 
 
 ## Rendering and Previewing{.smaller}
@@ -746,4 +747,5 @@ Thanks for your attention, and I'll see you in the next session.
 
 # References
 ::: {#refs}
+
 :::
