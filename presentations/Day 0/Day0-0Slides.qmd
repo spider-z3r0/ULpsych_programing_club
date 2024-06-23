@@ -296,9 +296,11 @@ To open VScode you can either:
  -   Click on the icon on your desktop or in your start menu.
  -   Press the windows key and type 'vscode' or 'code' and press enter.
      - On a mac, you can press `cmd+space` and type 'vscode' and press enter.
- -   Right-click on a folder (or file) and select 'open with code' from the menu (if it's installed on your device).
+ -  Or you can right click on the 'PSS 2024' folder in the address 'C:\\Users\\Public\\PSS 2024' and select 'open with code'.
+ -  This is the one I want you to do. 
 
-::: {.notes}
+
+:::{.notes}
 Mention that we've installed vscode for them, and the other stuff we've installed (quarto, python, git, and r).
 :::
 
@@ -364,8 +366,12 @@ Click 'Yes, I trust the authors' (because you do, right?).
 
 ## Visual Studio Code{.smaller}
 
-You should now see the 'explorer' view in the activity bar on the left of the window, and a list of files and folders in the 'PSS 2024' folder.
-Right now there's only one file, called `example.qmd`.
+ - You should now see the 'explorer' view in the activity bar on the left of the window, and a list of files and folders in the 'PSS 2024' folder.
+ - You need to go to brightspace and download the file called 'example.qmd' and save it in the 'PSS 2024' folder.
+ - Take your time, and let me know if you need any help.
+ - Once you've saved the file into the folder, you should see it in the 'explorer' view in VScode.
+
+. . .
 
 Lets open that file and introduce you to your new best friend, the quarto markdown document!
 
@@ -417,11 +423,12 @@ There are [lots of resources to help you learn the quarto syntax](https://quarto
  - Quarto documents are written in `markdown` (a type of `plain text`).
  - They have a `.qmd` file extension (but other kinds of files like `.ipynb` and `.rmd` can be used too).
  - They have a `yaml` header at the top of the file (which is where you tell the computer how to format the document).
-     - We'll talk more about `yaml` later, but for now just think of it as a set of instructions for the computer.
+     - It's where we put things like the author and title, but also the format that we want the document to 'render to'.
  - They use really simple symbols to indicate things like headings, lists, italics, bold, images, and links. 
 
 
 ## Quarto Documents{.smaller}
+
 ### markdown basics : Headings. 
 
 #### Headings are indicated by a `#` symbol at the start of a line.

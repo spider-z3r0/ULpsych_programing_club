@@ -475,7 +475,7 @@ print(b_year == 1993.5) # This will print out True
 # Python Basics - ints and floats - operations {.smaller}
 
  - Did you notice that the '=' symbol is used differently in python than in math?
- - Instead of useing it to see the result of an operation, we use it to assign a value to a variable.
+ - Instead of using it to see the result of an operation, we use it to assign a value to a variable.
  - We can use this to assign the *result of an operation* to a variable, and then use that variable later on.
 
 ```{{{python}}}

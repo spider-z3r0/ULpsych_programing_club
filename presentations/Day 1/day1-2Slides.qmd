@@ -30,7 +30,7 @@ csl: apa.csl
 
 # Recap Quiz
  
- - Up on brightspace, on the content page for this week.
+ - Up on brightspace, on the content page for today.
 
 
 # Today's Plan{.smaller}
