@@ -296,7 +296,7 @@ To open VScode you can either:
  -   Click on the icon on your desktop or in your start menu.
  -   Press the windows key and type 'vscode' or 'code' and press enter.
      - On a mac, you can press `cmd+space` and type 'vscode' and press enter.
- -  Or you can right click on the 'PSS 2024' folder in the address 'C:\\Users\\Public\\PSS 2024' and select 'open with code'.
+ -  Or you can right click on the 'PSS 2024' folder in the address 'C:\\Users\\Public\\' and select 'open with code'.
  -  This is the one I want you to do. 
 
 
@@ -341,7 +341,7 @@ Point out the two options but focus on the 'file' button and the 'open folder' o
 
 On the computer you're using there is a folder called 'PSS 2024' at the address: 
 
-### "C:\\Users\\Public\\Documents\\PSS\ 2024"
+### "C:\\Users\\Public\\PSS 2024"
 
 ## Visual Studio Code{.smaller}
 ![](images/VSCODEfolder%20select.jpg){fig-align="center" height=500}
