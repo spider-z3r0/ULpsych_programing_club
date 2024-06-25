@@ -11,6 +11,12 @@ bibliography: references.bib
 csl: apa.csl
 ---
 
+```{css}
+code.sourceCode {
+  font-size: xxx-large;
+  /* or try font-size: xx-large; */
+}
+```
 # Welcome Back!
 
 It's the second day of the summerschool!! And I promise that by the end of the day you'll know why this is session 1.0 and not 2.0, and why yesterday was Day 0 and not Day 1.
@@ -21,7 +27,7 @@ You guessed it!!
 
 Theres another quiz!
 
- - In the Brightspace site, in the Day 1 lesson (on the left hand side of the 'Content' tab), there is a quiz called 'Day 1 wake up Quiz'.
+ - In the Brightspace site, in the Day 1 lesson (on the left hand side of the 'Content' tab), there is a quiz called 'Session 1.0'
  - Remember, these quizzes are not graded, they're an opportunity for you to practice recalling the info and to check your understanding.
  - Work together, look stuff up, and have fun!
  - Just some reminders ...
@@ -52,6 +58,7 @@ Theres another quiz!
 
 
 # Things to remember - Jupyter Documents{.smaller}
+
  - There's also jupyter notebooks, which are a different kind of file, but can be rendered into quarto markdown.
     - They have a `.ipynb` extension
     - They can have code cells and markdown cells
@@ -61,7 +68,6 @@ Theres another quiz!
 # OK... GO DO THE QUIZ NOW!{.smaller}
 
 Why are you still looking at me? 
-
 
 # Today's Plan{.smaller}
 

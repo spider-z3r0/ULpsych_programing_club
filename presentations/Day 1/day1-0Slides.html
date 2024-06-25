@@ -397,6 +397,13 @@
 </div>
 
 </section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {css} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>code.sourceCode {</span>
+<span id="cb1-2"><a href=""></a>  font-size: xxx-large;</span>
+<span id="cb1-3"><a href=""></a>  /* or try font-size: xx-large; */</span>
+<span id="cb1-4"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="welcome-back" class="title-slide slide level1 center">
 <h1>Welcome Back!</h1>
 <p>It’s the second day of the summerschool!! And I promise that by the end of the day you’ll know why this is session 1.0 and not 2.0, and why yesterday was Day 0 and not Day 1.</p>
@@ -407,7 +414,7 @@
 <p>You guessed it!!</p>
 <p>Theres another quiz!</p>
 <ul>
-<li class="fragment">In the Brightspace site, in the Day 1 lesson (on the left hand side of the ‘Content’ tab), there is a quiz called ‘Day 1 wake up Quiz’.</li>
+<li class="fragment">In the Brightspace site, in the Day 1 lesson (on the left hand side of the ‘Content’ tab), there is a quiz called ‘Session 1.0’</li>
 <li class="fragment">Remember, these quizzes are not graded, they’re an opportunity for you to practice recalling the info and to check your understanding.</li>
 <li class="fragment">Work together, look stuff up, and have fun!</li>
 <li class="fragment">Just some reminders …</li>
@@ -519,19 +526,19 @@
 <li class="fragment">When you click your mouse or type on a keyboard, you’re sending signals to the computer to turn on and off switches.</li>
 <li class="fragment">That code is written in a language that humans can read (kinda), and then translated into a language that the computer can understand.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {machine} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100 00100001</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {machine} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100 00100001</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li class="fragment">You can see it’s just a series of ‘on’ and ‘off’ signals, but it’s really hard to read and write, and humans are really bad at it.</li>
 </ul>
 </section>
 <section id="what-is-code-2" class="slide level2 smaller">
 <h2>What is code?</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {C} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>#include &lt;stdio.h&gt;</span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a>int main() {</span>
-<span id="cb2-4"><a href=""></a>    printf("Hello, World!\n");</span>
-<span id="cb2-5"><a href=""></a>    return 0;</span>
-<span id="cb2-6"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {C} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>#include &lt;stdio.h&gt;</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>int main() {</span>
+<span id="cb3-4"><a href=""></a>    printf("Hello, World!\n");</span>
+<span id="cb3-5"><a href=""></a>    return 0;</span>
+<span id="cb3-6"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li class="fragment">The code above is written in C, a language that is <em>easier</em> (but not easy) for humans to read and write.</li>
 <li class="fragment">The code is telling the computer to ‘write’ the words ‘Hello World!’ to the console (the screen).</li>
@@ -546,8 +553,8 @@
 <li class="fragment">Python is ‘interpreted’, which means that the code is translated into machine code ‘on the fly’ as it’s run.</li>
 <li class="fragment">It’s actually written in C, which is more complex than python, and C then converts the python code into machine code.</li>
 </ul>
-<div id="6d90c5f4" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="235a7e6b" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="what-is-code-4" class="slide level2">
@@ -574,16 +581,16 @@
 
 <section id="python-basics---comments-1" class="title-slide slide level1 smaller center">
 <h1>Python Basics - comments</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb4-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb4-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb4-4"><a href=""></a><span class="in"> </span></span>
-<span id="cb4-5"><a href=""></a><span class="in"># This is a comment, the computer will ignore it!</span></span>
-<span id="cb4-6"><a href=""></a><span class="in"># This is also a comment, the computer will ignore it too!</span></span>
-<span id="cb4-7"><a href=""></a><span class="in"># The next line starts with actual code, but then there's a comment</span></span>
-<span id="cb4-8"><a href=""></a><span class="in">print("Hello World!") # This line prints out 'Hello World!' to the console</span></span>
-<span id="cb4-9"><a href=""></a></span>
-<span id="cb4-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb5-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb5-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb5-4"><a href=""></a><span class="in"> </span></span>
+<span id="cb5-5"><a href=""></a><span class="in"># This is a comment, the computer will ignore it!</span></span>
+<span id="cb5-6"><a href=""></a><span class="in"># This is also a comment, the computer will ignore it too!</span></span>
+<span id="cb5-7"><a href=""></a><span class="in"># The next line starts with actual code, but then there's a comment</span></span>
+<span id="cb5-8"><a href=""></a><span class="in">print("Hello World!") # This line prints out 'Hello World!' to the console</span></span>
+<span id="cb5-9"><a href=""></a></span>
+<span id="cb5-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="./images/python_comment.jpg" class="fullwidth r-stretch quarto-figure-center"><p class="caption">Quarto python chunk, this image is taken from this slideshow document!</p></section>
 
@@ -623,34 +630,34 @@
 
 <section id="python-basics---strings-single-quotes" class="title-slide slide level1 center">
 <h1>Python Basics - <code class="smaller">strings single quotes</code></h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb5-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb5-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a><span class="in">'Hello World!' # This is a string that uses single quotes</span></span>
-<span id="cb5-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb6-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb6-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb6-4"><a href=""></a></span>
+<span id="cb6-5"><a href=""></a><span class="in">'Hello World!' # This is a string that uses single quotes</span></span>
+<span id="cb6-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="./images/python_single_quotes_good.jpg" class="fullwidth r-stretch quarto-figure-center"><p class="caption">Can anyone tell me what might be problematic about the code above?</p></section>
 
 <section id="python-basics---strings-single-quotes-1" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings single quotes</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb6-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb6-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb6-4"><a href=""></a></span>
-<span id="cb6-5"><a href=""></a><span class="in">'It's a beautiful day!' # This is a string that uses single quotes</span></span>
-<span id="cb6-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb7-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb7-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb7-4"><a href=""></a></span>
+<span id="cb7-5"><a href=""></a><span class="in">'It's a beautiful day!' # This is a string that uses single quotes</span></span>
+<span id="cb7-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="./images/python_single_quote_bad.jpg" class="r-stretch quarto-figure-center"><p class="caption">Is it easier to spot now?</p></section>
 
 <section id="python-basics---strings-single-quotes-2" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings single quotes</h1>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb7-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb7-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb7-4"><a href=""></a></span>
-<span id="cb7-5"><a href=""></a><span class="in">'It's a beautiful day!' # This is a string that uses single quotes</span></span>
-<span id="cb7-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb8-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb8-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb8-4"><a href=""></a></span>
+<span id="cb8-5"><a href=""></a><span class="in">'It's a beautiful day!' # This is a string that uses single quotes</span></span>
+<span id="cb8-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li class="fragment">The code above is going to cause an error because the computer thinks that the string ends at the second single quote, and then it doesn’t know what to do with the rest of the code.</li>
 <li class="fragment">Like we said, computers are really dumb, they don’t understand context, they just do what they’re told.</li>
@@ -660,45 +667,45 @@
 
 <section id="python-basics---strings-double-quotes" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings double quotes</h1>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb8-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb8-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb8-4"><a href=""></a><span class="in">#Hey Check me out commenting my code!!</span></span>
-<span id="cb8-5"><a href=""></a></span>
-<span id="cb8-6"><a href=""></a><span class="in">#The line below uses double quotes. </span></span>
-<span id="cb8-7"><a href=""></a><span class="in">"Isn't this better?"</span></span>
-<span id="cb8-8"><a href=""></a><span class="in">#So does the next line</span></span>
-<span id="cb8-9"><a href=""></a><span class="in">"T'is"</span></span>
-<span id="cb8-10"><a href=""></a></span>
-<span id="cb8-11"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb9-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb9-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb9-4"><a href=""></a><span class="in">#Hey Check me out commenting my code!!</span></span>
+<span id="cb9-5"><a href=""></a></span>
+<span id="cb9-6"><a href=""></a><span class="in">#The line below uses double quotes. </span></span>
+<span id="cb9-7"><a href=""></a><span class="in">"Isn't this better?"</span></span>
+<span id="cb9-8"><a href=""></a><span class="in">#So does the next line</span></span>
+<span id="cb9-9"><a href=""></a><span class="in">"T'is"</span></span>
+<span id="cb9-10"><a href=""></a></span>
+<span id="cb9-11"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="./images/python_double_quotes_good.jpg" style="width:120.0%" class="r-stretch quarto-figure-center"><p class="caption">More pictures behind the slides!</p></section>
 
 <section id="python-basics---strings-triple-quotes" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings triple quotes</h1>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb9-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb9-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb9-4"><a href=""></a></span>
-<span id="cb9-5"><a href=""></a><span class="in"># Below is an *attempt* at a multiline str</span></span>
-<span id="cb9-6"><a href=""></a><span class="in">"I wonderded lonely as a undergrad</span></span>
-<span id="cb9-7"><a href=""></a><span class="in">trying to find their way to the psych labs"</span></span>
-<span id="cb9-8"><a href=""></a></span>
-<span id="cb9-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb10-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb10-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb10-4"><a href=""></a></span>
+<span id="cb10-5"><a href=""></a><span class="in"># Below is an *attempt* at a multiline str</span></span>
+<span id="cb10-6"><a href=""></a><span class="in">"I wonderded lonely as a undergrad</span></span>
+<span id="cb10-7"><a href=""></a><span class="in">trying to find their way to the psych labs"</span></span>
+<span id="cb10-8"><a href=""></a></span>
+<span id="cb10-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="./images/python_trip_quotes_bad.jpg" class="r-stretch quarto-figure-center"><p class="caption">This will throw an error</p></section>
 
 <section id="python-basics---strings-triple-quotes-1" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings triple quotes</h1>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb10-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb10-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb10-4"><a href=""></a></span>
-<span id="cb10-5"><a href=""></a><span class="in"># Below is an actual at a multiline str, note the three apostrophes</span></span>
-<span id="cb10-6"><a href=""></a><span class="in">'''I wonderded lonely as a undergrad</span></span>
-<span id="cb10-7"><a href=""></a><span class="in">trying to find their way to the psych labs'''</span></span>
-<span id="cb10-8"><a href=""></a></span>
-<span id="cb10-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb11-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb11-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a><span class="in"># Below is an actual at a multiline str, note the three apostrophes</span></span>
+<span id="cb11-6"><a href=""></a><span class="in">'''I wonderded lonely as a undergrad</span></span>
+<span id="cb11-7"><a href=""></a><span class="in">trying to find their way to the psych labs'''</span></span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li class="fragment">The code above is going to work because the computer knows that the string starts at the first triple quote and ends at the second triple quote.</li>
 <li class="fragment">It can ‘read’ the invisible character that is the ‘newline’ character, and it knows that the string is still going.</li>
@@ -708,15 +715,15 @@
 
 <section id="python-basics---strings-triple-quotes-2" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings triple quotes</h1>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb11-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb11-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a><span class="in"># Below is an actual at a multiline str, note the three quotation marks</span></span>
-<span id="cb11-6"><a href=""></a><span class="in">"""I wonderded lonely as a undergrad</span></span>
-<span id="cb11-7"><a href=""></a><span class="in">trying to find their way to the psych labs"""</span></span>
-<span id="cb11-8"><a href=""></a></span>
-<span id="cb11-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb12-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb12-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb12-4"><a href=""></a></span>
+<span id="cb12-5"><a href=""></a><span class="in"># Below is an actual at a multiline str, note the three quotation marks</span></span>
+<span id="cb12-6"><a href=""></a><span class="in">"""I wonderded lonely as a undergrad</span></span>
+<span id="cb12-7"><a href=""></a><span class="in">trying to find their way to the psych labs"""</span></span>
+<span id="cb12-8"><a href=""></a></span>
+<span id="cb12-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="python-basics---strings---your-turn" class="title-slide slide level1 smaller center">
@@ -731,14 +738,14 @@
 
 <section id="python-basics---strings---your-turn-1" class="title-slide slide level1 smaller center">
 <h1>Python Basics - strings - your turn</h1>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb12-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb12-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb12-4"><a href=""></a></span>
-<span id="cb12-5"><a href=""></a><span class="in"># print out a string that uses single quotes</span></span>
-<span id="cb12-6"><a href=""></a><span class="in">print('Hello World!') # Note the word 'print' is a function that prints out the string to the console (we'll talk about consols and functions in a sec)</span></span>
-<span id="cb12-7"><a href=""></a><span class="in"># don't forget to run the cell!</span></span>
-<span id="cb12-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb13-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb13-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb13-4"><a href=""></a></span>
+<span id="cb13-5"><a href=""></a><span class="in"># print out a string that uses single quotes</span></span>
+<span id="cb13-6"><a href=""></a><span class="in">print('Hello World!') # Note the word 'print' is a function that prints out the string to the console (we'll talk about consols and functions in a sec)</span></span>
+<span id="cb13-7"><a href=""></a><span class="in"># don't forget to run the cell!</span></span>
+<span id="cb13-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li class="fragment">Remember to select the kernel in the top right of the notebook, and then run the cell by clicking the ‘play’ button in the top left of the cell.</li>
 </ul>
@@ -799,13 +806,13 @@
 <li class="fragment">So lets say we have a string that we want to use often in our code, we would assign it to a variable as shown in the cell below</li>
 </ul>
 <div class="fragment">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb13-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb13-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb13-4"><a href=""></a></span>
-<span id="cb13-5"><a href=""></a><span class="in">name = 'Jane' # This is a string, stored in a variable called name</span></span>
-<span id="cb13-6"><a href=""></a><span class="in">print(name) # This will print out the string 'Jane' to the console</span></span>
-<span id="cb13-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb14-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb14-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb14-4"><a href=""></a></span>
+<span id="cb14-5"><a href=""></a><span class="in">name = 'Jane' # This is a string, stored in a variable called name</span></span>
+<span id="cb14-6"><a href=""></a><span class="in">print(name) # This will print out the string 'Jane' to the console</span></span>
+<span id="cb14-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li class="fragment">Notice how the name of the variable in the cell above has no quote marks around it?</li>
 <li class="fragment">Even though it’s just the word <code>name</code>.</li>
@@ -823,15 +830,15 @@
 <li class="fragment">The hook can be way easier to type than the actual data, for example:</li>
 </ul>
 <div class="fragment">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb14-2"><a href=""></a></span>
-<span id="cb14-3"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb14-4"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb14-5"><a href=""></a></span>
-<span id="cb14-6"><a href=""></a><span class="in"># Below is a string that is really long, I've saved it to a variable called s</span></span>
-<span id="cb14-7"><a href=""></a><span class="in">s = "This is a really long string that I don't want to type out every time I want to use it"</span></span>
-<span id="cb14-8"><a href=""></a><span class="in"># It's much easier to type s than the whole string out every time</span></span>
-<span id="cb14-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb15-4"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb15-5"><a href=""></a></span>
+<span id="cb15-6"><a href=""></a><span class="in"># Below is a string that is really long, I've saved it to a variable called s</span></span>
+<span id="cb15-7"><a href=""></a><span class="in">s = "This is a really long string that I don't want to type out every time I want to use it"</span></span>
+<span id="cb15-8"><a href=""></a><span class="in"># It's much easier to type s than the whole string out every time</span></span>
+<span id="cb15-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
@@ -880,14 +887,14 @@
 <ul>
 <li class="fragment">Lets look at some examples of <code>ints</code> and <code>floats</code>:</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb15-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb15-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb15-4"><a href=""></a><span class="in">age = 30 # This is an integer</span></span>
-<span id="cb15-5"><a href=""></a><span class="in">print(age)</span></span>
-<span id="cb15-6"><a href=""></a><span class="in">f = 0.5 # This is a float</span></span>
-<span id="cb15-7"><a href=""></a><span class="in">print(age * f) # This will multiply the integer age by the float f</span></span>
-<span id="cb15-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb16-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb16-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb16-4"><a href=""></a><span class="in">age = 30 # This is an integer</span></span>
+<span id="cb16-5"><a href=""></a><span class="in">print(age)</span></span>
+<span id="cb16-6"><a href=""></a><span class="in">f = 0.5 # This is a float</span></span>
+<span id="cb16-7"><a href=""></a><span class="in">print(age * f) # This will multiply the integer age by the float f</span></span>
+<span id="cb16-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="python-basics---ints-and-floats-2" class="title-slide slide level1 smaller center">
@@ -923,29 +930,29 @@
 <li class="fragment">You might have noticed that the operators in python are the same as those in SPSS and excel (feel free to look up the operators if you’re not sure).</li>
 <li class="fragment">So play around a bit</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb16-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb16-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb16-4"><a href=""></a><span class="in">year = 2024 # This is an integer</span></span>
-<span id="cb16-5"><a href=""></a><span class="in">age = 30.5 # This is a float</span></span>
-<span id="cb16-6"><a href=""></a><span class="in">b_year = year - age # This will subtract the float age from the integer year</span></span>
-<span id="cb16-7"><a href=""></a><span class="in">print(b_year == 1993.5) # This will print out True</span></span>
-<span id="cb16-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb17-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb17-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb17-4"><a href=""></a><span class="in">year = 2024 # This is an integer</span></span>
+<span id="cb17-5"><a href=""></a><span class="in">age = 30.5 # This is a float</span></span>
+<span id="cb17-6"><a href=""></a><span class="in">b_year = year - age # This will subtract the float age from the integer year</span></span>
+<span id="cb17-7"><a href=""></a><span class="in">print(b_year == 1993.5) # This will print out True</span></span>
+<span id="cb17-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="python-basics---ints-and-floats---operations-2" class="title-slide slide level1 smaller center">
 <h1>Python Basics - ints and floats - operations</h1>
 <ul>
 <li class="fragment">Did you notice that the ‘=’ symbol is used differently in python than in math?</li>
-<li class="fragment">Instead of useing it to see the result of an operation, we use it to assign a value to a variable.</li>
+<li class="fragment">Instead of using it to see the result of an operation, we use it to assign a value to a variable.</li>
 <li class="fragment">We can use this to assign the <em>result of an operation</em> to a variable, and then use that variable later on.</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb17-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb17-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb17-4"><a href=""></a><span class="in">two_squared = 2 ** 2 # This will raise 2 to the power of 2</span></span>
-<span id="cb17-5"><a href=""></a><span class="in">print(two_squared) # This will print out 4, which is the result of the maths operation</span></span>
-<span id="cb17-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb18-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb18-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb18-4"><a href=""></a><span class="in">two_squared = 2 ** 2 # This will raise 2 to the power of 2</span></span>
+<span id="cb18-5"><a href=""></a><span class="in">print(two_squared) # This will print out 4, which is the result of the maths operation</span></span>
+<span id="cb18-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="python-basics---lists" class="title-slide slide level1 smaller center">
@@ -956,12 +963,12 @@
 <li class="fragment"><p>The cell below contains an example of a <code>list</code>.</p></li>
 </ul>
 <div class="fragment">
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb18-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb18-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb18-4"><a href=""></a><span class="in">#this `list` contains strings, ints and a float </span></span>
-<span id="cb18-5"><a href=""></a><span class="in">["Mary", 110.4, 15, -1, 'b']# each item is separated by ',' and surrounded by [] (square brackets)</span></span>
-<span id="cb18-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb19-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb19-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb19-4"><a href=""></a><span class="in">#this `list` contains strings, ints and a float </span></span>
+<span id="cb19-5"><a href=""></a><span class="in">["Mary", 110.4, 15, -1, 'b']# each item is separated by ',' and surrounded by [] (square brackets)</span></span>
+<span id="cb19-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
@@ -973,13 +980,13 @@
 <li class="fragment">Python will recognise this as a <code>list</code> straight away.</li>
 </ul>
 <div class="fragment">
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb19-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb19-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb19-4"><a href=""></a><span class="in">#this `list` contains str, float, int, AND a list</span></span>
-<span id="cb19-5"><a href=""></a><span class="in"># A `list` can contain any type of data, and can even contain other lists</span></span>
-<span id="cb19-6"><a href=""></a><span class="in">["John", "Nevada", ["red", "green", "blue"], 0.25, 12]# each item is separated by ',' and surrounded by [] (square brackets)</span></span>
-<span id="cb19-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb20-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb20-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb20-4"><a href=""></a><span class="in">#this `list` contains str, float, int, AND a list</span></span>
+<span id="cb20-5"><a href=""></a><span class="in"># A `list` can contain any type of data, and can even contain other lists</span></span>
+<span id="cb20-6"><a href=""></a><span class="in">["John", "Nevada", ["red", "green", "blue"], 0.25, 12]# each item is separated by ',' and surrounded by [] (square brackets)</span></span>
+<span id="cb20-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
@@ -991,12 +998,12 @@
 <li class="fragment">Then, you’re going to email the code to your partner, and they’re going to run it on their computer.</li>
 </ul>
 <div class="fragment">
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{{python}}</span></span>
-<span id="cb20-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb20-3"><a href=""></a><span class="in">#| eval: false</span></span>
-<span id="cb20-4"><a href=""></a><span class="in">kev_list = ["Kev", "Ginger", ["Drum &amp; Bass", "Jazz", "90's hip hop"], 38] # This is a `list` that contains a string, a list, and an int</span></span>
-<span id="cb20-5"><a href=""></a><span class="in">print(kev_list) # This will print out the `list` to the console</span></span>
-<span id="cb20-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href=""></a><span class="in">```{{python}}</span></span>
+<span id="cb21-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb21-3"><a href=""></a><span class="in">#| eval: false</span></span>
+<span id="cb21-4"><a href=""></a><span class="in">kev_list = ["Kev", "Ginger", ["Drum &amp; Bass", "Jazz", "90's hip hop"], 38] # This is a `list` that contains a string, a list, and an int</span></span>
+<span id="cb21-5"><a href=""></a><span class="in">print(kev_list) # This will print out the `list` to the console</span></span>
+<span id="cb21-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
@@ -1018,11 +1025,11 @@
 <li class="fragment">While there’s a lot of ways to demonstrate this idea, we’ll start with a dictionary that contains information that might be more familiar to us as psychologists.</li>
 </ul>
 <div class="fragment">
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb21-2"><a href=""></a><span class="in">#| echo: true</span></span>
-<span id="cb21-3"><a href=""></a><span class="in">#| eval: true</span></span>
-<span id="cb21-4"><a href=""></a><span class="in">{'name':'Sarah', 'age':26, 'course':'BA, Psychology and Sociology', 'year':3}# note the curly brackets, the colons, and the commas.</span></span>
-<span id="cb21-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb22-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb22-3"><a href=""></a><span class="in">#| eval: true</span></span>
+<span id="cb22-4"><a href=""></a><span class="in">{'name':'Sarah', 'age':26, 'course':'BA, Psychology and Sociology', 'year':3}# note the curly brackets, the colons, and the commas.</span></span>
+<span id="cb22-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
