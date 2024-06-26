@@ -624,14 +624,8 @@ print(new_bands_df.loc['John Lennon']) # selecting the row with the index 'John 
 # `df.index` - practice {.smaller}
 
  - That's a lot in this session, so before you go, I want you to do a little practice
-  1. Create a new notebook called 'data_practice_1.ipynb'
-  2. Download the `data_practice_.csv` file from brightspace, and put it in the `data`
-  3. Using `pl.Path()` and `pd.read_csv()` read the data into a `DataFrame`
-  4. display the head and tail
-  5. print out each column name, and it's index in the `.columns` list (using a `for-loop` and `enumerate()`)
-  6. print out the row with the index '4' and the row with the index '-1' using the `.loc[]` `method`
-  7. make a `.copy()` of the `df` and set 'ResponseId' as the index 
-  7. print out the row with the index 'p_001' and the row with the index 'p_004' using the `.loc[]` `method`
+  1. make a `.copy()` of the `movies_df` and `rename` `Participant name` to `participant_name` using the `.rename()` `method`
+  7. print out the row with the index 'John Carpenter' using the `.loc[]` `method`
 
 . . .
 Make a new code cell for each step and take your time working through it. 

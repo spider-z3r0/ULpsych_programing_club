@@ -455,7 +455,7 @@ print(movies_df['imdb_score'].mean())#mean of the imdb_score column
    - We can also pass a bunch of other `arguments` to the `plot()` method to customise the plot.
    - Let's take a look at a `hist` plot of the `imdb_score` column.
 
-. . .
+# plots {.smaller}
 
 ```{python}
 #| echo: true
@@ -469,7 +469,13 @@ histogram = movies_df['imdb_score'].plot(kind = 'hist', bins = 100, title = 'His
  - There isn't enough data... but you can see that the `plot()` method is really easy to use.\
  - We can also make a `bar` plot showing the `mean` of the `imdb_score` for each `genre` in the `DataFrame`.
 
-. . .
+# Bar plots {.smaller}
+
+ - The `bar` plot is a really useful plot for showing the `mean` of a `column` for each `category` in another `column`.
+ - We can use the `groupby()` method to group the data by the `category` we want to plot.
+ - We can then call the `mean()` method on the `groupby` object to get the `mean` of the `column` we want to plot.
+ - We can then call the `plot()` method on the `mean` object and pass the `kind` of plot we want to make.
+ - Let's take a look at a `bar` plot of the `mean` of the `imdb_score` for each `genre` in the `DataFrame`.
 
 ```{python}
 #| echo: true

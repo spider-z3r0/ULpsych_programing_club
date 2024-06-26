@@ -428,47 +428,41 @@
 </ul>
 </section>
 
-<section id="recap-quiz-and-activity." class="title-slide slide level1 smaller center">
-<h1>Recap quiz and activity.</h1>
+<section id="recap-quiz" class="title-slide slide level1 smaller center">
+<h1>Recap quiz</h1>
 <ul>
-<li class="fragment">Before we get into that though, we need to import some data to work with so this is a good time to practice what you learned last session</li>
-<li class="fragment">This time, we’re going to use the quiz to prompt your steps to get data imported and inspected.</li>
-<li class="fragment">Go to the usual place on brightspace and find the quiz for this session (recap quiz 2.1)</li>
-<li class="fragment">This will walk you through the steps to import the data we will be working with today.</li>
+<li class="fragment">You know where the quiz is by now.</li>
 </ul>
 </section>
 
-<section id="recap-quiz-and-activity.-1" class="title-slide slide level1 smaller center">
-<h1>Recap quiz and activity.</h1>
-<ol type="1">
-<li class="fragment">Import the packages pandas and pathlib (don’t forget the ‘as’ bit; make sure you have selected the kernel related to your virutal environment)</li>
-<li class="fragment">Download the data for this session from brightspace and save it to your computer (into the data folder you previously made)</li>
-<li class="fragment">Create a <code>Path()</code> to the data</li>
-<li class="fragment">Import your data into a Dataframe by using the Path() you have created (n.b.&nbsp;assign the <code>DataFrame</code> to a variable, and remember that we often use the shorthand ‘df’ when doing so)</li>
-<li class="fragment">Display the head and tail of your dataframe to ensure that it has been imported correctly.</li>
-</ol>
-</section>
-
 <section>
-<section id="this-weeks-data" class="title-slide slide level1 smaller center">
-<h1>This week’s data</h1>
-<div id="ffdf721e" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#importing the pandas module</span></span>
-<span id="cb1-2"><a href=""></a><span class="co"># initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example</span></span>
-<span id="cb1-3"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co">#importing a module to allow me to include 'missing data</span></span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a>director <span class="op">=</span> [<span class="st">'John Carpenter'</span>, <span class="st">''</span>, <span class="st">'Nicolas Winding Refn'</span>, <span class="st">'Matthijs van Heijningen'</span>, <span class="st">'Damien Chazelle'</span>, <span class="st">'Dennis Villanueve'</span>, <span class="st">'Coen Brothers'</span>, <span class="st">'Kelly Asbury'</span>, <span class="st">'Edgar Wright'</span>, <span class="st">'Coen Brothers'</span>]</span>
-<span id="cb1-6"><a href=""></a>names <span class="op">=</span> [<span class="st">'The Thing'</span>, <span class="st">'Blade Runner 2049'</span>, <span class="st">'Drive'</span>,  <span class="st">'The Thing'</span>, <span class="st">'Whiplash'</span>, <span class="st">'Arrival'</span>, <span class="st">'No Country for Old Men'</span>, <span class="st">'Shrek 2'</span>, <span class="st">'Hot Fuzz'</span>, <span class="st">'Fargo'</span>]</span>
-<span id="cb1-7"><a href=""></a>genre <span class="op">=</span> [<span class="st">'Horror'</span>, <span class="st">'Sci-Fi'</span>, <span class="st">'Action'</span>, <span class="st">'Horror'</span>, <span class="st">'Drama'</span>, <span class="st">'Sci-Fi'</span>, <span class="st">'Drama'</span>, <span class="st">'Comedy'</span>, <span class="st">'Comedy'</span>, <span class="st">'Dark Comedy'</span>]</span>
-<span id="cb1-8"><a href=""></a>year <span class="op">=</span> [<span class="st">'1982'</span>, <span class="st">'2017'</span>, <span class="st">'2011'</span>, <span class="st">'2011'</span>, <span class="st">'2014'</span>, <span class="st">'2016'</span>, <span class="st">'2007'</span>, <span class="st">'2004'</span>, <span class="st">'2007'</span>, <span class="st">'1996'</span>]</span>
-<span id="cb1-9"><a href=""></a>imdb_score <span class="op">=</span> [<span class="dv">82</span>, <span class="dv">80</span>, <span class="dv">78</span>, <span class="dv">62</span>, np.nan, <span class="dv">79</span>, <span class="dv">82</span>, <span class="dv">73</span>, <span class="dv">78</span>, <span class="dv">81</span>]</span>
-<span id="cb1-10"><a href=""></a>rt_critics <span class="op">=</span> [<span class="dv">82</span>, <span class="dv">88</span>, <span class="dv">93</span>, <span class="dv">34</span>, np.nan, <span class="dv">94</span>, <span class="dv">93</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">94</span>]</span>
-<span id="cb1-11"><a href=""></a>lead <span class="op">=</span> [<span class="st">'male'</span>, <span class="st">'Male'</span>, <span class="st">'m'</span>, <span class="st">'Female'</span>, <span class="st">'m'</span>, <span class="st">'Male'</span>, <span class="st">'fem'</span>, <span class="st">'Orgre'</span>, <span class="st">'Male'</span>, <span class="st">'Male'</span>]</span>
-<span id="cb1-12"><a href=""></a>cry <span class="op">=</span> [<span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>]</span>
-<span id="cb1-13"><a href=""></a>movies_df <span class="op">=</span> pd.DataFrame(</span>
-<span id="cb1-14"><a href=""></a>    <span class="bu">list</span>(<span class="bu">zip</span>(director, names, genre, year, imdb_score, rt_critics, lead, cry)), <span class="co"># first argument, passing a list of lists to the zip function</span></span>
-<span id="cb1-15"><a href=""></a>    columns <span class="op">=</span> [<span class="st">'Participant Name'</span>, <span class="st">'Title of Thing'</span>, <span class="st">'Genre'</span>, <span class="st">'Year of Release'</span>, <span class="st">'ImdB Score'</span>, <span class="st">'Rotten Tomatoes Score '</span>, <span class="st">'Gender of Lead'</span>, <span class="st">"Make Me Cry?"</span>]<span class="co"># second argument , passing a list to the columns arguments</span></span>
-<span id="cb1-16"><a href=""></a>    )<span class="co"># closing the first pair of brackets to complete the function call</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="this-sessions-data" class="title-slide slide level1 smaller center">
+<h1>This session’s data</h1>
+<ul>
+<li class="fragment">Make sure the virtual environment is activated</li>
+<li class="fragment">pip install tabulate</li>
+</ul>
+<div id="e9a8eed7" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
+<span id="cb1-2"><a href=""></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a084de40" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#importing the pandas module</span></span>
+<span id="cb2-2"><a href=""></a><span class="co"># initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example</span></span>
+<span id="cb2-3"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co">#importing a module to allow me to include 'missing data</span></span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a>director <span class="op">=</span> [<span class="st">'John Carpenter'</span>, <span class="st">''</span>, <span class="st">'Nicolas Winding Refn'</span>, <span class="st">'Matthijs van Heijningen'</span>, <span class="st">'Damien Chazelle'</span>, <span class="st">'Dennis Villanueve'</span>, <span class="st">'Coen Brothers'</span>, <span class="st">'Kelly Asbury'</span>, <span class="st">'Edgar Wright'</span>, <span class="st">'Coen Brothers'</span>]</span>
+<span id="cb2-6"><a href=""></a>names <span class="op">=</span> [<span class="st">'The Thing'</span>, <span class="st">'Blade Runner 2049'</span>, <span class="st">'Drive'</span>,  <span class="st">'The Thing'</span>, <span class="st">'Whiplash'</span>, <span class="st">'Arrival'</span>, <span class="st">'No Country for Old Men'</span>, <span class="st">'Shrek 2'</span>, <span class="st">'Hot Fuzz'</span>, <span class="st">'Fargo'</span>]</span>
+<span id="cb2-7"><a href=""></a>genre <span class="op">=</span> [<span class="st">'Horror'</span>, <span class="st">'Sci-Fi'</span>, <span class="st">'Action'</span>, <span class="st">'Horror'</span>, <span class="st">'Drama'</span>, <span class="st">'Sci-Fi'</span>, <span class="st">'Drama'</span>, <span class="st">'Comedy'</span>, <span class="st">'Comedy'</span>, <span class="st">'Dark Comedy'</span>]</span>
+<span id="cb2-8"><a href=""></a>year <span class="op">=</span> [<span class="st">'1982'</span>, <span class="st">'2017'</span>, <span class="st">'2011'</span>, <span class="st">'2011'</span>, <span class="st">'2014'</span>, <span class="st">'2016'</span>, <span class="st">'2007'</span>, <span class="st">'2004'</span>, <span class="st">'2007'</span>, <span class="st">'1996'</span>]</span>
+<span id="cb2-9"><a href=""></a>imdb_score <span class="op">=</span> [<span class="dv">82</span>, <span class="dv">80</span>, <span class="dv">78</span>, <span class="dv">62</span>, np.nan, <span class="dv">79</span>, <span class="dv">82</span>, <span class="dv">73</span>, <span class="dv">78</span>, <span class="dv">81</span>]</span>
+<span id="cb2-10"><a href=""></a>rt_critics <span class="op">=</span> [<span class="dv">82</span>, <span class="dv">88</span>, <span class="dv">93</span>, <span class="dv">34</span>, np.nan, <span class="dv">94</span>, <span class="dv">93</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">94</span>]</span>
+<span id="cb2-11"><a href=""></a>lead <span class="op">=</span> [<span class="st">'male'</span>, <span class="st">'Male'</span>, <span class="st">'m'</span>, <span class="st">'Female'</span>, <span class="st">'m'</span>, <span class="st">'Male'</span>, <span class="st">'fem'</span>, <span class="st">'Orgre'</span>, <span class="st">'Male'</span>, <span class="st">'Male'</span>]</span>
+<span id="cb2-12"><a href=""></a>cry <span class="op">=</span> [<span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"No"</span>]</span>
+<span id="cb2-13"><a href=""></a>movies_df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb2-14"><a href=""></a>    <span class="bu">list</span>(<span class="bu">zip</span>(director, names, genre, year, imdb_score, rt_critics, lead, cry)), <span class="co"># first argument, passing a list of lists to the zip function</span></span>
+<span id="cb2-15"><a href=""></a>    columns <span class="op">=</span> [<span class="st">'Participant Name'</span>, <span class="st">'Title of Thing'</span>, <span class="st">'Genre'</span>, <span class="st">'Year of Release'</span>, <span class="st">'ImdB Score'</span>, <span class="st">'Rotten Tomatoes Score '</span>, <span class="st">'Gender of Lead'</span>, <span class="st">"Make Me Cry?"</span>]<span class="co"># second argument , passing a list to the columns arguments</span></span>
+<span id="cb2-16"><a href=""></a>    )<span class="co"># closing the first pair of brackets to complete the function call</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="a-closer-look-at-the-data" class="slide level2 smaller">
@@ -490,19 +484,19 @@
 
 <section id="recap-of-slicing-and-indexing-1" class="title-slide slide level1 smaller center">
 <h1>Recap of slicing and indexing</h1>
-<div id="9f29e412" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>my_list <span class="op">=</span> [<span class="st">"apples"</span>, <span class="st">"bananas"</span>, <span class="st">"cauliflower"</span>, <span class="st">"dorritos"</span>, <span class="st">"enchiladas"</span>, <span class="st">"fajitas"</span>, <span class="st">"ginger"</span>, <span class="st">"honey"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f2cdf2a9" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>my_list <span class="op">=</span> [<span class="st">"apples"</span>, <span class="st">"bananas"</span>, <span class="st">"cauliflower"</span>, <span class="st">"dorritos"</span>, <span class="st">"enchiladas"</span>, <span class="st">"fajitas"</span>, <span class="st">"ginger"</span>, <span class="st">"honey"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">If we want to identify the first, fourth, and last element within my list, then we can use indexing to do that.</li>
 </ul>
-<div id="a37802a7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co">#my_list = ["apples", "bananas", "cauliflower", "dorritos", "enchiladas", "fajitas", "ginger", "honey"]</span></span>
-<span id="cb3-2"><a href=""></a><span class="co">#           0,         1,            2,            3,           4,           5,        6,         7   -&gt; positive indexing</span></span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">0</span>]) <span class="co">#Remember that when we index with Python, we start at 0. </span></span>
-<span id="cb3-5"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">3</span>]) </span>
-<span id="cb3-6"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">7</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ed8bfadb" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co">#my_list = ["apples", "bananas", "cauliflower", "dorritos", "enchiladas", "fajitas", "ginger", "honey"]</span></span>
+<span id="cb4-2"><a href=""></a><span class="co">#           0,         1,            2,            3,           4,           5,        6,         7   -&gt; positive indexing</span></span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">0</span>]) <span class="co">#Remember that when we index with Python, we start at 0. </span></span>
+<span id="cb4-5"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">3</span>]) </span>
+<span id="cb4-6"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">7</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>apples
 dorritos
@@ -517,15 +511,15 @@ honey</code></pre>
 <li class="fragment">Above we used positive indexing (where the index positions we use to identify elements start from 0 and increase from there).</li>
 <li class="fragment">But we can also use negative indexing, which is really handy when you have a large object, and want to identify the last element within that object, and you do not know how many elements are in that object.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{python}</span></span>
-<span id="cb5-2"><a href=""></a><span class="in">#my_list = ["apples", "bananas", "cauliflower", "dorritos", "enchiladas", "fajitas", "ginger", "honey"]</span></span>
-<span id="cb5-3"><a href=""></a><span class="in">#           0,         1,            2,            3,           4,           5,        6,         7   -&gt; positive indexing</span></span>
-<span id="cb5-4"><a href=""></a><span class="in">#          -8,        -7,           -6,            -5,         -4,          -3,        -2,       -1   -&gt; negative indexing       </span></span>
-<span id="cb5-5"><a href=""></a></span>
-<span id="cb5-6"><a href=""></a><span class="in">print(my_list[-8])  </span></span>
-<span id="cb5-7"><a href=""></a><span class="in">print(my_list[-5]) </span></span>
-<span id="cb5-8"><a href=""></a><span class="in">print(my_list[-1])</span></span>
-<span id="cb5-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="in">```{python}</span></span>
+<span id="cb6-2"><a href=""></a><span class="in">#my_list = ["apples", "bananas", "cauliflower", "dorritos", "enchiladas", "fajitas", "ginger", "honey"]</span></span>
+<span id="cb6-3"><a href=""></a><span class="in">#           0,         1,            2,            3,           4,           5,        6,         7   -&gt; positive indexing</span></span>
+<span id="cb6-4"><a href=""></a><span class="in">#          -8,        -7,           -6,            -5,         -4,          -3,        -2,       -1   -&gt; negative indexing       </span></span>
+<span id="cb6-5"><a href=""></a></span>
+<span id="cb6-6"><a href=""></a><span class="in">print(my_list[-8])  </span></span>
+<span id="cb6-7"><a href=""></a><span class="in">print(my_list[-5]) </span></span>
+<span id="cb6-8"><a href=""></a><span class="in">print(my_list[-1])</span></span>
+<span id="cb6-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="recap-of-slicing-and-indexing-3" class="title-slide slide level1 smaller center">
@@ -547,8 +541,8 @@ honey</code></pre>
 <li class="fragment">This is because when we are slicing, our start_value is inclusive, but our stop_value is exclusive.</li>
 <li class="fragment">If I wanted to include ‘dorritos’ into this smoothie of hell, I need to select one index position further</li>
 </ul>
-<div id="e7f8fea6" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">0</span>:<span class="dv">4</span>])<span class="co"># evil smoothie ingredients</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d569c3a3" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">0</span>:<span class="dv">4</span>])<span class="co"># evil smoothie ingredients</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['apples', 'bananas', 'cauliflower', 'dorritos']</code></pre>
 </div>
@@ -561,8 +555,8 @@ honey</code></pre>
 <li class="fragment">Slicing is a rather apt name - it slices up our object to return a list of elements. We just need to tell Python how we want to slice our cake.</li>
 <li class="fragment">For example, if I wanted to slice from our second element onwards, I could run the following code</li>
 </ul>
-<div id="2c0ee94d" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">1</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0928f234" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">1</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['bananas', 'cauliflower', 'dorritos', 'enchiladas', 'fajitas', 'ginger', 'honey']</code></pre>
 </div>
@@ -577,8 +571,8 @@ honey</code></pre>
 <ul>
 <li class="fragment">If we wanted to Python to start at the beginning of the object, and to return each element within a list up to a certain element, then we can leave an empty_space in our slice syntax</li>
 </ul>
-<div id="1b19aa34" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="bu">print</span>(my_list[:<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c430d315" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="bu">print</span>(my_list[:<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['apples', 'bananas', 'cauliflower', 'dorritos']</code></pre>
 </div>
@@ -601,12 +595,12 @@ honey</code></pre>
 <li class="fragment">Not only can we specify a range for Python to slice out, we can specify the <code>steps</code> to that slicing:</li>
 </ul>
 <p><code>my_object[start_value:stop_value: steps]</code></p>
-<div id="2559d805" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="co">#example 1</span></span>
-<span id="cb12-2"><a href=""></a><span class="bu">print</span>(my_list[::<span class="dv">2</span>])</span>
-<span id="cb12-3"><a href=""></a></span>
-<span id="cb12-4"><a href=""></a><span class="co">#example 2</span></span>
-<span id="cb12-5"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">1</span>:<span class="dv">5</span>:<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b634ce1d" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co">#example 1</span></span>
+<span id="cb13-2"><a href=""></a><span class="bu">print</span>(my_list[::<span class="dv">2</span>])</span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="co">#example 2</span></span>
+<span id="cb13-5"><a href=""></a><span class="bu">print</span>(my_list[<span class="dv">1</span>:<span class="dv">5</span>:<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['apples', 'cauliflower', 'enchiladas', 'ginger']
 ['bananas', 'dorritos']</code></pre>
@@ -632,9 +626,9 @@ honey</code></pre>
 <li class="fragment"><code>.head()</code> and <code>.tail()</code> slice your dataframe to the top or bottom five rows</li>
 <li class="fragment">We can slice a custom number of <code>rows</code> from our <code>DataFrame</code>, using the same <code>syntax</code> from earlier.</li>
 </ul>
-<div id="7f8f1f07" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>movies_df[<span class="op">-</span><span class="dv">2</span>:]<span class="co"># Note that I'm not using the '.loc[]'</span></span>
-<span id="cb14-2"><a href=""></a><span class="co"># I'm not directly trying to access the index. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c9b83893" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>movies_df[<span class="op">-</span><span class="dv">2</span>:]<span class="co"># Note that I'm not using the '.loc[]'</span></span>
+<span id="cb15-2"><a href=""></a><span class="co"># I'm not directly trying to access the index. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <div>
@@ -712,8 +706,8 @@ honey</code></pre>
 <li class="fragment">If we want to select columns then there’s a few ways to do that.</li>
 <li class="fragment">The first way is to pass a list of the columns that you want to select <em>within</em> the square brackets we’re using for indexing.</li>
 </ul>
-<div id="1ae578b7" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>movies_df[[<span class="st">"Participant Name"</span>, <span class="st">"Title of Thing"</span>, <span class="st">"Genre"</span>]].head()<span class="co"># note the double square brackets</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f9a35a39" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>movies_df[[<span class="st">"Participant Name"</span>, <span class="st">"Title of Thing"</span>, <span class="st">"Genre"</span>]].head()<span class="co"># note the double square brackets</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <div>
@@ -785,8 +779,8 @@ honey</code></pre>
 <ul>
 <li class="fragment">Another option is to pass a <code>slice</code> of the <code>df.columns</code> attribute.</li>
 </ul>
-<div id="b4f3db40" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>movies_df[movies_df.columns[<span class="dv">0</span>:<span class="dv">3</span>]].head() <span class="co">#This will return the first three columns of our dataframe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a92d2fde" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>movies_df[movies_df.columns[<span class="dv">0</span>:<span class="dv">3</span>]].head() <span class="co">#This will return the first three columns of our dataframe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <div>
@@ -880,8 +874,8 @@ honey</code></pre>
 
 <section id="slicing-our-dataframe---location-slicing-2" class="title-slide slide level1 smaller center">
 <h1>Slicing our Dataframe - <code>location</code> slicing</h1>
-<div id="f48b0b3f" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>movies_df.loc[<span class="dv">0</span>:<span class="dv">2</span>, <span class="st">'Title of Thing'</span>: <span class="st">'Year of Release'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c6efe3fe" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>movies_df.loc[<span class="dv">0</span>:<span class="dv">2</span>, <span class="st">'Title of Thing'</span>: <span class="st">'Year of Release'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 <div>
@@ -961,9 +955,9 @@ honey</code></pre>
 <ul>
 <li class="fragment">The last thing we can do with .loc is to select rows with specific values in a column.</li>
 </ul>
-<div id="410da225" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>movies_df.loc[movies_df[<span class="st">"Genre"</span>] <span class="op">==</span> <span class="st">"Sci-Fi"</span>].head() <span class="co"># note the '==' operator</span></span>
-<span id="cb18-2"><a href=""></a><span class="co"># This is a boolean operation, and will return a dataframe with only the rows that have 'Sci-Fi' in the 'Genre' column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="33465da2" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>movies_df.loc[movies_df[<span class="st">"Genre"</span>] <span class="op">==</span> <span class="st">"Sci-Fi"</span>].head() <span class="co"># note the '==' operator</span></span>
+<span id="cb19-2"><a href=""></a><span class="co"># This is a boolean operation, and will return a dataframe with only the rows that have 'Sci-Fi' in the 'Genre' column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 <div>
@@ -1033,8 +1027,8 @@ honey</code></pre>
 <li class="fragment">If, instead of using labels, we want to select rows and columns based on their index position, then we can use the <code>iloc</code> method.</li>
 <li class="fragment">The <code>iloc</code> method is similar to the <code>loc</code> method, but instead of using labels, we use index positions.</li>
 </ul>
-<div id="8ee5c602" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>movies_df.iloc[<span class="dv">0</span>:<span class="dv">2</span>, <span class="dv">1</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="62d6c721" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a>movies_df.iloc[<span class="dv">0</span>:<span class="dv">2</span>, <span class="dv">1</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 <div>
@@ -1098,9 +1092,9 @@ honey</code></pre>
 <li class="fragment">If the values are equal, then the <code>==</code> operator returns <code>True</code>, otherwise it returns <code>False</code>.</li>
 </ul></li>
 </ul>
-<div id="af85c992" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="st">'5'</span>) <span class="co">#This will return False</span></span>
-<span id="cb20-2"><a href=""></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="dv">5</span>) <span class="co">#This will return True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="770e7a02" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="st">'5'</span>) <span class="co">#This will return False</span></span>
+<span id="cb21-2"><a href=""></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="dv">5</span>) <span class="co">#This will return True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>False
 True</code></pre>
@@ -1185,9 +1179,9 @@ True</code></pre>
 <li class="fragment">This is a really useful method, because it enables you to rename multiple columns at once.</li>
 <li class="fragment">So if we just wanted to rename the <code>Participant Name</code> column to <code>Director</code>, we could do this:</li>
 </ul>
-<div id="2e6f3f1a" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>movies_df.rename(columns <span class="op">=</span> {<span class="st">'Participant Name'</span>: <span class="st">'Director'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb22-2"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3ba1a242" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>movies_df.rename(columns <span class="op">=</span> {<span class="st">'Participant Name'</span>: <span class="st">'Director'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb23-2"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Index(['Director', 'Title of Thing', 'Genre', 'Year of Release', 'ImdB Score',
        'Rotten Tomatoes Score ', 'Gender of Lead', 'Make Me Cry?'],
@@ -1201,10 +1195,10 @@ True</code></pre>
 <ul>
 <li class="fragment">You can also use the <code>.rename()</code> with the for loop as we did in a previous session</li>
 </ul>
-<div id="4c4ed477" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> movies_df.columns:</span>
-<span id="cb24-2"><a href=""></a>    movies_df.rename(columns<span class="op">=</span>{i:i.lower()}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb24-3"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="905494e5" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> movies_df.columns:</span>
+<span id="cb25-2"><a href=""></a>    movies_df.rename(columns<span class="op">=</span>{i:i.lower()}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb25-3"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Index(['director', 'title of thing', 'genre', 'year of release', 'imdb score',
        'rotten tomatoes score ', 'gender of lead', 'make me cry?'],
@@ -1220,9 +1214,9 @@ True</code></pre>
 <li class="fragment">I. Love. <code>List</code>. <code>Comprehensions</code>.</li>
 <li class="fragment">Basically they’re list putting a <code>for loop</code> inside a <code>list</code></li>
 </ul>
-<div id="9d88834d" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>movies_df.columns <span class="op">=</span> [i.replace(<span class="st">' '</span>, <span class="st">'_'</span>) <span class="cf">for</span> i <span class="kw">in</span> movies_df.columns]<span class="co"># isn't that awesome!!</span></span>
-<span id="cb26-2"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c68251c1" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>movies_df.columns <span class="op">=</span> [i.replace(<span class="st">' '</span>, <span class="st">'_'</span>) <span class="cf">for</span> i <span class="kw">in</span> movies_df.columns]<span class="co"># isn't that awesome!!</span></span>
+<span id="cb27-2"><a href=""></a><span class="bu">print</span>(movies_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Index(['director', 'title_of_thing', 'genre', 'year_of_release', 'imdb_score',
        'rotten_tomatoes_score_', 'gender_of_lead', 'make_me_cry?'],
@@ -1293,7 +1287,7 @@ True</code></pre>
 
 <section id="lets-view-our-dataframe" class="title-slide slide level1 smaller center">
 <h1>Let’s view our dataframe</h1>
-<div id="26571484" class="cell" data-execution_count="20">
+<div id="7a2dbefc" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  director     title_of_thing   genre year_of_release  \
 0           John Carpenter          The Thing  Horror            1982   
@@ -1357,9 +1351,9 @@ True</code></pre>
 
 <section id="isnull-1" class="title-slide slide level1 smaller center">
 <h1><code>.isnull()</code></h1>
-<div id="3517c99a" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>movies_df.isnull() <span class="co">#This will go through our dataframe and check</span></span>
-<span id="cb29-2"><a href=""></a><span class="co">#for whether we have any missing numeric values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4071bac8" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>movies_df.isnull() <span class="co">#This will go through our dataframe and check</span></span>
+<span id="cb30-2"><a href=""></a><span class="co">#for whether we have any missing numeric values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 <div>
@@ -1527,10 +1521,10 @@ True</code></pre>
 <li class="fragment">We can do this by using the <code>dropna()</code> function</li>
 <li class="fragment">which means, <code>drop</code> any row that has a null/NaN result”.</li>
 </ul>
-<div id="0b853e2a" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="bu">print</span>(movies_df.shape)</span>
-<span id="cb30-2"><a href=""></a>movies_df_cleanv1 <span class="op">=</span> movies_df.dropna() </span>
-<span id="cb30-3"><a href=""></a><span class="bu">print</span>(movies_df_cleanv1.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bd5e4b55" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="bu">print</span>(movies_df.shape)</span>
+<span id="cb31-2"><a href=""></a>movies_df_cleanv1 <span class="op">=</span> movies_df.dropna() </span>
+<span id="cb31-3"><a href=""></a><span class="bu">print</span>(movies_df_cleanv1.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(10, 8)
 (9, 8)</code></pre>
@@ -1559,8 +1553,8 @@ True</code></pre>
 
 <section id="empty-but-not-empty-1" class="title-slide slide level1 smaller center">
 <h1>Empty but not empty</h1>
-<div id="0443578b" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a>movies_df_cleanv1.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fffec50e" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>movies_df_cleanv1.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 <div>
@@ -1647,18 +1641,18 @@ True</code></pre>
 
 <section id="replace-1" class="title-slide slide level1 smaller center">
 <h1><code>replace()</code></h1>
-<div id="ad8eb589" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="co">#Replace cell/field that's entirely space or empty with NaN</span></span>
-<span id="cb33-2"><a href=""></a>movies_df_cleanv1.replace(<span class="vs">r''</span>, np.nan, regex<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb33-3"><a href=""></a><span class="co">## Hold on a second, what the hell is r'^\s*$'? and what the hell is a regex?</span></span>
-<span id="cb33-4"><a href=""></a><span class="co"># A regex is short for "regular expression". </span></span>
-<span id="cb33-5"><a href=""></a><span class="co"># Regex enables us to identify a pattern in text (think about using search function in Word)</span></span>
-<span id="cb33-6"><a href=""></a><span class="co"># The 'r' indicates that we are using a 'raw string' (remember these from paths). </span></span>
-<span id="cb33-7"><a href=""></a><span class="co"># The '^\s*$' is regular expression syntax to identify empty strings</span></span>
-<span id="cb33-8"><a href=""></a><span class="bu">print</span>(movies_df_cleanv1.shape)</span>
-<span id="cb33-9"><a href=""></a>movies_df_cleanv2 <span class="op">=</span> movies_df_cleanv1.dropna() </span>
-<span id="cb33-10"><a href=""></a><span class="bu">print</span>(movies_df_cleanv2.shape)</span>
-<span id="cb33-11"><a href=""></a>movies_df_cleanv2.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f348d0ea" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="co">#Replace cell/field that's entirely space or empty with NaN</span></span>
+<span id="cb34-2"><a href=""></a>movies_df_cleanv1.replace(<span class="vs">r''</span>, np.nan, regex<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb34-3"><a href=""></a><span class="co">## Hold on a second, what the hell is r'^\s*$'? and what the hell is a regex?</span></span>
+<span id="cb34-4"><a href=""></a><span class="co"># A regex is short for "regular expression". </span></span>
+<span id="cb34-5"><a href=""></a><span class="co"># Regex enables us to identify a pattern in text (think about using search function in Word)</span></span>
+<span id="cb34-6"><a href=""></a><span class="co"># The 'r' indicates that we are using a 'raw string' (remember these from paths). </span></span>
+<span id="cb34-7"><a href=""></a><span class="co"># The '^\s*$' is regular expression syntax to identify empty strings</span></span>
+<span id="cb34-8"><a href=""></a><span class="bu">print</span>(movies_df_cleanv1.shape)</span>
+<span id="cb34-9"><a href=""></a>movies_df_cleanv2 <span class="op">=</span> movies_df_cleanv1.dropna() </span>
+<span id="cb34-10"><a href=""></a><span class="bu">print</span>(movies_df_cleanv2.shape)</span>
+<span id="cb34-11"><a href=""></a>movies_df_cleanv2.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(9, 8)
 (8, 8)</code></pre>
@@ -1748,9 +1742,9 @@ True</code></pre>
 <li class="fragment"><code>pandas</code> has a really simple <code>method</code> to manage this</li>
 </ul>
 <div class="fragment">
-<div id="055c9a81" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>movies_df_cleanv2.reset_index(inplace <span class="op">=</span> <span class="va">True</span>, drop <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb35-2"><a href=""></a>movies_df_cleanv2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d419beaa" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>movies_df_cleanv2.reset_index(inplace <span class="op">=</span> <span class="va">True</span>, drop <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb36-2"><a href=""></a>movies_df_cleanv2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 <div>
@@ -1866,10 +1860,10 @@ True</code></pre>
 <li class="fragment">We can use the <code>drop()</code> method</li>
 </ul>
 <div class="fragment">
-<div id="c7a04462" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>movies_df_cleanv2 <span class="op">=</span> movies_df_cleanv2.drop(<span class="st">"make_me_cry?"</span>, axis <span class="op">=</span> <span class="dv">1</span>) <span class="co">#dropping and assigning to new variable</span></span>
-<span id="cb36-2"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> movies_df_cleanv2.columns:</span>
-<span id="cb36-3"><a href=""></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="625cc7ce" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a>movies_df_cleanv2 <span class="op">=</span> movies_df_cleanv2.drop(<span class="st">"make_me_cry?"</span>, axis <span class="op">=</span> <span class="dv">1</span>) <span class="co">#dropping and assigning to new variable</span></span>
+<span id="cb37-2"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> movies_df_cleanv2.columns:</span>
+<span id="cb37-3"><a href=""></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>director
 title_of_thing
@@ -1896,7 +1890,7 @@ gender_of_lead</code></pre>
 <li class="fragment">The <code>axis</code> argument just states whether your dropping rows or columns
 <ul>
 <li class="fragment"><code>axis = 0</code> relates to <code>rows</code></li>
-<li class="fragment"><code>axis = 0</code> relates to <code>columns</code></li>
+<li class="fragment"><code>axis = 1</code> relates to <code>columns</code></li>
 </ul></li>
 </ul>
 </div>
@@ -1912,6 +1906,7 @@ gender_of_lead</code></pre>
 <ul>
 <li class="fragment">In you’re own notebook create a new cell</li>
 <li class="fragment">use the <code>.replace() to replace the empty</code>strings<code>with</code>Nan`</li>
+<li class="fragment">then use the <code>.dropna()</code> method to remove the rows with <code>Nan</code> values</li>
 <li class="fragment">Drop the “make_me_cry?” column (but put the outcome in a new variable)</li>
 </ul>
 </section>
@@ -1921,8 +1916,8 @@ gender_of_lead</code></pre>
 <ul>
 <li class="fragment">Now that we have columns that we want to work with, let’s take a look at our data again to see if there are any inconsistencies.</li>
 </ul>
-<div id="cc70d515" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>movies_df_cleanv2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="43901011" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a>movies_df_cleanv2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 <div>
@@ -2018,8 +2013,8 @@ gender_of_lead</code></pre>
 <ul>
 <li class="fragment">Taking a look at the ‘gender of lead’ column, we can see that there are some inconsistencies in the way that the data is entered.</li>
 </ul>
-<div id="206955d9" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="953d3f58" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>gender_of_lead
 Male      3
@@ -2050,9 +2045,9 @@ Name: count, dtype: int64</code></pre>
 
 <section id="replace-3" class="title-slide slide level1 smaller center">
 <h1><code>.replace()</code></h1>
-<div id="e5402838" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>] <span class="op">=</span> movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].replace(to_replace <span class="op">=</span> [<span class="st">"Orgre"</span>, <span class="st">"m"</span>], value <span class="op">=</span> <span class="st">"male"</span>)</span>
-<span id="cb41-2"><a href=""></a><span class="bu">print</span>(movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7cea069c" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>] <span class="op">=</span> movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].replace(to_replace <span class="op">=</span> [<span class="st">"Orgre"</span>, <span class="st">"m"</span>], value <span class="op">=</span> <span class="st">"male"</span>)</span>
+<span id="cb42-2"><a href=""></a><span class="bu">print</span>(movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>gender_of_lead
 male      3
@@ -2081,8 +2076,8 @@ Name: count, dtype: int64</code></pre>
 <li class="fragment">Don’t forget the <code>.value_counts()</code> method will help you see what values you need to clean.</li>
 </ul>
 <div class="fragment">
-<div id="2e1863fe" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>] <span class="op">=</span> movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].replace(to_replace <span class="op">=</span> [<span class="st">"Female"</span>, <span class="st">"fem"</span>], value <span class="op">=</span> <span class="st">"female"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5ae849f4" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>] <span class="op">=</span> movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].replace(to_replace <span class="op">=</span> [<span class="st">"Female"</span>, <span class="st">"fem"</span>], value <span class="op">=</span> <span class="st">"female"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -2095,9 +2090,9 @@ Name: count, dtype: int64</code></pre>
 <li class="fragment">We can use the <code>str.lower()</code> method to set all the values to lower.</li>
 </ul>
 <div class="fragment">
-<div id="bd3b9666" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>] <span class="op">=</span> movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].<span class="bu">str</span>.lower()</span>
-<span id="cb44-2"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1d4b2e9d" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>] <span class="op">=</span> movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb45-2"><a href=""></a>movies_df_cleanv2[<span class="st">'gender_of_lead'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>gender_of_lead
 male      6
@@ -2160,20 +2155,20 @@ Name: count, dtype: int64</code></pre>
 <ul>
 <li class="fragment">It is quite easy to concatenate (remember that from the earlier sessions with strings?) now rows onto our data</li>
 </ul>
-<div id="95d3056d" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a><span class="co"># make a dict of our new rows</span></span>
-<span id="cb46-2"><a href=""></a>new_rows <span class="op">=</span> {<span class="st">'director'</span>: [<span class="st">'Ridley Scott'</span>, <span class="st">'Greta Gerwig'</span>], </span>
-<span id="cb46-3"><a href=""></a><span class="st">'title_of_thing'</span>: [<span class="st">'Alien'</span>, <span class="st">'Lady Bird'</span>], </span>
-<span id="cb46-4"><a href=""></a><span class="st">'genre'</span>: [<span class="st">'Horror'</span>, <span class="st">'Drama'</span>],</span>
-<span id="cb46-5"><a href=""></a><span class="st">"year_of_release"</span>: [<span class="st">'1979'</span>, <span class="st">'2017'</span>],  </span>
-<span id="cb46-6"><a href=""></a><span class="st">"imdB_score"</span>: [<span class="dv">85</span>, <span class="dv">74</span>],</span>
-<span id="cb46-7"><a href=""></a><span class="st">"rotten_tomatoes_score"</span>: [<span class="dv">98</span>, <span class="dv">99</span>],</span>
-<span id="cb46-8"><a href=""></a><span class="st">"gender of lead"</span>: [<span class="st">"female"</span>, <span class="st">"female"</span>]</span>
-<span id="cb46-9"><a href=""></a>}</span>
-<span id="cb46-10"><a href=""></a><span class="co">#convert the dict to a DataFrame</span></span>
-<span id="cb46-11"><a href=""></a>df2 <span class="op">=</span> pd.DataFrame(new_rows) <span class="co">#just call the DataFrame class and pass our dict to it</span></span>
-<span id="cb46-12"><a href=""></a>movies_df_cleanv3 <span class="op">=</span> pd.concat([movies_df_cleanv2,df2], ignore_index<span class="op">=</span><span class="st">"True"</span>)</span>
-<span id="cb46-13"><a href=""></a>movies_df_cleanv3.tail(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="45a191d9" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a><span class="co"># make a dict of our new rows</span></span>
+<span id="cb47-2"><a href=""></a>new_rows <span class="op">=</span> {<span class="st">'director'</span>: [<span class="st">'Ridley Scott'</span>, <span class="st">'Greta Gerwig'</span>], </span>
+<span id="cb47-3"><a href=""></a><span class="st">'title_of_thing'</span>: [<span class="st">'Alien'</span>, <span class="st">'Lady Bird'</span>], </span>
+<span id="cb47-4"><a href=""></a><span class="st">'genre'</span>: [<span class="st">'Horror'</span>, <span class="st">'Drama'</span>],</span>
+<span id="cb47-5"><a href=""></a><span class="st">"year_of_release"</span>: [<span class="st">'1979'</span>, <span class="st">'2017'</span>],  </span>
+<span id="cb47-6"><a href=""></a><span class="st">"imdB_score"</span>: [<span class="dv">85</span>, <span class="dv">74</span>],</span>
+<span id="cb47-7"><a href=""></a><span class="st">"rotten_tomatoes_score"</span>: [<span class="dv">98</span>, <span class="dv">99</span>],</span>
+<span id="cb47-8"><a href=""></a><span class="st">"gender of lead"</span>: [<span class="st">"female"</span>, <span class="st">"female"</span>]</span>
+<span id="cb47-9"><a href=""></a>}</span>
+<span id="cb47-10"><a href=""></a><span class="co">#convert the dict to a DataFrame</span></span>
+<span id="cb47-11"><a href=""></a>df2 <span class="op">=</span> pd.DataFrame(new_rows) <span class="co">#just call the DataFrame class and pass our dict to it</span></span>
+<span id="cb47-12"><a href=""></a>movies_df_cleanv3 <span class="op">=</span> pd.concat([movies_df_cleanv2,df2], ignore_index<span class="op">=</span><span class="st">"True"</span>)</span>
+<span id="cb47-13"><a href=""></a>movies_df_cleanv3.tail(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 <div>
@@ -2257,20 +2252,20 @@ Name: count, dtype: int64</code></pre>
 <ul>
 <li class="fragment">It is quite easy to concatenate (remember that from the earlier sessions with strings?) now rows onto our data.</li>
 </ul>
-<div id="5b3c8309" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a><span class="co"># make a dict of our new rows</span></span>
-<span id="cb47-2"><a href=""></a>new_rows <span class="op">=</span> {<span class="st">'director'</span>: [<span class="st">'Ridley Scott'</span>, <span class="st">'Greta Gerwig'</span>], </span>
-<span id="cb47-3"><a href=""></a><span class="st">'title_of_thing'</span>: [<span class="st">'Alien'</span>, <span class="st">'Lady Bird'</span>], </span>
-<span id="cb47-4"><a href=""></a><span class="st">'genre'</span>: [<span class="st">'Horror'</span>, <span class="st">'Drama'</span>],</span>
-<span id="cb47-5"><a href=""></a><span class="st">'year_of_release'</span>: [<span class="st">'1979'</span>, <span class="st">'2017'</span>],  </span>
-<span id="cb47-6"><a href=""></a><span class="st">'imdb_score'</span>: [<span class="dv">85</span>, <span class="dv">74</span>],</span>
-<span id="cb47-7"><a href=""></a><span class="st">'rotten_tomatoes_score'</span>: [<span class="dv">98</span>, <span class="dv">99</span>],</span>
-<span id="cb47-8"><a href=""></a><span class="st">'gender_of_lead'</span>: [<span class="st">'female'</span>, <span class="st">'female'</span>]</span>
-<span id="cb47-9"><a href=""></a>}</span>
-<span id="cb47-10"><a href=""></a><span class="co">#convert the dict to a DataFrame</span></span>
-<span id="cb47-11"><a href=""></a>df2 <span class="op">=</span> pd.DataFrame(new_rows) <span class="co">#just call the DataFrame class and pass our dict to it</span></span>
-<span id="cb47-12"><a href=""></a>movies_df_cleanv3 <span class="op">=</span> pd.concat([movies_df_cleanv2, df2], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb47-13"><a href=""></a>movies_df_cleanv3.tail(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="36aa3b2b" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a><span class="co"># make a dict of our new rows</span></span>
+<span id="cb48-2"><a href=""></a>new_rows <span class="op">=</span> {<span class="st">'director'</span>: [<span class="st">'Ridley Scott'</span>, <span class="st">'Greta Gerwig'</span>], </span>
+<span id="cb48-3"><a href=""></a><span class="st">'title_of_thing'</span>: [<span class="st">'Alien'</span>, <span class="st">'Lady Bird'</span>], </span>
+<span id="cb48-4"><a href=""></a><span class="st">'genre'</span>: [<span class="st">'Horror'</span>, <span class="st">'Drama'</span>],</span>
+<span id="cb48-5"><a href=""></a><span class="st">'year_of_release'</span>: [<span class="st">'1979'</span>, <span class="st">'2017'</span>],  </span>
+<span id="cb48-6"><a href=""></a><span class="st">'imdb_score'</span>: [<span class="dv">85</span>, <span class="dv">74</span>],</span>
+<span id="cb48-7"><a href=""></a><span class="st">'rotten_tomatoes_score'</span>: [<span class="dv">98</span>, <span class="dv">99</span>],</span>
+<span id="cb48-8"><a href=""></a><span class="st">'gender_of_lead'</span>: [<span class="st">'female'</span>, <span class="st">'female'</span>]</span>
+<span id="cb48-9"><a href=""></a>}</span>
+<span id="cb48-10"><a href=""></a><span class="co">#convert the dict to a DataFrame</span></span>
+<span id="cb48-11"><a href=""></a>df2 <span class="op">=</span> pd.DataFrame(new_rows) <span class="co">#just call the DataFrame class and pass our dict to it</span></span>
+<span id="cb48-12"><a href=""></a>movies_df_cleanv3 <span class="op">=</span> pd.concat([movies_df_cleanv2, df2], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb48-13"><a href=""></a>movies_df_cleanv3.tail(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <div>
 <div>
@@ -2382,13 +2377,13 @@ Name: count, dtype: int64</code></pre>
 <li class="fragment">We can do that fairly easily with pandas dataframes.</li>
 </ul>
 <div class="fragment">
-<div id="d0bd6f9f" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a><span class="co">#first let's create a list that will be converted into a column within our dataframe</span></span>
-<span id="cb48-2"><a href=""></a>rt_fans <span class="op">=</span> [<span class="fl">92.0</span>, <span class="fl">79.0</span>, <span class="fl">42.0</span>, <span class="fl">82.0</span>, <span class="fl">86.0</span>, <span class="fl">69.0</span>, <span class="fl">89.0</span>, <span class="fl">93.0</span>, <span class="fl">94.0</span>, <span class="fl">79.0</span>] </span>
-<span id="cb48-3"><a href=""></a><span class="co">#By the way, how in the hell does Shrek 2 only have a 69% on rotten tomatoes?</span></span>
-<span id="cb48-4"><a href=""></a><span class="co">#What kind of sick joke is that?</span></span>
-<span id="cb48-5"><a href=""></a><span class="co">#Now let's create a column within our dataframe, and then set its values to rt_fans</span></span>
-<span id="cb48-6"><a href=""></a>movies_df_cleanv3[<span class="st">"rotten_tomatoes_fans_scores"</span>] <span class="op">=</span> rt_fans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="75a976ff" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a><span class="co">#first let's create a list that will be converted into a column within our dataframe</span></span>
+<span id="cb49-2"><a href=""></a>rt_fans <span class="op">=</span> [<span class="fl">92.0</span>, <span class="fl">79.0</span>, <span class="fl">42.0</span>, <span class="fl">82.0</span>, <span class="fl">86.0</span>, <span class="fl">69.0</span>, <span class="fl">89.0</span>, <span class="fl">93.0</span>, <span class="fl">94.0</span>, <span class="fl">79.0</span>] </span>
+<span id="cb49-3"><a href=""></a><span class="co">#By the way, how in the hell does Shrek 2 only have a 69% on rotten tomatoes?</span></span>
+<span id="cb49-4"><a href=""></a><span class="co">#What kind of sick joke is that?</span></span>
+<span id="cb49-5"><a href=""></a><span class="co">#Now let's create a column within our dataframe, and then set its values to rt_fans</span></span>
+<span id="cb49-6"><a href=""></a>movies_df_cleanv3[<span class="st">"rotten_tomatoes_fans_scores"</span>] <span class="op">=</span> rt_fans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -2405,7 +2400,7 @@ Name: count, dtype: int64</code></pre>
 
 <section id="add-columns-2" class="title-slide slide level1 smaller center">
 <h1>Add columns</h1>
-<div id="8e49d2b7" class="cell" data-execution_count="35">
+<div id="e42d4052" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="35">
 <table>
 <thead>
@@ -2468,13 +2463,13 @@ Name: count, dtype: int64</code></pre>
 <li class="fragment">But ideally, we would want it next to the Rotten Tomatoes Critics scores.</li>
 <li class="fragment">Let’s reorder our dataframe.</li>
 </ul>
-<div id="407a3c07" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a>movies_df_cleanv3.reindex([</span>
-<span id="cb49-2"><a href=""></a>  <span class="st">"director"</span>, <span class="st">"title_of_thing"</span>,</span>
-<span id="cb49-3"><a href=""></a>  <span class="st">"genre"</span>, <span class="st">"year_of_release"</span>,</span>
-<span id="cb49-4"><a href=""></a>  <span class="st">"imdB_score"</span>, <span class="st">"rotten_tomatoes_score"</span>,</span>
-<span id="cb49-5"><a href=""></a>  <span class="st">"rotten_tomatoes_fans_scores"</span>, <span class="st">"gender_of_lead"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb49-6"><a href=""></a>movies_df_cleanv3.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f296572e" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a>movies_df_cleanv3.reindex([</span>
+<span id="cb50-2"><a href=""></a>  <span class="st">"director"</span>, <span class="st">"title_of_thing"</span>,</span>
+<span id="cb50-3"><a href=""></a>  <span class="st">"genre"</span>, <span class="st">"year_of_release"</span>,</span>
+<span id="cb50-4"><a href=""></a>  <span class="st">"imdB_score"</span>, <span class="st">"rotten_tomatoes_score"</span>,</span>
+<span id="cb50-5"><a href=""></a>  <span class="st">"rotten_tomatoes_fans_scores"</span>, <span class="st">"gender_of_lead"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb50-6"><a href=""></a>movies_df_cleanv3.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 <div>

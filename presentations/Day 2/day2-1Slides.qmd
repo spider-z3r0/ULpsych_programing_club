@@ -31,25 +31,18 @@ csl: apa.csl
   - standardising or `renaming` columns 
   - as well as some other cool things (like ) `slicing` your data, and 'fixing' inconsistent data.
 
-# Recap quiz and activity.  {.smaller}
+# Recap quiz {.smaller}
 
- - Before we get into that though, we need to import some data to work with so this is a good time to practice what you learned last session
- - This time, we're going to use the quiz to prompt your steps to get data imported and inspected. 
- - Go to the usual place on brightspace and find the quiz for this session (recap quiz 2.1)
- - This will walk you through the steps to import the data we will be working with today.
+ - You know where the quiz is by now.
 
-# Recap quiz and activity.  {.smaller}
-
- 1. Import the packages pandas and pathlib (don't forget the 'as' bit; make sure you have selected the kernel related to your virutal environment)
- 2. Download the data for this session from brightspace and save it to your computer (into the data folder you previously made)
- 3. Create a `Path()` to the data
- 4. Import your data into a Dataframe by using the Path() you have created (n.b. assign the `DataFrame` to a variable, and remember that we often use the shorthand 'df' when doing so)
- 4. Display the head and tail of your dataframe to ensure that it has been imported correctly. 
  
-# This week's data {.smaller}
+# This session's data {.smaller}
+
+ - Make sure the virtual environment is activated
+ - pip install tabulate
 
 ```{python}
-#| echo: false
+#| echo: true
 #| eval: true
 from tabulate import tabulate
 from IPython.display import Markdown
@@ -658,7 +651,7 @@ for i in movies_df_cleanv2.columns:
    - The `axis` of the thing you want to `drop`
  - The `axis` argument just states whether your dropping rows or columns
    - `axis = 0` relates to `rows`
-   - `axis = 0` relates to `columns`
+   - `axis = 1` relates to `columns`
 
 # `axis` 
 
@@ -668,6 +661,7 @@ for i in movies_df_cleanv2.columns:
 
  - In you're own notebook create a new cell
  - use the `.replace() to replace the empty `strings` with `Nan`
+ - then use the `.dropna()` method to remove the rows with `Nan` values
  - Drop the "make_me_cry?" column (but put the outcome in a new variable)
 
 
