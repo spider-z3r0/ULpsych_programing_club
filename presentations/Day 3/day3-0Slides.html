@@ -528,22 +528,36 @@
 </ul>
 </section>
 
+<section id="installing-r" class="title-slide slide level1 smaller center">
+<h1>Installing R</h1>
+<ul>
+<li class="fragment">Before we can start working with R, we need to install it</li>
+<li class="fragment">You can download R from the CRAN website (https://cran.r-project.org/)</li>
+<li class="fragment">We’ve put that link up on Brightspace</li>
+<li class="fragment">Before you open VSCode, install R on your computer</li>
+<li class="fragment">As you install you’ll be asked if you want to install Rtools, you should say yes</li>
+<li class="fragment">You’ll be asked for admin permissions, so you’ll need to call me over when you get there</li>
+<li class="fragment">Once thats done, open VScode, in the terminal type <code>R --version</code> and hit enter</li>
+<li class="fragment">You should see the version of R you installed</li>
+</ul>
+</section>
+
 <section id="setting-up-your-code" class="title-slide slide level1 smaller center">
 <h1>Setting up your code</h1>
 <ul>
 <li class="fragment">In python we told you that there are packages/libraries/modules that you can use to ‘go beyond’ the basic functionality of python</li>
 <li class="fragment">These are things like <code>pathlib</code>, <code>pandas</code>, <code>numpy</code>, <code>matplotlib</code></li>
+<li class="fragment">And you’ve learned that we install them from the terminal using <code>pip install package_name</code></li>
 <li class="fragment">The same thing exists in <code>R</code>, but they’re called <code>packages</code> or <code>libraries</code></li>
 <li class="fragment">In both languages you need to install the packages before you can <code>import</code> them into your code</li>
-<li class="fragment">We didn’t show you how to do that in python yet, but we’re going to show you how to do it in <code>R</code> now</li>
+<li class="fragment">In R, you install packages using the <code>install.packages()</code> function, but not in the general terminal, in the R terminal</li>
 </ul>
 </section>
 
 <section id="the-r-terminal" class="title-slide slide level1 smaller center">
 <h1>The R terminal</h1>
 <ul>
-<li class="fragment">On Day 0 we showed you the terminal in VSCode</li>
-<li class="fragment">It’s in the bottom panel of the window</li>
+<li class="fragment">On Day 0 we showed you the terminal in VSCode, and you’ve used it a few times</li>
 <li class="fragment">This is a place where you can run code (commands) directly</li>
 <li class="fragment">On the computers you’re using the terminal is running something called PowerShell by default</li>
 <li class="fragment">This is the windows ‘shell’</li>
@@ -748,7 +762,7 @@
 <section id="characters-in-r" class="title-slide slide level1 smaller center">
 <h1>Characters in R</h1>
 <ul>
-<li class="fragment">In R, you can create strings by wrapping text in either single or double quotes</li>
+<li class="fragment">In R, you can create <code>strings</code> by wrapping text in either single or double quotes</li>
 <li class="fragment">So the code:</li>
 <li class="fragment"><code>"Hello World!"</code> and <code>'Hello World!'</code></li>
 <li class="fragment">Will both create a string with the text <code>Hello World!</code></li>

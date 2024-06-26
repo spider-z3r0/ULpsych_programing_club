@@ -87,19 +87,29 @@ bibliography: references.bib
  - Copy the movies_df.csv file from yesterday into the "data" folder
  - And in the "src" folder, create a new file called "intro.qmd"
 
+# Installing R {.smaller}
+
+ - Before we can start working with R, we need to install it
+ - You can download R from the CRAN website (https://cran.r-project.org/)
+ - We've put that link up on Brightspace
+ - Before you open VSCode, install R on your computer
+ - As you install you'll be asked if you want to install Rtools, you should say yes
+ - You'll be asked for admin permissions, so you'll need to call me over when you get there
+ - Once thats done, open VScode, in the terminal type `R --version` and hit enter
+ - You should see the version of R you installed
+
 # Setting up your code {.smaller}
 
  - In python we told you that there are packages/libraries/modules that you can use to 'go beyond' the basic functionality of python
  - These are things like `pathlib`, `pandas`, `numpy`, `matplotlib`
+ - And you've learned that we install them from the terminal using `pip install package_name`
  - The same thing exists in `R`, but they're called `packages` or `libraries`
  - In both languages you need to install the packages before you can `import` them into your code
- - We didn't show you how to do that in python yet, but we're going to show you how to do it in `R` now
-
+ - In R, you install packages using the `install.packages()` function, but not in the general terminal, in the R terminal
 
 # The R terminal {.smaller}
 
- - On Day 0 we showed you the terminal in VSCode
- - It's in the bottom panel of the window
+ - On Day 0 we showed you the terminal in VSCode, and you've used it a few times
  - This is a place where you can run code (commands) directly
  - On the computers you're using the terminal is running something called PowerShell by default
  - This is the windows 'shell'
@@ -255,7 +265,7 @@ print("Hello World!")
 
 # Characters in R {.smaller}
 
- - In R, you can create strings by wrapping text in either single or double quotes
+ - In R, you can create `strings` by wrapping text in either single or double quotes
  - So the code:
   - ` "Hello World!" ` and ` 'Hello World!' `
   - Will both create a string with the text `Hello World!`
