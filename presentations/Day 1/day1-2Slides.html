@@ -482,7 +482,7 @@
 <li class="fragment">Then we <code>indent</code> the code that we want to be part of the <code>function</code> by 1 tab (or 4 spaces, but seriously, just use 1 tab)</li>
 <li class="fragment">We can then <code>call</code> the <code>function</code> by using its name followed by a pair of brackets <code>()</code></li>
 </ul>
-<div id="b8a1c6ef" class="cell" data-execution_count="1">
+<div id="0988bf58" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># This is the example you fixed in the last session</span></span>
 <span id="cb3-2"><a href=""></a><span class="kw">def</span> my_function_1(): <span class="co"># This function takes no arguments so we're not putting anything in the brackets</span></span>
 <span id="cb3-3"><a href=""></a>    <span class="co"># all the lines below are the first one are indented by 1 tab (or 4 spaces, but sersiously, just use 1 tab)</span></span>
@@ -500,7 +500,7 @@
 <li class="fragment">We can then use that <code>placeholder</code> in the <code>function</code> <code>code</code> to do things with the <code>variable</code> that we <code>call</code> the <code>function</code> with.</li>
 <li class="fragment">We can use any <code>alphabetic</code> character as a <code>placeholder</code> but it’s good practice to use something that makes sense in the context of the <code>function</code> you’re writing.</li>
 </ul>
-<div id="867f3fb2" class="cell" data-execution_count="2">
+<div id="bd237021" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="kw">def</span> my_function_2(placeholder):<span class="co"># notice that this line is almost exactly the same except for the placeholder, </span></span>
 <span id="cb4-2"><a href=""></a>    <span class="co"># again, all the lines are indented</span></span>
 <span id="cb4-3"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f'The variable is: </span><span class="sc">{</span>placeholder<span class="sc">}</span><span class="ss">'</span>)<span class="co"># using an f-string to print out the variable</span></span>
@@ -513,7 +513,7 @@
 <ul>
 <li class="fragment">So now that we have defined these two functions in the cells above we can call them in subsequent cells without having to type out all that code again.</li>
 </ul>
-<div id="1e49ef4e" class="cell" data-execution_count="3">
+<div id="24cc8fa5" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>my_function_1()</span>
 <span id="cb5-2"><a href=""></a>my_function_2(<span class="st">'Banana'</span>)</span>
 <span id="cb5-3"><a href=""></a>z <span class="op">=</span> <span class="fl">24.5</span></span>
@@ -539,7 +539,7 @@ it is a &lt;class 'float'&gt; object</code></pre>
 <li class="fragment">They can be <code>variables</code> we want the function to operate on, or they can be <code>values</code> that control how the works in some way.</li>
 <li class="fragment">They can get pretty complex, but when we’re making them we can think about how to keep them as simple as <em>they need to be</em> to do the job we want them to do.</li>
 </ul>
-<div id="eb2fe7a3" class="cell" data-execution_count="4">
+<div id="5a15c307" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="kw">def</span> my_function_3(a,b): <span class="co">#we are using two placeholders here</span></span>
 <span id="cb7-2"><a href=""></a>    <span class="bu">print</span>(a<span class="op">*</span>b)<span class="co"># this function takes numbers and multiplies them</span></span>
 <span id="cb7-3"><a href=""></a>my_function_3(<span class="dv">2</span>,<span class="dv">3</span>)</span>
@@ -560,7 +560,7 @@ it is a &lt;class 'float'&gt; object</code></pre>
 <li class="fragment"><p>Since we had already asked you to store your first name in a variable (<code>first_name</code>) the temptation is to write your function specifically to print out that * specific* variable.</p></li>
 </ul>
 <div class="fragment">
-<div id="1b3f6844" class="cell" data-execution_count="5">
+<div id="3a81e0d7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>first_name <span class="op">=</span> <span class="st">"Eve"</span></span>
 <span id="cb9-2"><a href=""></a><span class="kw">def</span> last_week_function_v1():</span>
 <span id="cb9-3"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Hi there, my name is </span><span class="sc">{</span>first_name<span class="sc">}</span><span class="ss"> and the last letter in my name is </span><span class="sc">{</span>first_name[<span class="op">-</span><span class="dv">1</span>]<span class="sc">}</span><span class="ss">."</span>)</span>
@@ -597,7 +597,7 @@ Eve</code></pre>
 <li class="fragment">Instead, we can use a <code>placeholder</code> variable in the <code>function</code> <code>definition</code> to allow the <code>function</code> to take an <code>argument</code> when it is <code>called</code>.</li>
 <li class="fragment">This is the <code>syntax</code> we used in the second example above.</li>
 </ul>
-<div id="3b13c7fb" class="cell" data-execution_count="6">
+<div id="bbaa0751" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="kw">def</span> last_week_function_v2(x):<span class="co"># we are using a placeholder variable here</span></span>
 <span id="cb11-2"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Hi there, my name is </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> and the last letter in my name is </span><span class="sc">{</span>x[<span class="op">-</span><span class="dv">1</span>]<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb11-3"><a href=""></a>last_week_function_v2(first_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -670,7 +670,7 @@ Eve</code></pre>
 <li class="fragment">Lets imagine that you want to print out every item in a list, we’ve talked about how you might do this with a separate <code>print()</code> statement for each item</li>
 </ul>
 <div class="fragment">
-<div id="83aabef9" class="cell" data-execution_count="7">
+<div id="74ecb51f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>beatles <span class="op">=</span> [<span class="st">'John'</span>, <span class="st">'Paul'</span>, <span class="st">'George'</span>, <span class="st">'Ringo'</span>]</span>
 <span id="cb13-2"><a href=""></a><span class="bu">print</span>(beatles[<span class="dv">0</span>])</span>
 <span id="cb13-3"><a href=""></a><span class="bu">print</span>(beatles[<span class="dv">1</span>])</span>
@@ -696,7 +696,7 @@ Ringo</code></pre>
 </ol>
 <div class="fragment">
 <p>This is where the power of <code>for loops</code> comes in, take a look at the example below:</p>
-<div id="6e049446" class="cell" data-execution_count="8">
+<div id="c98d667a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># name is a placeholder variable</span></span>
 <span id="cb15-2"><a href=""></a><span class="cf">for</span> name <span class="kw">in</span> beatles: <span class="co"># starts with 'for' and ends with a :</span></span>
 <span id="cb15-3"><a href=""></a>    <span class="bu">print</span>(name) <span class="co"># each new line is indented </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -738,7 +738,7 @@ Ringo</code></pre>
 <li class="fragment">This <code>syntax</code> works on any <code>iterable</code>, which is just another name for a collection of objects like a list or string.</li>
 </ul>
 <div class="fragment">
-<div id="28b2a2ea" class="cell" data-execution_count="9">
+<div id="98fd8f80" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="cf">for</span> l <span class="kw">in</span> beatles[<span class="dv">0</span>]: <span class="co">#using the first item in 'beatles', which is a string</span></span>
 <span id="cb18-2"><a href=""></a>    <span class="bu">print</span>(l)<span class="co"># printing each letter of the string</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -780,7 +780,7 @@ n</code></pre>
 <h1>For Loops - example</h1>
 <p>One of the ways that we might do this (ignoring actually importing the data into python for now) is make an empty list, and then populate that list using a <code>for-loop</code>. Lets imagine you want to name the items of the BFI-44:</p>
 <div class="fragment">
-<div id="7c7151c7" class="cell" data-execution_count="10">
+<div id="e2f218ce" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a>bfi <span class="op">=</span> [] <span class="co">#making an empty list</span></span>
 <span id="cb20-2"><a href=""></a></span>
 <span id="cb20-3"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">45</span>):<span class="co"># begining the for loop, and using the range function</span></span>
@@ -813,7 +813,7 @@ n</code></pre>
 </section>
 <section id="nested-for-loops-1" class="slide level2 smaller">
 <h2>Nested for loops</h2>
-<div id="aec3c54a" class="cell" data-execution_count="11">
+<div id="9a9f309c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>ns <span class="op">=</span> [<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>]<span class="co"># making a list of numbers</span></span>
 <span id="cb22-2"><a href=""></a>np <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>]<span class="co"># making another list of numbers</span></span>
 <span id="cb22-3"><a href=""></a></span>
@@ -986,7 +986,7 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 <li class="fragment">For example, <code>\n</code> is used to create a new line in a string.</li>
 </ul>
 <div class="fragment">
-<div id="98a869de" class="cell" data-execution_count="12">
+<div id="0b996b8e" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="bu">print</span>(<span class="st">'This is a string with a new line </span><span class="ch">\n</span><span class="st"> in it'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>This is a string with a new line 
@@ -1007,7 +1007,7 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 <li class="fragment"><code>import</code> is a keyword in python that tells the computer to bring in a module that we want to use.</li>
 </ul>
 <div class="fragment">
-<div id="dd2e6017" class="cell" data-execution_count="13">
+<div id="8c9d71a6" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="im">import</span> pathlib <span class="co">#This line imports the pathlib module</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -1020,7 +1020,7 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 </section>
 <section id="pathlib-2" class="slide level2 smaller">
 <h2>Pathlib</h2>
-<div id="0f454624" class="cell" data-execution_count="14">
+<div id="2fb72f72" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>current_dir <span class="op">=</span> pathlib.Path.cwd() <span class="co">#Line 3</span></span>
 <span id="cb28-2"><a href=""></a><span class="bu">print</span>(current_dir) <span class="co">#Line 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1054,7 +1054,7 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 </ul>
 </div>
 <div class="fragment">
-<div id="e408dc7e" class="cell" data-execution_count="15">
+<div id="129c8d11" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path <span class="co"># Line 5</span></span>
 <span id="cb30-2"><a href=""></a>current_dir1 <span class="op">=</span> Path.cwd() <span class="co">#Line 6</span></span>
 <span id="cb30-3"><a href=""></a><span class="bu">print</span>(current_dir1) <span class="co">#Line 7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1091,13 +1091,13 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 <li class="fragment">Let’s import the datetime module and, this time, let’s give it a nickname.</li>
 </ul>
 <div class="fragment">
-<div id="8113806e" class="cell" data-execution_count="16">
+<div id="9b196f21" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="im">import</span> datetime <span class="im">as</span> dt <span class="co">#saving the module datetime under the nickname: dt</span></span>
 <span id="cb32-2"><a href=""></a>today <span class="op">=</span> dt.datetime.now() <span class="co">#From the datetime module, select the class datetime (confusing I know), </span></span>
 <span id="cb32-3"><a href=""></a><span class="co"># and use the now() function</span></span>
 <span id="cb32-4"><a href=""></a><span class="bu">print</span>(<span class="ss">f'Today is: </span><span class="sc">{</span>today<span class="sc">}</span><span class="ss">'</span>) <span class="co">#printing out the current date and time using an f-string</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Today is: 2024-06-25 13:43:15.125895</code></pre>
+<pre><code>Today is: 2024-06-25 17:04:30.415917</code></pre>
 </div>
 </div>
 </div>
@@ -1120,7 +1120,7 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 <li class="fragment">The <code>datetime</code> class takes the same arguments as the <code>date</code> class, but it also takes the hour, minute, second, and microsecond as integers. For when you reeeeeeeally don’t wanna miss lunch.</li>
 </ul>
 <div class="fragment">
-<div id="737a88bc" class="cell" data-execution_count="17">
+<div id="7de980a5" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a>yester_year <span class="op">=</span> dt.date(<span class="dv">1993</span>, <span class="dv">11</span>, <span class="dv">6</span>) <span class="co">#This uses the American format: Year, Month, Day </span></span>
 <span id="cb34-2"><a href=""></a><span class="bu">print</span>(yester_year)</span>
 <span id="cb34-3"><a href=""></a><span class="co">#we can even go further and print the hour, minute, second, and microsecond</span></span>
@@ -1153,7 +1153,7 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 <li class="fragment">A <code>variable</code> is a ‘hook’ that we can use to store data and then use that data later on.</li>
 <li class="fragment"><code>functions</code> take in <code>arguments</code> which can be variables, or direct values, and they can <code>return</code> a value to us.</li>
 </ul>
-<div id="0606b307" class="cell" data-execution_count="18">
+<div id="2d356626" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a><span class="kw">def</span> multiply_numbers(number,multiplier): <span class="co"># we're defining a function that takes two arguments</span></span>
 <span id="cb36-2"><a href=""></a>    <span class="cf">return</span> number <span class="op">*</span> multiplier<span class="co"># this function multiplies the two arguments together and returns the result</span></span>
 <span id="cb36-3"><a href=""></a></span>
@@ -1171,7 +1171,7 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 <li class="fragment">A <code>method</code> is a piece of code that is attached to a specific <code>type</code> (or <code>class</code>) of object.</li>
 <li class="fragment">So where the <code>print()</code> function works on any object, the <code>append()</code> method works on <code>lists</code> (remember you saw this in an earlier session).</li>
 </ul>
-<div id="5a0c7781" class="cell" data-execution_count="19">
+<div id="947233fa" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>] <span class="co"># making a list</span></span>
 <span id="cb38-2"><a href=""></a>my_list.append(<span class="dv">5</span>) <span class="co"># using the append method to add a new item to the list</span></span>
 <span id="cb38-3"><a href=""></a><span class="cf">for</span> number <span class="kw">in</span> my_list:</span>
@@ -1207,7 +1207,7 @@ The number at position 3(which is 3) has been multiplied by 1. The result is 3</
 <li class="fragment">So where a <code>method</code> is a verb, an <code>attribute</code> is a noun.</li>
 <li class="fragment">You can think of <code>attributes</code> as the ‘properties’ of an object, and <code>methods</code> as the ‘actions’ that an object can take.</li>
 </ul>
-<div id="76758be8" class="cell" data-execution_count="20">
+<div id="82871688" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path <span class="co"># importing the Path class from the pathlib module</span></span>
 <span id="cb40-2"><a href=""></a>current_dir <span class="op">=</span> Path.cwd() <span class="co"># using the cwd() method to get the current working directory</span></span>
 <span id="cb40-3"><a href=""></a><span class="bu">print</span>(current_dir.parent) <span class="co"># using the parent attribute to get the parent directory of the current working directory</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

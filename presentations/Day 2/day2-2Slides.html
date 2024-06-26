@@ -465,7 +465,7 @@
 <li class="fragment">But first things first - we need to import the modules we’ll need for this session</li>
 </ul>
 <div class="fragment">
-<div id="a840c3b2" class="cell" data-execution_count="1">
+<div id="7cd7998f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># import the needed modules in this cell</span></span>
 <span id="cb1-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># for working with dataframes</span></span>
 <span id="cb1-3"><a href=""></a><span class="im">import</span> pathlib <span class="im">as</span> pl <span class="co"># for working with file paths</span></span>
@@ -484,7 +484,7 @@
 
 <section id="set-up-for-the-session-2" class="title-slide slide level1 smaller center">
 <h1>Set up for the session</h1>
-<div id="44a45604" class="cell" data-execution_count="2">
+<div id="ee7f6de5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example</span></span>
 <span id="cb2-2"><a href=""></a>director <span class="op">=</span> [<span class="st">'John Carpenter'</span>, <span class="st">''</span>, <span class="st">'Nicolas Winding Refn'</span>, <span class="st">'Matthijs van Heijningen'</span>, <span class="st">'Damien Chazelle'</span>, <span class="st">'Dennis Villanueve'</span>, <span class="st">'Coen Brothers'</span>, <span class="st">'Kelly Asbury'</span>, <span class="st">'Edgar Wright'</span>, <span class="st">'Coen Brothers'</span>]</span>
 <span id="cb2-3"><a href=""></a>names <span class="op">=</span> [<span class="st">'The Thing'</span>, <span class="st">'Blade Runner 2049'</span>, <span class="st">'Drive'</span>,  <span class="st">'The Thing'</span>, <span class="st">'Whiplash'</span>, <span class="st">'Arrival'</span>, <span class="st">'No Country for Old Men'</span>, <span class="st">'Shrek 2'</span>, <span class="st">'Hot Fuzz'</span>, <span class="st">'Fargo'</span>]</span>
@@ -517,8 +517,8 @@
 
 <section id="ph1" class="title-slide slide level1 smaller center">
 <h1>ph1</h1>
-<div id="8a50cd4d" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div id="a271c70c" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>Index(['director', 'movie_title', 'genre', 'year_of_release', 'imdb_score',
        'rotten_tomatoes_score', 'rotten_tomatoes_fan_score', 'gender_of_lead'],
       dtype='object')</code></pre>
@@ -598,7 +598,7 @@
 <li class="fragment">To get a sense of this, in the cell below we’ll create a <code>Path</code> to the <code>csv</code></li>
 </ul>
 <div class="fragment">
-<div id="ec009112" class="cell" data-execution_count="4">
+<div id="b217b38e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co">#make your path object on the next line</span></span>
 <span id="cb5-2"><a href=""></a>csv_file <span class="op">=</span> pl.Path(<span class="vs">r'../../data/movies_df_2_2.csv'</span>)<span class="co">#using the ../../ to move up two directories to the data folder</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -613,7 +613,7 @@
 <li class="fragment">This is the name of the file or folder that the <code>path</code> points to including the file <code>suffix</code>.</li>
 <li class="fragment">This is useful because it allows us to get the name of the file or folder without having to parse the <code>path</code> string.</li>
 </ul>
-<div id="6ec66619" class="cell" data-execution_count="5">
+<div id="f0249ca6" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># printing the file name</span></span>
 <span id="cb6-2"><a href=""></a><span class="bu">print</span>(csv_file.name)<span class="co"># note that it is not followed by `()` because it is an attribute not a method</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -628,7 +628,7 @@
 <li class="fragment">The <code>name</code> attribute is useful, but sometimes we want to get the <code>stem</code> of the file (the name without the <code>suffix</code>) or the <code>suffix</code> of the file (the <code>.csv</code> or <code>.xlsx</code> at the end of the name)</li>
 <li class="fragment">Like if we specficially want to find files with the same <code>stem</code> but different <code>suffixes</code> or if we want to save a new file with the same <code>stem</code> but a different <code>suffix</code>.</li>
 </ul>
-<div id="a2d1a061" class="cell" data-execution_count="6">
+<div id="0d28cd3d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="co"># printing the stem of the file</span></span>
 <span id="cb8-2"><a href=""></a><span class="bu">print</span>(csv_file.stem)</span>
 <span id="cb8-3"><a href=""></a><span class="co"># printing the suffix of the file</span></span>
@@ -665,7 +665,7 @@
 <li class="fragment"><code>C:\Users\username\Documents\programming_club\data</code></li>
 </ul></li>
 </ul>
-<div id="012b9d87" class="cell" data-execution_count="7">
+<div id="8eef2f08" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co"># printing the parent of the file</span></span>
 <span id="cb10-2"><a href=""></a><span class="bu">print</span>(csv_file.parent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -751,10 +751,10 @@
 <li class="fragment">Let’s take a look at the <code>describe()</code> method in action.</li>
 </ul>
 <div class="fragment">
-<div id="85f740ec" class="cell" data-execution_count="8">
+<div id="eba570d3" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>desc <span class="op">=</span> movies_df.describe()<span class="co"># describe the whole dataframe</span></span>
 <span id="cb14-2"><a href=""></a>desc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <div>
 <style scoped="">
@@ -846,11 +846,11 @@
 <li class="fragment">It’s really easy to clean this up and make it look nice.</li>
 </ul>
 <div class="fragment">
-<div id="e102acc4" class="cell" data-execution_count="9">
+<div id="03b80a1f" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>desc.columns <span class="op">=</span> [i.replace(<span class="st">'_'</span>, <span class="st">' '</span>).title() <span class="cf">for</span> i <span class="kw">in</span> desc.columns]<span class="co">#cleaning up the column names</span></span>
 <span id="cb15-2"><a href=""></a>desc.index <span class="op">=</span> [i.title() <span class="cf">for</span> i <span class="kw">in</span> desc.index]<span class="co">#cleaning up the index</span></span>
 <span id="cb15-3"><a href=""></a>desc.<span class="bu">round</span>(<span class="dv">2</span>)<span class="co">#rounding the numbers to 2 decimal places</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <div>
 <style scoped="">
@@ -941,9 +941,9 @@
 <li class="fragment">We can also just slice the <code>DataFrame</code> returned by the <code>describe()</code> method to get specific stats</li>
 </ul>
 <div class="fragment">
-<div id="0dc87f8a" class="cell" data-execution_count="10">
+<div id="ab1efda5" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>desc.loc[[<span class="st">'Mean'</span>, <span class="st">'Std'</span>, <span class="st">'Min'</span>, <span class="st">'Max'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <div>
 <style scoped="">
@@ -1010,9 +1010,9 @@
 <li class="fragment">We can also call the <code>describe()</code> method on a single <code>column</code> of a <code>DataFrame</code> to get the <code>descriptive statistics</code> for that <code>column</code>.</li>
 </ul>
 <div class="fragment">
-<div id="587e61b6" class="cell" data-execution_count="11">
+<div id="09cb4e9a" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>movies_df[<span class="st">'director'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>count                 8
 unique                7
 top       Coen Brothers
@@ -1022,9 +1022,9 @@ Name: director, dtype: object</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="56a93441" class="cell" data-execution_count="12">
+<div id="3f36fd34" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>movies_df[<span class="st">'imdb_score'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>count     8.000000
 mean     76.875000
 std       6.685539
@@ -1058,9 +1058,9 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">But we need to specify only numberical columns when we call these methods on a whole <code>DataFrame</code>.</li>
 </ul>
 <div class="fragment">
-<div id="2c06586b" class="cell" data-execution_count="13">
+<div id="2a8ddc41" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>movies_df[[<span class="st">'imdb_score'</span>, <span class="st">'rotten_tomatoes_score'</span>]].<span class="bu">min</span>()<span class="co">#mode of the imdb_score column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>imdb_score               62.0
 rotten_tomatoes_score    34.0
 dtype: float64</code></pre>
@@ -1068,9 +1068,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="90012de1" class="cell" data-execution_count="14">
+<div id="b0e19be6" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>movies_df[<span class="st">'imdb_score'</span>].mode()<span class="co">#mode of the imdb_score column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>0    78.0
 1    82.0
 Name: imdb_score, dtype: float64</code></pre>
@@ -1086,7 +1086,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">so <code>.quantile()</code>, <code>.percentile()</code>, <code>.std()</code>, <code>.var()</code>, <code>.mean()</code>, <code>.median()</code>, <code>.mode()</code>, <code>.min()</code>, <code>.max()</code></li>
 </ul>
 <div class="fragment">
-<div id="18fdda76" class="cell" data-execution_count="15">
+<div id="145d4ee0" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="bu">print</span>(movies_df[<span class="st">'imdb_score'</span>].quantile(<span class="fl">0.25</span>))<span class="co">#first quartile of the imdb_score column</span></span>
 <span id="cb25-2"><a href=""></a><span class="bu">print</span>(movies_df[<span class="st">'imdb_score'</span>].quantile(<span class="fl">0.75</span>))<span class="co">#third quartile of the imdb_score column</span></span>
 <span id="cb25-3"><a href=""></a><span class="bu">print</span>(movies_df[<span class="st">'imdb_score'</span>].mean())<span class="co">#mean of the imdb_score column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1158,7 +1158,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">Let’s take a look at a <code>hist</code> plot of the <code>imdb_score</code> column.</li>
 </ul>
 <div class="fragment">
-<div id="3c2b7b86" class="cell" data-execution_count="16">
+<div id="4ab69977" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>histogram <span class="op">=</span> movies_df[<span class="st">'imdb_score'</span>].plot(kind <span class="op">=</span> <span class="st">'hist'</span>, bins <span class="op">=</span> <span class="dv">100</span>, title <span class="op">=</span> <span class="st">'Histogram of Imdb Scores'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1180,7 +1180,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">We can also make a <code>bar</code> plot showing the <code>mean</code> of the <code>imdb_score</code> for each <code>genre</code> in the <code>DataFrame</code>.</li>
 </ul>
 <div class="fragment">
-<div id="9972c541" class="cell" data-execution_count="17">
+<div id="8ba1d4da" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>bar <span class="op">=</span> movies_df.groupby(<span class="st">'genre'</span>)[<span class="st">'imdb_score'</span>].mean().plot(kind <span class="op">=</span> <span class="st">'bar'</span>, title <span class="op">=</span> <span class="st">'Mean Imdb Score by Genre'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1215,7 +1215,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">We can also make a <code>scatter</code> plot of the <code>imdb_score</code> and <code>rotten_tomatoes_score</code> columns.</li>
 </ul>
 <div class="fragment">
-<div id="b34a8002" class="cell" data-execution_count="18">
+<div id="7a502148" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>scatter_plot <span class="op">=</span> movies_df.plot(kind <span class="op">=</span> <span class="st">'scatter'</span>, x <span class="op">=</span> <span class="st">'imdb_score'</span>, y <span class="op">=</span> <span class="st">'rotten_tomatoes_score'</span>, title <span class="op">=</span> <span class="st">'Imdb Score vs Rotten Tomatoes Score'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1258,10 +1258,10 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">We can then call the <code>savefig()</code> method on the <code>figure</code> object and pass the <code>path</code> to the <code>savefig()</code> method.</li>
 </ul>
 <div class="fragment">
-<div id="d345d00c" class="cell" data-execution_count="19">
+<div id="9873c95d" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>scatter_plot.get_figure().savefig(csv_file.parent <span class="op">/</span> <span class="st">'scatter_plot.png'</span>)</span>
 <span id="cb30-2"><a href=""></a>scatter_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="47">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>&lt;Axes: title={'center': 'Imdb Score vs Rotten Tomatoes Score'}, xlabel='imdb_score', ylabel='rotten_tomatoes_score'&gt;</code></pre>
 </div>
 </div>
@@ -1293,7 +1293,7 @@ Name: imdb_score, dtype: float64</code></pre>
 
 <section id="plots-practice-1" class="title-slide slide level1 smaller center">
 <h1>plots practice</h1>
-<div id="8ee925e8" class="cell" data-execution_count="20">
+<div id="4c38c2db" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1325,7 +1325,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">Let’s look at a simple example.</li>
 </ul>
 <div class="fragment">
-<div id="0b5d4b8b" class="cell" data-execution_count="21">
+<div id="cd8312db" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a>x <span class="op">=</span> <span class="dv">10</span> <span class="co"># setting the value of x</span></span>
 <span id="cb32-2"><a href=""></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>: <span class="co"># testing if x is greater than 5</span></span>
 <span id="cb32-3"><a href=""></a>    <span class="bu">print</span>(<span class="st">'x is greater than 5'</span>) </span>
@@ -1345,7 +1345,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">For example, we can test if the mean of a column is equal to the median of a column.</li>
 </ul>
 <div class="fragment">
-<div id="b4391681" class="cell" data-execution_count="22">
+<div id="ff12f36e" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="cf">if</span> movies_df[<span class="st">'imdb_score'</span>].mean() <span class="op">==</span> movies_df[<span class="st">'imdb_score'</span>].median():</span>
 <span id="cb34-2"><a href=""></a>    <span class="bu">print</span>(<span class="st">'The mean and median of the imdb_score column are the same'</span>)</span>
 <span id="cb34-3"><a href=""></a><span class="cf">else</span>:</span>
@@ -1360,7 +1360,7 @@ Name: imdb_score, dtype: float64</code></pre>
 </ul>
 </div>
 <div class="fragment">
-<div id="d5e7b001" class="cell" data-execution_count="23">
+<div id="30e00051" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a><span class="cf">if</span> movies_df[<span class="st">'imdb_score'</span>].mean() <span class="op">==</span> movies_df[<span class="st">'imdb_score'</span>].median():</span>
 <span id="cb36-2"><a href=""></a>    <span class="bu">print</span>(<span class="st">'The mean and median of the imdb_score column are the same'</span>)</span>
 <span id="cb36-3"><a href=""></a><span class="cf">else</span>:</span>
@@ -1383,7 +1383,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">The syntax is not much more complex than the <code>if</code> statement.</li>
 </ul>
 <div class="fragment">
-<div id="9404253d" class="cell" data-execution_count="24">
+<div id="d1d229f7" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>x <span class="op">=</span> <span class="dv">10</span> <span class="co"># setting the value of x</span></span>
 <span id="cb38-2"><a href=""></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>: <span class="co"># testing if x is greater than 5</span></span>
 <span id="cb38-3"><a href=""></a>    <span class="bu">print</span>(<span class="st">'x is greater than 5'</span>) </span>
@@ -1406,7 +1406,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">if the <code>dtype</code> is <code>float64</code> we could <code>describe()</code> the column, if it’s <code>object</code> we could <code>value_counts()</code> the column, if it’s <code>int64</code> we could <code>plot()</code> the column.</li>
 </ul>
 <div class="fragment">
-<div id="adfbbb68" class="cell" data-execution_count="25">
+<div id="d53d4b82" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a><span class="cf">if</span> movies_df[<span class="st">'imdb_score'</span>].dtype <span class="op">==</span> <span class="st">'float64'</span>:</span>
 <span id="cb40-2"><a href=""></a>    <span class="bu">print</span>(movies_df[<span class="st">'imdb_score'</span>].describe())</span>
 <span id="cb40-3"><a href=""></a><span class="cf">elif</span> movies_df[<span class="st">'imdb_score'</span>].dtype <span class="op">==</span> <span class="st">'object'</span>:</span>
@@ -1458,9 +1458,9 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">We have to specify <code>numeric_only = True</code> when we call the <code>corr()</code> method to get the <code>correlation</code> between <code>numeric</code> <code>columns</code>.</li>
 </ul>
 <div class="fragment">
-<div id="9d049d94" class="cell" data-execution_count="26">
+<div id="93fb8de5" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>movies_df.corr(method <span class="op">=</span> <span class="st">'pearson'</span>, numeric_only<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="54">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <div>
 <style scoped="">
@@ -1523,9 +1523,9 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">As if we just wanted to see if the Rotten tomatoes score and the Rotten tomatoes fan score were correlated we could do this.</li>
 </ul>
 <div class="fragment">
-<div id="52ec8f2b" class="cell" data-execution_count="27">
+<div id="b517bc8f" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>movies_df[[<span class="st">'rotten_tomatoes_score'</span>, <span class="st">'rotten_tomatoes_fan_score'</span>]].corr(method <span class="op">=</span> <span class="st">'pearson'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 <div>
 <style scoped="">
@@ -1578,7 +1578,7 @@ Name: imdb_score, dtype: float64</code></pre>
 <li class="fragment">If we wanted to store the <code>correlation</code> between the two different <code>rotten tomatoes</code> scores we could do this.</li>
 </ul>
 <div class="fragment">
-<div id="386839f2" class="cell" data-execution_count="28">
+<div id="e7d17de5" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>correlation <span class="op">=</span> movies_df[<span class="st">'rotten_tomatoes_score'</span>].corr(movies_df[<span class="st">'rotten_tomatoes_fan_score'</span>], method <span class="op">=</span> <span class="st">'pearson'</span>)</span>
 <span id="cb44-2"><a href=""></a></span>
 <span id="cb44-3"><a href=""></a><span class="cf">if</span> correlation  <span class="op">&gt;</span> <span class="fl">0.3</span>:</span>
