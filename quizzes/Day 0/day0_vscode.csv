@@ -175,7 +175,7 @@ Difficulty,2,,,
 Image,,,
 Option,0,It has a funny name,,,
 Option,0,It can be used to write documents,,,
-Option,100,Features like syntax highlighting and code completion,,, 
+Option,100,It lets you use tools to expand your writing like code syntax,,, 
 Option,0,It can automatically order pizza,,,
 Hint,VS Code makes coding life easier!, 
 Feedback,Absolutely! VS Code is designed to streamline your coding process.

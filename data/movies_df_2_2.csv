@@ -1,0 +1,11 @@
+Director,Movie Title,Genre,Year of Release,ImdB Score,Rotten Tomatoes Score,Rotten Tomatoes Fan Score,Gender of Lead
+John Carpenter,The Thing,Horror,1982,82.0,82.0,92.0,male
+,Blade Runner 2049,Sci-Fi,2017,80.0,88.0,79.0,Male
+Nicolas Winding Refn,Drive,Action,2011,78.0,93.0,42.0,m
+Matthijs van Heijningen,The Thing,Horror,2011,62.0,34.0,82.0,Female
+Damien Chazelle,Whiplash,Drama,2014,,,86.0,m
+Dennis Villanueve,Arrival,Sci-Fi,2016,79.0,94.0,69.0,Male
+Coen Brothers,No Country for Old Men,Drama,2007,82.0,93.0,89.0,fem
+Kelly Asbury,Shrek 2,Comedy,2004,73.0,89.0,93.0,Orgre
+Edgar Wright,Hot Fuzz,Comedy,2007,78.0,91.0,94.0,Male
+Coen Brothers,Fargo,Dark Comedy,1996,81.0,94.0,79.0,Male

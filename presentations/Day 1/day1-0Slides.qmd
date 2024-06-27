@@ -1,6 +1,6 @@
 ---
 title: "Session 1.0"
-subtitle: "Why the hell isn't this day 2? \n A gentle introdcution to programming in python"
+subtitle: "Why the hell isn't this day 2? \n A gentle introduction to programming in python"
 format: 
    revealjs:
       incremental: true
@@ -21,7 +21,7 @@ You guessed it!!
 
 Theres another quiz!
 
- - In the Brightspace site, in the Day 1 lesson (on the left hand side of the 'Content' tab), there is a quiz called 'Day 1 wake up Quiz'.
+ - In the Brightspace site, in the Day 1 lesson (on the left hand side of the 'Content' tab), there is a quiz called 'Session 1.0'
  - Remember, these quizzes are not graded, they're an opportunity for you to practice recalling the info and to check your understanding.
  - Work together, look stuff up, and have fun!
  - Just some reminders ...
@@ -52,6 +52,7 @@ Theres another quiz!
 
 
 # Things to remember - Jupyter Documents{.smaller}
+
  - There's also jupyter notebooks, which are a different kind of file, but can be rendered into quarto markdown.
     - They have a `.ipynb` extension
     - They can have code cells and markdown cells
@@ -61,7 +62,6 @@ Theres another quiz!
 # OK... GO DO THE QUIZ NOW!{.smaller}
 
 Why are you still looking at me? 
-
 
 # Today's Plan{.smaller}
 
@@ -475,7 +475,7 @@ print(b_year == 1993.5) # This will print out True
 # Python Basics - ints and floats - operations {.smaller}
 
  - Did you notice that the '=' symbol is used differently in python than in math?
- - Instead of useing it to see the result of an operation, we use it to assign a value to a variable.
+ - Instead of using it to see the result of an operation, we use it to assign a value to a variable.
  - We can use this to assign the *result of an operation* to a variable, and then use that variable later on.
 
 ```{{{python}}}
@@ -564,9 +564,9 @@ print(kev_list) # This will print out the `list` to the console
 
 # Python Basics - dicts - your turn {.smaller}
 
-. . . 
+. . .
 
-### `Key : Value`
+ `Key : Value`
 
    - In a new code cell in your jupyter notebook, create a new `dict` called `yourname_dict` that contains the following key-value pairs:
      - `'name' : 'your name'`

@@ -442,7 +442,7 @@
 <li class="fragment">These let us <code>iterate</code> over a <code>collection</code> of items (like a <code>list</code>) and do something with each item in the collection</li>
 </ul></li>
 </ul>
-<div id="a0592d5f" class="cell" data-execution_count="1">
+<div id="1b012bb2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="cf">for</span> item <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
 <span id="cb1-2"><a href=""></a>    t_str <span class="op">=</span> <span class="ss">f"Item = </span><span class="sc">{</span>item<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb1-3"><a href=""></a>    <span class="bu">print</span>(t_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -464,7 +464,7 @@ Item = 5</code></pre>
 <li class="fragment">Check out the <code>+=</code> operator in the code below, it’s really handy</li>
 </ul>
 <div class="fragment">
-<div id="3422933c" class="cell" data-execution_count="2">
+<div id="25a0596f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>t_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb3-2"><a href=""></a>t_sum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb3-3"><a href=""></a><span class="cf">for</span> item <span class="kw">in</span> t_list:</span>
@@ -488,7 +488,7 @@ Item = 5</code></pre>
 <li class="fragment">They’re not really needed for what we’re doing in this course, but they’re good to know about and you might see them in other code</li>
 </ul>
 <div class="fragment">
-<div id="75d23140" class="cell" data-execution_count="3">
+<div id="06698bf0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>t_sum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb5-2"><a href=""></a><span class="cf">while</span> t_sum <span class="op">&lt;</span> <span class="dv">10</span>: <span class="co"># this will keep going until t_sum is 10 or more</span></span>
 <span id="cb5-3"><a href=""></a>    t_sum <span class="op">+=</span> <span class="dv">1</span> <span class="co"># this will keep adding 1 to t_sum</span></span>
@@ -516,7 +516,7 @@ the current value of t_sum is 10</code></pre>
 <li class="fragment">Theres a few ways that we can combine that with <code>for loops</code> to do interesting things</li>
 <li class="fragment">For example, if we know that we just want to work on the last 4 items in a list:</li>
 </ul>
-<div id="a1dced0d" class="cell" data-execution_count="4">
+<div id="066713d1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>t_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
 <span id="cb7-2"><a href=""></a><span class="cf">for</span> item <span class="kw">in</span> t_list[<span class="op">-</span><span class="dv">4</span>:]: <span class="co"># notice how we're slicing and using negatice indexing here? </span></span>
 <span id="cb7-3"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"item is of </span><span class="sc">{</span><span class="bu">type</span>(item)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -536,7 +536,7 @@ item is of &lt;class 'int'&gt;</code></pre>
 <li class="fragment">We can <code>index</code> into a <code>dict</code> using the <code>key</code> to get the <code>value</code></li>
 <li class="fragment">We can also <code>index</code> into a <code>dict</code> using the <code>key</code> to <code>set</code> the <code>value</code></li>
 </ul>
-<div id="371d340d" class="cell" data-execution_count="5">
+<div id="931e6089" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>t_dict <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"John"</span>, <span class="st">"age"</span>: <span class="dv">30</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>}</span>
 <span id="cb9-2"><a href=""></a><span class="bu">print</span>(t_dict[<span class="st">"name"</span>])</span>
 <span id="cb9-3"><a href=""></a>t_dict[<span class="st">"name"</span>] <span class="op">=</span> <span class="st">"Jane"</span></span>
@@ -555,7 +555,7 @@ Jane</code></pre>
 <li class="fragment">The <code>keys</code> are one <code>list</code> and the <code>values</code> are another <code>list</code></li>
 <li class="fragment">We can get the <code>keys</code> and <code>values</code> of a <code>dict</code> using the <code>keys()</code> and <code>values()</code> <code>methods</code> of the <code>dict</code> object</li>
 </ul>
-<div id="6e11cd14" class="cell" data-execution_count="6">
+<div id="e21e654b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>t_dict <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"John"</span>, <span class="st">"age"</span>: <span class="dv">30</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>}</span>
 <span id="cb11-2"><a href=""></a><span class="bu">print</span>(t_dict.keys())</span>
 <span id="cb11-3"><a href=""></a><span class="bu">print</span>(t_dict.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -574,7 +574,7 @@ dict_values(['John', 30, 'New York'])</code></pre>
 <li class="fragment">In essence the <code>keys()</code> and <code>values()</code> <code>methods</code> of a <code>dict</code> return <code>lists</code> that we can loop over</li>
 </ul>
 <div class="fragment">
-<div id="36dcbf8a" class="cell" data-execution_count="7">
+<div id="71f621d6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="cf">for</span> key <span class="kw">in</span> t_dict.keys():</span>
 <span id="cb13-2"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"key is </span><span class="sc">{</span>key<span class="sc">}</span><span class="ss"> and value is </span><span class="sc">{</span>t_dict[key]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -596,7 +596,7 @@ key is city and value is New York</code></pre>
 <li class="fragment">we could have called them <code>a</code> and <code>b</code> if we wanted to, but that would be confusing (sometimes you’ll see k, and v or, i and j)</li>
 </ul>
 <div class="fragment">
-<div id="db75db9f" class="cell" data-execution_count="8">
+<div id="692f8059" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="cf">for</span> key, value <span class="kw">in</span> t_dict.items():</span>
 <span id="cb15-2"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"key is </span><span class="sc">{</span>key<span class="sc">}</span><span class="ss"> and value is </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -615,7 +615,7 @@ key is city and value is New York</code></pre>
 <li class="fragment">in python we call this <code>zipping</code> two <code>lists</code> together (like a <code>zipper</code> on a jacket)</li>
 <li class="fragment">we can <code>zip</code> two <code>lists</code> together using the <code>zip()</code> <code>function</code> which takes two <code>lists</code> as <code>arguments</code> and returns a <code>list</code> of <code>tuples</code> (a <code>tuple</code> is like a list, but you can’t change it once you’ve made it)</li>
 </ul>
-<div id="9ca79774" class="cell" data-execution_count="9">
+<div id="5471d2a6" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>t_list1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>] <span class="co"># temporary list 1</span></span>
 <span id="cb17-2"><a href=""></a>t_list2 <span class="op">=</span> [<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>] <span class="co"># temporary list 2</span></span>
 <span id="cb17-3"><a href=""></a><span class="co">#zip the two lists into a dict</span></span>
@@ -629,7 +629,7 @@ key is city and value is New York</code></pre>
 
 <section id="dicts-and-zipping-1" class="title-slide slide level1 smaller center">
 <h1>dicts and zipping</h1>
-<div id="f6474da8" class="cell" data-execution_count="10">
+<div id="3f9aba34" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="co">#zip the two lists into a dict</span></span>
 <span id="cb19-2"><a href=""></a>t_dict <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(t_list1, t_list2)) <span class="co"># using the zip() function to zip the two lists together</span></span>
 <span id="cb19-3"><a href=""></a><span class="co"># inside the dict() function to make a dict from the zipped lists</span></span>
@@ -761,7 +761,7 @@ key is city and value is New York</code></pre>
 
 <section id="the-pandas-dataframe-1" class="title-slide slide level1 smaller center">
 <h1>the pandas DataFrame</h1>
-<div id="8178d58a" class="cell" data-execution_count="12">
+<div id="322eb8e7" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#importaing pandas with the nickname pd</span></span>
 <span id="cb21-2"><a href=""></a><span class="co"># initialise some list objects that contains our data, this could also be a list of lists, or a dict of lists for example</span></span>
 <span id="cb21-3"><a href=""></a>names <span class="op">=</span> [<span class="st">'John Lennon'</span>, <span class="st">'Morris Day'</span>, <span class="st">'Robert Rtujillo'</span>, <span class="st">'Prince'</span>, <span class="st">'Pete Best'</span>, <span class="st">'Frank Zappa'</span>]</span>
@@ -828,7 +828,7 @@ key is city and value is New York</code></pre>
 
 <section id="importing-to-pandas-dataframe-3" class="title-slide slide level1 smaller center">
 <h1>Importing to pandas <code>DataFrame</code></h1>
-<div id="06489255" class="cell" data-execution_count="13">
+<div id="c9e9ec43" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="im">import</span> pathlib <span class="im">as</span> pl <span class="co"># importing the pathlib module with the nickname pl </span></span>
 <span id="cb22-2"><a href=""></a>data_path <span class="op">=</span> pl.Path(<span class="vs">r".\data\bands_df.csv"</span>) <span class="co"># creating a path object to the location of your data</span></span>
 <span id="cb22-3"><a href=""></a>bands_df <span class="op">=</span> pd.read_csv(data_path) <span class="co"># reading in the data from the path object</span></span>
@@ -842,7 +842,7 @@ key is city and value is New York</code></pre>
 <li class="fragment">The <code>read_excel()</code> <code>function</code> is very similar to the <code>read_csv()</code> <code>function</code></li>
 <li class="fragment">It has a lot of the same <code>arguments</code> and can be called in the same way</li>
 </ul>
-<div id="b237a37f" class="cell" data-execution_count="14">
+<div id="4702b75e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="co">#we've already imported pandas as pd and pathlib as pl so no need to do it again</span></span>
 <span id="cb23-2"><a href=""></a>xl_path <span class="op">=</span>  <span class="co"># creating a path object to the location of your data</span></span>
 <span id="cb23-3"><a href=""></a>bands_df_xl <span class="op">=</span> pd.read_excel(pl.Path(<span class="vs">r".\data\bands_df.xlsx"</span>)) <span class="co"># reading in the data from the path object</span></span>
@@ -893,7 +893,7 @@ key is city and value is New York</code></pre>
 <li class="fragment">By default it shows the first 5 rows of your data, but you can pass in a number to show more or fewer rows</li>
 <li class="fragment">There is also a <code>tail()</code> <code>method</code> that shows the last few rows of your data</li>
 </ul>
-<div id="0444fd0b" class="cell" data-execution_count="15">
+<div id="bf5cbe44" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>bands_df.head() <span class="co"># this will show the first 5 rows of the DataFrame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
@@ -977,7 +977,7 @@ key is city and value is New York</code></pre>
 <h1>The head() method</h1>
 <p>The <em>keen-eyed</em> amongst you might notice that <code>.head()</code> prints out the first <strong>5</strong> rows of the dataset, so poor Frank Zappa doesn’t get included. <strong>5</strong> is the default value for <code>.head()</code>, but we can change that by just putting an <code>int</code> between the brackets.</p>
 <div class="fragment">
-<div id="614b44c9" class="cell" data-execution_count="16">
+<div id="f2a49a77" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a>bands_df.head(<span class="dv">6</span>) <span class="co"># this will show the first 5 rows of the DataFrame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
@@ -1071,7 +1071,7 @@ key is city and value is New York</code></pre>
 <ul>
 <li class="fragment">We’re pretty sure you can guess what <code>.tail()</code> does… it displays the last <em>n</em> rows of a <code>DataFrame</code>.</li>
 </ul>
-<div id="1bd20234" class="cell" data-execution_count="17">
+<div id="d320ed80" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 <div>
@@ -1182,7 +1182,7 @@ key is city and value is New York</code></pre>
 <li class="fragment">which just means the number of rows and columns respectively.</li>
 <li class="fragment">If we take a look at the <code>shape</code> of <code>bands_df</code></li>
 </ul>
-<div id="96e8796d" class="cell" data-execution_count="18">
+<div id="6edc6214" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="bu">print</span>(bands_df.shape)<span class="co">#note the lack of brackets after 'shape'!</span></span>
 <span id="cb26-2"><a href=""></a><span class="co"># this will return a tuple with the number of rows and columns in the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1200,7 +1200,7 @@ key is city and value is New York</code></pre>
 <li class="fragment"><code>shape</code> <code>returns</code> a <code>list-like</code> object called <code>tuple</code>, which can be indexed like a <code>list</code></li>
 </ul>
 <div class="fragment">
-<div id="a2075225" class="cell" data-execution_count="19">
+<div id="8a4e0be6" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="bu">print</span>(<span class="ss">f'A total of </span><span class="sc">{</span>bands_df<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> individuals took part in our research'</span>)</span>
 <span id="cb28-2"><a href=""></a><span class="co"># I hope you see why this is useful to you in your life. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1218,7 +1218,7 @@ key is city and value is New York</code></pre>
 <li class="fragment">This will tell you how many columns there are in total, and how many rows we have in the raw data.</li>
 </ul>
 <div class="fragment">
-<div id="3fae9aa5" class="cell" data-execution_count="20">
+<div id="f5f2b286" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="co"># save the number of participants (using the indexing syntax) as the variable n </span></span>
 <span id="cb30-2"><a href=""></a>n <span class="op">=</span> bands_df.shape[<span class="dv">0</span>] <span class="co"># you use the movies_df variable name here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1232,7 +1232,7 @@ key is city and value is New York</code></pre>
 <li class="fragment">But when we want to start editing our data to get it ready for analysis we want to be able to see what columns are called and where they are in the dataset.</li>
 <li class="fragment">Pandas handles this in a really great way with the <code>.columns attribute</code>.</li>
 </ul>
-<div id="a4e9315e" class="cell" data-execution_count="21">
+<div id="0bc9c138" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> bands_df.columns: <span class="co">#using a for loop to iterate over each column name in the df columns</span></span>
 <span id="cb31-2"><a href=""></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1261,7 +1261,7 @@ original member</code></pre>
 <li class="fragment">We can <code>index</code> it like any other list</li>
 </ul>
 <div class="fragment">
-<div id="bb5955d7" class="cell" data-execution_count="22">
+<div id="280d42a3" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="bu">print</span>(bands_df.columns[<span class="dv">0</span>]) <span class="co"># this will return the first column name in the bands data set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Participant name</code></pre>
@@ -1278,7 +1278,7 @@ original member</code></pre>
 <li class="fragment">In your notebook, print out the <code>index</code> and <code>column name</code> for each column in the <code>df</code> using a <code>for-loop</code> and the <code>enumerate()</code> function.</li>
 </ul>
 <div class="fragment">
-<div id="a5bac7d7" class="cell" data-execution_count="23">
+<div id="794893b5" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a><span class="cf">for</span> i, c <span class="kw">in</span> <span class="bu">enumerate</span>(bands_df.columns): <span class="co">#using the enumerate function to get the (i)ndex and the (c)olumn name for the columns in the bands data set</span></span>
 <span id="cb35-2"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1298,7 +1298,7 @@ original member</code></pre>
 <li class="fragment">Columns are really easy to work with in pandas, they’re just <code>strings</code> in a <code>list</code></li>
 <li class="fragment">So if you wanted to make all the column names ‘lowercase’ you could do that with a <code>for-loop</code> and the <code>lower()</code> <code>method</code> of a <code>string</code></li>
 </ul>
-<div id="0e6c03d1" class="cell" data-execution_count="24">
+<div id="d3d41ad4" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a><span class="bu">print</span>(bands_df.columns) <span class="co"># printing out the columns of the bands data set</span></span>
 <span id="cb37-2"><a href=""></a><span class="cf">for</span> col <span class="kw">in</span> bands_df.columns: <span class="co"># using a for loop to iterate over each column name in the df columns</span></span>
 <span id="cb37-3"><a href=""></a>    bands_df.rename(columns<span class="op">=</span>{col: col.lower()}, inplace<span class="op">=</span><span class="va">True</span>) <span class="co"># using the rename() method to change the column names to lowercase</span></span>
@@ -1312,6 +1312,16 @@ Index(['participant name', 'band', 'instrument', 'song writer',
       dtype='object')</code></pre>
 </div>
 </div>
+</section>
+
+<section id="rename-method" class="title-slide slide level1 smaller center">
+<h1><code>.rename()</code> method</h1>
+<ul>
+<li class="fragment">The <code>.rename()</code> <code>method</code> is a handy one to know, especially starting out, but it’s not the only way to change column names in a <code>DataFrame</code></li>
+<li class="fragment">Note that when we call the <code>.rename()</code> <code>method</code> we’re passing in a <code>dict</code> with the <code>old</code> column name as the <code>key</code> and the <code>new</code> column name as the <code>value</code> (and you know how you can <code>zip</code> two <code>lists</code> together to make a <code>dict</code> right?)</li>
+<li class="fragment">We’re also passing in the <code>inplace=True</code> <code>argument</code> which tells the <code>method</code> to change the <code>DataFrame</code> in place, rather than returning a new <code>DataFrame</code> with the changes made</li>
+</ul>
+<p><code>bands_df.rename(columns=dict(zip(bands_df.columns[0:5]: ['id', 'age', 'gender', 'course'])), inplace=True)</code></p>
 </section>
 
 <section id="df.columns-5" class="title-slide slide level1 smaller center">
@@ -1337,7 +1347,7 @@ Index(['participant name', 'band', 'instrument', 'song writer',
 <li class="fragment">You can use the name of the column and the same `syntax we used with dicts to just view a single column of your dataset.</li>
 <li class="fragment">For example, if you wanted to see the <code>band</code> column of the <code>bands_df</code> you could do this:</li>
 </ul>
-<div id="29775754" class="cell" data-execution_count="25">
+<div id="54a6e8b5" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>bands_df[<span class="st">'band'</span>].head() <span class="co"># calling the 'band' column of the bands data set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>0     Beatles
@@ -1356,7 +1366,7 @@ Name: band, dtype: object</code></pre>
 <li class="fragment">You can also view a <code>slice</code> of the <code>DataFrame</code> by using the <code>column</code> names in the same way you would use <code>keys</code> in a <code>dict</code></li>
 <li class="fragment">For example, if you wanted to see the <code>band</code> and <code>instrument</code> columns of the <code>bands_df</code> you could do this:</li>
 </ul>
-<div id="fc232777" class="cell" data-execution_count="26">
+<div id="46cb94a8" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>bands_df[[<span class="st">'band'</span>, <span class="st">'instrument'</span>]].head() <span class="co"># calling the 'band' and 'instrument' columns of the bands data set</span></span>
 <span id="cb42-2"><a href=""></a><span class="co">#just note that we've used double square brackets here, this is because we're passing a list of column names to the df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
@@ -1443,7 +1453,7 @@ Name: band, dtype: object</code></pre>
 <ul>
 <li class="fragment">We can see that John Lennon is as <code>index</code> 0 and that Frank Zappa is at <code>index</code> 5 (or -1 because it’s the last observation in our dataset).</li>
 </ul>
-<div id="22f3f94c" class="cell" data-execution_count="27">
+<div id="2a264c8e" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>bands_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <div>
@@ -1537,7 +1547,7 @@ Name: band, dtype: object</code></pre>
 <li class="fragment">There are things we can do with the <code>index</code>, like set a different column (like maybe ‘Participant name’) to be the <code>index</code></li>
 <li class="fragment">Using the <code>set_index()</code> <code>method</code> of the <code>DataFrame</code> object</li>
 </ul>
-<div id="4d026a60" class="cell" data-execution_count="28">
+<div id="472dc806" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a><span class="co"># setting the 'Participant name' column as the index of the bands data set</span></span>
 <span id="cb44-2"><a href=""></a>new_bands_df <span class="op">=</span> bands_df.copy() <span class="co"># making a copy of the bands data set</span></span>
 <span id="cb44-3"><a href=""></a>new_bands_df.set_index(<span class="st">'participant name'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1629,7 +1639,7 @@ Name: band, dtype: object</code></pre>
 <li class="fragment">It’s a <code>pandas</code> <code>index</code> object, which is a bit like a <code>list</code> but with some extra functionality that makes it really useful for working with <code>DataFrames</code></li>
 <li class="fragment">However, this means that if we want to select a row by it’s <code>index</code> we need to use the <code>.loc[]</code> <code>attribute</code> of the <code>DataFrame</code> object</li>
 </ul>
-<div id="750f5a58" class="cell" data-execution_count="29">
+<div id="8a8cc02e" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="bu">print</span>(bands_df.loc[<span class="dv">0</span>]) <span class="co"># selecting the first row of the bands data set</span></span>
 <span id="cb45-2"><a href=""></a><span class="bu">print</span>(new_bands_df.loc[<span class="st">'John Lennon'</span>]) <span class="co"># selecting the row with the index 'John Lennon' in the new bands data set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1654,14 +1664,8 @@ Name: John Lennon, dtype: object</code></pre>
 <li class="fragment">That’s a lot in this session, so before you go, I want you to do a little practice</li>
 </ul>
 <ol type="1">
-<li class="fragment">Create a new notebook called ‘data_practice_1.ipynb’</li>
-<li class="fragment">Download the <code>data_practice_.csv</code> file from brightspace, and put it in the <code>data</code></li>
-<li class="fragment">Using <code>pl.Path()</code> and <code>pd.read_csv()</code> read the data into a <code>DataFrame</code></li>
-<li class="fragment">display the head and tail</li>
-<li class="fragment">print out each column name, and it’s index in the <code>.columns</code> list (using a <code>for-loop</code> and <code>enumerate()</code>)</li>
-<li class="fragment">print out the row with the index ‘4’ and the row with the index ‘-1’ using the <code>.loc[]</code> <code>method</code></li>
-<li class="fragment">make a <code>.copy()</code> of the <code>df</code> and set ‘ResponseId’ as the index</li>
-<li class="fragment">print out the row with the index ‘p_001’ and the row with the index ‘p_004’ using the <code>.loc[]</code> <code>method</code></li>
+<li class="fragment">make a <code>.copy()</code> of the <code>movies_df</code> and <code>rename</code> <code>Participant name</code> to <code>participant_name</code> using the <code>.rename()</code> <code>method</code></li>
+<li class="fragment">print out the row with the index ‘John Carpenter’ using the <code>.loc[]</code> <code>method</code></li>
 </ol>
 <p>. . . Make a new code cell for each step and take your time working through it.</p>
 <div class="quarto-auto-generated-content">

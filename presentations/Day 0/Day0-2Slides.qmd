@@ -9,7 +9,7 @@ format:
 
 
 editor: "visual"
-jupyter: pss
+jupyter: wsl_prec
 bibliography: references.bib
 csl: apa.csl
 ---
@@ -628,9 +628,7 @@ Rather than ending this session with a quiz we're going to do something differen
 
 You'll be split into groups of 3 or 4, and each group will have to work together to produce an apastyle document using the 'apaquarto' extension - from scratch. 
 
-This will happen as a relay race where each member of the team will have to complete a specific task before passing the document to the next member of the team.
 
-Each team will come to the front of the room to work on the laptops we have set up at the front, you'll be going head-to-head with another team to see who can finish first.
 
 ## Let's Get Ready to Rumble!{.smaller}
 

@@ -8,7 +8,7 @@
 <link href="Day0-1Slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="Day0-1Slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Day0-1Slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.4.554">
 
   <title>Session 0.1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -457,7 +457,7 @@
 <h2>The File System</h2>
 <ul>
 <li class="fragment">Each person (<code>file</code>) lives in a building (<code>directory</code>).</li>
-<li class="fragment">This building can just be a single house or it can be an appartment block contains lots of smaller homes (<code>sub-directories</code>).</li>
+<li class="fragment">This building can just be a single house or it can be an apartment block that contains lots of smaller homes (<code>sub-directories</code>).</li>
 <li class="fragment">In order to get to a building (<code>directory</code>) you need to know the address (where is it located on the computer).</li>
 <li class="fragment">And once you know the <code>address</code> you can walk the <code>path</code> to get the <code>file</code> you want.</li>
 </ul>
@@ -557,7 +557,7 @@
 <section id="the-file-system-11" class="slide level2 smaller">
 <h2>The File System</h2>
 <p>This can be tricky to get your head around at first, but it’s really useful once you get the hang of it, and it’s actually not that difficult.</p>
-<p>Maybe the best way to get the hang of it is to practice,</p>
+<p>Maybe the best way to get the hang of it is to practice</p>
 <ul>
 <li class="fragment">create a new <code>sub-directory</code> in the summerschool folder called <code>images</code>
 <ul>
@@ -580,7 +580,7 @@
 <h3 id="imagesmy_image.jpg">![](./images/my_image.jpg)</h3>
 <p>(<em>note the ‘./’ in the <code>path</code></em>)</p>
 <aside class="notes">
-<p>This is the <code>quarto markdown</code> syntax for an image. Not the difference in the ‘' and the’/’ in the <code>path</code>. This is because the ‘' is used to escape the next character in <code>markdown</code> and the’/’ is used to separate <code>directories</code> and <code>files</code> in the <code>path</code>.</p>
+<p>This is the <code>quarto markdown</code> syntax for an image. Note the difference in the ‘' and the’/’ in the <code>path</code>. This is because the ‘' is used to escape the next character in <code>markdown</code> and the’/’ is used to separate <code>directories</code> and <code>files</code> in the <code>path</code>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -627,8 +627,8 @@
 <h3 id="imagesmy_image.jpg-1">![](./images/my_image.jpg)</h3>
 </section>
 <section id="putting-citations-into-your-document" class="slide level2 smaller">
-<h2>putting citations into your document</h2>
-<p>OK, images are all well and good, but what about something that’s useful for your <em>accaedmic</em> writing?</p>
+<h2>Putting citations into your document</h2>
+<p>OK, images are all well and good, but what about something that’s useful for your <em>academic</em> writing?</p>
 <p>(You know, the thing that you’re here to learn about?)</p>
 <p>Well, in a similar way to the images we can tell quarto where to find your references file and then you can really easily put them in your document.</p>
 <p>On the brightspace project site for this summerschool you’ll find a file called <code>example_references.bib</code>. This is a sample <code>bibliography</code> file that contains the references used in making todays sessions.</p>
@@ -639,7 +639,7 @@
 <p>If you want to you can open the <code>example_references.bib</code> file in VScode and have a look at the structure of the file.</p>
 <p>It’s a <code>plain text</code> file that contains a list of references in a specific format.</p>
 <p>This format is (using <code>{}</code> to indicate a <code>field</code>) is very common in the world of programming and we’ll definitely spend time on it later but for now just note that it’s a list of references with a <code>key</code> that you can use to refer to the reference in your document. The <code>key</code> is the first thing in the <code>bibliography</code> entry (after the first <code>{</code>).</p>
-<p>But first we need to tell quart where to find the <code>bibliography</code> file.</p>
+<p>But first we need to tell quarto where to find the <code>bibliography</code> file.</p>
 </section>
 <section id="putting-citations-into-your-document-2" class="slide level2 smaller">
 <h2>putting citations into your document</h2>

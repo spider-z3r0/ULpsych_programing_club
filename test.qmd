@@ -1,7 +1,15 @@
 ---
 title: 'test'
 author: 'Kev'
-format: 'pptx'
+engine: knitr
 ---
 
+
+
 # Hello, World!
+
+
+```{r}
+string -> "Hello, World!"
+print(string)
+```

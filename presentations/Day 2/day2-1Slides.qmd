@@ -31,23 +31,22 @@ csl: apa.csl
   - standardising or `renaming` columns 
   - as well as some other cool things (like ) `slicing` your data, and 'fixing' inconsistent data.
 
-# Recap quiz and activity.  {.smaller}
+# Recap quiz {.smaller}
 
- - Before we get into that though, we need to import some data to work with so this is a good time to practice what you learned last session
- - This time, we're going to use the quiz to prompt your steps to get data imported and inspected. 
- - Go to the usual place on brightspace and find the quiz for this session (recap quiz 2.1)
- - This will walk you through the steps to import the data we will be working with today.
+ - You know where the quiz is by now.
 
-# Recap quiz and activity.  {.smaller}
-
- 1. Import the packages pandas and pathlib (don't forget the 'as' bit; make sure you have selected the kernel related to your virutal environment)
- 2. Download the data for this session from brightspace and save it to your computer (into the data folder you previously made)
- 3. Create a `Path()` to the data
- 4. Import your data into a Dataframe by using the Path() you have created (n.b. assign the `DataFrame` to a variable, and remember that we often use the shorthand 'df' when doing so)
- 4. Display the head and tail of your dataframe to ensure that it has been imported correctly. 
  
-# This week's data {.smaller}
+# This session's data {.smaller}
 
+ - Make sure the virtual environment is activated
+ - pip install tabulate
+
+```{python}
+#| echo: true
+#| eval: true
+from tabulate import tabulate
+from IPython.display import Markdown
+```
 
 ```{python}
 #| echo: true
@@ -540,7 +539,9 @@ movies_df.isnull() #This will go through our dataframe and check
 ```{python}
 #| echo: true
 #| eval: true 
+print(movies_df.shape)
 movies_df_cleanv1 = movies_df.dropna() 
+print(movies_df_cleanv1.shape)
 ```
 
 # `.dropna()` {.smaller}
@@ -550,11 +551,11 @@ movies_df_cleanv1 = movies_df.dropna()
  - This way we still have access to the raw file within this notebook if we need it. 
  - For example, if we needed to go back and view values from a row we've deleted. 
 
-# Empty but no empty {.smaller}
+# Empty but not empty {.smaller}
 
  - The other type of missing value is a non-standard missing value.
  - A non-standard missing value usually occurs when there is a cell that **looks** "empty" to us, but from Python's perspective there is a value there. 
- - For example, we can see that in the second row, that from our perspective, there is an empty cell under `participant name`. However, from Python's perspective, there is a value there: an empty string `" "`. 
+ - For example, we can see that in the second row, that from our perspective, there is an empty cell under `participant name`. However, from Python's perspective, there is a value there: an empty string `""`. 
 
 
 # Empty but not empty {.smaller}
@@ -565,32 +566,64 @@ movies_df_cleanv1 = movies_df.dropna()
 movies_df_cleanv1.head(3)
 ```
 
-# `.replace()' {.smaller}
+# `replace()` {.smaller}
 
  - There are multiple ways to deal with this, but what we are going to do is use `.replace()` 
- - We'll `replace() any missing values with a `NaN` result,
- - Thenremove that row from the dataframe. 
+ - We'll `replace()` the value there with `np.nan`
+ - Then remove that row from the dataframe. 
  - Basically, we convert a non-standard missing value into a missing value. 
 
 
+# `replace()` {.smaller}
+
 ```{python}
+#| echo: true
+#|eval: true
 #Replace cell/field that's entirely space or empty with NaN
-a = movies_df_cleanv1.replace(r'^\s*$', np.nan, regex=True)
+movies_df_cleanv1.replace(r'', np.nan, regex=True, inplace=True)
 ## Hold on a second, what the hell is r'^\s*$'? and what the hell is a regex?
 # A regex is short for "regular expression". 
 # Regex enables us to identify a pattern in text (think about using search function in Word)
-# The 'r' indicates that we are using a regular expression. 
+# The 'r' indicates that we are using a 'raw string' (remember these from paths). 
 # The '^\s*$' is regular expression syntax to identify empty strings
-#I save the result to a variable a, so I can use dropna() function on it
-movies_df_cleanv2 = a.dropna() 
-movies_df_cleanv2
+print(movies_df_cleanv1.shape)
+movies_df_cleanv2 = movies_df_cleanv1.dropna() 
+print(movies_df_cleanv2.shape)
+movies_df_cleanv2.head(2)
 ```
 
-# `.replace()' {.smaller}
 
- - There are moresophisticated ways of handling NaN data.
+# `replace()` {.smaller}
+
+ - There are more sophisticated ways of handling NaN data.
  - But for now, we have a dataframe that has usable (if imperfect) data in each cell. 
- - Our next steps are to clean up some entries in our dataframe, and fix inconsistent data entries. 
+ - Our next steps are 
+     - to reset the index labels
+     - remove columns we don't need
+     - to clean up some inconsistent entries in our DataFrame
+
+# reseting the index {.smaller}
+
+ - when we `drop` rows the `index labels` of the `DataFrame` doesn't update. 
+ - you can see this if you view the `DataFrame` after dropping
+ - `pandas` has a really simple `method` to manage this
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2.reset_index(inplace = True, drop = True)
+movies_df_cleanv2.head()
+```
+
+
+# reseting the index {.smaller}
+
+ - Note that as we have to specify the `inplace = True` and `drop = True` arguments
+ - This is becase the `.reset_index method` actually saves the 'original' index as a column
+ - This new column is just called `index` (which is just stupid)
+ - so specifying these arguments just lets us get on. 
 
 # Dropping Columns {.smaller}
 
@@ -602,7 +635,7 @@ movies_df_cleanv2
 ```{python}
 #| echo: true
 #| eval: true
-movies_df_cleanv2 = movies_df_cleanv1.drop("make_me_cry?", axis = 1) #dropping and assigning to new variable
+movies_df_cleanv2 = movies_df_cleanv2.drop("make_me_cry?", axis = 1) #dropping and assigning to new variable
 for i in movies_df_cleanv2.columns:
     print(i)
 ```
@@ -618,7 +651,7 @@ for i in movies_df_cleanv2.columns:
    - The `axis` of the thing you want to `drop`
  - The `axis` argument just states whether your dropping rows or columns
    - `axis = 0` relates to `rows`
-   - `axis = 0` relates to `columns`
+   - `axis = 1` relates to `columns`
 
 # `axis` 
 
@@ -628,6 +661,7 @@ for i in movies_df_cleanv2.columns:
 
  - In you're own notebook create a new cell
  - use the `.replace() to replace the empty `strings` with `Nan`
+ - then use the `.dropna()` method to remove the rows with `Nan` values
  - Drop the "make_me_cry?" column (but put the outcome in a new variable)
 
 
@@ -654,166 +688,248 @@ movies_df_cleanv2['gender_of_lead'].value_counts()
 
 # Inconsistent Data {.smaller}
 
- - We can see that within
+ - The `df[column name].value_counts()` method gives us a sense of what values we have in a given column
+ - We have 3 'Male', 1 'm', 1 'male', 1 'Orgre', 1 'Female', 1 'fem'.
+ - Just like in SPSS, these would be considered different categories, even though we know that 
+    - 'Female'
+    - 'fem'
+ - Both mean the same thing
+ - We can use the `.replace()` method to fix this. 
 
-We can see that within our column, "Gender of Lead", that there are inconsistent values. Male is sometimes coded as "male", or "m". Female is sometimes codes as "fem". But it is good to get a quantitative idea of the different values that are entered within this column. One function we can use to identify the different values that are within a column, and also how many times that value appears within the column, is the function `value_counts()`.
+# `.replace()` {.smaller}
 
-The first thing we need to do is select (aka slice) the particular column that we want, and then use the value_counts function. 
-
-````{{python}}
-movies_df_cleanv2.iloc[:, -1:].value_counts()
-````
-
-Okay we can see that our `Gender of Lead` is all over the place. Rather than having 6 Males and 2 females, we have 3 'Males', 1 'm', 1 'male', 1 'Orgre', 1 'Female', 1 'fem'. The values used to code our data is inconsistent. So let's fix it by using the `replace` function. 
-
-
-
-
-````{{python}}
-movies_df_cleanv2.iloc[:, -1:] = movies_df_cleanv2.iloc[:, -1:].replace(to_replace = ["Orgre", "m"], value = "Male")
-
-#the syntax for the following code is:
-#dataframe.replace(list_with_values_to_replace = ["Old Value1"...."Old ValueN"], value = "New Value1")
-````
-
-Now we could have also replaced the lowercase `male`, but we will show another method you use to handle cases where inconsistent values are related to capitalisation. 
-
-First let's fix the female values
-
-````{{python}}
-#Take the syntax from the previous code cell and use replace "fem" with "female" for the "Gender of Lead" column
-````
-
-Okay, now let's fix our capitalisation issue. We can do that by using the str.capitalise() method. 
-
-````{{python}}
-movies_df_cleanv2['Gender of Lead'] = movies_df_cleanv2['Gender of Lead'].str.capitalize()
-
-movies_df_cleanv2
-````
-
-Now there's a few things going on here. 
-
-1st. Instead of slicing our dataframe the way we have been showing you so far `movies_df_cleanv2.iloc[:, -1:]`, we instead selected our column by using actual name of the column. This is a perfectably acceptable way to select a column. 
-
-2nd. We use the str. function to treat everything inside our column as a string. 
-
-3rd. Then we call the capitalise() method on our strings in order to capitalise the first letter. There are other functions that we could apply instead of capitalise. For example, we could use str.upper() to transform every value into UPPER CASE. Or we could str.lower to transform every value into lower case. Feel free to toy around with them in the example above. 
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2['gender_of_lead'] = movies_df_cleanv2['gender_of_lead'].replace(to_replace = ["Orgre", "m"], value = "male")
+print(movies_df_cleanv2['gender_of_lead'].value_counts())
+```
 
 
-````{{python}}
-#Use the value counts function on the Genre column and see what type of movie pops up the most often in our dataset. 
-````
+ - The syntax for the relevant code is:
+ - `df[column_name].replace(to_replace = ["Old Value1"...."Old ValueN"], value = "New Value1")`
+ - note that *instead* of slicing, we've just put the name of the column inside `[]` 
+ - like we were working with a `dict` 
 
-````{{python}}
-#Let's say for the sake of our analysis, we do not need to make the distinction between a comedy and a dark comedy
-#Using the replace function, change "Dark Comedy" to "Comedy" in our dataset for the Genre column. 
-````
+. . .
 
-````{{python}}
-#Convert the genre column to either upper or lower case (dealers choice!)
-````
+We could have also replaced the uppercase `Male`, but we will show another method you use to handle cases where inconsistent values are related to capitalisation. 
 
-## Adding to our Dataframe
+# `.replace()` {.smaller}
 
-Run the cell below to let us look at our dataframe again.
+ - First let's fix the female values
+ - In your own notebook, use `replace()` to normalise the values for 'male' and 'female'
+ - Don't forget the `.value_counts()` method will help you see what values you need to clean. 
 
-````{{python}}
-movies_df_cleanv2
-````
+. . .
 
-Hopefully if you have gotten to this stage, the columns are appropriately labelled, there are no missing values, and values are consistent within columns. It should look in a lot better shape. If not, then do not worry, just let us know. :) 
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2['gender_of_lead'] = movies_df_cleanv2['gender_of_lead'].replace(to_replace = ["Female", "fem"], value = "female")
+```
 
-# Add Rows
+# fixing capitalisation {.smaller}
+
+ - Now let's fix our capitalisation issue.
+ - You already know that there are lots of `str methods`
+ - We can use the `str.lower()` method to set all the values to lower. 
+
+
+. . .
+
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv2['gender_of_lead'] = movies_df_cleanv2['gender_of_lead'].str.lower()
+movies_df_cleanv2['gender_of_lead'].value_counts()
+```
+
+
+# fixing capitalisation {.smaller}
+
+ - There's a few things going on here. 
+    - 1. We use the `df[column_name]` syntax to select the column
+    - 2. We call `.str` to treat everything inside our column as a string (if it can). 
+    - 3. Then we call the `.lower() str method`.
+
+ - There are other functions that we could apply instead of `.lower`.
+ - For example, we could use `str.upper()` to transform every value into UPPER CASE 
+
+# fixing data - practice {.smaller}
+
+ - In your own notebook, make the column title case before resetting it to lower case
+ - (Don't forget to inspect the results with `.head()` or `.value_counts()`
+ - Use the value counts function on the `'genre'` column and see what type of movie pops up the most often in our dataset. 
+ - Let's say for the sake of our analysis, we do not need to make the distinction between a comedy and a dark comedy
+ - Using the replace function, change "Dark Comedy" to "Comedy" in our dataset for the `'genre'` column. 
+ - Convert the `'genre'` column to either upper or lower case (dealers choice!)
+
+# fixing data {.smaller}
+
+ - At this stage
+    - the columns are appropriately labelled,
+    - there are no missing values,
+    - and values are consistent within columns.
+
+. . .
 
 Our dataframe is pretty small though right. And there aren't that many movies in there with a female lead, so how can we rectify that? 
 
-Well with pandas, it is relatively handy to add (or append) rows to a dataframe. 
 
-````{{python}}
-new_rows = {'Director': ['Ridley Scott', 'Greta Gerwig'], 
-'Movie': ['Alien', 'Lady Bird'], 
-'Genre': ['Horror', 'Drama'],
-"Year of Release": ['1979', '2017'],  
-"ImdB Score": [85, 74],
-"Rotten Tomatoes Score": [98, 99],
-"Gender of Lead": ["Female", "Female"]
+# Add Rows {.smaller}
+
+
+ - It is quite easy to concatenate (remember that from the earlier sessions with strings?) now rows onto our data
+
+```{python}
+#| echo: true
+#| eval: true
+# make a dict of our new rows
+new_rows = {'director': ['Ridley Scott', 'Greta Gerwig'], 
+'title_of_thing': ['Alien', 'Lady Bird'], 
+'genre': ['Horror', 'Drama'],
+"year_of_release": ['1979', '2017'],  
+"imdB_score": [85, 74],
+"rotten_tomatoes_score": [98, 99],
+"gender of lead": ["female", "female"]
 }
-
-df2 = pd.DataFrame(new_rows)
-
-movies_df_cleanv3 = movies_df_cleanv2.append(df2, ignore_index="True")
-
-movies_df_cleanv3
-````
-
-Wahey! Although there is still a gender imbalance, we are definitely healthier on male/female actor lead (the director situation is a different story). 
-
-But what went on to achieve that? Well, there's a few things to note:
-
-The first thing is we created a dict object, `new_rows`, containing our column names (dict keys) and column values (dict values). Because we are adding more than one value per column name, we enter the column values as a list. This enables Python to create multiple rows per each column. 
-
-The second thing is that we turned these dict into a dataframe, called `df`. This is because it is much more straightforward to add multiple rows to an existing dataframe, if those rows are in the shape of a dataframe. 
-
-The third thing is that we set `ignore_index = True`. The index refers to the co-ordinate system we have been using to slice our dataframe. The two dataframes, movies_df_cleanv2 and df2, will have their own indices. For example, the value in row 1, column 1, in movies_df_cleanv2 is "John Carpenter", whereas the same co-ordinates in df2 return "Ridley Scott". 
-
-To set ignore_index to true simply means to combine the two dataframes under one co-ordinate system, rather than keeping their own specific co-ordinate systems. Don't worry if this is still sounding too abstract, you do not need to know it for now. 
+#convert the dict to a DataFrame
+df2 = pd.DataFrame(new_rows) #just call the DataFrame class and pass our dict to it
+movies_df_cleanv3 = pd.concat([movies_df_cleanv2,df2], ignore_index="True")
+movies_df_cleanv3.tail(3)
+```
 
 
+# Add Rows {.smaller}
 
-````{{python}}
-# Try to add another row to the dataframe. 
-# Google any movie you like, create a dictionary containing its value for each of the columns
-# Turn that dict into a Dataframe
-# Then append that dataframe to our existing dataframe
-````
+- It is quite easy to concatenate (remember that from the earlier sessions with strings?) now rows onto our data.
 
-# Add column 
+```{python}
+#| echo: true
+#| eval: true
+# make a dict of our new rows
+new_rows = {'director': ['Ridley Scott', 'Greta Gerwig'], 
+'title_of_thing': ['Alien', 'Lady Bird'], 
+'genre': ['Horror', 'Drama'],
+'year_of_release': ['1979', '2017'],  
+'imdb_score': [85, 74],
+'rotten_tomatoes_score': [98, 99],
+'gender_of_lead': ['female', 'female']
+}
+#convert the dict to a DataFrame
+df2 = pd.DataFrame(new_rows) #just call the DataFrame class and pass our dict to it
+movies_df_cleanv3 = pd.concat([movies_df_cleanv2, df2], ignore_index=True)
+movies_df_cleanv3.tail(3)
+```
 
-At the moment, our columns contain Rotten Tomatoes score from critics. But what if we wanted to add in the Rotten tomatoe scores from fans? We can do that fairly easily with pandas dataframes. 
+# Add Rows {.smaller}
 
-````{{python}}
+ - Although there is still a gender imbalance, we are definitely healthier on male/female actor lead.
+ - How did we achieve that? Well, there's a few things to note:
+   1. The first thing is we created a dict object, `new_rows`, containing our column names (dict keys) and column values (dict values). 
+      - Because we are adding more than one value per column name, we enter the column values as a list. 
+      - This enables Python to create multiple rows per each column.
+   2. The second thing is that we turned these dict into a dataframe, called `df2`. 
+      - This is because it is much more straightforward to add multiple rows to an existing dataframe if those rows are already in the shape of a dataframe.
+   3. The third thing is that we set `ignore_index = True`.
+      - The two dataframes, movies_df_cleanv2 and df, will have their own indices. 
+      - For example, the value in row 1, column 1, in movies_df_cleanv2 is "John Carpenter", whereas the same coordinates in df return "Ridley Scott".
+      - To set ignore_index to true simply means to combine the two dataframes under one coordinate system, rather than keeping their own specific coordinate systems. Don't worry if this is still sounding too abstract; you do not need to know it for now.
+
+# Add Rows {.smaller}
+
+ - The code for that is up on bright space. 
+ - Please copy it into a new cell in your notebook for this session and play around with it
+
+
+# Add columns {.smaller}
+
+ - At the moment, our columns contain Rotten Tomatoes scores from critics. 
+ - But what if we wanted to add in the Rotten Tomatoes scores from *fans*? 
+ - We can do that fairly easily with pandas dataframes.
+
+. . . 
+
+```{python}
+#| echo: true
+#| eval: true
 #first let's create a list that will be converted into a column within our dataframe
-
-rt_fans = [92.0, 79.0, 42.0, 82.0, 86.0, 69.0, 89.0, 93.0, 94.0, 79.0] #By the way, how in the hell does Shrek 2 only have a 69% on rotten tomatoes? What kind of sick joke is that?
-
+rt_fans = [92.0, 79.0, 42.0, 82.0, 86.0, 69.0, 89.0, 93.0, 94.0, 79.0] 
+#By the way, how in the hell does Shrek 2 only have a 69% on rotten tomatoes?
+#What kind of sick joke is that?
 #Now let's create a column within our dataframe, and then set its values to rt_fans
+movies_df_cleanv3["rotten_tomatoes_fans_scores"] = rt_fans
+```
 
-movies_df_cleanv3["Rotten Tomatoes Fans' Scores"] = rt_fans
+# Add columns {.smaller}
 
-movies_df_cleanv3
-````
+ - We just call the name of the `df` followed by a name for our new column in `[]`
+ - then we use `=` (assignment not boolean/comparrison) and the name of the collection that we want populate the columns
+ - `df["name"] = thing` 
+ - could also just be empty `df["empty_col"] = ''`
 
-Nice, we have the fans opinion in there too for Rotten Tomatoes. But ideally we would want it next to the Rotten Tomatoes Critics scores. Let's re-order our dataframe
+# Add columns {.smaller}
 
-````{{python}}
-movies_df_cleanv3 = movies_df_cleanv3[["Director", "Movie", "Genre", "Year of Release", "ImdB Score", "Rotten Tomatoes Score", "Rotten Tomatoes Fans' Scores", "Gender of Lead"]]
+```{python}
+#| echo: false
+#| eval: true
+Markdown(tabulate(movies_df_cleanv3.head(3), headers = movies_df_cleanv3.columns))
+```
 
+
+# Organise the columns {.smaller}
+
+ - Nice, we have the fans' opinion in there too for Rotten Tomatoes. 
+ - But ideally, we would want it next to the Rotten Tomatoes Critics scores.
+ - Let's reorder our dataframe.
+
+```{python}
+#| echo: true
+#| eval: true
+movies_df_cleanv3.reindex([
+  "director", "title_of_thing",
+  "genre", "year_of_release",
+  "imdB_score", "rotten_tomatoes_score",
+  "rotten_tomatoes_fans_scores", "gender_of_lead"], axis = 1)
 movies_df_cleanv3.head()
-````
+```
 
-````{{python}}
+# some practice {.smaller}
+
+ - With your partner, look up the actors in the table
+ - Make a list called `oscar` and fill it with "Yes" or "No" for each actor 
+ - Then add this list as a new column called "oscar_winner" to your dataframe
+ - Then reorganise your data so that 'gender_of_lead' and 'oscar_winner are the 3rd and 4th columns
+
+```{python}
+#| echo: false
+#| eval: false
 ## What if we wanted to know whether the lead actor won an oscar or not? 
 
 #Take the following list, and add it as a column in the dataframe
 
-#oscar = ["No", "No", "No", "No", "Yes", "No", "No", "Yes", "No", "No"]
-````
+oscar = ["No", "No", "No", "No", "Yes", "No", "No", "Yes", "No", "No"]
+movies_df_cleanv3["oscar_winner"] = oscar
+movies_df_cleanv3.head()
+```
 
-Well done. We have covered a lot this week. Do not worry if a lot of these ideas have not sunk in. That's normal. 
+# Practice Exercises {.smaller}
 
-Our recommendation would be to practice with your own dataframes. Practice will help this all sink in.
+ - Well done. We have covered a lot this week. Do not worry if a lot of these ideas have not sunk in. That's normal.
+ - This stuff is all about *doing*
+ - You have to practice recalling it, to get it into your fingertips, like learning an instrument
+ - In new notebooks, you can practice with the CSV version of the raw data thats up on brightspace.
 
-In the cells below this one you can practice with the csv version of the raw data. 
+   1. Save a version of your df that doesn't have any empty cells.
+   2. Scan for inconsistent data.
+   3. See if you can fix it.
+   4. Drop columns you don't need, or use `iloc` to save a version of the data that doesn't have the extra columns in it.
 
- 1. save a version of the your df that doesn't have any empty cells
- 2. scan for inconsistent data
- 3. see if you can fix it
- 4. drop columns you don't need, or use `iloc` to save a version of the data that doesn't have the extra columns in it. 
-
-Next week, we will start looking at more sophisticated methods to handle missing values, how we can sort our dataframe, and start with calculating some descriptive statistics. 
-
-Until next time, 
-
-Kev & Ryan. 
+# Additional Practice Exercises {.smaller}
+ - Additionally, try adding more data to your DataFrame:
+   - Google more movies, create dictionaries for each movie, and append them to your DataFrame.
+   - Add more columns with relevant data (e.g., box office earnings, runtime).
+   - Create a new DataFrame with only the movies released after the year 2000.
+   - Calculate and add a new column for the average score between IMDb and Rotten Tomatoes Critics.
 
