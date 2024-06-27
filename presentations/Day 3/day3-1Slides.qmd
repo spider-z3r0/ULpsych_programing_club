@@ -47,7 +47,7 @@ use_virtualenv("r-reticulate")
    - loops, conditionals, functions
    - You've seen these in python, so it should be familiar
  - We're also going to look quickly at some other packages in R
-   - tidyverse, ggplot2, psych
+   - tidyverse, janitor, psych
  - And as always, you'll be writing your own `.qmd` with explanations that make sense to you
  - Let's get started with loops
 
@@ -79,7 +79,7 @@ for i in range(1, 11):
 #| eval: true
 # making a vector of names
 
-names <- c("Alice", "Bob", "Charlie", "David", "Eve")
+names <- c("Alice", "Bobby", "Charlie", "Dave", "Eve")
 #looping
 for (name in names) {
   print(paste("name = ", name))
@@ -377,16 +377,36 @@ if (nchar(x) %% 2 == 0) {
 
  - Before we move onto the next section, let's put all this together 
  - Make a level one heading that says 'Putting it all together'
- - Then write a function that takes in a `character`
-   - The function should iterate over the `character` and print each symbol
-   - The function should also print a message if the number of symbols is odd or even
- - Then call the function with a `character` of your choice
+ - Then write a function that takes in a `vector` of `characters` (maybe names)
+ - The function should iterate over the `vector` and print each name
+  - And the function should print a message depending on the number of symbols in the name (nchar(name) %% 2 == 0)
+ - Then call the function with a `vector` of your choice
 
 # Practice {.smaller}
 
  - Take your time and work through the problem
  - Try making the loop first and then the conditional
  - Then see how you might wrap all that into a function. 
+
+# Putting it all together {.smaller}
+
+```{r}
+#| echo: true
+#| eval: true
+names <- c("Alice", "Bobbie", "Charlie", "Dave", "Eve")
+
+print_items <- function(x) {
+  for (item in x) {
+    if (nchar(item) %% 2 == 0) {
+      print(paste(item, "has an even number of symbols", sep = ' '))
+    } else {
+      print(paste(item, "has an odd number of symbols", sep = ' '))
+    }
+  }
+}
+
+print_items(names)
+```
 
 # Other packages {.smaller}
 
@@ -662,3 +682,85 @@ summary <- read_csv("../../data/movies_df_2_2.csv") %>%
 
 head(summary)
 ```
+
+# The %>% operator {.smaller}
+
+ - Look at what the code above does
+ - It uses the `%>%` operator to chain the `read_csv`, `clean_names`, `select`, `filter`, `group_by`, and `summarize` functions together
+ - The `%>%` operator passes the output of one function to the next function
+ - This makes the code more readable and easier to understand
+ - The `%>%` operator is really useful for working with the `tidyverse` package
+
+# Practice time {.smaller}
+
+ - In the file called `stuff_in_R.qmd`
+ - Make a level one heading that says 'The %>% operator'
+ - Write a code chunk that reads in the `movies_df_2_2.csv` file, cleans the column names, selects the columns `movie_title`, `year_of_release`, `genre`, and `imd_b_score`, filters the rows where the word 'comedy' is in the `genre` column, groups the data by the `genre` column, and calculates the mean of the `imd_b_score` column
+ - Use the `%>%` operator to chain the functions together
+
+# Psych {.smaller}
+
+ - The `psych` package is a package that is designed to make it easier to work with psychological data
+ - It has a lot of functions that make it easier to analyze psychological data
+ - One of the most useful functions in the `psych` package is the `describe` function
+ - This function gives you a summary of the data in a data frame
+ - It tells you the mean, median, mode, standard deviation, and other statistics for each column in the data frame
+
+# Psych - describe {.smaller}
+
+  - Let's use the `describe` function to get a summary of the `data` data frame
+
+```{r}
+#| echo: true
+#| eval: true
+
+describe(data)
+```
+
+# Psych - describe {.smaller}
+
+ - Look at what the code above does
+ - It uses the `describe` function to get a summary of the `data` data frame
+ - The `describe` function gives you a summary of the data in the data frame
+ - It tells you the mean, median, mode, standard deviation, and other statistics for each column in the data frame
+ - The `describe` function is really useful for getting a quick summary of the data in a data frame
+
+# Practice time {.smaller}
+
+  - In the file called `stuff_in_R.qmd`
+  - Make a level one heading that says 'Psych'
+  - Write a code chunk that imports the `psych` library
+  - Write a code chunk that uses the `describe` function to get a summary of the `data` data frame
+
+# Other analysis {.smaller}
+
+  - The `psych` package has a lot of other functions that make it easier to analyze psychological data
+  - For example, the `alpha` function is used to calculate Cronbach's alpha
+  - The `fa` function is used to do factor analysis
+  - The `principal` function is used to do principal components analysis
+  - We won't go into these functions in detail, but they're really useful for analyzing psychological data
+
+# Summary {.smaller}
+
+ - In this session we covered more general programming concepts in R
+   - loops, conditionals, functions
+ - We also looked quickly at some other packages in R
+   - tidyverse, janitor, psych
+ - And as always, you wrote your own `.qmd` with explanations that make sense to you
+ - You're doing great! Keep up the good work!
+
+# Summary {.smaller}
+
+  - This is very much a whirlwind tour of R
+  - And there's so much more, but this coveres the basics
+  - Youtube channels like `R for Data Science` and `Statists of Doom` are great resources for more specific stuff
+  - And the `R` community is really active and helpful
+
+# The rest of the programme {.smaller}
+
+  - For the rest of this summer school we're going to have you work in groups on an actual project
+  - You'll be working with a dataset and using the skills you've learned to analyze the data
+  - You'll be writing a report that explains your analysis and your findings
+  - So go take a break, while we set up the details for what you need on brightspace
+
+

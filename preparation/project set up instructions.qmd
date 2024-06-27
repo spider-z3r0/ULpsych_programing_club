@@ -1,0 +1,20 @@
+# project set up
+
+When you're setting up a new project, you'll need to do the following:
+
+1. Create a new project folder and the subfolders `data`, `analysis`, and `output`
+2. Download the data set from brightspace and save it in the `data` folder
+3. Create a virtual environment for the project
+  - Open a terminal in the 'root folder' of your project 
+  = "python -m venv name_of_your_environment
+4. Activate the virtual environment
+  - On Windows: `name_of_your_environment\Scripts\activate`
+5. Install the required packages
+  - `pip install pandas jupyter` as a minimum
+  - buy you'll also need to look up the package for the anova and correlation tests
+6. Install a jupyter kernel for the virtual environment
+  - `python -m ipykernel install --user --name=name_of_your_environment`
+7. Create a new jupyter notebook or quarto document in the `analysis` folder
+  - If you're using ipynd remember that you'll need to put the yaml in a raw cell at the top of the notebook
+  - And this needs the `---` at the start and end of the yaml
+8. Start working on your project!
