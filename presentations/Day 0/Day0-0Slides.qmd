@@ -5,8 +5,11 @@ format:
    revealjs:
       incremental: true
       theme: solarized
-editor: "visual"
-jupyter: wsl_prec
+jupyter:
+  kernelspec:
+    name: pss_2025
+    display_name: "pss_2025"
+    language: python
 bibliography: references.bib
 csl: apa.csl
 ---
