@@ -1,7 +1,7 @@
 [project]
 name = "ulpsych-programing-club"
 version = "0.1.0"
-description = "Add your description here"
+description = "Materials to help accademic writers move to more modern tooling."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = []
