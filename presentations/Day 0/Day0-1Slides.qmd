@@ -1,15 +1,6 @@
 ---
 title: "Session 0.1"
 subtitle: Where the file things are
-format: 
-   revealjs:
-      incremental: true
-      theme: solarized
-editor: "visual"
-jupyter: wsl_prec
-csl: apa.csl
-bibliography: references.bib
-
 ---
 
 ## Welcome back!

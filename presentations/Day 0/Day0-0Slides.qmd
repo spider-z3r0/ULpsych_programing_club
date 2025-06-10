@@ -1,17 +1,6 @@
 ---
 title: "Session 0.0"
 subtitle: Introductions all round
-format: 
-   revealjs:
-      incremental: true
-      theme: solarized
-jupyter:
-  kernelspec:
-    name: pss_2025
-    display_name: "pss_2025"
-    language: python
-bibliography: references.bib
-csl: apa.csl
 ---
 
 
@@ -26,13 +15,14 @@ My name is Kev O Malley, and I'm the nerd who'll be accompanying you through thi
 
 ## Acknowledgements{.smaller}
  -
-This content is building on some other really amazing work by some really amazing people, and I'll be sure to give them credit as we go along, but just to note that this material is heavily inspired by: 
+This content is inspired:
 
 - [The python crash course](https://nostarch.com/python-crash-course-3rd-edition) [@MatthesPython2022]
 - [Pandas for everyone](https://www.apress.com/gp/book/9781484259618) [@chen2017pandas]
     - There's a second edition of this, I haven't read it, but I'm sure it's great!
 - [Harvard's CS50](https://cs50.harvard.edu/x/2022/) [@CS50Scratch2020]
     - This is free online and it's genuinely excellent, they also have intros to python and r which will go deeper than this course.
+    - If you went and did either of those courses after doing this you'd be *away-in-a-hack*.
 - A deep and abiding hatred of SPSS and MS Word (excel is great though, don't @ me)
 
 
@@ -50,6 +40,7 @@ Let's address the elephant(s) in the room.
 
 # Elephant 1: Stereotypes
 
+
 When you think of people who work with computer programming, you may think of people that look like this...
 
 . . .
@@ -63,7 +54,6 @@ When you think of people who work with computer programming, you may think of pe
 
 Or maybe like this
 
-. . .
 
 <div align="center">
   <img src="images/Kev aged 17.jpg" alt="description of image" height="500px"/>
@@ -98,120 +88,104 @@ You're very smart, but...
  - You've (through blood sweat and tears) become very good with it. 
  - So right now, what takes you 5 minutes in SPSS will take you 20 minutes in code.
     - because you're *learning*
- - But the thing in, once you spend the 20 minutes writing code, you'll be able to do the same thing in *0.5 seconds* next time.
+ - But the thing is, once you spend the 20 minutes writing code, you'll be able to do the same thing in *0.5 seconds* next time.
 
 . . . 
 
  "We are what we *repeatedly do*. Excellence, therefore, is not an act, but a _**habit**_.”
 [@durant1933story, paraphrasing Aristotle]
 
+# Let me show you 
+
+::: notes
+Have the ethics material documentation example ready to go
+:::
+
+# A New Way of Working
+
+## From Caves to Code
+
+For most of human history, we’ve been trying to capt shareable form.
+
+- **Caves** were good—but hard to carry.
+  ![](images/cave.jpg){fig-align="center" height=250}
+
+- **Scrolls** were elegant—but fragile.
+  ![](images/scroll.jpg){fig-align="center" height=250}
+
+- **Manuscripts** were beautiful—but time-consuming.
+  ![](images/manuscript.jpeg){fig-align="center" height=250}
+
+---
+
+- **Printed books** were powerful—but required experts.
+  ![](images/press.jpg){fig-align="center" height=250}
+
+- **Word processors** made it easier—but brought new complexity.
+  ![](images/word.jpg){fig-align="center" height=250}
+
+- **The web** let us publish anything—but formatting it well became a whole new skill.
+  ![](images/browser.jpg){fig-align="center" height=250}
+
+## And now...
+
+There's tools like:
+
+- **Markdown & Quarto** to focus on writing, not formatting.
+- **VS Code** to write and manage documents and code in one place.
+- **Version control** to collaborate without the chaos of 17 email attachments.
+
+![](images/brent.jpg){fig-align="center" height=250}
+
+Let the machine do the grunt work. You focus on thinking.
 
 
+# Why Code at All?
 
-# A new way of working 
+## Clicking = Coding (just badly)
 
-## A brief history of documents
+Every time you click a button, you're triggering code. But if you’re repeating the same clicks over and over… you’re manually doing something a computer could automate.
 
--   In the beginning, there was the cave. 
-    -   And the cave was good, but it was also cold and dark, and really heavy to carry around.
-<div>
-    <img src="images/cave.jpg" alt="description of image" height="300px"/>
-</div>
+## Code = Repeatable Thinking
 
-## A brief history of documents
--  Then there was the scroll, of papyrus or linen or hide. 
-    -   And the scroll was good, but it was also really fragile and hard to write on (and really heavy to carry around).
-<div>
-    <img src="images/scroll.jpg" alt="description of image" height="300px"/>
-</div>
+- You write the instructions once.
+- The machine does the boring part.
+- You save time and reduce mistakes.
 
-## A brief history of documents
--  Then there was the codex, of parchment or paper. 
-    -   And the codex was good, illumined with beautiful art by monks and nuns (and really heavy to carry around). 
-<div>
-    <img src="images\manuscript.jpeg" alt="description of image" height="300px"/>
-</div>
+## You Don’t Have to Start from Scratch
 
-## A brief history of documents
--  Then there was the printing press, and the typesetter. 
-    -   And the books were *good* , but the machinery was hard to use requiring significant expertise (and really heavy to carry around).
-<div>
-    <img src="images/press.jpg" alt="description of image" height="300px"/>
-</div>
+There’s code out there already—libraries, templates, helpers. Quarto sets your headings. Python reads your data. Let them help.
 
-## A brief history of documents
--  Then there was the computer, and the word processor. 
-    -   And the documents were good, but the software was hard to use and required significant expertise (and really heavy to carry around).
-<div>
-    <img src="images/word.jpg" alt="description of image" height="300px"/>
-</div>
+## This is About Control
 
-## A brief history of documents
--  Then there was the internet, and the web browser. 
-    -   And the documents were good, but the text was difficult to parse and required significant expertise (but the documents were really easy to carry around... maybe too easy).
-<div>
-    <img src="images/browser.jpg" alt="description of image" height="300px"/>
-</div>
+When you know how to code—even a little—you’re not at the mercy of fiddly menus or software quirks. You’re in charge.
 
-## A brief history of documents {.smaller}
-With each of these advances, the process of creating and sharing documents has become somewhat more accessible, but this means that each person has to have a wider range of expertise to produce the kinds of documents that are expected these days. Not just writing, but typesetting, graphic design etc.
-
-## A brief history of documents {.smaller}
-While writers and researchers were using the tools of the printer and the graphic designer, computer programmers were developing tools to help them write and share their work more effectively. 
-
-- Tools like the IDE (integrated development environment) for writing text. 
-- Tools like Markdown, quarto, and restructured text to allow you to just write and not worry about the formatting.
-- Tools like the version control system for sharing and collaborating on documents (without having to email them back and forth).
-
-## So you can focus on the *writing* and the *thinking* and let the computer do the tedious and error prone stuff. 
-
-![](images/brent.jpg){fig-align="center" height=300}
-
-
-# But why?
-
-
-## Running Code with a Mouse
-- Every click and action with a mouse on a computer triggers underlying code.
-- Simple actions like opening a file or copying text are coded instructions being executed.
-
-
-## Repetition and Efficiency
-- Manually repeating an action with a mouse means running the same set of code multiple times.
-- This approach can be inefficient and time-consuming for repetitive tasks.
-
-
-## Writing Code for Automation
-- By **writing** code instead, you can specify the instructions once, including how many times an action should be repeated.
-- This allows for automation of repetitive tasks, saving time and reducing errors.
-- You can solve a problem once, and then apply that solution to many similar problems. 
-
-
-## Leveraging Existing Code
-- You don’t always have to write code from scratch; you can use code that others have written.
-- Libraries and scripts **created by others** can be applied to your specific needs, making complex operations simpler and more efficient.
-- And meaning you don't have to do it (let the computer set the heading levels, format the references, and tables!)
-
-
-
-## Empowerment through Coding
-- Learning to write or modify code gives you control over your computer tasks.
-- It transforms repetitive manual actions into efficient automated processes, empowering you to work smarter, not harder.
-- You have a limited number of heartbeats, don't waste them on the boring stuff.
+You have a limited number of heartbeats. Don’t waste them clicking the same button 37 times.
 
 # OK Kev... Get on with it!
 
 ## So, what are we going to be doing? {.smaller}
- - Day 0: Introductions all round - getting you comfortable with writing in quarto using vscode (there's no code today, just writing).
- - Day 1: Introduction to Python - getting you comfortable with the basics of python (where you'll learn why yesterday was called 'Day 0').
- - Day 2: Python functions and libraries - getting you comfortable with using python to do data analysis and visualisation.
- - Day 3: Introducing you to R, Setting up projects and working with quarto
- - Day 4: Setting up a project in Python writing a methods and results section in quarto
+
+- **Day 0: Introductions all round**  
+  Getting comfortable with VS Code and Quarto, writing markdown, and learning how to structure documents. No code today—just writing.
+
+- **Day 1: Python Basics**  
+  Introducing variables, data types, simple operations, and running code in notebooks. Building comfort with running and editing cells. (You'll learn why it's called `Day 0`)
+
+- **Day 2: Working with Data**  
+  Introduction to `pandas` and basic data wrangling. Reading in datasets, filtering, grouping, summarising, and visualising.
+
+- **Day 3: Analysis + Reporting Workflow**  
+  Combining analysis with Quarto: writing a short methods section, rendering tables and figures, citing sources, and thinking about reproducibility.
+
+- **Day 4: Mini-Project Day**  
+  You’ll set up a self-contained analysis notebook or report. Focus on practice, peer feedback, and bringing it all together (Quarto + Python + narrative).
 
 ## How are we going to do it? {.smaller}
  - Working together in teams.
     - Supporting each other and learning from each other. 
  - Learning by doing.
+    - Writing notes *in the tools we're teaching*
  - Taking low-stakes quizzes.
     - practicing recall and application of concepts.
 
@@ -288,7 +262,7 @@ Open up VS Code and lets jump in.
 
 ::: {.notes}
 Show people how to open VScode, and walk them through the process of opening for the first time. 
-They need to go to 'C:\Users\Public\PSS 2024' right click and then 'open with code'.
+They need to go to 'C:\Users\Public\PSS 2025' right click and then 'open with code'.
 Don't forget the 'welcome' screen, and some of the choices they'll make. Give some time here. 
 :::
 
@@ -299,7 +273,7 @@ To open VScode you can either:
  -   Click on the icon on your desktop or in your start menu.
  -   Press the windows key and type 'vscode' or 'code' and press enter.
      - On a mac, you can press `cmd+space` and type 'vscode' and press enter.
- -  Or you can right click on the 'PSS 2024' folder in the address 'C:\\Users\\Public\\' and select 'open with code'.
+ -  Or you can right click on the 'PSS 2025' folder in the address 'C:\\Users\\Public\\' and select 'open with code'.
  -  This is the one I want you to do. 
 
 
