@@ -1,14 +1,6 @@
 ---
 title: "Session 2.0"
 subtitle: "loops and dicts and bears (well Pandas)"
-format: 
-   revealjs:
-      incremental: true
-      theme: solarized
-editor: "visual"
-jupyter: wsl_prec
-bibliography: references.bib
-csl: apa.csl
 ---
 
 # Good Morning!
@@ -36,6 +28,7 @@ csl: apa.csl
    - We're going to look at a few `methods` of the `DataFrame` object like `head()`, `tail()` and `describe()`
 
 # Loops - Recap{.smaller}
+
 
  - We've looked at `for` loops so far.
    - These let us `iterate` over a `collection` of items (like a `list`) and do something with each item in the collection

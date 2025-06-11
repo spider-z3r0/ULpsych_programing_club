@@ -1,17 +1,6 @@
 ---
 title: "Session 0.2"
 subtitle: Notebooks, and Extensions, and Bears, Oh My!
-format: 
-   revealjs:
-      incremental: true
-      theme: solarized
-      code-overflow: wrap
-
-
-editor: "visual"
-jupyter: wsl_prec
-bibliography: references.bib
-csl: apa.csl
 ---
 
 
@@ -44,7 +33,7 @@ And you've done some things with them:
 ## This Session{.smaller}
 
 Firstly I just genuinely want to reassure you 
- 
+
    - There's no bears in this session
    - You're doing really well
    - It's meant to be enjoyable, but it's also meant to be challenging

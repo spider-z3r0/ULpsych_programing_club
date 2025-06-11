@@ -38,7 +38,7 @@ This content is inspired:
 
 Let's address the elephant(s) in the room.
 
-# Elephant 1: Stereotypes
+# Elephant 1: Stereotypes{.smaller}
 
 
 When you think of people who work with computer programming, you may think of people that look like this...
@@ -46,7 +46,7 @@ When you think of people who work with computer programming, you may think of pe
 . . .
 
 <div align="center">
-  <img src="images/Dexter.jpg" alt="description of image" height="500px"/>
+  <img src="images/Dexter.jpg" alt="description of image" height="200px"/>
 </div>
 
 
@@ -101,33 +101,33 @@ You're very smart, but...
 Have the ethics material documentation example ready to go
 :::
 
-# A New Way of Working
+# A New Way of Working{.smaller}
 
-## From Caves to Code
+## From Caves to Code{.smaller}
 
-For most of human history, we’ve been trying to capt shareable form.
+For most of human history, we’ve been trying to capture information shareable form.
 
 - **Caves** were good—but hard to carry.
-  ![](images/cave.jpg){fig-align="center" height=250}
+  ![](images/cave.jpg){fig-align="center" height=100}
 
 - **Scrolls** were elegant—but fragile.
-  ![](images/scroll.jpg){fig-align="center" height=250}
+  ![](images/scroll.jpg){fig-align="center" height=100}
 
 - **Manuscripts** were beautiful—but time-consuming.
-  ![](images/manuscript.jpeg){fig-align="center" height=250}
+  ![](images/manuscript.jpeg){fig-align="center" height=100}
 
 ---
 
 - **Printed books** were powerful—but required experts.
-  ![](images/press.jpg){fig-align="center" height=250}
+  ![](images/press.jpg){fig-align="center" height=100}
 
 - **Word processors** made it easier—but brought new complexity.
-  ![](images/word.jpg){fig-align="center" height=250}
+  ![](images/word.jpg){fig-align="center" height=100}
 
 - **The web** let us publish anything—but formatting it well became a whole new skill.
-  ![](images/browser.jpg){fig-align="center" height=250}
+  ![](images/browser.jpg){fig-align="center" height=100}
 
-## And now...
+## And now...{.smaller}
 
 There's tools like:
 

@@ -1,14 +1,6 @@
 ---
 title: "Session 2.1"
 subtitle: "Make the kind of data you want to see in the world"
-format: 
-   revealjs:
-      incremental: true
-      theme: solarized
-editor: "visual"
-jupyter: wsl_prec
-bibliography: references.bib
-csl: apa.csl
 ---
 
  

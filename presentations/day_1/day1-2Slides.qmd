@@ -1,14 +1,6 @@
 ---
 title: "Session 1.2"
 subtitle: "Loops, Modules, and Methods ('Oh My!')"
-format: 
-   revealjs:
-      incremental: true
-      theme: solarized
-editor: "visual"
-jupyter: wsl_prec
-bibliography: references.bib
-csl: apa.csl
 ---
 
 

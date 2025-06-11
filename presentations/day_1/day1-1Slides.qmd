@@ -1,14 +1,6 @@
 ---
 title: "Session 1.1"
 subtitle: "Let's do *stuff*"
-format: 
-   revealjs:
-      incremental: true
-      theme: solarized
-editor: "visual"
-jupyter: wsl_prec
-bibliography: references.bib
-csl: apa.csl
 ---
 
 # Welcome Back!
